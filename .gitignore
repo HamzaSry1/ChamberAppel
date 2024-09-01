@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BackEnd/ChamberAppel/.vs
+/BackEnd/ChamberAppel/ChamberAppel.Api/bin/Debug/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Api/obj
+/BackEnd/ChamberAppel/ChamberAppel.Application/bin/Debug/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Application/obj
+/BackEnd/ChamberAppel/ChamberAppel.Domain/bin/Debug/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Infrastructure/bin/Debug/net8.0
