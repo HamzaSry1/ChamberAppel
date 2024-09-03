@@ -7,28 +7,23 @@
             <c-card-body>
               <form cForm>
                 <h1>Login</h1>
-                <p class="text-body-secondary">Sign In to your account</p>
+                <p class="text-body-secondary">Identifiez-vous</p>
                 <c-input-group class="mb-3">
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="username" cFormControl placeholder="Username" />
+                  <input cFormControl placeholder="Login" autofocus />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
-                  <input
-                    autoComplete="current-password"
-                    cFormControl
-                    placeholder="Password"
-                    type="password"
-                  />
+                  <input cFormControl placeholder="Mot de passe" type="password" />
                 </c-input-group>
                 <c-row>
                   <c-col xs="6">
-                    <button cButton class="px-4" color="primary">
-                      Login
+                    <button type="button" class="btn btn-block btn-dark" (click)="showSuccess()">
+                      Se connecter
                     </button>
                   </c-col>
                   <c-col class="text-right" xs="6">
