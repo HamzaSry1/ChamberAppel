@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { NgStyle } from '@angular/common';
-import { IconDirective } from '@coreui/icons-angular';
-import { ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, FormControlDirective, ButtonDirective } from '@coreui/angular';
+import { ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, FormControlDirective, ButtonDirective, FormModule } from '@coreui/angular';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -9,15 +9,27 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, IconDirective, FormControlDirective, ButtonDirective, NgStyle]
+  imports: [NgStyle, ReactiveFormsModule, FormModule]
+  // imports: [ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, IconDirective, FormControlDirective, ButtonDirective, NgStyle]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
 
   constructor(private toastr: ToastrService) { }
 
+  ReactiveForm = new FormGroup({
+    login: new FormControl(),
+    password: new FormControl(),
+  });
 
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
+  ngOnInit(): void {
+
   }
 
+  //send login and password should be crypted
+  Login() {
+    if (this.ReactiveForm.valid) {
+      this.toastr.success('Login', 'Login : ', this.ReactiveForm.getRawValue().login as any);
+    } else this.ReactiveForm.markAllAsTouched();
+  }
 }
