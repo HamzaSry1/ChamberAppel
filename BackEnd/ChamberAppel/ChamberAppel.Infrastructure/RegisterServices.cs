@@ -1,5 +1,7 @@
 ﻿using ChamberAppel.Application.Exceptions.ErrorsMessages;
+using ChamberAppel.Domain.Repository;
 using ChamberAppel.Infrastructure.Data;
+using ChamberAppel.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

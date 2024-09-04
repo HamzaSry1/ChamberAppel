@@ -13,38 +13,20 @@ namespace ChamberAppel.Infrastructure.Services
         }
 
         public async Task<T> CreateAsync(T entity)
-        {
-            return await _repository.CreateAsync(entity);
-        }
+        => await _repository.CreateAsync(entity);
 
         public async Task<T> DeleteAsync(T entity)
-        {
-            return await _repository.DeleteAsync(entity);
-        }
+        => await _repository.DeleteAsync(entity);
 
-        public async Task<T> DeleteByIdAsync(Guid id)
-        {
-            return await _repository.DeleteByIdAsync(id);
-        }
+        public async Task<T> DeleteByIdAsync(Guid id) => await _repository.DeleteByIdAsync(id);
 
-        public async Task<List<T>> GetAllAsync()
-        {
-            return await _repository.GetAllAsync();
-        }
+        public async Task<List<T>> GetAllAsync() => await _repository.GetAllAsync();
 
-        public Task<List<T>> GetAllFiltredAsync(T filter, DtoPagination pagination)
-        {
-            return _repository.GetAllFiltredAsync(filter, pagination);
-        }
+        public Task<List<T>> GetAllFiltredAsync(T filter, DtoPagination pagination) => _repository.GetAllFiltredAsync(filter, pagination);
 
-        public Task<T> GetByIdAsync(Guid id)
-        {
-            return _repository.GetByIdAsync(id);
-        }
+        public Task<T> GetByIdAsync(Guid id) => _repository.GetByIdAsync(id);
 
         public async Task<T> UpdateAsync(T entity)
-        {
-            return await _repository.UpdateAsync(entity);
-        }
+        => await _repository.UpdateAsync(entity);
     }
 }
