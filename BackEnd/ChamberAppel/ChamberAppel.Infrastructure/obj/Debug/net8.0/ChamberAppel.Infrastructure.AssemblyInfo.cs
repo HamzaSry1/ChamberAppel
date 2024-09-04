@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChamberAppel.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd3732bce25f0c6d35b7d43ca979badbfc7ac25d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e80e278ec60d39c6fbb93109fd3a49f874607490")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChamberAppel.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChamberAppel.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

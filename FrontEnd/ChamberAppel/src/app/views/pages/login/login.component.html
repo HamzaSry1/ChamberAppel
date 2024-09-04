@@ -3,11 +3,11 @@
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-8">
         <div class="card-group">
-          <div class="card p-4">
+          <div class="card bg-danger p-4">
             <div class="card-body">
               <form [formGroup]="ReactiveForm">
                 <div class="text-center">
-                  <h1 class="fw-bold">Login</h1>
+                  <h1 class="fw-bold text-white">Login</h1>
                   <p class="text-body-secondary">Identifiez-vous</p>
                 </div>
                 <div class="input-group mb-3">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <button type="button" class="btn btn-dark w-100" [disabled]="this.ReactiveForm.valid"
+                    <button type="button" class="btn btn-white text-white w-100" [disabled]="this.ReactiveForm.valid"
                       (click)="Login()">
                       <i class="fa fa-sign-in"></i> &nbsp; Se connecter
                     </button>
@@ -33,12 +33,9 @@
               </form>
             </div>
           </div>
-          <div class="card py-3">
+          <div class="card py-5 d-none d-sm-block">
             <div class="card-body text-center">
-              <img src="../../../../assets/images/courdescomptes.png" alt="Cour des comptes" width="150" height="150">
-              <p class="text-justify mt-2">
-                Bonjour et bienvenue sur l'application de gestion de la Chambre d'appel de la Cour des comptes.
-              </p>
+              <img src="../../../../assets/images/courdescomptes.png" alt="Cour des comptes" width="200" height="200">
             </div>
           </div>
         </div>
