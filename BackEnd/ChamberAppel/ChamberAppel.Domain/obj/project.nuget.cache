@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8SRJkY9EDwxQFPQc6h7VAuVIsCrI0/zhmMeX9exhpQj5gXaWj4oYwr+0ljvkk3rmM1Ae8CLDf6ukuxoDFdakNw==",
+  "dgSpecHash": "gvvbnLgtL9E=",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\ChamberAppel\\BackEnd\\ChamberAppel\\ChamberAppel.Domain\\ChamberAppel.Domain.csproj",
+  "projectFilePath": "F:\\GitHub\\ChamberAppel\\BackEnd\\ChamberAppel\\ChamberAppel.Domain\\ChamberAppel.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Hp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+    "C:\\Users\\hsraidi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
   ],
   "logs": []
 }

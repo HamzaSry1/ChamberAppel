@@ -26,7 +26,7 @@ function isOverflown(element: HTMLElement) {
 }
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-accueil',
   templateUrl: './default-layout.component.html',
   styleUrls: ['./default-layout.component.scss'],
   standalone: true,

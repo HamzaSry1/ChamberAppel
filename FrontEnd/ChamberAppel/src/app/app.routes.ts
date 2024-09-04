@@ -4,19 +4,19 @@ import { DefaultLayoutComponent } from './layout';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      title: 'Home'
+      title: 'Accueil'
     },
     children: [
       {
-        path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
+        path: 'accueil',
+        loadChildren: () => import('./views/accueil/routes').then((m) => m.routes)
       },
       {
         path: 'pages',
@@ -45,5 +45,5 @@ export const routes: Routes = [
       title: 'Login Page'
     }
   },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: 'accueil' }
 ];
