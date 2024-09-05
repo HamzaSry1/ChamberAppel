@@ -2,7 +2,7 @@
 
 namespace ChamberAppel.Domain.Services
 {
-    public interface IUtilisateurService :IBaseService<Utilisateur>
+    public interface IPermissionService : IBaseService<Permission>
     {
     }
 }

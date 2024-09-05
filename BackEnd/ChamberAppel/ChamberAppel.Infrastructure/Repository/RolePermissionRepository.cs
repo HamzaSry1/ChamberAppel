@@ -4,9 +4,9 @@ using ChamberAppel.Infrastructure.Data;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
-    public class UtilisateurRepository : BaseRepository<Utilisateur>, IUtilisateurRepository
+    public class RolePermissionRepository : BaseRepository<RolePermissions>, IRolePermissionRepository
     {
-        public UtilisateurRepository(ApplicationDbContext database) : base(database)
+        public RolePermissionRepository(ApplicationDbContext database) : base(database)
         {
         }
     }

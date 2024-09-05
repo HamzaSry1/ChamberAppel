@@ -4,9 +4,9 @@ using ChamberAppel.Domain.Services;
 
 namespace ChamberAppel.Infrastructure.Services
 {
-    public class UtilisateurService : BaseService<Utilisateur>, IUtilisateurService
+    public class PermissionService : BaseService<Permission>, IPermissionService
     {
-        public UtilisateurService(IUtilisateurRepository repository) : base(repository)
+        public PermissionService(IPermissionRepository repository) : base(repository)
         {
         }
     }

@@ -1088,9 +1088,6 @@
       "ChamberAppel.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
-        },
         "compile": {
           "bin/placeholder/ChamberAppel.Domain.dll": {}
         },

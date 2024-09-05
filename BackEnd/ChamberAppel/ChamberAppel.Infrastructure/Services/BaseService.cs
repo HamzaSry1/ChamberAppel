@@ -1,13 +1,13 @@
 ﻿using ChamberAppel.Domain.DTOs;
+using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
-using ChamberAppel.Infrastructure.Repository;
 
 namespace ChamberAppel.Infrastructure.Services
 {
     public class BaseService<T> : IBaseService<T> where T : class
     {
-        private readonly BaseRepository<T> _repository;
-        public BaseService(BaseRepository<T> repository)
+        private readonly IBaseRepository<T> _repository;
+        public BaseService(IBaseRepository<T> repository)
         {
             _repository = repository;
         }

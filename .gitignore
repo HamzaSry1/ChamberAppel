@@ -8,4 +8,8 @@
 /BackEnd/ChamberAppel/ChamberAppel.Application/bin/Debug/net8.0
 /BackEnd/ChamberAppel/ChamberAppel.Application/obj
 /BackEnd/ChamberAppel/ChamberAppel.Domain/bin/Debug/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Domain/obj/Debug/net8.0
 /BackEnd/ChamberAppel/ChamberAppel.Infrastructure/bin/Debug/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Infrastructure/obj/Debug/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Domain/obj/Release/net8.0
+/BackEnd/ChamberAppel/ChamberAppel.Infrastructure/obj/Release/net8.0
