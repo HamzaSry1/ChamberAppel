@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gvvbnLgtL9E=",
+  "dgSpecHash": "RJh5BMUspaE=",
   "success": true,
   "projectFilePath": "F:\\GitHub\\ChamberAppel\\BackEnd\\ChamberAppel\\ChamberAppel.Domain\\ChamberAppel.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\hsraidi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
