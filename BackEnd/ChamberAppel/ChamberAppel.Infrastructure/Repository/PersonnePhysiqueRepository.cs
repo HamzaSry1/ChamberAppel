@@ -6,7 +6,7 @@ namespace ChamberAppel.Infrastructure.Repository
 {
     public class PersonnePhysiqueRepository : BaseRepository<PersonnePhysique>, IPersonnePhysiqueRepository
     {
-        public PersonePhysiqueRepository(ApplicationDbContext database) : base(database)
+        public PersonnePhysiqueRepository(ApplicationDbContext database) : base(database)
         {
         }
     }
