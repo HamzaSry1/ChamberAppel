@@ -1,11 +1,6 @@
 ﻿using ChamberAppel.Infrastructure.Data;
 using ChamberAppel.Domain.Repository;
-using System.Collections.Generic;
 using ChamberAppel.Domain.Models;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Text;
-using System;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
