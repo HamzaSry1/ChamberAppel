@@ -5,7 +5,7 @@
 # Ignore Visual Studio temporary files, build results, and
 # user-specific files
 
-# Ignore bin and obj folders for all projects
+# Ignore bin and obj directories
 **/bin/
 **/obj/
 
