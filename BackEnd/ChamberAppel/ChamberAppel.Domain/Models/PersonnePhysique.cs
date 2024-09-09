@@ -17,7 +17,7 @@ namespace ChamberAppel.Domain.Models
         [MaxLength(20), MinLength(3)]
         public string? PrenomArabe { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateNaissance { get; set; }
+        public DateTime? DateNaissance { get; set; }
         [Required, MaxLength(10), MinLength(10)]
         public string Cin { get; set; } = null!;
         public SituationFamilialeEnum SituationFamiliale { get; set; }

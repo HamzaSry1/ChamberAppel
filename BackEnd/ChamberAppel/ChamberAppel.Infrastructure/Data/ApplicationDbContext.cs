@@ -13,6 +13,7 @@ namespace ChamberAppel.Infrastructure.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<UtilisateurPermissions> UtilisateurPermissions { get; set; }
         public DbSet<RolePermissions> RolePermissions { get; set; }
+        public DbSet<UtilisateurRoles> UtilisateurRoles { get; set; }
         public DbSet<UtilisateurLog> UtilisateurLogs { get; set; }
         public DbSet<ChamberAppelDisciplineBudgetaire> ChamberAppelDisciplineBudgetaires { get; set; }
     }

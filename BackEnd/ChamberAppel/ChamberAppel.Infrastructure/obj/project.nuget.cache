@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AC/jbzwu11U=",
+  "dgSpecHash": "LCGNInEXb6RoUzh2cbkr2Tj9gBqH1Ox/loEMgkvexX3X6yvZTcPA6Zccmg5/CoqQD51Mk8TloXXtCsT+Yf7teg==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\ChamberAppel\\BackEnd\\ChamberAppel\\ChamberAppel.Infrastructure\\ChamberAppel.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\Hp\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
-    "C:\\Users\\Hp\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

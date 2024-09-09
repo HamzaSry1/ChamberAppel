@@ -1,8 +1,10 @@
-﻿using ChamberAppel.Domain.Models;
+﻿using ChamberAppel.Domain.DTOs;
+using ChamberAppel.Domain.Models;
 
 namespace ChamberAppel.Domain.Repository
 {
-    public interface IPermissionRepository :IBaseRepository<Permission>
+    public interface IPermissionRepository : IBaseRepository<Permission>
     {
+        Task<DatatableResponse<Permission>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination);
     }
 }

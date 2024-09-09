@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly ApplicationDbContext _database;
 
@@ -14,7 +14,7 @@ namespace ChamberAppel.Infrastructure.Repository
             _database = database;
         }
 
-        public async Task<T> CreateAsync(T entity)
+        public virtual async Task<T> CreateAsync(T entity)
         {
             if (entity == null)
             {
@@ -32,7 +32,7 @@ namespace ChamberAppel.Infrastructure.Repository
             return entity;
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public virtual async Task<T> UpdateAsync(T entity)
         {
             if (entity == null)
             {
@@ -44,7 +44,7 @@ namespace ChamberAppel.Infrastructure.Repository
             return entity;
         }
 
-        public async Task<T?> DeleteAsync(T entity)
+        public virtual async Task<T?> DeleteAsync(T entity)
         {
             if (entity == null)
             {
@@ -61,7 +61,7 @@ namespace ChamberAppel.Infrastructure.Repository
             return await DeleteByIdAsync(id);
         }
 
-        public async Task<T?> DeleteByIdAsync(Guid id)
+        public virtual async Task<T?> DeleteByIdAsync(Guid id)
         {
             var entity = await GetByIdAsync(id);
             if (entity == null)
@@ -74,17 +74,17 @@ namespace ChamberAppel.Infrastructure.Repository
             return entity;
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public virtual async Task<List<T>> GetAllAsync()
         {
             return await _database.Set<T>().ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(Guid id)
+        public virtual async Task<T?> GetByIdAsync(Guid id)
         {
             return await _database.Set<T>().FindAsync(id);
         }
 
-        public Task<List<T>> GetAllFiltredAsync(T filter, DtoPagination pagination)
+        public virtual Task<List<T>> GetAllFiltredAsync(T filter, DtoPagination pagination)
         {
             throw new NotImplementedException();
         }

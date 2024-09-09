@@ -4,7 +4,7 @@
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
-        public string? ColumnDirection { get; set; }
-        public string? ColumnName { get; set; }
+        public string? OrderByDirection { get; set; }
+        public string? OrderBy { get; set; }
     }
 }
