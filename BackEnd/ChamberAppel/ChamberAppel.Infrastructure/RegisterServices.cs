@@ -1,4 +1,5 @@
 ﻿using ChamberAppel.Application.Exceptions.ErrorsMessages;
+using ChamberAppel.Application.Services;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
 using ChamberAppel.Infrastructure.Data;
@@ -41,6 +42,7 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IUtilisateurPermissionService, UtilisateurPermissionService>();
             service.AddScoped<IUtilisateurService, UtilisateurService>();
             service.AddScoped<ILoggingService, LoggingService>();
+            service.AddScoped<IUserSessionService, IUserSessionService>();
 
             return service;
         }

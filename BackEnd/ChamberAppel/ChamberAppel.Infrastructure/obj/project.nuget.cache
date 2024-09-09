@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "LCGNInEXb6RoUzh2cbkr2Tj9gBqH1Ox/loEMgkvexX3X6yvZTcPA6Zccmg5/CoqQD51Mk8TloXXtCsT+Yf7teg==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\ChamberAppel\\BackEnd\\ChamberAppel\\ChamberAppel.Infrastructure\\ChamberAppel.Infrastructure.csproj",
+  "projectFilePath": "F:\\GitHub\\ChamberAppel\\BackEnd\\ChamberAppel\\ChamberAppel.Infrastructure\\ChamberAppel.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -54,5 +54,16 @@
     "C:\\Users\\Hp\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Formats.Asn1' 8.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-447r-wph3-92pm",
+      "libraryId": "System.Formats.Asn1",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

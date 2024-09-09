@@ -1,6 +1,5 @@
 ﻿using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
-using ChamberAppel.Infrastructure.Data;
 
 namespace ChamberAppel.Infrastructure.Services
 {
