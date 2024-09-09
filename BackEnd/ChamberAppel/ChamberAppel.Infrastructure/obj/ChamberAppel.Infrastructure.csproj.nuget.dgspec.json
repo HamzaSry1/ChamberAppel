@@ -224,6 +224,10 @@
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.23.50, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [

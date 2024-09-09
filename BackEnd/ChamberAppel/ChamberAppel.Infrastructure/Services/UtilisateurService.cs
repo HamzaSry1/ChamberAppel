@@ -9,14 +9,15 @@ namespace ChamberAppel.Infrastructure.Services
 {
     public class UtilisateurService : BaseService<Utilisateur>, IUtilisateurService
     {
-        //public IAuthentification Authentification { get; }
+        public IAuthentification Authentification { get; }
         private readonly IUtilisateurRepository _repository;
         private readonly IPersonnePhysiqueRepository _PersonePhysiqueRepo;
 
-        public UtilisateurService(IUtilisateurRepository repository, IPersonnePhysiqueRepository personePhysiqueRepo) : base(repository)
+        public UtilisateurService(IUtilisateurRepository repository, IPersonnePhysiqueRepository personePhysiqueRepo, IAuthentification authentification) : base(repository)
         {
             _repository = repository;
             _PersonePhysiqueRepo = personePhysiqueRepo;
+            Authentification = authentification;
         }
 
         public async Task AddPermissions(DtoCheckedListRequest model)
@@ -82,15 +83,13 @@ namespace ChamberAppel.Infrastructure.Services
 
         public async Task<bool> ResetPasswordConfirmation(string token, string newPassword)
         {
-            //var data = await Authentification.DecodeTokenResetPassword(token);
+            var data = await Authentification.DecodeTokenResetPassword(token);
 
-            //if (data != null)
-            //{
-            //    var hashedNewPassword = PasswordService.Encrypt(newPassword);
-            //    return await _repository.ResetPasswordConfirmation(data.UserId, hashedNewPassword);
-            //}
-            //return false;
-
+            if (data != null)
+            {
+                var hashedNewPassword = PasswordService.Encrypt(newPassword);
+                return await _repository.ResetPasswordConfirmation(data.UserId, hashedNewPassword);
+            }
             return false;
         }
         public async Task<bool> VerifierConflit(DtoUtilisateur model)

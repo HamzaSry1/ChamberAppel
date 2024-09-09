@@ -4,9 +4,14 @@ using System.Security.Claims;
 
 namespace ChamberAppel.Infrastructure.Services
 {
-    public class UserSessionService(IHttpContextAccessor httpContext) : IUserSessionService
+    public class UserSessionService : IUserSessionService
     {
-        private readonly IHttpContextAccessor _httpContext = httpContext;
+        private readonly IHttpContextAccessor _httpContext;
+
+        public UserSessionService(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContext = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+        }
 
         public async Task<Guid> GetCurrentUserIdAsync()
         {

@@ -2,14 +2,27 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/BackEnd/ChamberAppel/.vs
-/BackEnd/ChamberAppel/ChamberAppel.Api/bin/Debug/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Api/obj
-/BackEnd/ChamberAppel/ChamberAppel.Application/bin/Debug/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Application/obj
-/BackEnd/ChamberAppel/ChamberAppel.Domain/bin/Debug/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Domain/obj/Debug/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Infrastructure/bin/Debug/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Infrastructure/obj/Debug/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Domain/obj/Release/net8.0
-/BackEnd/ChamberAppel/ChamberAppel.Infrastructure/obj/Release/net8.0
+# Ignore Visual Studio temporary files, build results, and
+# user-specific files
+
+# Ignore bin and obj folders for all projects
+**/bin/
+**/obj/
+
+# Ignore Visual Studio folder
+**/.vs/
+
+# Ignore build results for Debug and Release configurations
+**/Debug/
+**/Release/
+
+# Ignore user-specific files
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore others
+*.log
+*.lock.json
