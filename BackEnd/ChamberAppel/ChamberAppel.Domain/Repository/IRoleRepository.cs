@@ -5,9 +5,9 @@ namespace ChamberAppel.Domain.Repository
 {
     public interface IRoleRepository : IBaseRepository<Role>
     {
-        Task AddPermissions(Guid roleId, List<Guid> listCheckedId);
-        Task DeleteAllRolePermissions(Guid id);
-        Task<List<Permission>> GetPermissions(Guid roleId);
-        Task<DatatableResponse<Role>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination);
+        Task AddPermissionsAsync(Guid roleId, List<Guid> listCheckedId);
+        Task DeleteAllRolePermissionsAsync(Guid id);
+        Task<List<Permission>> GetPermissionsAsync(Guid roleId);
+        Task<DatatableResponse<Role>> GetAllAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination);
     }
 }

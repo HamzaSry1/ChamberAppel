@@ -63,7 +63,7 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<DtoUtilisateur> { Data = result, StatusCode = HttpStatusCode.OK };
         }
 
-        [HttpPost("UpdateAsync")]
+        [HttpPut("UpdateAsync")]
         public async Task<ApiResponse<DtoUtilisateur>> UpdateAsync(DtoUtilisateur model)
         {
             var validation = Validation(model);
@@ -75,7 +75,7 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<DtoUtilisateur> { Data = result, StatusCode = HttpStatusCode.OK };
         }
 
-        [HttpPost("DeleteAsync/{id}")]
+        [HttpDelete("DeleteAsync/{id}")]
         public async Task<ApiResponse<bool>> DeleteAsync(Guid id)
         {
             // remove the persmission and the role from the user before deleted
@@ -229,7 +229,7 @@ namespace ChamberAppel.Api.Controllers
 
         #endregion Security
 
-        #region Model Validation
+        #region validation
         private List<FluentValidationErrors> Validation(DtoUtilisateur model)
         {
             UtilisateurValidation validationRules = new UtilisateurValidation();
@@ -250,6 +250,6 @@ namespace ChamberAppel.Api.Controllers
             return listErrors;
         }
 
-        #endregion Model Validation
+        #endregion validation
     }
 }

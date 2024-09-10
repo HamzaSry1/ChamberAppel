@@ -15,10 +15,8 @@ namespace ChamberAppel.Infrastructure.Repository
         }
 
         public override async Task<List<Role>> GetAllAsync()
-        {
-            return await _dbContext.Roles.OrderBy(x => x.Label).ToListAsync();
-        }
-        public async Task AddPermissions(Guid roleId, List<Guid> listCheckedId)
+            => await _dbContext.Roles.OrderBy(x => x.Label).ToListAsync();
+        public async Task AddPermissionsAsync(Guid roleId, List<Guid> listCheckedId)
         {
             var permissions = from l in listCheckedId
                               join p in _dbContext.Permissions on l equals p.Id
@@ -33,19 +31,19 @@ namespace ChamberAppel.Infrastructure.Repository
             await _dbContext.RolePermissions.AddRangeAsync(permissions);
             await _dbContext.SaveChangesAsync();
         }
-        public async Task DeleteAllRolePermissions(Guid roleId)
+        public async Task DeleteAllRolePermissionsAsync(Guid roleId)
         {
             _dbContext.RolePermissions.RemoveRange(_dbContext.RolePermissions.Where(item => item.RoleId == roleId));
             await _dbContext.SaveChangesAsync();
         }
-        public async Task<List<Permission?>> GetPermissions(Guid roleId)
+        public async Task<List<Permission?>> GetPermissionsAsync(Guid roleId)
         {
             return await _dbContext.RolePermissions
                 .Where(r => r.RoleId == roleId)
                 .Select(r => r.Permission)
                 .ToListAsync();
         }
-        public async Task<DatatableResponse<Role>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination)
+        public async Task<DatatableResponse<Role>> GetAllAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
         {
             var dbSet = _dbContext.Roles;
 
@@ -71,6 +69,8 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return response;
         }
+
+        // TODO : Move to Application/Services/PaginationService
         private IQueryable<Role> ApplyPagination(IQueryable<Role> query, DtoPagination pagination)
         {
             // Apply pagination
