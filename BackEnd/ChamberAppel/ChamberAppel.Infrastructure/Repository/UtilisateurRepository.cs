@@ -14,7 +14,7 @@ namespace ChamberAppel.Infrastructure.Repository
             _dbContext = dbContext;
         }
 
-        public async Task AddPermissions(Guid userId, List<Guid> listPermissions)
+        public async Task AddPermissionsAsync(Guid userId, List<Guid> listPermissions)
         {
             var up = from l in listPermissions
                      join p in _dbContext.Permissions on l equals p.Id
@@ -34,7 +34,7 @@ namespace ChamberAppel.Infrastructure.Repository
             await _dbContext.UtilisateurPermissions.AddRangeAsync(up);
             await _dbContext.SaveChangesAsync();
         }
-        public async Task AddRoles(Guid userId, List<Guid> listRoles)
+        public async Task AddRolesAsync(Guid userId, List<Guid> listRoles)
         {
             var up = from l in listRoles
                      join r in _dbContext.Roles on l equals r.Id
@@ -61,19 +61,19 @@ namespace ChamberAppel.Infrastructure.Repository
                 .Select(ur => ur.RoleId)
                 .ToListAsync();
         }
-        public async Task DeletePermissions(Guid userId)
+        public async Task DeletePermissionsAsync(Guid userId)
         {
             var list = await _dbContext.UtilisateurPermissions.Where(u => u.UtilisateurId == userId).ToListAsync();
             _dbContext.UtilisateurPermissions.RemoveRange(list);
             await _dbContext.SaveChangesAsync();
         }
-        public async Task DeleteRoles(Guid userId)
+        public async Task DeleteRolesAsync(Guid userId)
         {
             var list = await _dbContext.UtilisateurRoles.Where(u => u.UtilisateurId == userId).ToListAsync();
             _dbContext.UtilisateurRoles.RemoveRange(list);
             await _dbContext.SaveChangesAsync();
         }
-        public async Task<List<Permission>> GetAllPermissions(Guid userId)
+        public async Task<List<Permission>> GetAllPermissionsAsync(Guid userId)
         {
             //var dbSet = this._dbContext.Utilisateurs
             //    .Include(table => table.PersonnePhysique);
@@ -148,7 +148,7 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return null;
         }
-        public async Task<Utilisateur> GetByResetToken(string token)
+        public async Task<Utilisateur> GetByResetTokenAsync(string token)
         {
             //var user = await _dbContext.Utilisateurs.FirstOrDefaultAsync(u => u.IsActive == false
             //&& u.ResetToken == token
@@ -157,32 +157,7 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return null;
         }
-        public async Task<bool> VerifierConflit(Utilisateur utilisateur)
-        {
-            return await _dbContext.Utilisateurs.AnyAsync(p => p.Id != utilisateur.Id && p.Login == utilisateur.Login);
-        }
-        public async Task<DtoUtilisateur?> GetDetailMonProfil(Guid userId)
-        {
-            return await _dbContext
-           .Utilisateurs
-           .Include(x => x.PersonnePhysique)
-           .Where(u => u.Id == userId)
-           .Select(u => new DtoUtilisateur
-           {
-               Nom = u.PersonnePhysique.Nom,
-               NomArabe = u.PersonnePhysique.NomArabe,
-               Prenom = u.PersonnePhysique.Prenom,
-               PrenomArabe = u.PersonnePhysique.PrenomArabe,
-               DateNaissance = u.PersonnePhysique.DateNaissance.HasValue ? u.PersonnePhysique.DateNaissance.Value.ToString("yyyy-MM-dd") : "",
-               Cin = u.PersonnePhysique.Cin,
-               Sexe = !string.IsNullOrEmpty(u.PersonnePhysique.Sexe.ToString()) ? (u.PersonnePhysique.Sexe.ToString() == "Homme" ? "Homme" : "Femme") : "",
-               Adresse = u.PersonnePhysique.Adresse,
-               Gsm = u.PersonnePhysique.Gsm,
-               Email = u.PersonnePhysique.Email,
-               Login = u.Login,
-           }).FirstOrDefaultAsync();
-        }
-        public async Task<List<Permission>> GetUtilisateurPermissions(Guid userId)
+        public async Task<List<Permission>> GetUtilisateurPermissionsAsync(Guid userId)
         {
             var List = (from up in _dbContext.UtilisateurPermissions
                         where up.UtilisateurId == userId
@@ -191,7 +166,7 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return await List.ToListAsync();
         }
-        public async Task<List<Role>> GetRoles(Guid userId)
+        public async Task<List<Role>> GetRolesAsync(Guid userId)
         {
             var List = (from ur in _dbContext.UtilisateurRoles
                         where ur.UtilisateurId == userId
@@ -199,7 +174,7 @@ namespace ChamberAppel.Infrastructure.Repository
                       ).Distinct().OrderBy(p => p.Label);
             return await List.ToListAsync();
         }
-        public async Task<Utilisateur> Login(string login)
+        public async Task<Utilisateur> LoginAsync(string login)
         {
             if (login != null || login != "")
             {
@@ -211,7 +186,7 @@ namespace ChamberAppel.Infrastructure.Repository
             }
             return null;
         }
-        public async Task<bool> ResetPassword(Guid userId, string hashedOldPassword, string hashedNewPassword)
+        public async Task<bool> ResetPasswordAsync(Guid userId, string hashedOldPassword, string hashedNewPassword)
         {
             var user = await _dbContext.Utilisateurs.Where(x => x.Id == userId).FirstOrDefaultAsync();
             if (!string.IsNullOrEmpty(hashedNewPassword) && user != null && user.Password == hashedOldPassword)
@@ -222,7 +197,7 @@ namespace ChamberAppel.Infrastructure.Repository
             }
             return false;
         }
-        public async Task<bool> ResetPasswordConfirmation(Guid userId, string hashedNewPassword)
+        public async Task<bool> ResetPasswordConfirmationAsync(Guid userId, string hashedNewPassword)
         {
             var user = await _dbContext.Utilisateurs.Where(x => x.Id == userId).FirstOrDefaultAsync();
             if (user != null)
@@ -235,7 +210,7 @@ namespace ChamberAppel.Infrastructure.Repository
             }
             return false;
         }
-        public async Task<DtoUtilisateur?> GetUtilisateurDtoById(Guid id)
+        public async Task<DtoUtilisateur?> GetDtoUtilisateurByIdAsync(Guid id)
         {
             return await _dbContext
             .Utilisateurs
@@ -262,7 +237,7 @@ namespace ChamberAppel.Infrastructure.Repository
                 UpdateTime = u.PersonnePhysique.UpdateTime.HasValue ? u.PersonnePhysique.UpdateTime.Value.ToString("yyyy-MM-dd") : "",
             }).FirstOrDefaultAsync();
         }
-        public async Task<DatatableResponse<DtoUtilisateur>> GetAllUtilisateurDto(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
+        public async Task<DatatableResponse<DtoUtilisateur>> GetAllDtoUtilisateurAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
         {
             var dbSet = _dbContext.Utilisateurs
                 .Include(table => table.PersonnePhysique);

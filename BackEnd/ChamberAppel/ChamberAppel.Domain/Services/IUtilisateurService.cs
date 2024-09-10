@@ -5,22 +5,20 @@ namespace ChamberAppel.Domain.Services
 {
     public interface IUtilisateurService : IBaseService<Utilisateur>
     {
-        Task<DtoUtilisateur> GetDetailMonProfil(Guid userId);
-        Task AddPermissions(DtoCheckedListRequest model);
-        Task AddRoles(DtoCheckedListRequest model);
-        Task DeletePermissions(Guid userId);
-        Task DeleteRoles(Guid userId);
-        Task<List<Permission>> GetAllPermissions(Guid userId);
-        Task<List<Permission>> GetUtilisateurPermissions(Guid userId);
-        Task<List<Role>> GetUtilisateurRoles(Guid userId);
-        Task<Utilisateur> Login(string login, string password);
-        Task<bool> ResetPassword(Guid userId, string oldPassword, string newPassword);
-        Task<bool> ResetPasswordConfirmation(string token, string newPassword);
-        Task<DtoUtilisateur> CreateUtilisateur(DtoUtilisateur model);
-        Task<DtoUtilisateur> UpdateUtilisateur(DtoUtilisateur model);
-        Task<DtoUtilisateur> GetUtilisateurDtoById(Guid id);
-        Task<DatatableResponse<DtoUtilisateur>> GetAllUtilisateurDto(DtoFiltreUtilisateur? filtre, DtoPagination? pagination);
-        Task<List<DtoExportUtilisateur>> Exporter(DtoFiltreUtilisateur? filtre, DtoPagination? pagination);
-        Task<bool> VerifierConflit(DtoUtilisateur model);
+        Task AddPermissionsAsync(DtoCheckedListRequest model);
+        Task AddRolesAsync(DtoCheckedListRequest model);
+        Task DeletePermissionsAsync(Guid userId);
+        Task DeleteRolesAsync(Guid userId);
+        Task<List<Permission>> GetAllPermissionsAsync(Guid userId);
+        Task<List<Permission>> GetUtilisateurPermissionsAsync(Guid userId);
+        Task<List<Role>> GetUtilisateurRolesAsync(Guid userId);
+        Task<Utilisateur> LoginAsync(string login, string password);
+        Task<bool> ResetPasswordAsync(Guid userId, string oldPassword, string newPassword);
+        Task<bool> ResetPasswordConfirmationAsync(string token, string newPassword);
+        Task<DtoUtilisateur> CreateUtilisateurAsync(DtoUtilisateur model);
+        Task<DtoUtilisateur> UpdateUtilisateurAsync(DtoUtilisateur model);
+        Task<DtoUtilisateur> GetDtoUtilisateurByIdAsync(Guid id);
+        Task<DatatableResponse<DtoUtilisateur>> GetAllAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination);
+        Task<List<DtoExportUtilisateur>> ExporterAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination);
     }
 }

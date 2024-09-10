@@ -22,7 +22,7 @@ namespace ChamberAppel.Infrastructure.Services
 
         public async Task<DtoResetPassword> DecodeTokenResetPassword(string token)
         {
-            Utilisateur user = await _repository.GetByResetToken(token);
+            Utilisateur user = await _repository.GetByResetTokenAsync(token);
             if (user != null)
             {
                 return new DtoResetPassword
@@ -80,7 +80,7 @@ namespace ChamberAppel.Infrastructure.Services
             };
 
             // Create a security key from your secret key
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration["Jwt:KeyReset"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:KeyReset"]));
 
             // Create signing credentials using the key and the algorithm
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

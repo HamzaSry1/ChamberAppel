@@ -5,20 +5,18 @@ namespace ChamberAppel.Domain.Repository
 {
     public interface IUtilisateurRepository : IBaseRepository<Utilisateur>
     {
-        Task<DtoUtilisateur> GetDetailMonProfil(Guid userId);
-        Task AddRoles(Guid userId, List<Guid> listRoles);
-        Task AddPermissions(Guid userId, List<Guid> listPermissions);
-        Task DeletePermissions(Guid userId);
-        Task DeleteRoles(Guid userId);
-        Task<List<Permission>> GetUtilisateurPermissions(Guid userId);
-        Task<List<Permission>> GetAllPermissions(Guid userId);
-        Task<List<Role>> GetRoles(Guid userId);
-        Task<Utilisateur> Login(string login);
-        Task<bool> ResetPassword(Guid userId, string hashedOldPassword, string hashedNewPassword);
-        Task<bool> ResetPasswordConfirmation(Guid userId, string newPassword);
-        Task<DtoUtilisateur> GetUtilisateurDtoById(Guid id);
-        Task<DatatableResponse<DtoUtilisateur>> GetAllUtilisateurDto(DtoFiltreUtilisateur? filtre, DtoPagination? pagination);
-        Task<Utilisateur> GetByResetToken(string token);
-        Task<bool> VerifierConflit(Utilisateur utilisateur);
+        Task AddRolesAsync(Guid userId, List<Guid> listRoles);
+        Task AddPermissionsAsync(Guid userId, List<Guid> listPermissions);
+        Task DeletePermissionsAsync(Guid userId);
+        Task DeleteRolesAsync(Guid userId);
+        Task<List<Permission>> GetUtilisateurPermissionsAsync(Guid userId);
+        Task<List<Permission>> GetAllPermissionsAsync(Guid userId);
+        Task<List<Role>> GetRolesAsync(Guid userId);
+        Task<Utilisateur> LoginAsync(string login);
+        Task<bool> ResetPasswordAsync(Guid userId, string hashedOldPassword, string hashedNewPassword);
+        Task<bool> ResetPasswordConfirmationAsync(Guid userId, string newPassword);
+        Task<DtoUtilisateur> GetDtoUtilisateurByIdAsync(Guid id);
+        Task<DatatableResponse<DtoUtilisateur>> GetAllDtoUtilisateurAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination);
+        Task<Utilisateur> GetByResetTokenAsync(string token);
     }
 }

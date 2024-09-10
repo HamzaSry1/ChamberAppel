@@ -20,89 +20,22 @@ namespace ChamberAppel.Infrastructure.Services
             Authentification = authentification;
         }
 
-        public async Task AddPermissions(DtoCheckedListRequest model)
-        {
-            await _repository.AddPermissions(model.Id, model.ListCheckedId);
-        }
+        public async Task AddPermissionsAsync(DtoCheckedListRequest model)
+           => await _repository.AddPermissionsAsync(model.Id, model.ListCheckedId);
+        public async Task AddRolesAsync(DtoCheckedListRequest model)
+          => await _repository.AddRolesAsync(model.Id, model.ListCheckedId);
 
-        public async Task DeletePermissions(Guid userId)
-        {
-            await _repository.DeletePermissions(userId);
-        }
+        public async Task DeletePermissionsAsync(Guid userId) => await _repository.DeletePermissionsAsync(userId);
+        public async Task DeleteRolesAsync(Guid userId) => await _repository.DeleteRolesAsync(userId);
 
-        public async Task DeleteRoles(Guid userId)
-        {
-            await _repository.DeleteRoles(userId);
-        }
+        public async Task<List<Permission>> GetAllPermissionsAsync(Guid userId)
+            => await _repository.GetAllPermissionsAsync(userId);
+        public async Task<List<Permission>> GetUtilisateurPermissionsAsync(Guid userId)
+            => await _repository.GetUtilisateurPermissionsAsync(userId);
+        public async Task<List<Role>> GetUtilisateurRolesAsync(Guid userId)
+           => await _repository.GetRolesAsync(userId);
 
-        public async Task<Utilisateur> Login(string login, string password)
-        {
-            var user = await _repository.Login(login);
-            if (user != null)
-            {
-                if (PasswordService.VerifierPassword(password, user.Password))
-                {
-                    return user;
-                }
-                return null;
-            }
-            return null;
-        }
-
-        public async Task<List<Permission>> GetUtilisateurPermissions(Guid userId)
-        {
-            return await _repository.GetUtilisateurPermissions(userId);
-        }
-
-        public async Task<List<Role>> GetUtilisateurRoles(Guid userId)
-        {
-            return await _repository.GetRoles(userId);
-        }
-
-        public async Task AddRoles(DtoCheckedListRequest model)
-        {
-            await _repository.AddRoles(model.Id, model.ListCheckedId);
-        }
-
-        public async Task<List<Permission>> GetAllPermissions(Guid userId)
-        {
-            return await _repository.GetAllPermissions(userId);
-        }
-
-        public Task<bool> ResetPassword(Guid userId, string oldPassword, string newPassword)
-        {
-            var hashedOldPassword = PasswordService.Encrypt(oldPassword);
-            var hashedNewPassword = PasswordService.Encrypt(newPassword);
-            return _repository.ResetPassword(userId, hashedOldPassword, hashedNewPassword);
-        }
-
-        public async Task<DtoUtilisateur> GetDetailMonProfil(Guid userId)
-        {
-            return await _repository.GetDetailMonProfil(userId);
-        }
-
-        public async Task<bool> ResetPasswordConfirmation(string token, string newPassword)
-        {
-            var data = await Authentification.DecodeTokenResetPassword(token);
-
-            if (data != null)
-            {
-                var hashedNewPassword = PasswordService.Encrypt(newPassword);
-                return await _repository.ResetPasswordConfirmation(data.UserId, hashedNewPassword);
-            }
-            return false;
-        }
-        public async Task<bool> VerifierConflit(DtoUtilisateur model)
-        {
-            // verifier personne en double
-            //var conflitPersonne = await _PersonePhysiqueRepo.VerifierConflit(PersonnePhysiqueMapper.ToPersonnePhysique(model));
-            //var conflitUser = await _repository.VerifierConflit(UtilisateurMapper.ToUtilisateur(model));
-            //return conflitUser || conflitPersonne;
-
-            return false;
-        }
-
-        public async Task<DtoUtilisateur> CreateUtilisateur(DtoUtilisateur model)
+        public async Task<DtoUtilisateur> CreateUtilisateurAsync(DtoUtilisateur model)
         {
             if (model.PersonnePhysiqueId == Guid.Empty)
             {
@@ -114,31 +47,25 @@ namespace ChamberAppel.Infrastructure.Services
 
             await _repository.CreateAsync(UtilisateurMapper.ToUtilisateur(model));
 
-            return await GetUtilisateurDtoById(model.Id);
+            return await GetDtoUtilisateurByIdAsync(model.Id);
         }
-
-        public async Task<DtoUtilisateur> UpdateUtilisateur(DtoUtilisateur model)
+        public async Task<DtoUtilisateur> UpdateUtilisateurAsync(DtoUtilisateur model)
         {
             await _PersonePhysiqueRepo.UpdateAsync(PersonnePhysiqueMapper.ToPersonnePhysique(model));
 
             await _repository.UpdateAsync(UtilisateurMapper.ToUtilisateur(model));
 
-            return await GetUtilisateurDtoById(model.Id);
+            return await GetDtoUtilisateurByIdAsync(model.Id);
         }
 
-        public async Task<DtoUtilisateur> GetUtilisateurDtoById(Guid id)
-        {
-            return await _repository.GetUtilisateurDtoById(id);
-        }
+        public async Task<DtoUtilisateur> GetDtoUtilisateurByIdAsync(Guid id)
+           =>  await _repository.GetDtoUtilisateurByIdAsync(id);
+        public async Task<DatatableResponse<DtoUtilisateur>> GetAllAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
+            => await _repository.GetAllDtoUtilisateurAsync(filtre, pagination);
 
-        public async Task<DatatableResponse<DtoUtilisateur>> GetAllUtilisateurDto(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
+        public async Task<List<DtoExportUtilisateur>> ExporterAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
         {
-            return await _repository.GetAllUtilisateurDto(filtre, pagination);
-        }
-
-        public async Task<List<DtoExportUtilisateur>> Exporter(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
-        {
-            var r = await GetAllUtilisateurDto(filtre, null);
+            var r = await GetAllAsync(filtre, null);
             return r.Data.Select(x => new DtoExportUtilisateur
             {
                 Cin = x.Cin,
@@ -148,6 +75,38 @@ namespace ChamberAppel.Infrastructure.Services
                 Prenom = x.Prenom,
             }).OrderBy(x => x.Nom)
               .ToList();
+        }
+
+        public async Task<Utilisateur> LoginAsync(string login, string password)
+        {
+            var user = await _repository.LoginAsync(login);
+            if (user != null)
+            {
+                if (PasswordService.VerifierPassword(password, user.Password))
+                {
+                    return user;
+                }
+                return null;
+            }
+            return null;
+        }
+        
+        public Task<bool> ResetPasswordAsync(Guid userId, string oldPassword, string newPassword)
+        {
+            var hashedOldPassword = PasswordService.Encrypt(oldPassword);
+            var hashedNewPassword = PasswordService.Encrypt(newPassword);
+            return _repository.ResetPasswordAsync(userId, hashedOldPassword, hashedNewPassword);
+        }
+        public async Task<bool> ResetPasswordConfirmationAsync(string token, string newPassword)
+        {
+            var data = await Authentification.DecodeTokenResetPassword(token);
+
+            if (data != null)
+            {
+                var hashedNewPassword = PasswordService.Encrypt(newPassword);
+                return await _repository.ResetPasswordConfirmationAsync(data.UserId, hashedNewPassword);
+            }
+            return false;
         }
     }
 }

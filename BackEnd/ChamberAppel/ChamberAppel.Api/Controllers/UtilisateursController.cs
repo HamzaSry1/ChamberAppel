@@ -1,7 +1,6 @@
 ﻿using ChamberAppel.Domain.DTOs;
 using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Services;
-using ChamberAppel.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using ChamberAppel.Application.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -28,13 +27,13 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("GetAllAsync")]
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllAsync(DatatableRequest<DtoFiltreUtilisateur> request)
         {
-            return await _service.GetAllUtilisateurDto(request.Filtre, request.Pagination);
+            return await _service.GetAllAsync(request.Filtre, request.Pagination);
         }
 
         [HttpGet("GetByIdAsync/{id}")]
         public async Task<ApiResponse<DtoUtilisateur>> GetByIdAsync(Guid id)
         {
-            DtoUtilisateur r = await _service.GetUtilisateurDtoById(id);
+            DtoUtilisateur r = await _service.GetDtoUtilisateurByIdAsync(id);
             if (r == null)
             {
                 return new ApiResponse<DtoUtilisateur> { StatusCode = HttpStatusCode.NoContent };
@@ -43,8 +42,8 @@ namespace ChamberAppel.Api.Controllers
 
         }
 
-        [HttpPost("Exporter")]
-        public async Task<IActionResult> Exporter(DtoFiltreUtilisateur request)
+        [HttpPost("ExporterAsync")]
+        public async Task<IActionResult> ExporterAsync(DtoFiltreUtilisateur request)
         {
             //var r = await _service.Exporter(request, null);
             //return SheardController.DownloadAsExcelFile(this, r, Const.List_Utilisateurs);
@@ -59,12 +58,8 @@ namespace ChamberAppel.Api.Controllers
             {
                 return new ApiResponse<DtoUtilisateur> { ValidationErrors = validation, StatusCode = HttpStatusCode.BadRequest };
             }
-            if (await _service.VerifierConflit(model))
-            {
-                return new ApiResponse<DtoUtilisateur> { StatusCode = HttpStatusCode.Conflict };
-            }
             model.Password = PasswordService.Encrypt(model.Password);
-            var result = await _service.CreateUtilisateur(model);
+            var result = await _service.CreateUtilisateurAsync(model);
             return new ApiResponse<DtoUtilisateur> { Data = result, StatusCode = HttpStatusCode.OK };
         }
 
@@ -76,11 +71,7 @@ namespace ChamberAppel.Api.Controllers
             {
                 return new ApiResponse<DtoUtilisateur> { ValidationErrors = validation, StatusCode = HttpStatusCode.BadRequest };
             }
-            if (await _service.VerifierConflit(model))
-            {
-                return new ApiResponse<DtoUtilisateur> { StatusCode = HttpStatusCode.Conflict };
-            }
-            var result = await _service.UpdateUtilisateur(model);
+            var result = await _service.UpdateUtilisateurAsync(model);
             return new ApiResponse<DtoUtilisateur> { Data = result, StatusCode = HttpStatusCode.OK };
         }
 
@@ -103,8 +94,8 @@ namespace ChamberAppel.Api.Controllers
 
         #region Security
 
-        [HttpGet("GetPermissions/{id}")]
-        public async Task<ApiResponse<List<Permission>>> GetPermissions(Guid id)
+        [HttpGet("GetPermissionsAsync/{id}")]
+        public async Task<ApiResponse<List<Permission>>> GetPermissionsAsync(Guid id)
         {
             var user = await _service.GetByIdAsync(id);
             if (user == null)
@@ -112,7 +103,7 @@ namespace ChamberAppel.Api.Controllers
                 return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NotFound };
             }
 
-            var r = await _service.GetUtilisateurPermissions(id);
+            var r = await _service.GetUtilisateurPermissionsAsync(id);
             if (r.Any())
             {
                 return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.OK, Data = r };
@@ -120,15 +111,15 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
         }
 
-        [HttpGet("GetRoles/{id}")]
-        public async Task<ApiResponse<List<Role>>> GetRoles(Guid id)
+        [HttpGet("GetRolesAsync/{id}")]
+        public async Task<ApiResponse<List<Role>>> GetRolesAsync(Guid id)
         {
             var user = await _service.GetByIdAsync(id);
             if (user == null)
             {
                 return new ApiResponse<List<Role>> { StatusCode = HttpStatusCode.NotFound };
             }
-            var r = await _service.GetUtilisateurRoles(id);
+            var r = await _service.GetUtilisateurRolesAsync(id);
             if (r.Any())
             {
                 return new ApiResponse<List<Role>> { StatusCode = HttpStatusCode.OK, Data = r };
@@ -136,33 +127,33 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<List<Role>> { StatusCode = HttpStatusCode.NoContent };
         }
 
-        [HttpPost("AddPermissions")]
-        public async Task<ApiResponse<bool>> AddPermissions(DtoCheckedListRequest model)
+        [HttpPost("AddPermissionsAsync")]
+        public async Task<ApiResponse<bool>> AddPermissionsAsync(DtoCheckedListRequest model)
         {
             var user = await _service.GetByIdAsync(model.Id);
             if (user == null)
             {
                 return new ApiResponse<bool> { StatusCode = HttpStatusCode.NotFound };
             }
-            await this._service.AddPermissions(model);
+            await this._service.AddPermissionsAsync(model);
             return new ApiResponse<bool> { Data = true, StatusCode = HttpStatusCode.OK };
         }
 
-        [HttpPost("AddRoles")]
-        public async Task<ApiResponse<bool>> AddRoles(DtoCheckedListRequest model)
+        [HttpPost("AddRolesAsync")]
+        public async Task<ApiResponse<bool>> AddRolesAsync(DtoCheckedListRequest model)
         {
             var user = await _service.GetByIdAsync(model.Id);
             if (user == null)
             {
                 return new ApiResponse<bool> { StatusCode = HttpStatusCode.NotFound };
             }
-            await this._service.AddRoles(model);
+            await this._service.AddRolesAsync(model);
             return new ApiResponse<bool> { Data = true, StatusCode = HttpStatusCode.OK };
         }
 
-        [HttpGet("GetMyPermissions")]
+        [HttpGet("GetMyPermissionsAsync")]
         [Authorize()]
-        public async Task<ApiResponse<List<Permission>>> GetMyPermissions()
+        public async Task<ApiResponse<List<Permission>>> GetMyPermissionsAsync()
         {
             var nameIdentifier = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
 
@@ -171,13 +162,13 @@ namespace ChamberAppel.Api.Controllers
                 return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.BadRequest };
             }
 
-            var user = await this._service.GetByIdAsync(userId);
+            var user = await _service.GetByIdAsync(userId);
             if (user == null)
             {
                 return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NotFound };
             }
 
-            var r = await this._service.GetAllPermissions(userId);
+            var r = await _service.GetAllPermissionsAsync(userId);
             if (r.Any())
             {
                 return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.OK, Data = r };
@@ -185,9 +176,9 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
         }
 
-        [HttpPost("Login")]
+        [HttpPost("LoginAsync")]
         [AllowAnonymous]
-        public async Task<ApiResponse<DtoLoginResult>> Login([FromBody] DtoLogin login)
+        public async Task<ApiResponse<DtoLoginResult>> LoginAsync([FromBody] DtoLogin login)
         {
             UtilisateurLoginValidator validationRules = new UtilisateurLoginValidator();
             var resultValidationRules = await validationRules.ValidateAsync(login);
@@ -203,20 +194,20 @@ namespace ChamberAppel.Api.Controllers
                 return new ApiResponse<DtoLoginResult> { StatusCode = HttpStatusCode.BadRequest, ValidationErrors = errors.ToList() };
             }
 
-            var user = await _service.Login(login.Login, login.Password);
+            var user = await _service.LoginAsync(login.Login, login.Password);
             if (user == null)
             {
                 return new ApiResponse<DtoLoginResult> { StatusCode = HttpStatusCode.NotFound };
             }
             var token = authentification.GenerateJwtToken(user);
-            var r = await this._service.GetAllPermissions(user.Id);
+            var r = await this._service.GetAllPermissionsAsync(user.Id);
             return new ApiResponse<DtoLoginResult> { Data = new DtoLoginResult { Token = token, Permissions = r }, StatusCode = HttpStatusCode.OK };
         }
 
-        [HttpPost("ChangePassword")]
-        public async Task<ApiResponse<bool>> ChangePassword([FromBody] DtoChangePassword model)
+        [HttpPost("ResetPasswordAsync")]
+        public async Task<ApiResponse<bool>> ResetPasswordAsync([FromBody] DtoChangePassword model)
         {
-            bool changed = await _service.ResetPassword(model.UserId, model.OldPassword, model.NewPassword);
+            bool changed = await _service.ResetPasswordAsync(model.UserId, model.OldPassword, model.NewPassword);
             if (!changed)
             {
                 return new ApiResponse<bool> { StatusCode = HttpStatusCode.NotFound };
@@ -225,10 +216,10 @@ namespace ChamberAppel.Api.Controllers
         }
 
 
-        [HttpPost("ConfirmResetPassword")]
-        public async Task<ApiResponse<bool>> ConfirmResetPassword([FromBody] DtoResetPasswordConfirmation request)
+        [HttpPost("ResetPasswordConfirmationAsync")]
+        public async Task<ApiResponse<bool>> ResetPasswordConfirmationAsync([FromBody] DtoResetPasswordConfirmation request)
         {
-            bool changed = await _service.ResetPasswordConfirmation(request.Token, request.NewPassword);
+            bool changed = await _service.ResetPasswordConfirmationAsync(request.Token, request.NewPassword);
             if (!changed)
             {
                 return new ApiResponse<bool> { Data = false, StatusCode = HttpStatusCode.BadRequest };
