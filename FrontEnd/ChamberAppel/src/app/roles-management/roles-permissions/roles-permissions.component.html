@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <!-- header -->
+  <app-page-action-header [icon]="'fa fa-unlock-alt'" [title]="'Détail rôle et permissions'" [titleMobile]="'Dtl. rôle et permissions'">
+    <ng-container>
+      <app-header-action-button *ngIf="features.AddPermissions | async" buttonClass="btn-primary me-2" title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer" (clicked)="SavePermissions()"></app-header-action-button>
+      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des rôles" routerLink="/roles" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+    </ng-container>
+  </app-page-action-header>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4><i class="fa fa-tasks"></i> &nbsp;List des permissions</h4>
+      <form [formGroup]="form" class="my-3">
+        <ng-container *ngFor="let group of Permissions; let i = index">
+          <div class="group-container">
+            <button class="toggle-button" (click)="toggleGroup(i)">
+              <i class="toggle-icon" [class.fa-chevron-down]="!isGroupCollapsed(i)" [class.fa-chevron-right]="isGroupCollapsed(i)"></i>
+            </button>
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" [value]="group" [indeterminate]="isGroupIndeterminate(group)" [checked]="IsGroupChecked(group?.groupe)" (change)="toggleGroupPermissions($event, group)" />
+              {{ group.groupe }}
+            </label>
+          </div>
+          <ul *ngIf="!isGroupCollapsed(i)" class="permission-list">
+            <li *ngFor="let permission of group.permissions">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" formArrayName="selectedPermissions" [value]="permission.id" (change)="OnChangePermissions($event)" [checked]="IsPermissionIdChecked(permission.id)" />
+                {{ permission.label }}
+              </label>
+            </li>
+          </ul>
+        </ng-container>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,242 @@
+<div class="row d-md-block d-none">
+  <div class="col-12">
+    <h4 class="text-center">Bienvenue dans votre plateforme de gestion</h4>
+  </div>
+  <p *ngIf="features.Any | async" class="intro text-center"> Ce menu vous permet d'accéder rapidement aux principales fonctionnalités de la plateforme de gestion des adhérents. </p>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="row mb-4">
+      <h3 class="my-3 col-12 text-center" *ngIf="(features.ManagementAdherents | async) || (features.ManagementImportAdherents | async)"> Base des adhésions </h3>
+      <div class="col-sm-4" *ngIf="features.ManagementAdherents | async">
+        <a routerLink="/adherents" style="text-decoration: none">
+          <div class="configuration-step-link email-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-user-circle"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline">Gestion des adhérents</span>
+                  <span class="d-inline d-sm-none">G. adhérents</span>
+                  <small class="text-muted d-none d-md-block"> Visualisation, modification et suppression des adhérents en utilisant plusieurs critères de recherche. </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4" *ngIf="features.ManagementImportAdherents | async">
+        <a routerLink="/importations" style="text-decoration: none">
+          <div class="configuration-step-link import-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-download"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline">Importation des adhérents</span>
+                  <span class="d-inline d-sm-none">Imp. adhérents</span>
+                  <small class="text-muted d-none d-md-block"> Importation de données des adhérents depuis un fichier Excel (partielle ou totale) </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4" *ngIf="features.ExporterAdherents | async">
+        <a routerLink="/export-declarations" style="text-decoration: none">
+          <div class="configuration-step-link import-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-file-excel-o"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Exporter les adhérents</span>
+                  <span class="d-inline d-sm-none"> Exporter</span>
+                  <small class="text-muted d-none d-md-block"> Exporter la dernière situation de adhérents par type et par status et téléchargement dans un fichier Excel</small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <hr class="col-12 m-2" />
+      <h3 class="my-3 col-12 text-center" *ngIf="(features.ManagementUtilisateurs | async) || (features.ManagementRoles | async)">Gestion d'accès </h3>
+      <div class="col-sm-4" *ngIf="features.ManagementUtilisateurs | async">
+        <a routerLink="/utilisateurs" style="text-decoration: none">
+          <div class="configuration-step-link taxes-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-users"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Gestion utilisateurs</span>
+                  <span class="d-inline d-sm-none"> Utilisateurs</span>
+                  <small class="text-muted d-none d-md-block"> Visualisation, affectation de rôles et permissions, modification, suppression, etc. </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4" *ngIf="features.ManagementRoles | async">
+        <a routerLink="/roles" style="text-decoration: none">
+          <div class="configuration-step-link service-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-unlock-alt"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Gestion rôles</span>
+                  <span class="d-inline d-sm-none"> Rôles</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des rôles </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <hr class="col-12 m-2" />
+      <h3 class="my-3 col-12 text-center" *ngIf="features.ManagementTypeUtilisateurs | async">Gestion des référentiels</h3>
+      <div class="col-sm-4" *ngIf="features.ManagementPermissions | async">
+        <a routerLink="/permissions" style="text-decoration: none">
+          <div class="configuration-step-link store-info-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-list"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Référentiel des permissions</span>
+                  <span class="d-inline d-sm-none"> Permissions</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des permissions </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4" *ngIf="features.ManagementTypeUtilisateurs | async">
+        <a routerLink="/types-utilisateurs" style="text-decoration: none">
+          <div class="configuration-step-link store-info-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-list"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Référentiel des types utilisateurs</span>
+                  <span class="d-inline d-sm-none"> Types utilisateurs</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des types d'utilisateurs </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-4" *ngIf="features.ManagementTypeProvinces | async">
+        <a routerLink="/provinces" style="text-decoration: none">
+          <div class="configuration-step-link store-info-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-list"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Référentiel des provinces</span>
+                  <span class="d-inline d-sm-none"> Provinces</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des provinces </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-4" *ngIf="features.ManagementTypeRegions | async">
+        <a routerLink="/regions" style="text-decoration: none">
+          <div class="configuration-step-link store-info-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-list"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Référentiel des régions</span>
+                  <span class="d-inline d-sm-none"> Régions</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des régions </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-4" *ngIf="features.ManagementTypeGrades | async">
+        <a routerLink="/grades" style="text-decoration: none">
+          <div class="configuration-step-link store-info-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-list"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Référentiel des grades</span>
+                  <span class="d-inline d-sm-none"> Grades</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des grades </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-4" *ngIf="features.ManagementTypeStatutsAdhesions | async">
+        <a routerLink="/statuts-adhésions" style="text-decoration: none">
+          <div class="configuration-step-link store-info-step">
+            <div class="row">
+              <div class="col-12 col-xl-3 d-flex align-items-center justify-content-center">
+                <div class="configuration-step-icon">
+                  <i class="fa fa-list"></i>
+                </div>
+              </div>
+              <div class="col-12 col-xl-9 d-flex align-items-center justify-content-center">
+                <h5>
+                  <span class="d-none d-sm-inline"> Référentiel des statuts adhésions</span>
+                  <span class="d-inline d-sm-none"> Statuts</span>
+                  <small class="text-muted d-none d-md-block"> Ajout, visualisation, modification, suppression des statuts adhésion </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

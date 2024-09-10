@@ -1,0 +1,7 @@
+<div class="text-center">
+  <h1 class="display-1 fw-bold text-danger">500</h1>
+  <p class="fs-3"><span class="text-danger">Opps ! </span> Server Error</p>
+  <p class="lead">Erreur lors du chargement des données.</p>
+  <!-- message réessayer   -->
+  <button class="btn btn-outline-danger" *ngIf="errorEvent && retry" (click)="triggerErrorEvent()"> <i class="fa fa-redo"></i> Réessayer </button>
+</div>

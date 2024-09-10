@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header">
+    <h6>Statistiques adhérents</h6>
+  </div>
+  <div class="card-body">
+    <div class="row my-3" *ngIf="pageStatus == 'error'">
+      <div class="text-center">
+        <p class="fs-3"><span class="text-danger"> Erreur lors du chargement des données! </span>...</p>
+      </div>
+    </div>
+    <div class="row my-3" *ngIf="pageStatus != 'error' && pageStatus != 'loaded'">
+      <div class="text-center">
+        <p class="fs-3"><span class="text-info"> Chargement encours </span>...</p>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-12" *ngIf="features.ShowAdherentsParMois | async">
+        <div id="adherents_par_date" style="width: 100%; height: 250px"></div>
+      </div>
+      <div class="col-md-6" *ngIf="features.ShowAdherentsParType | async">
+        <div id="adherents_par_type" style="width: 100%; height: 250px; margin-bottom: 10px"></div>
+      </div>
+      <div class="col-md-6" *ngIf="features.ShowAdherentsParTypeAux | async">
+        <div id="adherents_par_type_aux" style="width: 100%; height: 250px; margin-bottom: 10px"></div>
+      </div>
+      <div class="col-md-6" *ngIf="features.ShowAdherentsParStatut | async">
+        <div id="adherents_par_statut" style="width: 100%; height: 250px; margin-bottom: 10px"></div>
+      </div>
+      <div class="col-md-6" *ngIf="features.ShowAdherentsParSexe | async">
+        <div id="adherents_par_sexe" style="width: 100%; height: 250px"></div>
+      </div>
+      <div class="col-md-12" *ngIf="features.ShowAdherentsParRegion | async">
+        <div *ngIf="features.ShowAdherentsParRegion | async" id="adherents_par_region" style="width: 100%; height: 500px; margin-bottom: 10px"></div>
+      </div>
+    </div>
+  </div>
+</div>

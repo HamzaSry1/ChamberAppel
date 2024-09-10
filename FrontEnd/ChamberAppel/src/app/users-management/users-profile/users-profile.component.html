@@ -1,0 +1,91 @@
+<form [formGroup]="Reactiveform" class="container-fluid">
+  <!-- header -->
+  <app-page-action-header [icon]="'fa fa-user'" title="{{ UserName }}" titleMobile="{{ UserName }}">
+    <ng-container>
+      <app-header-action-button *ngIf="features.ResetPassword | async" buttonClass="btn-primary" title="Changer mot de passe " routerLink="/utilisateurs/changepassword" iconClass="fa fa-lock" label="Changer mot de passe"></app-header-action-button>
+    </ng-container>
+  </app-page-action-header>
+
+  <!-- Info Personnelles -->
+  <div class="row my-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="col-md-6">
+            <h5 class=""> <i class="fa fa-list"></i> informations personnelles </h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Nom">Nom</label>
+              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Prénom">Prénom</label>
+              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="nomArabe">Nom</label>
+              <input type="text" placeholder="الاسم العائلي " class="form-control" id="nomArabe" formControlName="nomArabe" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="prenomArabe">اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
+              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="prenomArabe" formControlName="prenomArabe" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="DateNaissance">Date naissance</label>
+              <input type="date" placeholder="Date Naissance" class="form-control" id="DateNaissance" formControlName="dateNaissance" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Cin">Cin</label>
+              <input type="text" placeholder="Cin" class="form-control" id="Cin" formControlName="cin" />
+            </div>
+            <div class="col-md-3">
+              <label class="my-2" for="sexe">Sexe</label>
+              <input type="text" placeholder="Sexe" class="form-control" id="sexe" formControlName="sexe" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Adresse">Adresse</label>
+              <input type="text" placeholder="Adresse" class="form-control" id="Adresse" formControlName="adresse" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Email">Email</label>
+              <input type="text" placeholder="Adresse Email" class="form-control" id="Email" formControlName="email" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="gsm">Gsm</label>
+              <input type="text" placeholder="Gsm" class="form-control" id="gsm" formControlName="gsm" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- info Utilisateur -->
+  <div class="row my-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="col-md-6">
+            <h5 class=""><i class="fa fa-user"></i> Utilisateur</h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 form-group my-2">
+              <label for="typeUtilisateurLabel">Type utilisateur</label>
+              <input type="text" placeholder="type Utilisateur" class="form-control" id="typeUtilisateurLabel" formControlName="typeUtilisateurLabel" />
+            </div>
+            <div class="col-md-4 form-group my-2">
+              <label for="Login">Login</label>
+              <input type="text" placeholder="Login" class="form-control" id="Login" formControlName="login" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- loader -->
+<ngx-spinner type="line-spin-fade"><p class="text-light">Chargement en cours ...</p></ngx-spinner>

@@ -1,0 +1,50 @@
+<!-- Interface de saisie du cin pour vérification -->
+<form class="container-fluid" [formGroup]="SearchCinForm" *ngIf="verifierCinExiste == true">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row my-2">
+            <div class="col-12">
+              <h6 class="alert-heading"> Veuillez entrer le numéro de CIN de la personne que vous souhaitez ajouter. </h6>
+              <div class="alert alert-warning" role="alert">
+                <p> Cette vérification permet d'éviter la saisie en double de la personne en se basant sur le numéro de CIN. </p>
+                <p class="mb-0"> Si la personne est déjà enregistrée, cette interface vous permettra de consulter et de mettre à jour ses informations. </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="my-2" for="IdTypeRelationPersonnePhysique">Type Liaison</label>
+              <select class="form-select" id="IdTypeRelationPersonnePhysique" formControlName="IdTypeRelationPersonnePhysique">
+                <option [ngValue]="null" disabled>
+                  {{ DefaultSelectName }}
+                </option>
+                <option *ngFor="let item of TypeRelationPersonnePhysiques" [value]="item.id">
+                  {{ item.label }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="my-2" for="cin">Numéro de CIN</label>
+              <input type="text" placeholder="Entrez le numéro de CIN" class="form-control" id="cin" autocomplete="off" formControlName="cin" />
+              <div class="text-danger" *ngIf="SearchCinForm.get('cin')?.touched && SearchCinForm.get('cin')?.errors">
+                <div *ngFor="let error of SearchCinForm.get('cin')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col">
+                <button (click)="SearchCin()" class="btn btn-primary"> Continuer </button>
+              </div>
+              <div class="col text-end">
+                <a class="btn btn-secondary me-1" routerLink="/"> <i class="fa fa-arrow-left"></i> Retour </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<app-personne-physique-form *ngIf="verifierCinExiste == false && pageStatus == 'loaded'" [IsAddOrEdit]="IsAddOrEdit" [title]="title" [titleMobile]="titleMobile" (OnSave)="Save($event)"> </app-personne-physique-form>

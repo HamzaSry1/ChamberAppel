@@ -1,0 +1,59 @@
+<div class="min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group *ngIf="pageStatus == 'error'">
+          <c-card>
+            <c-card-body>
+              <div class="d-flex align-items-center justify-content-center my-5">
+                <app-table-error></app-table-error>
+              </div>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+        <c-card-group *ngIf="pageStatus == 'success'">
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm [formGroup]="Reactiveform" (ngSubmit)="login()">
+                <div class="text-center">
+                  <h1 class="fw-bolder">Login</h1>
+                  <p class="text-medium-emphasis">Veuillez vous identifier</p>
+                </div>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="login" cFormControl placeholder="Login" formControlName="login" autofocus />
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input autoComplete="current-password" cFormControl placeholder="Mot de passe" type="password" formControlName="password" />
+                </c-input-group>
+                <c-row>
+                  <c-col>
+                    <button type="submit" class="btn btn-dark w-100" [disabled]="!Reactiveform.valid"> Connexion <i class="fa fa-sign-in"></i> </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          <c-card class="image d-none d-md-inline">
+            <c-card-body>
+              <div class="row col-12 mt-5">
+                <img src="./assets/images/logoarfr.jpg" alt="Logo" class="w-100" />
+              </div>
+              <br />
+              <div class="row col-12 mb-5 p-3 fw-bolder text-center"> Bienvenue dans l’application de gestion des adhérents de la Fondation Hassan 2 </div>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
+<!-- loader -->
+<ngx-spinner type="line-spin-fade">
+  <p class="text-light">Chargement en cours...</p>
+</ngx-spinner>

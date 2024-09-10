@@ -1,0 +1,231 @@
+<!-- Interface de saisie du cin pour vérification -->
+<form class="container-fluid" [formGroup]="SearchCinForm" *ngIf="verifierCinExiste == true">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row my-3">
+            <div class="col-lg-12 col-md-6">
+              <h6 class="alert-heading"> Veuillez entrer le numéro de CIN de la personne que vous souhaitez ajouter. </h6>
+              <div class="alert alert-warning" role="alert">
+                <p> Cette vérification permet d'éviter la saisie en double de la personne en se basant sur le numéro de CIN. </p>
+                <p class="mb-0"> Si la personne est déjà enregistrée, cette interface vous permettra de consulter et de mettre à jour ses informations. </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="my-2" for="cin">Numéro de CIN</label>
+              <input type="text" placeholder="Entrez le numéro de CIN" class="form-control" id="cin" autocomplete="off" formControlName="cin" autofocus />
+              <div class="text-danger" *ngIf="SearchCinForm.get('cin')?.touched && SearchCinForm.get('cin')?.errors">
+                <div *ngFor="let error of SearchCinForm.get('cin')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-4">
+              <button (click)="SearchCin()" class="btn btn-sm btn-primary"> Continuer </button>
+            </div>
+            <div class="col-md-6 col-sm-4 text-end">
+              <a class="btn btn-sm btn-secondary" routerLink="/adherents"> <i class="fa fa-arrow-left"></i> &nbsp; Retour </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Interface en cas d'erreur ou de chargement -->
+<div class="card my-3" *ngIf="pageStatus != 'loaded'">
+  <div class="card-body">
+    <div class="row">
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'noData'">
+        <app-table-no-data></app-table-no-data>
+      </div>
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'loading'">
+        <app-table-loading></app-table-loading>
+      </div>
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'error'">
+        <app-table-error [retry]="true" (errorEvent)="reloadPage()"></app-table-error>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Interface fiche utilisateur -->
+<form [formGroup]="Reactiveform" class="container-fluid" *ngIf="verifierCinExiste == false && pageStatus == 'loaded'">
+  <!-- header -->
+  <app-page-action-header [icon]="'fa fa-user'" [title]="'Ajouter un utilisateur'" [titleMobile]="'Ajt. utilisateur'">
+    <ng-container>
+      <app-header-action-button *ngIf="features.Create | async" buttonClass="btn-primary me-2" title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer" (clicked)="Save()"></app-header-action-button>
+
+      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des utilisateurs" routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+    </ng-container>
+  </app-page-action-header>
+
+  <!-- Info Personnelles -->
+  <div class="row my-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="col-md-6">
+            <h5 class=""> <i class="fa fa-book"></i> Informations personnelles </h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Nom">Nom</label>
+              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom" autocomplete="on" />
+              <div class="text-danger" *ngIf="Reactiveform.get('nom')?.touched && Reactiveform.get('nom')?.errors">
+                <div *ngFor="let error of Reactiveform.get('nom')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Prénom">Prénom</label>
+              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom" autocomplete="on" />
+              <div class="text-danger" *ngIf="Reactiveform.get('prenom')?.touched && Reactiveform.get('prenom')?.errors">
+                <div *ngFor="let error of Reactiveform.get('prenom')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="nomArabe"> اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
+              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="nomArabe" formControlName="nomArabe" />
+              <div class="text-danger" *ngIf="Reactiveform.get('nomArabe')?.touched && Reactiveform.get('nomArabe')?.errors">
+                <div *ngFor="let error of Reactiveform.get('nomArabe')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="prenomArabe"> الاسم العائلي </label>
+              <input type="text" placeholder="الاسم العائلي" class="form-control" id="prenomArabe" formControlName="prenomArabe" />
+              <div class="text-danger" *ngIf="Reactiveform.get('prenomArabe')?.touched && Reactiveform.get('prenomArabe')?.errors">
+                <div *ngFor="let error of Reactiveform.get('prenomArabe')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="DateNaissance">Date naissance</label>
+              <input type="date" [max]="dateMaximale" placeholder="Date Naissance" class="form-control" id="DateNaissance" formControlName="dateNaissance" autocomplete="on" />
+              <div class="text-danger" *ngIf="Reactiveform.get('dateNaissance')?.touched && Reactiveform.get('dateNaissance')?.errors">
+                <div *ngFor="let error of Reactiveform.get('dateNaissance')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Cin">Cin</label>
+              <input type="text" placeholder="Cin" class="form-control" id="Cin" formControlName="cin" autocomplete="on" [ngModel]="Cin" />
+              <div class="text-danger" *ngIf="Reactiveform.get('cin')?.touched && Reactiveform.get('cin')?.errors">
+                <div *ngFor="let error of Reactiveform.get('cin')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label class="my-2" for="sexe">Sexe</label>
+              <select class="form-select" id="sexe" formControlName="sexe">
+                <option [ngValue]="null" disabled>
+                  {{ DefaultSelectName }}
+                </option>
+                <option *ngFor="let item of Sexe" [value]="item.value">
+                  {{ item.label }}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Adresse">Adresse</label>
+              <input type="text" placeholder="Adresse" class="form-control" id="Adresse" formControlName="adresse" autocomplete="on" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="Email">Email</label>
+              <input type="text" placeholder="........@fh2.ma" class="form-control" id="Email" formControlName="email" autocomplete="on" />
+              <div class="text-danger" *ngIf="Reactiveform.get('email')?.touched && Reactiveform.get('email')?.errors">
+                <div *ngFor="let error of Reactiveform.get('email')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 form-group">
+              <label class="my-2" for="gsm">Gsm</label>
+              <input type="text" placeholder="Gsm" class="form-control" id="gsm" formControlName="gsm" autocomplete="on" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- info Utilisateur -->
+  <div class="row my-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="col-md-6">
+            <h5 class=""><i class="fa fa-user"></i> Utilisateur</h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 form-group my-2">
+              <label for="typeUtilisateurId">Type utilisateur</label>
+              <select class="form-select" id="typeUtilisateurId" formControlName="typeUtilisateurId">
+                <option [value]="null" disabled selected>
+                  {{ DefaultSelectName }}
+                </option>
+                <option *ngFor="let item of TypeUtilisateurs" [value]="item.id">
+                  {{ item.label }}
+                </option>
+              </select>
+
+              <div class="text-danger" *ngIf="Reactiveform.get('typeUtilisateurId')?.touched && Reactiveform.get('typeUtilisateurId')?.errors">
+                <div *ngFor="let error of Reactiveform.get('typeUtilisateurId')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 form-group my-2">
+              <label for="Login">Login</label>
+              <input type="text" placeholder="Login" class="form-control" id="Login" formControlName="login" autocomplete="on" />
+              <div class="text-danger" *ngIf="Reactiveform.get('login')?.touched && Reactiveform.get('login')?.errors">
+                <div *ngFor="let error of Reactiveform.get('login')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 form-group my-2">
+              <label for="password">Mot de passe</label>
+              <input type="password" placeholder="*********" class="form-control" id="password" formControlName="password" autocomplete="on" />
+              <div class="text-danger" *ngIf="Reactiveform.get('password')?.touched && Reactiveform.get('password')?.errors">
+                <div *ngFor="let error of Reactiveform.get('password')?.errors | keyvalue">
+                  {{ validationMessages[error.key] }}
+                </div>
+              </div>
+              <div class="col-12 from-group">
+                Le nouveau mot de passe doit respecter les règles suivantes :
+                <ul>
+                  <li [class]="Reactiveform.get('password')?.hasError('minlength') ? 'text-danger' : 'text-success'"> Longueur supérieur à 8 characters</li>
+                  <li [class]="Reactiveform.get('password')?.hasError('digitCount') ? 'text-danger' : 'text-success'"> Contient deux chiffres ou plus</li>
+                  <li [class]="Reactiveform.get('password')?.hasError('specialCharCount') ? 'text-danger' : 'text-success'"> Contient deux characters spéciaux ou plus</li>
+                  <li [class]="Reactiveform.get('password')?.hasError('lowercaseChar') ? 'text-danger' : 'text-success'"> Contient deux characters miniscule</li>
+                  <li [class]="Reactiveform.get('password')?.hasError('uppercaseChar') ? 'text-danger' : 'text-success'"> Contient deux characters majuscule</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- loader -->
+<ngx-spinner type="line-spin-fade">
+  <p class="text-light">Chargement en cours...</p>
+</ngx-spinner>

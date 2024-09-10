@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <!-- header -->
+  <app-page-action-header [icon]="'fa fa-lock'" [title]="'Gestion des permissions'" [titleMobile]="'G. des permissions'">
+    <ng-container>
+      <app-header-action-button *ngIf="features.Exporter | async" buttonClass="btn-secondary me-2" title="Exporter les permissions" iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
+      <app-header-action-button *ngIf="features.Create | async" buttonClass="btn-success" title="Ajouter un permissions" routerLink="/permissions/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
+    </ng-container>
+  </app-page-action-header>
+
+  <!-- filter -->
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="FilterForm" (submit)="ApplyFilter()">
+        <div class="row">
+          <div class="col form-group">
+            <label for="motsCle">Mot clé</label>
+            <input type="text" class="form-control" id="motsCle" placeholder="mot clé" formControlName="motsCle" autofocus tabindex="1" />
+          </div>
+          <div class="col mt-4">
+            <div class="d-flex justify-content-between">
+              <div class="flex-grow-1">
+                <button tabindex="10" type="submit" class="btn btn-primary btn-block w-100">
+                  <i class="fa fa-search"></i>
+                  <span class="d-none d-sm-inline"> Rechercher</span>
+                </button>
+              </div>
+              <div class="d-flex mx-1">
+                <button tabindex="11" *ngIf="FilterForm.dirty" type="button" class="btn btn-warning col-xs-3" (click)="resetForm()"> x </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- table -->
+  <div class="card my-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'noData'">
+          <app-table-no-data></app-table-no-data>
+        </div>
+        <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'loading'">
+          <app-table-loading></app-table-loading>
+        </div>
+        <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'error'">
+          <app-table-error [retry]="true" (errorEvent)="ApplyFilter()"></app-table-error>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" [ngStyle]="{ display: pageStatus == 'loaded' ? 'block' : 'none' }">
+      <div class="row">
+        <div class="col-md-12 table-responsive">
+          <table class="table table-striped table-bordered text-center" width="100%" matSort (matSortChange)="OnSortChange($event)">
+            <thead>
+              <tr>
+                <th class="text-start" mat-sort-header="label">Label</th>
+                <th class="text-start" mat-sort-header="code">Code</th>
+                <th class="text-start" mat-sort-header="groupe">Groupe</th>
+                <th class="text-end" style="min-width: 160px; max-width: 160px"></th>
+              </tr>
+            </thead>
+            <tbody class="table-responsive" *ngIf="RecordTotal != 0">
+              <tr *ngFor="let item of Data">
+                <td class="text-start">{{ item.label }}</td>
+                <td class="text-start">{{ item.code }}</td>
+                <td class="text-start">{{ item.groupe }}</td>
+                <td class="text-end">
+                  <a *ngIf="features.Show | async" routerLink="/permissions/detail/{{ item.id }}" class="btn btn-sm btn-primary me-1" title="Détail de permission"><i class="fa fa-eye"> </i></a>
+                  <a *ngIf="features.Edit | async" routerLink="/permissions/modifier/{{ item.id }}" class="btn btn-sm btn-success me-1" title="Modifier la permission"><i class="fa fa-edit"> </i></a>
+                  <a *ngIf="features.Delete | async" routerLink="/permissions/supprimer/{{ item.id }}" class="btn btn-sm btn-danger" title="Supprimer la permission">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <ngb-pagination class="col d-flex justify-content-center" [collectionSize]="RecordFiltred" [pageSize]="pageSize" [page]="pageNumber" [maxSize]="5" (pageChange)="OnPageNumberChange($event)"></ngb-pagination>
+      </div>
+      <div class="row d-flex justify-content-center" *ngIf="!selectionPageSize">
+        <div class="col-auto" *ngIf="RecordFiltred != RecordTotal">
+          {{ RecordFiltred }} / <b> {{ RecordTotal }} </b> éléments
+        </div>
+        <div class="col-auto" *ngIf="RecordFiltred == RecordTotal">
+          <b> {{ RecordTotal }} </b> éléments
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center" *ngIf="selectionPageSize">
+        <div class="col-auto">Afficher</div>
+        <div class="col-auto">
+          <select class="form-select form-control-sm" name="pageSize" [(ngModel)]="pageSize" (ngModelChange)="OnPageSizeChange($event)">
+            <option [ngValue]="5">5</option>
+            <option [ngValue]="10">10</option>
+            <option [ngValue]="15">15</option>
+            <option [ngValue]="20">20</option>
+          </select>
+        </div>
+        <span class="col-auto"
+          >de <b> {{ RecordFiltred }} </b> elements</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- loader -->
+  <ngx-spinner type="line-spin-fade">
+    <p class="text-light">Chargement en cours...</p>
+  </ngx-spinner>
+</div>

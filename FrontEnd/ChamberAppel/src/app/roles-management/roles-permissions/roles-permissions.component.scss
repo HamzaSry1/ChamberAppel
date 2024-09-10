@@ -1,0 +1,30 @@
+.group-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .toggle-icon:before {
+    font-family: FontAwesome;
+  }
+  
+  .fa-chevron-down:before {
+    content: "\f078";
+  }
+  
+  .fa-chevron-right:before {
+    content: "\f054";
+  }
+  
+  .permission-list {
+    margin-left: 20px;
+    list-style-type: none;
+  }
+  

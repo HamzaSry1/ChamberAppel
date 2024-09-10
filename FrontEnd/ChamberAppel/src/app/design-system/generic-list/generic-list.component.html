@@ -1,0 +1,58 @@
+<!-- <div class="card my-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus === 'noData'">
+        <app-table-no-data></app-table-no-data>
+      </div>
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus === 'loading'">
+        <app-table-loading></app-table-loading>
+      </div>
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus === 'firstLoad'"></div>
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus === 'error'">
+        <app-table-error [retry]="true" (errorEvent)="ApplyFilter()"></app-table-error>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body" [ngStyle]="{ display: pageStatus === 'loaded' ? 'block' : 'none' }">
+    <div class="row">
+      <div class="col-md-12 table-responsive">
+        <table mat-table [dataSource]="data" matSort class="table table-hover table-bordered text-center" width="100%">
+          <ng-container *ngFor="let option of columnOptions" [matColumnDef]="option.field">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ option.label }} </th>
+            <td mat-cell *matCellDef="let item"> {{ item[option.field] }} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columnOptions.map(option => option.field)"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnOptions.map(option => option.field)"></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <ngb-pagination class="col d-flex justify-content-center" [collectionSize]="recordFiltered" [pageSize]="pageSize"
+        [page]="pageNumber" [maxSize]="5" (pageChange)="OnPageNumberChange($event)"></ngb-pagination>
+    </div>
+    <div class="row d-flex justify-content-center" *ngIf="!selectionPageSize">
+      <div class="col-auto" *ngIf="recordFiltered !== recordTotal">
+        {{ recordFiltered }} / <b> {{ recordTotal }} </b> éléments
+      </div>
+      <div class="col-auto" *ngIf="recordFiltered === recordTotal">
+        <b> {{ recordTotal }} </b> éléments
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center" *ngIf="selectionPageSize">
+      <div class="col-auto">Afficher</div>
+      <div class="col-auto">
+        <select class="form-select form-control-sm" name="pageSize" [(ngModel)]="pageSize"
+          (ngModelChange)="OnPageSizeChange($event)">
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="15">15</option>
+          <option [ngValue]="20">20</option>
+        </select>
+      </div>
+      <span class="col-auto">de <b> {{ recordTotal }} </b> éléments</span>
+    </div>
+  </div>
+</div> -->
