@@ -1,4 +1,4 @@
-﻿namespace ChamberAppel.Application.Exceptions.ErrorsMessages
+﻿namespace ChamberAppel.Application.ErrorsMessages
 {
     public static class CustomMessages
     {

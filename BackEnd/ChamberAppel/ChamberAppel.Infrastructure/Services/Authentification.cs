@@ -2,7 +2,6 @@
 using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
-using ChamberAppel.Infrastructure.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

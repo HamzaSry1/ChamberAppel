@@ -1,4 +1,4 @@
-﻿using ChamberAppel.Application.Exceptions.ErrorsMessages;
+﻿using ChamberAppel.Application.ErrorsMessages;
 using ChamberAppel.Application.Services;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
