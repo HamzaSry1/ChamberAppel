@@ -9,21 +9,16 @@ import { LoginComponent } from './views/pages/login/login.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      title: 'Home'
+      title: 'Accueil'
     },
     children: [
-      {
-        path: 'dashboard',
-        loadChildren: () =>
-          import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
-      },
       {
         path: 'pages',
         loadChildren: () =>

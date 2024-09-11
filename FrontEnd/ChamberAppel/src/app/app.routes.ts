@@ -16,7 +16,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'accueil',
-        loadChildren: () => import('./views/accueil/routes').then((m) => m.routes)
+        loadChildren: () => import('./accueil-management/accueil-management.module').then((m) => m.AccueilManagementModule)
       },
       {
         path: 'pages',
