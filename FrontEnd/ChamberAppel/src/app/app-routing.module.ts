@@ -24,6 +24,26 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/pages/pages.module').then((m) => m.PagesModule)
       },
+      {
+        path: 'utilisateurs',
+        loadChildren: () =>
+          import('./users-management/users-management.module').then((m) => m.UsersManagementModule)
+      },
+      {
+        path: 'permissions',
+        loadChildren: () =>
+          import('./permissions-management/permissions-management.module').then((m) => m.PermissionsManagementModule)
+      },
+      {
+        path: 'roles',
+        loadChildren: () =>
+          import('./roles-management/roles-management.module').then((m) => m.RolesManagementModule)
+      },
+      {
+        path: 'personnephysiques',
+        loadChildren: () =>
+          import('./personne-physiques-management/personne-physiques-management.module').then((m) => m.PersonnePhysiquesManagementModule)
+      },
     ]
   },
   {

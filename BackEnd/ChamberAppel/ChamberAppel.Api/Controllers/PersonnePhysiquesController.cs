@@ -10,9 +10,14 @@ namespace ChamberAppel.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonnePhysiquesController(IPersonnePhysiqueService service) : ControllerBase
+    public class PersonnePhysiquesController : ControllerBase
     {
         private readonly IPersonnePhysiqueService _service;
+
+        public PersonnePhysiquesController(IPersonnePhysiqueService service)
+        {
+            _service = service;
+        }
 
         #region CRUD
         [HttpGet("GetAllAsync")]
