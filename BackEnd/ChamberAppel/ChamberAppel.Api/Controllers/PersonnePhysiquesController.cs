@@ -1,4 +1,5 @@
-﻿using ChamberAppel.Application.Validators;
+﻿using ChamberAppel.Application.Messages;
+using ChamberAppel.Application.Validators;
 using ChamberAppel.Domain.DTOs;
 using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Services;
@@ -9,14 +10,9 @@ namespace ChamberAppel.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonnePhysiquesController : ControllerBase
+    public class PersonnePhysiquesController(IPersonnePhysiqueService service) : ControllerBase
     {
         private readonly IPersonnePhysiqueService _service;
-
-        public PersonnePhysiquesController(IPersonnePhysiqueService service)
-        {
-            _service = service;
-        }
 
         #region CRUD
         [HttpGet("GetAllAsync")]
@@ -50,7 +46,7 @@ namespace ChamberAppel.Api.Controllers
             var r = await _service.CreateAsync(data);
             if (r == null)
                 return new ApiResponse<PersonnePhysique> { StatusCode = HttpStatusCode.Conflict };
-            return new ApiResponse<PersonnePhysique> { StatusCode = HttpStatusCode.OK, Data = r };
+            return new ApiResponse<PersonnePhysique> { StatusCode = HttpStatusCode.OK, Data = r, Message = Const.Created };
         }
 
         [HttpPut("UpdateAsync")]
@@ -64,7 +60,7 @@ namespace ChamberAppel.Api.Controllers
             var r = await _service.UpdateAsync(model);
             if (r == null)
                 return new ApiResponse<PersonnePhysique> { StatusCode = HttpStatusCode.Conflict };
-            return new ApiResponse<PersonnePhysique> { StatusCode = HttpStatusCode.OK, Data = r };
+            return new ApiResponse<PersonnePhysique> { StatusCode = HttpStatusCode.OK, Data = r, Message = Const.Updated };
         }
 
         [HttpDelete("DeleteAsync/{Id}")]
@@ -73,7 +69,7 @@ namespace ChamberAppel.Api.Controllers
             var res = await _service.DeleteByIdAsync(Id);
             if (res == null)
                 return new ApiResponse<bool> { StatusCode = HttpStatusCode.NoContent };
-            return new ApiResponse<bool> { StatusCode = HttpStatusCode.OK };
+            return new ApiResponse<bool> { StatusCode = HttpStatusCode.OK, Message = Const.Deleted };
         }
 
         #endregion CRUD
