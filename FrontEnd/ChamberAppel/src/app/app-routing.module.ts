@@ -20,9 +20,9 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'pages',
+        path: 'accueil',
         loadChildren: () =>
-          import('./views/pages/pages.module').then((m) => m.PagesModule)
+          import('./accueil-management/accueil-management.module').then((m) => m.AccueilManagementModule)
       },
       {
         path: 'utilisateurs',
@@ -35,14 +35,19 @@ const routes: Routes = [
           import('./permissions-management/permissions-management.module').then((m) => m.PermissionsManagementModule)
       },
       {
+        path: 'personne-physiques',
+        loadChildren: () =>
+          import('./personne-physiques-management/personne-physiques-management.module').then((m) => m.PersonnePhysiquesManagementModule)
+      },
+      {
         path: 'roles',
         loadChildren: () =>
           import('./roles-management/roles-management.module').then((m) => m.RolesManagementModule)
       },
       {
-        path: 'personnephysiques',
+        path: 'pages',
         loadChildren: () =>
-          import('./personne-physiques-management/personne-physiques-management.module').then((m) => m.PersonnePhysiquesManagementModule)
+          import('./views/pages/pages.module').then((m) => m.PagesModule)
       },
     ]
   },
