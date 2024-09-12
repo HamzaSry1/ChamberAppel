@@ -22,7 +22,7 @@ import { DtoUtilisateurDatatableResponse } from 'src/app/generatedapis/models/Dt
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
-  animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
+  // animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
 })
 export class UsersListComponent implements OnInit {
   public features = {
@@ -220,11 +220,4 @@ export class UsersListComponent implements OnInit {
         }
       });
   }
-}
-function fadeInOnEnterAnimation(): any {
-  throw new Error('Function not implemented.');
-}
-
-function fadeOutOnLeaveAnimation(): any {
-  throw new Error('Function not implemented.');
 }

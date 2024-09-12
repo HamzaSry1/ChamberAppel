@@ -33,6 +33,7 @@
     "@coreui/utils": "^2.0.2",
     "@costlydeveloper/ngx-awesome-popup": "^3.2.2",
     "@ng-bootstrap/ng-bootstrap": "^15.0.0",
+    "bootstrap": "^5.3.3",
     "chart.js": "^3.9.1",
     "file-saver": "^2.0.5",
     "fontawesome-4.7": "^4.7.0",
