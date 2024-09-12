@@ -45,6 +45,7 @@ import {
   cilEnvelopeClosed,
   cilEnvelopeOpen,
   cilFile,
+  cilGroup,
   cilHome,
   cilInbox,
   cilIndentDecrease,
@@ -56,6 +57,7 @@ import {
   cilListNumbered,
   cilLocationPin,
   cilLockLocked,
+  cilLockUnlocked,
   cilMagnifyingGlass,
   cilMap,
   cilMediaPlay,
@@ -181,7 +183,9 @@ export const iconSubset = {
   cilUser,
   cilUserFemale,
   cilUserFollow,
-  cilUserUnfollow
+  cilUserUnfollow,
+  cilGroup,
+  cilLockUnlocked
 };
 
 export enum IconSubset {
