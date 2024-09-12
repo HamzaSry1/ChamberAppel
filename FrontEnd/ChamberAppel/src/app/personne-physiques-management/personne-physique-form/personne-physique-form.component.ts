@@ -8,9 +8,7 @@ import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
 import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
-import { TypeSituationFamiliale } from 'src/app/generatedapis/models/TypeSituationFamiliale';
 import { PersonnePhysiquesService } from 'src/app/generatedapis/services/PersonnePhysiquesService';
-import { TypeSituationFamilialeService } from 'src/app/generatedapis/services/TypeSituationFamilialeService';
 
 @Component({
   selector: 'app-personne-physique-form',
@@ -37,7 +35,6 @@ export class PersonnePhysiqueFormComponent implements OnInit {
   public DefaultSelectName!: string;
   public Cin!: string;
   public CinExiste = true;
-  TypeSituationFamiliales!: TypeSituationFamiliale[];
   public Sexe = [
     { value: 'H', label: 'Homme' },
     { value: 'F', label: 'Femme' },
@@ -57,7 +54,6 @@ export class PersonnePhysiqueFormComponent implements OnInit {
     SeptJoursSuivant.setDate(today.getDate() + 7);
     this.dateMaximale = SeptJoursSuivant.toISOString().split('T')[0];
 
-    this.GetTypeSituationFamiliales();
     if (this.IsFormDisable) this.ReactiveForm.disable();
     if (this.personnephysiqueId != null && this.personnephysiqueId != undefined) this.GetPersonnePhysique(this.personnephysiqueId);
   }
@@ -83,17 +79,11 @@ export class PersonnePhysiqueFormComponent implements OnInit {
     updateTime: new FormControl(),
   });
 
-  GetTypeSituationFamiliales() {
-    TypeSituationFamilialeService.getApiTypeSituationFamilialeGetAll().then((res) => {
-      this.TypeSituationFamiliales = res.data ?? [];
-    });
-  }
   GetPersonnePhysique(Id: string) {
-    PersonnePhysiquesService.getApiPersonnePhysiquesGetById(Id).then((result) => {
-      if (result.status == HttpStatusCode.OK) {
+    PersonnePhysiquesService.getApiPersonnePhysiquesGetByIdAsync(Id).then((result) => {
+      if (result.statusCode == HttpStatusCode._200) {
         this.ReactiveForm.patchValue({
           id: result.data?.id,
-          IdTypeSituationFamiliale: result.data?.idTypeSituationFamiliale,
           nom: result.data?.nom ?? '',
           prenom: result.data?.prenom ?? '',
           nomArabe: result.data?.nomArabe ?? '',

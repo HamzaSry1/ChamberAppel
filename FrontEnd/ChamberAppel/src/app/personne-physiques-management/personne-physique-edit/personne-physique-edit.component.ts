@@ -24,9 +24,9 @@ export class PersonnePhysiqueEditComponent {
 
   Save(data: any) {
     data.updateTime = new Date().toISOString();
-    PersonnePhysiquesService.postApiPersonnePhysiquesUpdate(data)
+    PersonnePhysiquesService.putApiPersonnePhysiquesUpdateAsync(data)
       .then((res) => {
-        if (res.status == HttpStatusCode.OK) {
+        if (res.statusCode == HttpStatusCode._200) {
           this._notify.Success(AppMessageService.Edit);
           this._router.navigate([this.url]);
         }

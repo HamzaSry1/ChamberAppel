@@ -1,26 +1,100 @@
-<div class="container-fluid my-3">
-  <div id="exTab2" class="container-fluid">
-    <ul class="nav nav-tabs">
-      <li [class]="showDashboard ? 'active' : ''" (click)="toggleTabs()">
-        <span [class]="showDashboard ? 'btn btn-sm btn-primary' : 'btn btn-sm'">
-          <i class="fa fa-solid fa-star"></i>
-          Menus
-        </span>
-      </li>
-      <li [class]="showDashboard ? '' : 'active'" (click)="toggleTabs()">
-        <span [class]="showDashboard ? 'btn btn-sm' : 'btn btn-sm btn-primary'">
-          <i class="fa fa-solid fa-star"></i>
-          Tableaux de bord
-        </span>
-      </li>
-    </ul>
+<div class="row d-md-block d-none">
+  <div class="col-12">
+    <h4 class="text-center">Bienvenue dans votre plateforme de gestion</h4>
+  </div>
+  <p class="intro text-center">
+    Ce menu vous permet d'accéder rapidement aux principales fonctionnalités de
+    la plateforme de gestion des adhérents.
+  </p>
+</div>
 
-    <div class="tab-content my-3">
-      <div [class]="showDashboard ? 'tab-pane' : 'tab-pane active'">
-        <app-statistiques *ngIf="features.ShowStatistiques | async"></app-statistiques>
+<div class="row">
+  <div class="col-12">
+    <div class="row mb-4">
+      <h3 class="my-3 col-12 text-center">Base des adhésions</h3>
+      <div class="col-sm-4">
+        <a routerLink="/permissions">
+          <div class="configuration-step-link email-step">
+            <div class="row">
+              <div
+                class="col-12 col-xl-3 d-flex align-items-center justify-content-center"
+              >
+                <div class="configuration-step-icon">
+                  <i class="fa fa-user-circle"></i>
+                </div>
+              </div>
+              <div
+                class="col-12 col-xl-9 d-flex align-items-center justify-content-center"
+              >
+                <h5>
+                  <span class="d-none d-sm-inline"
+                    >Gestion des permissions</span
+                  >
+                  <span class="d-inline d-sm-none">G. permissions</span>
+                  <small class="text-muted d-none d-md-block">
+                    Visualisation, modification et suppression des permissions
+                    en utilisant plusieurs critères de recherche.
+                  </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
-      <div [class]="showDashboard ? 'tab-pane active' : 'tab-pane'">
-        <app-shortcuts></app-shortcuts>
+      <hr class="col-12 m-2" />
+      <h3 class="my-3 col-12 text-center">Gestion d'accès</h3>
+      <div class="col-sm-4">
+        <a routerLink="/utilisateurs">
+          <div class="configuration-step-link taxes-step">
+            <div class="row">
+              <div
+                class="col-12 col-xl-3 d-flex align-items-center justify-content-center"
+              >
+                <div class="configuration-step-icon">
+                  <i class="fa fa-users"></i>
+                </div>
+              </div>
+              <div
+                class="col-12 col-xl-9 d-flex align-items-center justify-content-center"
+              >
+                <h5>
+                  <span class="d-none d-sm-inline"> Gestion utilisateurs</span>
+                  <span class="d-inline d-sm-none"> Utilisateurs</span>
+                  <small class="text-muted d-none d-md-block">
+                    Visualisation, affectation de rôles et permissions,
+                    modification, suppression, etc.
+                  </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a routerLink="/roles">
+          <div class="configuration-step-link service-step">
+            <div class="row">
+              <div
+                class="col-12 col-xl-3 d-flex align-items-center justify-content-center"
+              >
+                <div class="configuration-step-icon">
+                  <i class="fa fa-unlock-alt"></i>
+                </div>
+              </div>
+              <div
+                class="col-12 col-xl-9 d-flex align-items-center justify-content-center"
+              >
+                <h5>
+                  <span class="d-none d-sm-inline"> Gestion rôles</span>
+                  <span class="d-inline d-sm-none"> Rôles</span>
+                  <small class="text-muted d-none d-md-block">
+                    Ajout, visualisation, modification, suppression des rôles
+                  </small>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>

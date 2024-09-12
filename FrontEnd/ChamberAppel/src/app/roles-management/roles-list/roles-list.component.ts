@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Role } from '../../generatedapis/models/Role';
 import { AuthService } from 'src/app/auth/auth.service';
-import { FiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/FiltreMotsCleDatatableRequest';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RolesService } from 'src/app/generatedapis/services/RolesService';
@@ -13,6 +12,7 @@ import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.se
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FilterSaver } from 'src/app/Helpers/FilterSaver';
 import { Features } from 'src/app/auth/permissions';
+import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
 
 @Component({
   selector: 'app-roles-list',
@@ -35,7 +35,7 @@ export class RolesListComponent {
   orderByDirection = 'desc';
   RecordTotal = 0;
   RecordFiltred = 0;
-  DataTableRequest!: FiltreMotsCleDatatableRequest;
+  DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
   filterSaver!: FilterSaver;
   pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   pageSize = environment.pageSize;
@@ -92,7 +92,7 @@ export class RolesListComponent {
         orderByDirection: this.orderByDirection,
       },
     };
-    RolesService.postApiRolesGetAllFiltred(this.DataTableRequest)
+    RolesService.postApiRolesGetAllFiltredAsync(this.DataTableRequest)
       .then((result: RoleDatatableResponse) => {
         this.Data = result.data ?? [];
         this.RecordFiltred = result.recordFiltred ?? 0;
@@ -122,7 +122,7 @@ export class RolesListComponent {
           },
         )
         .subscribe((result: any) => {
-          GenerateExcelFileService.GenerateExcel(result, Const.List_Roles);
+          GenerateExcelFileService.GenerateExcel(result, Const.List_roles);
         });
     }
   }

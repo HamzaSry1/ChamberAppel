@@ -18,11 +18,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedTableCaseModule } from '../shared-table-case/shared-table-case.module';
 import { DesignSystemModule } from '../design-system/design-system.module';
-import { AddLiaisonComponent } from './add-liaison/add-liaison.component';
-import { AddLiaisonEnfantComponent } from './add-liaison-enfant/add-liaison-enfant.component';
 
 @NgModule({
-  declarations: [PersonnePhysiqueAddComponent, PersonnePhysiqueEditComponent, PersonnePhysiqueDetailComponent, PersonnePhysiqueDeleteComponent, PersonnePhysiqueFormComponent, AddLiaisonComponent, AddLiaisonEnfantComponent],
+  declarations: [PersonnePhysiqueAddComponent, PersonnePhysiqueEditComponent, PersonnePhysiqueDetailComponent, PersonnePhysiqueDeleteComponent, PersonnePhysiqueFormComponent],
   imports: [
     CommonModule,
     PersonnePhysiquesManagementRoutingModule,

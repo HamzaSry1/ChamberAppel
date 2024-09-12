@@ -4,7 +4,7 @@ import { Guid } from 'guid-typescript';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
-import { UtilisateurDtoApiResult } from 'src/app/generatedapis/models/UtilisateurDtoApiResult';
+import { DtoUtilisateurApiResponse } from 'src/app/generatedapis/models/DtoUtilisateurApiResponse';
 import { UtilisateursService } from 'src/app/generatedapis/services/UtilisateursService';
 
 @Component({
@@ -14,14 +14,16 @@ import { UtilisateursService } from 'src/app/generatedapis/services/Utilisateurs
 })
 export class UsersProfileComponent {
   public features = {
-    ResetPassword: this._authService.checkPermission(Features.Utilisateurs.ChangePassword),
+    ResetPassword: this._authService.checkPermission(
+      Features.Utilisateurs.ChangePassword
+    ),
   };
 
   UserName!: string;
 
   constructor(
     private _authService: AuthService,
-    private _loader: NgxSpinnerService,
+    private _loader: NgxSpinnerService
   ) {
     this.GetUser(this._authService.geCurrentUserId());
     this.Reactiveform.disable();
@@ -29,14 +31,12 @@ export class UsersProfileComponent {
 
   GetUser(userId: string) {
     this._loader.show();
-    UtilisateursService.getApiUtilisateursGetById(userId)
-      .then((result: UtilisateurDtoApiResult) => {
+    UtilisateursService.getApiUtilisateursGetByIdAsync(userId)
+      .then((result: DtoUtilisateurApiResponse) => {
         this.UserName = result.data?.nom + '\t' + result.data?.prenom;
         this.Reactiveform.setValue({
           id: result.data?.id ?? '',
           personnePhysiqueId: result.data?.personnePhysiqueId ?? '',
-          typeUtilisateurId: result.data?.typeUtilisateurId ?? 0,
-          typeUtilisateurLabel: result.data?.typeUtilisateurLabel ?? '',
           nom: result.data?.nom ?? '',
           prenom: result.data?.prenom ?? '',
           nomArabe: result.data?.nomArabe ?? '',
@@ -48,7 +48,7 @@ export class UsersProfileComponent {
           gsm: result.data?.gsm,
           email: result.data?.email ?? '',
           login: result.data?.login ?? '',
-          isArchive: result.data?.isArchive ?? false,
+          isActive: result.data?.isActive ?? false,
           updatedBy: result.data?.updatedBy ?? '',
           updateTime: result.data?.updateTime,
         });
@@ -65,8 +65,6 @@ export class UsersProfileComponent {
       value: Guid.EMPTY,
       disabled: true,
     }),
-    typeUtilisateurId: new FormControl(),
-    typeUtilisateurLabel: new FormControl(),
     nom: new FormControl(''),
     prenom: new FormControl(''),
     nomArabe: new FormControl(''),
@@ -78,7 +76,7 @@ export class UsersProfileComponent {
     gsm: new FormControl(),
     email: new FormControl(''),
     login: new FormControl(''),
-    isArchive: new FormControl(false),
+    isActive: new FormControl(false),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
   });

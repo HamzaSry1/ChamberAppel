@@ -118,14 +118,14 @@
           <div class="row">
             <div class="col-md-4 form-group my-2">
               <label for="typeUtilisateurId">Type utilisateur</label>
-              <select class="form-select" id="typeUtilisateurId" formControlName="typeUtilisateurId">
+              <!-- <select class="form-select" id="typeUtilisateurId" formControlName="typeUtilisateurId">
                 <option [value]="" disabled selected>
                   {{ DefaultSelectName }}
                 </option>
                 <option *ngFor="let item of TypeUtilisateurs" [value]="item.id">
                   {{ item.label }}
                 </option>
-              </select>
+              </select> -->
 
               <div class="text-danger" *ngIf="Reactiveform.get('typeUtilisateurId')?.touched && Reactiveform.get('typeUtilisateurId')?.errors">
                 <div *ngFor="let error of Reactiveform.get('typeUtilisateurId')?.errors | keyvalue">

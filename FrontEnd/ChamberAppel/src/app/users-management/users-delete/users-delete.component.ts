@@ -4,13 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmBoxEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { AppMessageService } from 'src/app/app-message.service';
 import { UtilisateursService } from '../../generatedapis/services/UtilisateursService';
-import { UtilisateurDtoApiResult } from 'src/app/generatedapis/models/UtilisateurDtoApiResult';
-import { UtilisateurDto } from 'src/app/generatedapis/models/UtilisateurDto';
-import { TypeUtilisateur } from 'src/app/generatedapis/models/TypeUtilisateur';
 import { Guid } from 'guid-typescript';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
+import { DtoUtilisateur } from 'src/app/generatedapis/models/DtoUtilisateur';
+import { DtoUtilisateurApiResponse } from 'src/app/generatedapis/models/DtoUtilisateurApiResponse';
 
 @Component({
   selector: 'app-users-delete',
@@ -23,8 +22,7 @@ export class UsersDeleteComponent implements OnInit {
   };
   userId!: string;
   public DefaultSelectName!: string;
-  public UtilisateurDto!: UtilisateurDto;
-  public TypeUtilisateurs!: TypeUtilisateur[];
+  public UtilisateurDto!: DtoUtilisateur;
   public Sexe = [
     { value: 'H', label: 'Homme' },
     { value: 'F', label: 'Femme' },
@@ -35,7 +33,7 @@ export class UsersDeleteComponent implements OnInit {
     private _notify: AppMessageService,
     private _notifyConfirm: ConfirmBoxEvokeService,
     private _loader: NgxSpinnerService,
-    private _router: Router,
+    private _router: Router
   ) {}
   ngOnInit(): void {
     this.userId = this._activeRoute.snapshot.params['id'];
@@ -45,13 +43,11 @@ export class UsersDeleteComponent implements OnInit {
 
   GetUser(userId: string) {
     this._loader.show();
-    UtilisateursService.getApiUtilisateursGetById(userId)
-      .then((result: UtilisateurDtoApiResult) => {
+    UtilisateursService.getApiUtilisateursGetByIdAsync(userId)
+      .then((result: DtoUtilisateurApiResponse) => {
         this.Reactiveform.setValue({
           id: result.data?.id ?? '',
           personnePhysiqueId: result.data?.personnePhysiqueId ?? '',
-          typeUtilisateurId: result.data?.typeUtilisateurId ?? 0,
-          typeUtilisateurLabel: result.data?.typeUtilisateurLabel ?? '',
           nom: result.data?.nom ?? '',
           prenom: result.data?.prenom ?? '',
           nomArabe: result.data?.nomArabe ?? '',
@@ -63,7 +59,7 @@ export class UsersDeleteComponent implements OnInit {
           gsm: result.data?.gsm,
           email: result.data?.email ?? '',
           login: result.data?.login ?? '',
-          isArchive: result.data?.isArchive ?? false,
+          isActive: result.data?.isActive ?? false,
           updatedBy: result.data?.updatedBy ?? '',
           updateTime: result.data?.updateTime,
         });
@@ -80,8 +76,6 @@ export class UsersDeleteComponent implements OnInit {
       value: Guid.EMPTY,
       disabled: true,
     }),
-    typeUtilisateurId: new FormControl(0, Validators.required),
-    typeUtilisateurLabel: new FormControl(),
     nom: new FormControl('', Validators.required),
     prenom: new FormControl('', Validators.required),
     nomArabe: new FormControl('', Validators.required),
@@ -93,22 +87,33 @@ export class UsersDeleteComponent implements OnInit {
     gsm: new FormControl(),
     email: new FormControl('', Validators.compose([Validators.email])),
     login: new FormControl('', Validators.required),
-    isArchive: new FormControl(false),
+    isActive: new FormControl(false),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
   });
 
   ConfirmDelete() {
-    this._notifyConfirm.danger('Supprimer', 'Souhaitez-vous supprimer ' + this.Reactiveform.getRawValue().login + ' définitivement ?', 'Supprimer', 'Fermer').subscribe((resp) => {
-      const ClickedButton = resp.clickedButtonID;
-      if (ClickedButton == 'supprimer') {
-        this.Delete();
-      }
-    });
+    this._notifyConfirm
+      .danger(
+        'Supprimer',
+        'Souhaitez-vous supprimer ' +
+          this.Reactiveform.getRawValue().login +
+          ' définitivement ?',
+        'Supprimer',
+        'Fermer'
+      )
+      .subscribe((resp) => {
+        const ClickedButton = resp.clickedButtonID;
+        if (ClickedButton == 'supprimer') {
+          this.Delete();
+        }
+      });
   }
 
   Delete() {
-    UtilisateursService.postApiUtilisateursDelete(this.Reactiveform.getRawValue().id as string)
+    UtilisateursService.deleteApiUtilisateursDeleteAsync(
+      this.Reactiveform.getRawValue().id as string
+    )
       .then(() => {
         this._notify.Success(AppMessageService.Delete);
         this._router.navigate(['/utilisateurs']);

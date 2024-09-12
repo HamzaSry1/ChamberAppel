@@ -8,7 +8,9 @@ import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.se
 import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
-import { FiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/FiltreMotsCleDatatableRequest';
+import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
+import { DtoFiltreUtilisateurDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreUtilisateurDatatableRequest';
+import { DtoUtilisateurDatatableResponse } from 'src/app/generatedapis/models/DtoUtilisateurDatatableResponse';
 import { Permission } from 'src/app/generatedapis/models/Permission';
 import { PermissionDatatableResponse } from 'src/app/generatedapis/models/PermissionDatatableResponse';
 import { PermissionsService } from 'src/app/generatedapis/services/PermissionsService';
@@ -34,7 +36,7 @@ export class PermissionsListComponent {
   orderByDirection = 'desc';
   RecordTotal = 0;
   RecordFiltred = 0;
-  DataTableRequest!: FiltreMotsCleDatatableRequest;
+  DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
   filterSaver!: FilterSaver;
   pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   pageSize = environment.pageSize;
@@ -44,11 +46,14 @@ export class PermissionsListComponent {
     private authService: AuthService,
     private _loader: NgxSpinnerService,
     private _notify: AppMessageService,
-    private http: HttpClient,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.filterSaver = new FilterSaver(this.FilterForm, 'Permissions-list-filters');
+    this.filterSaver = new FilterSaver(
+      this.FilterForm,
+      'Permissions-list-filters'
+    );
     this.filterSaver.loadSavedFilters();
     this.LoadData();
   }
@@ -91,7 +96,9 @@ export class PermissionsListComponent {
         orderByDirection: this.orderByDirection,
       },
     };
-    PermissionsService.postApiPermissionsGetAllFiltred(this.DataTableRequest)
+    PermissionsService.postApiPermissionsGetAllFiltredAsync(
+      this.DataTableRequest
+    )
       .then((result: PermissionDatatableResponse) => {
         this.Data = result.data ?? [];
         this.RecordFiltred = result.recordFiltred ?? 0;
@@ -108,7 +115,10 @@ export class PermissionsListComponent {
 
   Exporter() {
     if (this.Data.length !== 0) {
-      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
+      const headers = new HttpHeaders().set(
+        'Authorization',
+        'Bearer ' + localStorage.getItem('token')
+      );
       this.http
         .post(
           environment.apiUrl + '/api/Permissions/Exporter',
@@ -118,10 +128,13 @@ export class PermissionsListComponent {
           {
             headers: headers,
             responseType: 'blob' as 'json',
-          },
+          }
         )
         .subscribe((result: any) => {
-          GenerateExcelFileService.GenerateExcel(result, Const.List_Permissions);
+          GenerateExcelFileService.GenerateExcel(
+            result,
+            Const.List_permissions
+          );
         });
     }
   }

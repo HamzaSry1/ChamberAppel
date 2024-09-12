@@ -37,7 +37,7 @@ export class RolesAddComponent {
 
   Save() {
     if (this.Reactiveform.valid) {
-      RolesService.postApiRolesCreate(this.Reactiveform.getRawValue() as Role)
+      RolesService.postApiRolesCreateAsync(this.Reactiveform.getRawValue() as Role)
         .then(() => {
           this._notify.Success(AppMessageService.Add);
           this._router.navigate(['/roles']);

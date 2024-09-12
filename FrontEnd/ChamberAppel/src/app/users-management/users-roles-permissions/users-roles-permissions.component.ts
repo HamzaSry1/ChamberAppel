@@ -1,20 +1,20 @@
-import { CheckDto } from './../../Models/CheckDto';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AppMessageService } from 'src/app/app-message.service';
-import { CheckedListRequestModel } from '../../generatedapis/models/CheckedListRequestModel';
 import { Role } from '../../generatedapis/models/Role';
 import { PermissionsService } from '../../generatedapis/services/PermissionsService';
 import { RolesService } from '../../generatedapis/services/RolesService';
 import { UtilisateursService } from '../../generatedapis/services/UtilisateursService';
-import { BooleanApiResult } from 'src/app/generatedapis/models/BooleanApiResult';
 import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
-import { PermissionGroupeListApiResult } from 'src/app/generatedapis/models/PermissionGroupeListApiResult';
-import { PermissionGroupe } from 'src/app/generatedapis/models/PermissionGroupe';
 import { Permission } from 'src/app/generatedapis/models/Permission';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
+import { DtoPermissionGroupe } from 'src/app/generatedapis/models/DtoPermissionGroupe';
+import { DtoCheckedListRequest } from 'src/app/generatedapis/models/DtoCheckedListRequest';
+import { DtoChecked } from 'src/app/shared/DtoChecked';
+import { DtoPermissionGroupeListApiResponse } from 'src/app/generatedapis/models/DtoPermissionGroupeListApiResponse';
+import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiResponse';
 
 @Component({
   selector: 'app-users-roles-permissions',
@@ -23,15 +23,17 @@ import { Features } from 'src/app/auth/permissions';
 })
 export class UsersRolesPermissionsComponent implements OnInit {
   public features = {
-    AddPermissions: this.authService.checkPermission(Features.Utilisateurs.AddPermissions),
+    AddPermissions: this.authService.checkPermission(
+      Features.Utilisateurs.AddPermissions
+    ),
     AddRoles: this.authService.checkPermission(Features.Utilisateurs.AddRoles),
   };
 
   Roles!: Role[];
-  Permissions!: PermissionGroupe[];
-  PermissionModel!: CheckedListRequestModel;
-  RolesModel!: CheckedListRequestModel;
-  ListPermissionChecked!: CheckDto[];
+  Permissions!: DtoPermissionGroupe[];
+  PermissionModel!: DtoCheckedListRequest;
+  RolesModel!: DtoCheckedListRequest;
+  ListPermissionChecked!: DtoChecked[];
   ListRolesChecked!: string[];
   UserId!: string;
   form!: FormGroup;
@@ -41,7 +43,7 @@ export class UsersRolesPermissionsComponent implements OnInit {
     fb: FormBuilder,
     private _notify: AppMessageService,
     private _activeRoute: ActivatedRoute,
-    private authService: AuthService,
+    private authService: AuthService
   ) {
     this.form = fb.group({
       selectedPermissions: new FormArray([]),
@@ -65,19 +67,34 @@ export class UsersRolesPermissionsComponent implements OnInit {
     return this.collapsedGroups[index] ?? true;
   }
 
-  toggleGroupPermissions(event: any, groupName: PermissionGroupe) {
-    for (let index = 0; index < (groupName?.permissions?.length ?? 0); index++) {
+  toggleGroupPermissions(event: any, groupName: DtoPermissionGroupe) {
+    for (
+      let index = 0;
+      index < (groupName?.permissions?.length ?? 0);
+      index++
+    ) {
       if (event.target.checked) {
-        this.AddPermissionIdAsChecked(groupName.permissions?.[index].id ?? '', groupName.permissions?.[index].id ?? '');
+        this.AddPermissionIdAsChecked(
+          groupName.permissions?.[index].id ?? '',
+          groupName.permissions?.[index].id ?? ''
+        );
       } else {
-        this.DeletePermissionIdUnChecked(groupName.permissions?.[index].id ?? '');
+        this.DeletePermissionIdUnChecked(
+          groupName.permissions?.[index].id ?? ''
+        );
       }
     }
   }
 
-  isGroupIndeterminate(groupName: PermissionGroupe): boolean {
-    const selectedPermissions = groupName.permissions?.filter((permission) => this.IsPermissionIdChecked(permission.id));
-    return selectedPermissions !== undefined && selectedPermissions.length > 0 && selectedPermissions.length < (groupName.permissions?.length ?? 0);
+  isGroupIndeterminate(groupName: DtoPermissionGroupe): boolean {
+    const selectedPermissions = groupName.permissions?.filter((permission) =>
+      this.IsPermissionIdChecked(permission.id)
+    );
+    return (
+      selectedPermissions !== undefined &&
+      selectedPermissions.length > 0 &&
+      selectedPermissions.length < (groupName.permissions?.length ?? 0)
+    );
   }
 
   AddPermissionIdAsChecked(id: string, group: string) {
@@ -85,7 +102,9 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   DeletePermissionIdUnChecked(id: string) {
-    this.ListPermissionChecked = this.ListPermissionChecked.filter((x) => x.id != id);
+    this.ListPermissionChecked = this.ListPermissionChecked.filter(
+      (x) => x.id != id
+    );
   }
 
   IsPermissionIdChecked(PermissionId: string | undefined): boolean {
@@ -113,8 +132,13 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   GetPermissionsIdChecked() {
-    return UtilisateursService.getApiUtilisateursGetPermissions(this.UserId).then((result) => {
-      this.ListPermissionChecked = result.data?.filter((p) => p.id).map((p) => new CheckDto(p.id || '', p.groupe || '')) ?? [];
+    return UtilisateursService.getApiUtilisateursGetPermissionsAsync(
+      this.UserId
+    ).then((result) => {
+      this.ListPermissionChecked =
+        result.data
+          ?.filter((p) => p.id)
+          .map((p) => new DtoChecked(p.id || '', p.groupe || '')) ?? [];
       const selected = this.form.controls['selectedPermissions'] as FormArray;
       this.ListPermissionChecked.map((p) => selected.push(new FormControl(p)));
     });
@@ -129,7 +153,9 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   GetRolesIdChecked() {
-    return UtilisateursService.getApiUtilisateursGetRoles(this.UserId).then((result) => {
+    return UtilisateursService.getApiUtilisateursGetRolesAsync(
+      this.UserId
+    ).then((result) => {
       this.ListRolesChecked = result.data?.map((p) => p.id ?? '') ?? [];
       const selected = this.form.controls['selectedRoles'] as FormArray;
       this.ListRolesChecked.map((r) => selected.push(new FormControl(r)));
@@ -138,7 +164,9 @@ export class UsersRolesPermissionsComponent implements OnInit {
 
   FindPermissionById(id: string): Permission | undefined {
     for (let index = 0; index < this.Permissions.length; index++) {
-      const found = this.Permissions[index].permissions?.find((p) => p.id == id);
+      const found = this.Permissions[index].permissions?.find(
+        (p) => p.id == id
+      );
       if (found) return found;
     }
     return undefined;
@@ -155,16 +183,18 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   LoadRoles() {
-    RolesService.getApiRolesGetAll().then((result) => {
+    RolesService.getApiRolesGetAllAsync().then((result) => {
       this.Roles = result.data ?? [];
     });
   }
 
   LoadPermissions() {
-    PermissionsService.getApiPermissionsGetAllByGroupe().then((result: PermissionGroupeListApiResult) => {
-      this.Permissions = result.data ?? [];
-      this.collapsedGroups = this.Permissions.map((p) => true);
-    });
+    PermissionsService.getApiPermissionsGetAllByGroupeAsync().then(
+      (result: DtoPermissionGroupeListApiResponse) => {
+        this.Permissions = result.data ?? [];
+        this.collapsedGroups = this.Permissions.map((p) => true);
+      }
+    );
   }
 
   OnChangeRole(event: any) {
@@ -189,9 +219,9 @@ export class UsersRolesPermissionsComponent implements OnInit {
       id: this.UserId,
       listCheckedId: this.ListRolesChecked,
     };
-    UtilisateursService.postApiUtilisateursAddRoles(this.RolesModel)
-      .then((result: BooleanApiResult) => {
-        if (result.status == HttpStatusCode.OK) {
+    UtilisateursService.postApiUtilisateursAddRolesAsync(this.RolesModel)
+      .then((result: BooleanApiResponse) => {
+        if (result.statusCode == HttpStatusCode._200) {
           this._notify.Success(AppMessageService.Add);
         }
       })
@@ -205,7 +235,9 @@ export class UsersRolesPermissionsComponent implements OnInit {
       id: this.UserId,
       listCheckedId: this.ListPermissionChecked.map((p) => p.id),
     };
-    UtilisateursService.postApiUtilisateursAddPermissions(this.PermissionModel).then((result) => {
+    UtilisateursService.postApiUtilisateursAddPermissionsAsync(
+      this.PermissionModel
+    ).then((result) => {
       if (result.data) {
         this._notify.Success(AppMessageService.Add);
       } else {

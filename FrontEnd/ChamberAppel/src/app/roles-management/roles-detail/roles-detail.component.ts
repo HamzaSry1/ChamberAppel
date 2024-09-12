@@ -40,7 +40,7 @@ export class RolesDetailComponent {
           id: result.data?.id ?? '',
           label: result.data?.label ?? '',
           code: result.data?.code ?? '',
-          isActive: result.data?.isArchive ?? false,
+          isActive: result.data?.isActive ?? false,
         });
       })
       .finally(() => this._loader.hide());

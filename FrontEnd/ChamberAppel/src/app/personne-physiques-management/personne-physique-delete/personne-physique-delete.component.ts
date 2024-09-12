@@ -20,24 +20,37 @@ export class PersonnePhysiqueDeleteComponent {
   constructor(
     private _notify: AppMessageService,
     private _notifyConfirm: ConfirmBoxEvokeService,
-    private _router: Router,
+    private _router: Router
   ) {
-    this.url = this._router.getCurrentNavigation()?.previousNavigation?.finalUrl?.toString() as string;
+    this.url = this._router
+      .getCurrentNavigation()
+      ?.previousNavigation?.finalUrl?.toString() as string;
   }
 
   ConfirmDelete(data: any) {
-    this._notifyConfirm.danger('Supprimer', 'Souhaitez-vous supprimer ' + data.nom + ' ' + data.prenom + ' définitivement ?', 'Supprimer', 'Fermer').subscribe((resp) => {
-      const ClickedButton = resp.clickedButtonID;
-      if (ClickedButton == 'supprimer') {
-        this.Delete(data.id as string);
-      }
-    });
+    this._notifyConfirm
+      .danger(
+        'Supprimer',
+        'Souhaitez-vous supprimer ' +
+          data.nom +
+          ' ' +
+          data.prenom +
+          ' définitivement ?',
+        'Supprimer',
+        'Fermer'
+      )
+      .subscribe((resp) => {
+        const ClickedButton = resp.clickedButtonID;
+        if (ClickedButton == 'supprimer') {
+          this.Delete(data.id as string);
+        }
+      });
   }
 
   Delete(id: string) {
-    PersonnePhysiquesService.postApiPersonnePhysiquesDelete(id)
+    PersonnePhysiquesService.deleteApiPersonnePhysiquesDeleteAsync(id)
       .then((res) => {
-        if (res.status == HttpStatusCode.OK) {
+        if (res.statusCode == HttpStatusCode._200) {
           this._notify.Success(AppMessageService.Delete);
           this._router.navigate([this.url]);
         }

@@ -51,7 +51,7 @@ export class RolesDeleteComponent {
           id: result.data?.id ?? '',
           label: result.data?.label ?? '',
           code: result.data?.code ?? '',
-          isActive: result.data?.isArchive ?? false,
+          isActive: result.data?.isActive ?? false,
         });
       })
       .finally(() => this._loader.hide());
@@ -67,7 +67,7 @@ export class RolesDeleteComponent {
   }
 
   Delete() {
-    RolesService.postApiRolesDelete(this.Reactiveform.getRawValue().id as string)
+    RolesService.deleteApiRolesDeleteAsync(this.Reactiveform.getRawValue().id as string)
       .then(() => {
         this._notify.Success(AppMessageService.Delete);
         this._router.navigate(['/roles']);

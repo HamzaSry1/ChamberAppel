@@ -34,12 +34,12 @@ export class PermissionsAddComponent {
     code: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required),
     description: new FormControl(''),
-    isArchive: new FormControl(false),
+    isActive: new FormControl(false),
   });
 
   Save() {
     if (this.Reactiveform.valid) {
-      PermissionsService.postApiPermissionsCreate(this.Reactiveform.getRawValue() as Permission)
+      PermissionsService.postApiPermissionsCreateAsync(this.Reactiveform.getRawValue() as Permission)
         .then(() => {
           this._notify.Success(AppMessageService.Add);
           this._router.navigate(['/permissions']);

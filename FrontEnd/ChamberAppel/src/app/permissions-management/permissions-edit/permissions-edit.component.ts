@@ -26,7 +26,7 @@ export class PermissionsEditComponent {
     private authService: AuthService,
     private _notify: AppMessageService,
     private _loader: NgxSpinnerService,
-    private _router: Router,
+    private _router: Router
   ) {}
   ngOnInit(): void {
     this.Id = this._activeRoute.snapshot.params['id'];
@@ -42,12 +42,12 @@ export class PermissionsEditComponent {
     code: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required),
     description: new FormControl(''),
-    isArchive: new FormControl(false),
+    isActive: new FormControl(false),
   });
 
   Get(id: string) {
     this._loader.show();
-    PermissionsService.getApiPermissionsGetById(id)
+    PermissionsService.getApiPermissionsGetByIdAsync(id)
       .then((result) => {
         const data = result.data as Permission;
         this.Reactiveform.setValue({
@@ -56,7 +56,7 @@ export class PermissionsEditComponent {
           code: data.code as string,
           groupe: data.groupe as string,
           description: data.description as string,
-          isArchive: data.isArchive as boolean,
+          isActive: data.isActive as boolean,
         });
       })
       .finally(() => this._loader.hide());
@@ -64,7 +64,9 @@ export class PermissionsEditComponent {
 
   Save() {
     if (this.Reactiveform.valid) {
-      PermissionsService.postApiPermissionsUpdate(this.Reactiveform.getRawValue() as Permission)
+      PermissionsService.putApiPermissionsUpdateAsync(
+        this.Reactiveform.getRawValue() as Permission
+      )
         .then(() => {
           this._notify.Success(AppMessageService.Edit);
           this._router.navigate(['/permissions']);

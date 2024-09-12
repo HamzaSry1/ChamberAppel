@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UtilisateursService } from '../../generatedapis/services/UtilisateursService';
-import { UtilisateurDtoApiResult } from 'src/app/generatedapis/models/UtilisateurDtoApiResult';
 import { Const } from 'src/app/Helpers/Const';
-import { TypeUtilisateur } from 'src/app/generatedapis/models/TypeUtilisateur';
 import { Guid } from 'guid-typescript';
 import { AppMessageService } from 'src/app/app-message.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DtoUtilisateurApiResponse } from 'src/app/generatedapis/models/DtoUtilisateurApiResponse';
 
 @Component({
   selector: 'app-users-details',
@@ -21,7 +20,6 @@ export class UsersDetailsComponent implements OnInit {
     { value: 'F', label: 'Femme' },
   ];
   public DefaultSelectName!: string;
-  public TypeUtilisateurs!: TypeUtilisateur[];
   pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
 
   constructor(
@@ -39,13 +37,11 @@ export class UsersDetailsComponent implements OnInit {
   GetUser(userId: string) {
     this._loader.show();
     this.pageStatus = 'loading';
-    UtilisateursService.getApiUtilisateursGetById(userId)
-      .then((result: UtilisateurDtoApiResult) => {
+    UtilisateursService.getApiUtilisateursGetByIdAsync(userId)
+      .then((result: DtoUtilisateurApiResponse) => {
         this.Reactiveform.setValue({
           id: result.data?.id ?? '',
           personnePhysiqueId: result.data?.personnePhysiqueId ?? '',
-          typeUtilisateurId: result.data?.typeUtilisateurId ?? 0,
-          typeUtilisateurLabel: result.data?.typeUtilisateurLabel ?? '',
           nom: result.data?.nom ?? '',
           prenom: result.data?.prenom ?? '',
           nomArabe: result.data?.nomArabe ?? '',
@@ -57,7 +53,7 @@ export class UsersDetailsComponent implements OnInit {
           gsm: result.data?.gsm,
           email: result.data?.email ?? '',
           login: result.data?.login ?? '',
-          isArchive: result.data?.isArchive ?? false,
+          isActive: result.data?.isActive ?? false,
           updatedBy: result.data?.updatedBy ?? '',
           updateTime: result.data?.updateTime,
         });
@@ -80,8 +76,6 @@ export class UsersDetailsComponent implements OnInit {
       value: Guid.EMPTY,
       disabled: true,
     }),
-    typeUtilisateurId: new FormControl(0, Validators.required),
-    typeUtilisateurLabel: new FormControl(),
     nom: new FormControl('', Validators.required),
     prenom: new FormControl('', Validators.required),
     nomArabe: new FormControl('', Validators.required),
@@ -93,7 +87,7 @@ export class UsersDetailsComponent implements OnInit {
     gsm: new FormControl(),
     email: new FormControl('', Validators.compose([Validators.email])),
     login: new FormControl('', Validators.required),
-    isArchive: new FormControl(false),
+    isActive: new FormControl(false),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
   });

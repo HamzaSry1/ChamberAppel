@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppMessageService } from 'src/app/app-message.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { UtilisateursService } from 'src/app/generatedapis/services/UtilisateursService';
-import { ResetPasswordConfirmationDto } from 'src/app/generatedapis/models/ResetPasswordConfirmationDto';
-import { Const } from 'src/app/Helpers/Const';
-import { Validator } from 'src/app/Helpers/custom-validation';
-import { BooleanApiResult } from 'src/app/generatedapis/models/BooleanApiResult';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
+import { UtilisateursService } from '../../generatedapis/services/UtilisateursService';
+import { BooleanApiResponse } from '../../generatedapis/models/BooleanApiResponse';
+import { AppMessageService } from '../../app-message.service';
+import { Const } from '../../Helpers/Const';
 
 @Component({
   selector: 'app-reset-password',
@@ -17,14 +21,17 @@ export class ResetPasswordComponent {
   tokenResetPassword!: string;
   public validationMessages: ValidationErrors = Const.ValidationMessages;
   ReactiveForm = new FormGroup({
-    newPassword: new FormControl('', [Validators.required, Validator.passwordValidator]),
-    confirmnewpassword: new FormControl('', [Validators.required, this.passwordMatchValidator]),
+    newPassword: new FormControl('', [Validators.required]),
+    confirmnewpassword: new FormControl('', [
+      Validators.required,
+      this.passwordMatchValidator,
+    ]),
   });
 
   constructor(
     private _activeRoute: ActivatedRoute,
     private _router: Router,
-    private _notify: AppMessageService,
+    private _notify: AppMessageService
   ) {
     this.tokenResetPassword = this._activeRoute.snapshot.params['token'];
   }
@@ -33,7 +40,11 @@ export class ResetPasswordComponent {
     const password = control.get('newPassword');
     const confirmPassword = control.get('confirmnewpassword');
 
-    if (password && confirmPassword && password.value !== confirmPassword.value) {
+    if (
+      password &&
+      confirmPassword &&
+      password.value !== confirmPassword.value
+    ) {
       return { passwordMismatch: true };
     }
 
@@ -46,8 +57,10 @@ export class ResetPasswordComponent {
         newPassword: this.ReactiveForm.getRawValue().newPassword,
       };
 
-      UtilisateursService.postApiUtilisateursConfirmResetPassword(ResetPasswordRequest)
-        .then((result: BooleanApiResult) => {
+      UtilisateursService.postApiUtilisateursResetPasswordConfirmationAsync(
+        ResetPasswordRequest
+      )
+        .then((result: BooleanApiResponse) => {
           if (result.data == true) {
             this._notify.Success(AppMessageService.ResetPassword);
             this._router.navigate(['/auth/login']);

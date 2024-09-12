@@ -4,7 +4,7 @@
     <ng-container>
       <app-header-action-button *ngIf="features.Exporter | async" buttonClass="btn-secondary me-2" title="Exporter les utilisateurs" iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
       <app-header-action-button *ngIf="features.Create | async" buttonClass="btn-primary me-2" title="Ajouter un utilisateur" routerLink="/utilisateurs/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
-      <app-header-action-button *ngIf="features.Email | async" buttonClass="btn-success me-2" title="Email" iconClass="fa fa-envelope-o" label="Email" (clicked)="Email()"></app-header-action-button>
+      <!-- <app-header-action-button *ngIf="features.Email | async" buttonClass="btn-success me-2" title="Email" iconClass="fa fa-envelope-o" label="Email" (clicked)="Email()"></app-header-action-button> -->
     </ng-container>
   </app-page-action-header>
 
@@ -50,14 +50,14 @@
           </div>
           <div class="col-md-3 form-group">
             <label for="typeUtilisateurId" class="">Type utilisateur</label>
-            <select class="form-select" id="typeUtilisateurId" formControlName="typeUtilisateurId" tabindex="5">
+            <!-- <select class="form-select" id="typeUtilisateurId" formControlName="typeUtilisateurId" tabindex="5">
               <option [value]="null" selected>
                 {{ DefaultSelectName }}
               </option>
               <option *ngFor="let item of TypeUtilisateurs" [value]="item.id">
                 {{ item.label }}
               </option>
-            </select>
+            </select> -->
           </div>
         </div>
       </form>
@@ -89,7 +89,6 @@
                 <th class="text-start" mat-sort-header="Prenom">Prénom</th>
                 <th class="text-start" mat-sort-header="Cin">CIN</th>
                 <th class="text-start" mat-sort-header="Email">Email</th>
-                <th class="text-start" mat-sort-header="TypeUtilisateurLabel"> Type utilisateur </th>
                 <th class="text-start" mat-sort-header="Login">Login</th>
                 <th class="text-end" style="min-width: 160px; max-width: 160px"></th>
               </tr>
@@ -100,7 +99,6 @@
                 <td class="text-start">{{ item.prenom }}</td>
                 <td class="text-start">{{ item.cin }}</td>
                 <td class="text-start">{{ item.email }}</td>
-                <td class="text-start">{{ item.typeUtilisateurLabel }}</td>
                 <td class="text-start">{{ item.login }}</td>
                 <td class="text-end">
                   <a *ngIf="features.Show | async" routerLink="/utilisateurs/detail/{{ item.id }}" class="btn btn-sm btn-primary" title="Détail de l'utilisateur"><i class="fa fa-eye"> </i></a>

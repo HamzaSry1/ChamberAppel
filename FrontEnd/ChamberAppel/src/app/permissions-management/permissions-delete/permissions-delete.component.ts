@@ -39,12 +39,12 @@ export class PermissionsDeleteComponent {
     label: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required),
     description: new FormControl(''),
-    isArchive: new FormControl(false),
+    isActive: new FormControl(false),
   });
 
   Get(id: string) {
     this._loader.show();
-    PermissionsService.getApiPermissionsGetById(id)
+    PermissionsService.getApiPermissionsGetByIdAsync(id)
       .then((result) => {
         this.Reactiveform.setValue({
           id: result.data?.id ?? '',
@@ -52,7 +52,7 @@ export class PermissionsDeleteComponent {
           label: result.data?.label ?? '',
           groupe: result.data?.groupe ?? '',
           description: result.data?.description ?? '',
-          isArchive: result.data?.isArchive ?? false,
+          isActive: result.data?.isActive ?? false,
         });
       })
       .finally(() => this._loader.hide());
@@ -68,7 +68,7 @@ export class PermissionsDeleteComponent {
   }
 
   Delete() {
-    PermissionsService.postApiPermissionsDelete(this.Reactiveform.getRawValue().id as string)
+    PermissionsService.deleteApiPermissionsDeleteAsync(this.Reactiveform.getRawValue().id as string)
       .then(() => {
         this._notify.Success(AppMessageService.Delete);
         this._router.navigate(['/permissions']);

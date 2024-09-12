@@ -5,7 +5,9 @@
         <c-card-group *ngIf="pageStatus == 'error'">
           <c-card>
             <c-card-body>
-              <div class="d-flex align-items-center justify-content-center my-5">
+              <div
+                class="d-flex align-items-center justify-content-center my-5"
+              >
                 <app-table-error></app-table-error>
               </div>
             </c-card-body>
@@ -23,17 +25,35 @@
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="login" cFormControl placeholder="Login" formControlName="login" autofocus />
+                  <input
+                    autoComplete
+                    cFormControl
+                    placeholder="Login"
+                    formControlName="login"
+                    autofocus
+                  />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
-                  <input autoComplete="current-password" cFormControl placeholder="Mot de passe" type="password" formControlName="password" />
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Mot de passe"
+                    type="password"
+                    formControlName="password"
+                  />
                 </c-input-group>
                 <c-row>
                   <c-col>
-                    <button type="submit" class="btn btn-dark w-100" [disabled]="!Reactiveform.valid"> Connexion <i class="fa fa-sign-in"></i> </button>
+                    <button
+                      type="submit"
+                      class="btn btn-dark w-100"
+                      [disabled]="!Reactiveform.valid"
+                    >
+                      Connexion <i class="fa fa-sign-in"></i>
+                    </button>
                   </c-col>
                 </c-row>
               </form>
@@ -42,10 +62,17 @@
           <c-card class="image d-none d-md-inline">
             <c-card-body>
               <div class="row col-12 mt-5">
-                <img src="./assets/images/logoarfr.jpg" alt="Logo" class="w-100" />
+                <img
+                  src="./assets/images/logoarfr.jpg"
+                  alt="Logo"
+                  class="w-100"
+                />
               </div>
               <br />
-              <div class="row col-12 mb-5 p-3 fw-bolder text-center"> Bienvenue dans l’application de gestion des adhérents de la Fondation Hassan 2 </div>
+              <div class="row col-12 mb-5 p-3 fw-bolder text-center">
+                Bienvenue dans l’application de gestion des adhérents de la
+                Fondation Hassan 2
+              </div>
             </c-card-body>
           </c-card>
         </c-card-group>

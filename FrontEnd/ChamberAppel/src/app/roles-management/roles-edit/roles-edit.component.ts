@@ -51,7 +51,7 @@ export class RolesEditComponent {
           id: result.data?.id ?? '',
           code: result.data?.code ?? '',
           label: result.data?.label ?? '',
-          isArchive: result.data?.isArchive ?? false,
+          isArchive: result.data?.isActive ?? false,
         });
       })
       .finally(() => this._loader.hide());
@@ -59,7 +59,7 @@ export class RolesEditComponent {
 
   Save() {
     if (this.Reactiveform.valid) {
-      RolesService.postApiRolesUpdate(this.Reactiveform.getRawValue() as Role)
+      RolesService.putApiRolesUpdateAsync(this.Reactiveform.getRawValue() as Role)
         .then(() => {
           this._notify.Success(AppMessageService.Edit);
           this._router.navigate(['/roles']);

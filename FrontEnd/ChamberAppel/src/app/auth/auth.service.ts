@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { UtilisateursService } from '../generatedapis/services/UtilisateursService';
 import { Permission } from '../generatedapis/models/Permission';
 
@@ -10,12 +10,15 @@ export class AuthService {
 
   public decodeToken(): any {
     const token = this.getToken();
-    return jwt_decode(token) as any;
+    return jwtDecode(token) as any;
   }
 
   public geCurrentUserId() {
     var decodedToken = this.decodeToken() as any;
-    var userId = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+    var userId =
+      decodedToken[
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
+      ];
     return userId;
   }
   private permissionLock: Promise<void> | null = null;
@@ -40,9 +43,12 @@ export class AuthService {
 
     const userId = this.geCurrentUserId();
 
-    this.permissionLock = UtilisateursService.getApiUtilisateursGetMyPermissions().then((r) => {
-      this.LoadPermissions(r.data);
-    });
+    this.permissionLock =
+      UtilisateursService.getApiUtilisateursGetMyPermissionsAsync().then(
+        (r) => {
+          this.LoadPermissions(r.data);
+        }
+      );
 
     return this.permissionLock;
   }
@@ -59,10 +65,14 @@ export class AuthService {
 
   public GetCurrentUserName(): string {
     const decodedToken = this.decodeToken() as any;
-    return decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+    return decodedToken[
+      'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'
+    ];
   }
 
-  public async checkPermission(permissionR: string | string[]): Promise<boolean> {
+  public async checkPermission(
+    permissionR: string | string[]
+  ): Promise<boolean> {
     if (!this.initialized) {
       const strPermissions = localStorage.getItem('permissions');
       if (strPermissions) {

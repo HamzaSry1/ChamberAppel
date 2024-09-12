@@ -1,7 +1,9 @@
 import { ValidationErrors } from '@angular/forms';
 
 export class Const {
-  public static List_Utilisateurs_ = 'List des utilisateurs';
+  public static List_Utilisateurs = 'List des utilisateurs';
+  public static List_permissions = 'List des permissions';
+  public static List_roles = 'List des roles';
   public static ValidationMessages: ValidationErrors = {
     required: 'Ce champ est requis.',
     minlength: 'Le champ est trop court!',

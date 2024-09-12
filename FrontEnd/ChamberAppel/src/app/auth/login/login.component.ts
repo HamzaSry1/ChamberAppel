@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UtilisateursService } from '../../generatedapis/services/UtilisateursService';
-import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from '../auth.service';
-import { LoginDto } from 'src/app/generatedapis/models/LoginDto';
-import { LoginResultApiResult } from 'src/app/generatedapis/models/LoginResultApiResult';
+import { DtoLogin } from '../../generatedapis/models/DtoLogin';
+import { UtilisateursService } from '../../generatedapis/services/UtilisateursService';
+import { DtoLoginResultApiResponse } from '../../generatedapis/models/DtoLoginResultApiResponse';
+import { AppMessageService } from '../../app-message.service';
+import { HttpStatusCode } from '../../generatedapis/models/HttpStatusCode';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private _notify: AppMessageService,
     private authService: AuthService,
-    private _loader: NgxSpinnerService,
+    private _loader: NgxSpinnerService
   ) {}
   ngOnInit(): void {
     localStorage.clear();
@@ -35,14 +35,14 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.Reactiveform.valid) {
       this.pageStatus = 'success';
-      const loginDto: LoginDto = {
+      const loginDto: DtoLogin = {
         login: this.Reactiveform.getRawValue().login?.trim() as string,
         password: this.Reactiveform.getRawValue().password?.trim() as string,
       };
       this._loader.show();
-      UtilisateursService.postApiUtilisateursLogin(loginDto)
-        .then((result: LoginResultApiResult) => {
-          if (result.status != HttpStatusCode.OK) {
+      UtilisateursService.postApiUtilisateursLoginAsync(loginDto)
+        .then((result: DtoLoginResultApiResponse) => {
+          if (result.statusCode != HttpStatusCode._200) {
             this._notify.Warning(AppMessageService.LoginError);
           } else {
             const data = result?.data ?? {};
