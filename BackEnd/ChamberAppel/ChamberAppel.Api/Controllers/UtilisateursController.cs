@@ -215,18 +215,6 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<bool> { StatusCode = HttpStatusCode.OK };
         }
 
-
-        [HttpPost("ResetPasswordConfirmationAsync")]
-        public async Task<ApiResponse<bool>> ResetPasswordConfirmationAsync([FromBody] DtoResetPasswordConfirmation request)
-        {
-            bool changed = await _service.ResetPasswordConfirmationAsync(request.Token, request.NewPassword);
-            if (!changed)
-            {
-                return new ApiResponse<bool> { Data = false, StatusCode = HttpStatusCode.BadRequest };
-            }
-            return new ApiResponse<bool> { Data = true, StatusCode = HttpStatusCode.OK };
-        }
-
         #endregion Security
 
         #region validation

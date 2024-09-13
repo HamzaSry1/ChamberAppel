@@ -20,7 +20,6 @@ export type { DtoLoginResultApiResponse } from './models/DtoLoginResultApiRespon
 export type { DtoPagination } from './models/DtoPagination';
 export type { DtoPermissionGroupe } from './models/DtoPermissionGroupe';
 export type { DtoPermissionGroupeListApiResponse } from './models/DtoPermissionGroupeListApiResponse';
-export type { DtoResetPasswordConfirmation } from './models/DtoResetPasswordConfirmation';
 export type { DtoUtilisateur } from './models/DtoUtilisateur';
 export type { DtoUtilisateurApiResponse } from './models/DtoUtilisateurApiResponse';
 export type { DtoUtilisateurDatatableResponse } from './models/DtoUtilisateurDatatableResponse';

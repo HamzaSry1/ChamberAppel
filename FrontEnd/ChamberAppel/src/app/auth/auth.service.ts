@@ -17,7 +17,7 @@ export class AuthService {
     var decodedToken = this.decodeToken() as any;
     var userId =
       decodedToken[
-        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
+      'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
       ];
     return userId;
   }
@@ -101,6 +101,7 @@ export class AuthService {
     const token = this.getToken();
     return token != null && !this.isTokenExpired();
   }
+
   isTokenExpired(): boolean {
     const decodedToken = this.decodeToken();
     const currentTime = Math.floor(Date.now() / 1000);

@@ -18,7 +18,7 @@ namespace ChamberAppel.Domain.Models
         public string? PrenomArabe { get; set; }
         [DataType(DataType.Date)]
         public DateTime? DateNaissance { get; set; }
-        [Required, MaxLength(10), MinLength(10)]
+        [Required, MaxLength(10), MinLength(5)]
         public string Cin { get; set; } = null!;
         public SituationFamilialeEnum SituationFamiliale { get; set; }
         public GendersEnum Sexe { get; set; }
@@ -28,6 +28,9 @@ namespace ChamberAppel.Domain.Models
         public string? Email { get; set; }
         [DataType(DataType.PhoneNumber), MaxLength(10), MinLength(10)]
         public string? Gsm { get; set; }
+        /// <summary>
+        /// Stored in this field is the user ID of the person who created this user.
+        /// </summary>
         public string? UpdatedBy { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime? UpdateTime { get; set; } = DateTime.Now;

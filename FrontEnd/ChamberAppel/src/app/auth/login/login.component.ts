@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private _notify: AppMessageService,
     private authService: AuthService,
     private _loader: NgxSpinnerService
-  ) {}
+  ) { }
   ngOnInit(): void {
     localStorage.clear();
     this.authService.ResetPermissions();
@@ -39,9 +39,11 @@ export class LoginComponent implements OnInit {
         login: this.Reactiveform.getRawValue().login?.trim() as string,
         password: this.Reactiveform.getRawValue().password?.trim() as string,
       };
+      console.log(loginDto);
       this._loader.show();
       UtilisateursService.postApiUtilisateursLoginAsync(loginDto)
         .then((result: DtoLoginResultApiResponse) => {
+          console.log(loginDto);
           if (result.statusCode != HttpStatusCode._200) {
             this._notify.Warning(AppMessageService.LoginError);
           } else {

@@ -12,7 +12,7 @@ namespace ChamberAppel.Domain.Repository
         Task<List<Permission>> GetUtilisateurPermissionsAsync(Guid userId);
         Task<List<Permission>> GetAllPermissionsAsync(Guid userId);
         Task<List<Role>> GetRolesAsync(Guid userId);
-        Task<Utilisateur> LoginAsync(string login);
+        Task<Utilisateur?> LoginAsync(string login);
         Task<bool> ResetPasswordAsync(Guid userId, string hashedOldPassword, string hashedNewPassword);
         Task<bool> ResetPasswordConfirmationAsync(Guid userId, string newPassword);
         Task<DtoUtilisateur> GetDtoUtilisateurByIdAsync(Guid id);

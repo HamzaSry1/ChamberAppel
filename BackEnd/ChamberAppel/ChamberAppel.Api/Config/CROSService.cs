@@ -4,14 +4,16 @@
     {
         public static IServiceCollection RegisterCROS(this IServiceCollection services, IConfiguration configuration)
         {
-            string allowedOrigins = configuration.GetValue<string>("AllowedOrigins");
+            //TODO : add CROS policy
+
+            //string allowedOrigins = configuration.GetValue<string>("AllowedOrigins");
 
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowOnlyChamberAppel",
                     builder =>
                     {
-                        builder.WithOrigins(allowedOrigins)
+                        builder.AllowAnyOrigin()
                                .AllowAnyHeader()
                                .AllowAnyMethod();
                     });

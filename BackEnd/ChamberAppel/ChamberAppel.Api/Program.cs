@@ -19,8 +19,11 @@ var app = builder.Build();
 
 // Use extension methods for middleware
 app.UseSwaggerInDevelopment(app.Environment);
+
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 
 app.UseCorsPolicy();
 app.UseCspHeaders();
@@ -30,4 +33,9 @@ app.UseSecureCookies();
 app.UseSecurityHeaders();
 
 app.MapControllers();
+
+// Enable documentation to be used in production
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.Run();

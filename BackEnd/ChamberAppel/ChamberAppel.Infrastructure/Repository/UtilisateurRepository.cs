@@ -174,14 +174,15 @@ namespace ChamberAppel.Infrastructure.Repository
                       ).Distinct().OrderBy(p => p.Label);
             return await List.ToListAsync();
         }
-        public async Task<Utilisateur> LoginAsync(string login)
+        public async Task<Utilisateur?> LoginAsync(string login)
         {
-            if (login != null || login != "")
+            if (!string.IsNullOrEmpty(login))
             {
                 // TODO  : hach the password ,add salt
                 var user = await _dbContext.Utilisateurs
-                 .Include(item => item.PersonnePhysique)
-                 .FirstOrDefaultAsync(u => u.Login == login);
+                     .Include(item => item.PersonnePhysique)
+                     .FirstOrDefaultAsync(u => u.Login == login);
+
                 return user;
             }
             return null;
@@ -199,15 +200,8 @@ namespace ChamberAppel.Infrastructure.Repository
         }
         public async Task<bool> ResetPasswordConfirmationAsync(Guid userId, string hashedNewPassword)
         {
-            var user = await _dbContext.Utilisateurs.Where(x => x.Id == userId).FirstOrDefaultAsync();
-            if (user != null)
-            {
-                user.Password = hashedNewPassword;
-                //user.ResetTokenExpiration = null;
-                //user.ResetToken = null;
-                _dbContext.SaveChanges();
-                return true;
-            }
+            // TODO : remove
+
             return false;
         }
         public async Task<DtoUtilisateur?> GetDtoUtilisateurByIdAsync(Guid id)

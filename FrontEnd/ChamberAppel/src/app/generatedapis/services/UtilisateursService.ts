@@ -9,7 +9,6 @@ import type { DtoFiltreUtilisateur } from '../models/DtoFiltreUtilisateur';
 import type { DtoFiltreUtilisateurDatatableRequest } from '../models/DtoFiltreUtilisateurDatatableRequest';
 import type { DtoLogin } from '../models/DtoLogin';
 import type { DtoLoginResultApiResponse } from '../models/DtoLoginResultApiResponse';
-import type { DtoResetPasswordConfirmation } from '../models/DtoResetPasswordConfirmation';
 import type { DtoUtilisateur } from '../models/DtoUtilisateur';
 import type { DtoUtilisateurApiResponse } from '../models/DtoUtilisateurApiResponse';
 import type { DtoUtilisateurDatatableResponse } from '../models/DtoUtilisateurDatatableResponse';
@@ -209,21 +208,6 @@ export class UtilisateursService {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Utilisateurs/ResetPasswordAsync',
-            body: requestBody,
-            mediaType: 'application/json',
-        });
-    }
-    /**
-     * @param requestBody
-     * @returns BooleanApiResponse Success
-     * @throws ApiError
-     */
-    public static postApiUtilisateursResetPasswordConfirmationAsync(
-        requestBody?: DtoResetPasswordConfirmation,
-    ): CancelablePromise<BooleanApiResponse> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/api/Utilisateurs/ResetPasswordConfirmationAsync',
             body: requestBody,
             mediaType: 'application/json',
         });

@@ -21,11 +21,11 @@ namespace ChamberAppel.Infrastructure.Repository
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var idProperty = typeof(T).GetProperty("Id");
-            if (idProperty != null && idProperty.PropertyType == typeof(Guid))
-            {
-                idProperty.SetValue(entity, Guid.NewGuid());
-            }
+            //var idProperty = typeof(T).GetProperty("Id");
+            //if (idProperty != null && idProperty.PropertyType == typeof(Guid))
+            //{
+            //    idProperty.SetValue(entity, Guid.NewGuid());
+            //}
 
             await _database.Set<T>().AddAsync(entity);
             await _database.SaveChangesAsync();

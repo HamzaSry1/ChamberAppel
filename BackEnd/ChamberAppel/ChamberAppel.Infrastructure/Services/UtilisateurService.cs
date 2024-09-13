@@ -59,7 +59,7 @@ namespace ChamberAppel.Infrastructure.Services
         }
 
         public async Task<DtoUtilisateur> GetDtoUtilisateurByIdAsync(Guid id)
-           =>  await _repository.GetDtoUtilisateurByIdAsync(id);
+           => await _repository.GetDtoUtilisateurByIdAsync(id);
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
             => await _repository.GetAllDtoUtilisateurAsync(filtre, pagination);
 
@@ -90,7 +90,7 @@ namespace ChamberAppel.Infrastructure.Services
             }
             return null;
         }
-        
+
         public Task<bool> ResetPasswordAsync(Guid userId, string oldPassword, string newPassword)
         {
             var hashedOldPassword = PasswordService.Encrypt(oldPassword);

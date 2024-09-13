@@ -5,9 +5,7 @@
         <c-card-group *ngIf="pageStatus == 'error'">
           <c-card>
             <c-card-body>
-              <div
-                class="d-flex align-items-center justify-content-center my-5"
-              >
+              <div class="d-flex align-items-center justify-content-center my-5">
                 <app-table-error></app-table-error>
               </div>
             </c-card-body>
@@ -25,33 +23,18 @@
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input
-                    autoComplete
-                    cFormControl
-                    placeholder="Login"
-                    formControlName="login"
-                    autofocus
-                  />
+                  <input autoComplete cFormControl placeholder="Login" formControlName="login" autofocus />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
-                  <input
-                    autoComplete="current-password"
-                    cFormControl
-                    placeholder="Mot de passe"
-                    type="password"
-                    formControlName="password"
-                  />
+                  <input autoComplete="current-password" cFormControl placeholder="Mot de passe" type="password"
+                    formControlName="password" />
                 </c-input-group>
                 <c-row>
                   <c-col>
-                    <button
-                      type="submit"
-                      class="btn btn-dark w-100"
-                      [disabled]="!Reactiveform.valid"
-                    >
+                    <button type="submit" class="btn btn-dark w-100" [disabled]="!Reactiveform.valid">
                       Connexion <i class="fa fa-sign-in"></i>
                     </button>
                   </c-col>
@@ -59,22 +42,20 @@
               </form>
             </c-card-body>
           </c-card>
-          <c-card class="image d-none d-md-inline">
+          <c-card class="image d-none d-md-inline d-flex justify-content-center">
             <c-card-body>
-              <div class="row col-12 mt-5">
-                <img
-                  src="./assets/images/logoarfr.jpg"
-                  alt="Logo"
-                  class="w-100"
-                />
+              <div class="row col-12 justify-content-center">
+                <img src="../../../assets/images/CDC_PNG.png" class="mx-auto d-block" style="width: 200px;"
+                  alt="Logo de la cour des comptes" />
               </div>
               <br />
-              <div class="row col-12 mb-5 p-3 fw-bolder text-center">
-                Bienvenue dans l’application de gestion des adhérents de la
-                Fondation Hassan 2
+              <div class="row col-12 p-3 fw-bolder text-center">
+                Bienvenue dans l’application de gestion de Chamber d'appel
+                de la Cour des comptes
               </div>
             </c-card-body>
           </c-card>
+
         </c-card-group>
       </c-col>
     </c-row>

@@ -3,7 +3,7 @@
     public class DtoUtilisateur
     {
         public Guid Id { get; set; }
-        public Guid PersonnePhysiqueId { get; set; }
+        public Guid? PersonnePhysiqueId { get; set; }
         public string? Nom { get; set; }
         public string? Prenom { get; set; }
         public string? NomArabe { get; set; }
