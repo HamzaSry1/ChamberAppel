@@ -36,7 +36,7 @@ namespace ChamberAppel.Infrastructure.Services
 
         public string GenerateJwtToken(Utilisateur user)
         {
-            if (!int.TryParse(_configuration["Jwt:ExpireDays"], out int nbrDays))
+            if (!int.TryParse(_configuration["JwtSettings:ExpireDays"], out int nbrDays))
             {
                 nbrDays = 1;
             }
@@ -49,61 +49,18 @@ namespace ChamberAppel.Infrastructure.Services
                 new Claim(ClaimTypes.Expiration, expirationDate.ToString()),
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"],
                 claims: claims,
                 expires: expirationDate,
                 signingCredentials: creds
             );
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-            return tokenString;
-        }
-
-        public async Task<string> GenerateTokenResetPassword(Utilisateur user)
-        {
-            if (!int.TryParse(_configuration["Jwt:ExpireDays"], out int nbrDays))
-            {
-                nbrDays = 1;
-            }
-            var expirtationDate = DateTime.UtcNow.AddDays(nbrDays);
-            // Create a claim for the user (you can customize this as needed)
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.Name, user.Login),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Expiration, expirtationDate.ToString())
-            };
-
-            // Create a security key from your secret key
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:KeyReset"]));
-
-            // Create signing credentials using the key and the algorithm
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            // Create a JWT token with claims and signing credentials
-            var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
-                claims: claims,
-                expires: expirtationDate,
-                signingCredentials: creds
-            );
-
-            // Serialize the token to a string
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-            /* Save token in the user record */
-            var userRecord = await _repository.GetByIdAsync(user.Id);
-            if (userRecord != null)
-            {
-                //userRecord.ResetToken = tokenString;
-                //userRecord.ResetTokenExpiration = expirtationDate;
-                await _repository.UpdateAsync(userRecord);
-            }
             return tokenString;
         }
     }

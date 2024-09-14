@@ -1701,7 +1701,8 @@
           },
           "personnePhysiqueId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "nullable": true
           },
           "nom": {
             "type": "string",
@@ -2053,7 +2054,7 @@
           },
           "cin": {
             "maxLength": 10,
-            "minLength": 10,
+            "minLength": 5,
             "type": "string"
           },
           "situationFamiliale": {

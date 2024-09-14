@@ -75,78 +75,19 @@ namespace ChamberAppel.Infrastructure.Repository
         }
         public async Task<List<Permission>> GetAllPermissionsAsync(Guid userId)
         {
-            //var dbSet = this._dbContext.Utilisateurs
-            //    .Include(table => table.PersonnePhysique);
+            var List = (from up in _dbContext.UtilisateurPermissions
+                        where up.UtilisateurId == userId
+                        select up.Permission
+                        ).
+                        Union(
+                        from ur in _dbContext.UtilisateurRoles
+                        join rp in _dbContext.RolePermissions on ur.RoleId equals rp.RoleId
+                        where ur.UtilisateurId == userId
+                        select rp.Permission
+                        ).Distinct()
+                        .OrderBy(p => p.Label);
 
-            //IQueryable<Utilisateur> query = dbSet;
-            //var response = new DatatableResponse<DtoUtilisateur>
-            //{
-            //    RecordTotal = await query.CountAsync()
-            //};
-
-            //// Check if Filtre Properties is Null
-            //bool filtreIsNotNull = Pagination<DtoUtilisateur>.CheckIfNull(filtre);
-
-            //if (filtreIsNotNull)
-            //{
-            //    if (!string.IsNullOrEmpty(filtre.NomComplete))
-            //    {
-            //        query = query.Where(item => (item.PersonnePhysique.Nom + " " + item.PersonnePhysique.Prenom).Contains(filtre.NomComplete));
-            //    }
-            //    if (!string.IsNullOrEmpty(filtre.Cin))
-            //    {
-            //        query = query.Where(item => item.PersonnePhysique.Cin == filtre.Cin);
-            //    }
-            //    if (!string.IsNullOrEmpty(filtre.Email))
-            //    {
-            //        query = query.Where(item => item.PersonnePhysique.Email == filtre.Email);
-            //    }
-            //    if (filtre.TypeUtilisateurId != null)
-            //    {
-            //        query = query.Where(item => item.TypeUtilisateurId == filtre.TypeUtilisateurId);
-            //    }
-
-            //    if (!string.IsNullOrEmpty(filtre.MotsCle))
-            //    {
-            //        query = query.Where(item => item.PersonnePhysique.Nom.Contains(filtre.MotsCle)
-            //        || item.PersonnePhysique.Prenom.Contains(filtre.MotsCle)
-            //        || item.PersonnePhysique.Cin.Contains(filtre.MotsCle)
-            //        || item.PersonnePhysique.Email.Contains(filtre.MotsCle)
-            //        || item.PersonnePhysique.Gsm.Contains(filtre.MotsCle)
-            //        || item.PersonnePhysique.Adresse.Contains(filtre.MotsCle)
-            //        || item.TypeUtilisateur.Label.Contains(filtre.MotsCle));
-            //    }
-            //}
-
-            //response.RecordFiltred = query.Count();
-
-            //if (pagination != null)
-            //{
-            //    query = query.ApplyPagination(pagination);
-            //}
-
-            //response.Data = query.Select(item => new DtoUtilisateur
-            //{
-            //    Id = item.Id,
-            //    PersonnePhysiqueId = item.PersonnePhysique.Id,
-            //    Nom = item.PersonnePhysique.Nom,
-            //    Prenom = item.PersonnePhysique.Prenom,
-            //    DateNaissance = item.PersonnePhysique.DateNaissance.HasValue ? item.PersonnePhysique.DateNaissance.Value.ToString("yyyy-MM-dd") : "",
-            //    Cin = item.PersonnePhysique.Cin,
-            //    Sexe = !string.IsNullOrEmpty(item.PersonnePhysique.Sexe) ? (item.PersonnePhysique.Sexe == "H" ? "Homme" : "Femme") : "",
-            //    Adresse = item.PersonnePhysique.Adresse,
-            //    Gsm = item.PersonnePhysique.Gsm,
-            //    Email = item.PersonnePhysique.Email,
-            //    Login = item.Login,
-            //    Password = item.Password,
-            //    IsActive = item.IsActive,
-            //    UpdatedBy = item.PersonnePhysique.UpdatedBy,
-            //    UpdateTime = item.PersonnePhysique.UpdateTime.HasValue ? item.PersonnePhysique.UpdateTime.Value.ToString("yyyy-MM-dd") : "",
-            //}).ToList();
-
-            //return response;
-
-            return null;
+            return await List.ToListAsync();
         }
         public async Task<Utilisateur> GetByResetTokenAsync(string token)
         {

@@ -4,7 +4,7 @@
 /* eslint-disable */
 export type DtoUtilisateur = {
     id?: string;
-    personnePhysiqueId?: string;
+    personnePhysiqueId?: string | null;
     nom?: string | null;
     prenom?: string | null;
     nomArabe?: string | null;

@@ -51,7 +51,12 @@ namespace ChamberAppel.Api.Config
 
         public static IApplicationBuilder UseCorsPolicy(this IApplicationBuilder app)
         {
-            return app.UseCors("AllowOnlyChamberAppel");
+            //return app.UseCors("AllowOnlyChamberAppel");
+
+            return app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
         }
 
         public static IApplicationBuilder UseHstsInProduction(this IApplicationBuilder app, IWebHostEnvironment env)

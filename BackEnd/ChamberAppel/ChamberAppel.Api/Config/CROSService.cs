@@ -8,16 +8,16 @@
 
             //string allowedOrigins = configuration.GetValue<string>("AllowedOrigins");
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowOnlyChamberAppel",
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin()
-                               .AllowAnyHeader()
-                               .AllowAnyMethod();
-                    });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowOnlyChamberAppel",
+            //        builder =>
+            //        {
+            //            builder.AllowAnyOrigin()
+            //                   .AllowAnyHeader()
+            //                   .AllowAnyMethod();
+            //        });
+            //});
 
             return services;
         }

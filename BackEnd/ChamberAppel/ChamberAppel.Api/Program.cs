@@ -26,11 +26,11 @@ app.UseAuthorization();
 app.UseStaticFiles();
 
 app.UseCorsPolicy();
-app.UseCspHeaders();
+//app.UseCspHeaders();
+//app.UseCsrfProtection();
+//app.UseSecureCookies();
+//app.UseSecurityHeaders();
 app.UseHstsInProduction(app.Environment);
-app.UseCsrfProtection();
-app.UseSecureCookies();
-app.UseSecurityHeaders();
 
 app.MapControllers();
 

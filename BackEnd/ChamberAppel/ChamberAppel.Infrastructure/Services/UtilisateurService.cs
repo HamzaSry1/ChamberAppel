@@ -37,6 +37,7 @@ namespace ChamberAppel.Infrastructure.Services
 
         public async Task<DtoUtilisateur> CreateUtilisateurAsync(DtoUtilisateur model)
         {
+            //TODO: add the transaction , if the personnepyhsique successfuly created then commit else rollback
             if (model.PersonnePhysiqueId == Guid.Empty)
             {
                 model.PersonnePhysiqueId = Guid.NewGuid();
@@ -51,6 +52,7 @@ namespace ChamberAppel.Infrastructure.Services
         }
         public async Task<DtoUtilisateur> UpdateUtilisateurAsync(DtoUtilisateur model)
         {
+            //TODO: add the transaction , if the personnepyhsique successfuly updated then commit else rollback
             await _PersonePhysiqueRepo.UpdateAsync(PersonnePhysiqueMapper.ToPersonnePhysique(model));
 
             await _repository.UpdateAsync(UtilisateurMapper.ToUtilisateur(model));

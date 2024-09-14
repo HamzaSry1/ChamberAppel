@@ -80,7 +80,6 @@ const routes: Routes = [
   { path: '**', component: Page404Component }
 ];
 
-
 const config: any = {
   useHash: false,
   scrollPositionRestoration: 'top',
