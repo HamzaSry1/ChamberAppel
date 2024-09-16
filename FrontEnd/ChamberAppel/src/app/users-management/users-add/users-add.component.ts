@@ -23,44 +23,35 @@ export class UsersAddComponent implements OnInit {
   public features = {
     Create: this._authService.checkPermission(Features.Utilisateurs.Add),
   };
-  UserId: string;
+  public UserId: string;
   public DefaultSelectName!: string;
   public UtilisateurDto!: DtoUtilisateur;
   public validationMessages: any = Const.ValidationMessages;
-  public verifierCinExiste = true;
-  pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loaded';
+  public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loaded';
   public Sexe = [
     { value: 'H', label: 'Homme' },
     { value: 'F', label: 'Femme' },
   ];
-  public CinExiste = true;
-  public Cin!: string;
-  PersonnePhysiqueId!: string;
-  public dateMaximale!: string;
+  public PersonnePhysiqueId!: string;
 
   constructor(
     private _notify: AppMessageService,
     private _router: Router,
-    private _loader: NgxSpinnerService,
     private _authService: AuthService
   ) {
     this.DefaultSelectName = this._notify.DefaultSelectOption;
     this.UserId = this._authService.geCurrentUserId();
   }
   ngOnInit(): void {
-    const today = new Date();
-    const SeptJoursSuivant = new Date(today);
-    SeptJoursSuivant.setDate(today.getDate() + 7);
-    this.dateMaximale = SeptJoursSuivant.toISOString().split('T')[0];
   }
 
   Reactiveform = new FormGroup({
     id: new FormControl({
-      value: '00000000-0000-0000-0000-000000000000',
+      value: Guid.EMPTY,
       disabled: true,
     }),
     personnePhysiqueId: new FormControl({
-      value: '00000000-0000-0000-0000-000000000000',
+      value: Guid.EMPTY,
       disabled: true,
     }),
     typeUtilisateurId: new FormControl(null, Validators.required),
@@ -91,14 +82,6 @@ export class UsersAddComponent implements OnInit {
     isActive: new FormControl(1),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
-  });
-  SearchCinForm = new FormGroup({
-    cin: new FormControl('', [
-      Validators.required,
-      Validator.cinValidator(),
-      Validators.minLength(2),
-      Validators.maxLength(50),
-    ]),
   });
 
   reloadPage() {
