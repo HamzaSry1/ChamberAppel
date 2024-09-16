@@ -34,7 +34,6 @@ namespace ChamberAppel.Domain.Models
         public string? UpdatedBy { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime? UpdateTime { get; set; } = DateTime.Now;
-        [Column(TypeName = "NUMBER(1)")]
-        public bool? IsActive { get; set; }
+        public int IsActive { get; set; }
     }
 }

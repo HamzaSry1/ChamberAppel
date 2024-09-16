@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Net;
 using ChamberAppel.Application.Validators;
+using System.Diagnostics;
 
 namespace ChamberAppel.Api.Controllers
 {
@@ -15,11 +16,13 @@ namespace ChamberAppel.Api.Controllers
     public class UtilisateursController : ControllerBase
     {
         private readonly IUtilisateurService _service;
+        private readonly IUserSessionService _sessionService;
         private readonly IAuthentification authentification;
-        public UtilisateursController(IUtilisateurService service, IAuthentification authentification)
+        public UtilisateursController(IUtilisateurService service, IAuthentification authentification, IUserSessionService sessionService)
         {
             _service = service;
             this.authentification = authentification;
+            _sessionService = sessionService;
         }
 
         #region CRUD
@@ -27,7 +30,15 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("GetAllAsync")]
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllAsync(DatatableRequest<DtoFiltreUtilisateur> request)
         {
-            return await _service.GetAllAsync(request.Filtre, request.Pagination);
+            try
+            {
+                return await _service.GetAllAsync(request.Filtre, request.Pagination);
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+                throw;
+            }
         }
 
         [HttpGet("GetByIdAsync/{id}")]
@@ -152,29 +163,31 @@ namespace ChamberAppel.Api.Controllers
         }
 
         [HttpGet("GetMyPermissionsAsync")]
-        [Authorize()]
-        public async Task<ApiResponse<List<Permission>>> GetMyPermissionsAsync()
-        {
-            var nameIdentifier = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
+        //[Authorize()]
+        //public async Task<ApiResponse<List<Permission>>> GetMyPermissionsAsync()
+        //{
+        //    var __userId = await _sessionService.GetCurrentUserIdAsync();
 
-            if (!Guid.TryParse(nameIdentifier?.Value, out var userId))
-            {
-                return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.BadRequest };
-            }
+        //    var nameIdentifier = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
 
-            var user = await _service.GetByIdAsync(userId);
-            if (user == null)
-            {
-                return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NotFound };
-            }
+        //    if (!Guid.TryParse(nameIdentifier?.Value, out var userId))
+        //    {
+        //        return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.BadRequest };
+        //    }
 
-            var r = await _service.GetAllPermissionsAsync(userId);
-            if (r.Any())
-            {
-                return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.OK, Data = r };
-            }
-            return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
-        }
+        //    var user = await _service.GetByIdAsync(userId);
+        //    if (user == null)
+        //    {
+        //        return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NotFound };
+        //    }
+
+        //    var r = await _service.GetAllPermissionsAsync(userId);
+        //    if (r.Any())
+        //    {
+        //        return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.OK, Data = r };
+        //    }
+        //    return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
+        //}
 
         [HttpPost("LoginAsync")]
         [AllowAnonymous]

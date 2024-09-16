@@ -88,7 +88,7 @@ export class UsersAddComponent implements OnInit {
       Validators.required,
       Validator.passwordValidator,
     ]),
-    isActive: new FormControl(false),
+    isActive: new FormControl(1),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
   });
@@ -124,7 +124,7 @@ export class UsersAddComponent implements OnInit {
           email: result.data?.email ?? '',
           login: null,
           password: null,
-          isActive: false,
+          isActive: 0,
           updatedBy: result.data?.updatedBy ?? '',
           updateTime: result.data?.updateTime,
         });

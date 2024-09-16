@@ -14,11 +14,10 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const hasAccess = this._service.isAuthenticated();
-    console.log("user has access to entred to the app ? : ", hasAccess)
     if (hasAccess == true) {
-      if (route.data?.['permission']) {
-        return this._service.checkPermission(route.data['permission']);
-      }
+      // if (route.data?.['permission']) {
+      //   return this._service.checkPermission(route.data['permission']);
+      // }
       return true;
     } else {
       this._router.navigate(['/auth/login']);

@@ -46,7 +46,7 @@ export class AuthService {
     this.permissionLock =
       UtilisateursService.getApiUtilisateursGetMyPermissionsAsync().then(
         (r) => {
-          this.LoadPermissions(r.data);
+          this.LoadPermissions(r.data as any);
         }
       );
 

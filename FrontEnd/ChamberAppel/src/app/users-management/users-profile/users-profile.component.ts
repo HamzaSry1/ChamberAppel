@@ -48,7 +48,7 @@ export class UsersProfileComponent {
           gsm: result.data?.gsm,
           email: result.data?.email ?? '',
           login: result.data?.login ?? '',
-          isActive: result.data?.isActive ?? false,
+          isActive: result.data?.isActive ?? 0,
           updatedBy: result.data?.updatedBy ?? '',
           updateTime: result.data?.updateTime,
         });
@@ -76,7 +76,7 @@ export class UsersProfileComponent {
     gsm: new FormControl(),
     email: new FormControl(''),
     login: new FormControl(''),
-    isActive: new FormControl(false),
+    isActive: new FormControl(1),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
   });

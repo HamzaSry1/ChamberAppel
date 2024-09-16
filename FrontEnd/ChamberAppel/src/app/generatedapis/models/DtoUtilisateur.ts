@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { GendersEnum } from './GendersEnum';
+import type { SituationFamilialeEnum } from './SituationFamilialeEnum';
 export type DtoUtilisateur = {
     id?: string;
     personnePhysiqueId?: string | null;
@@ -13,13 +15,13 @@ export type DtoUtilisateur = {
     adresse?: string | null;
     email?: string | null;
     gsm?: string | null;
-    situationFamiliale?: string | null;
-    sexe?: string | null;
+    situationFamiliale?: SituationFamilialeEnum;
+    sexe?: GendersEnum;
     dateNaissance?: string | null;
     login?: string | null;
     password?: string | null;
     updatedBy?: string | null;
     updateTime?: string | null;
-    isActive?: boolean | null;
+    isActive?: number | null;
 };
 

@@ -13,7 +13,6 @@ namespace ChamberAppel.Domain.Models
         public string Label { get; set; } = null!;
         [MaxLength(255)]
         public string? Description { get; set; }
-        [Column(TypeName = "NUMBER(1)")]
-        public bool? IsActive { get; set; }
+        public int IsActive { get; set; }
     }
 }

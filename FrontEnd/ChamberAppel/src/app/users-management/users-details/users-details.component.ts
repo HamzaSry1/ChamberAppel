@@ -53,7 +53,7 @@ export class UsersDetailsComponent implements OnInit {
           gsm: result.data?.gsm,
           email: result.data?.email ?? '',
           login: result.data?.login ?? '',
-          isActive: result.data?.isActive ?? false,
+          isActive: result.data?.isActive ?? 0,
           updatedBy: result.data?.updatedBy ?? '',
           updateTime: result.data?.updateTime,
         });
@@ -87,7 +87,7 @@ export class UsersDetailsComponent implements OnInit {
     gsm: new FormControl(),
     email: new FormControl('', Validators.compose([Validators.email])),
     login: new FormControl('', Validators.required),
-    isActive: new FormControl(false),
+    isActive: new FormControl(1),
     updatedBy: new FormControl(''),
     updateTime: new FormControl(),
   });

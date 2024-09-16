@@ -19,7 +19,7 @@ namespace ChamberAppel.Infrastructure.Repository
             if (personnephysique == null)
                 return null;
 
-            personnephysique.IsActive = true;
+            personnephysique.IsActive = 1;
             await _dbContext.SaveChangesAsync();
 
             return personnephysique;

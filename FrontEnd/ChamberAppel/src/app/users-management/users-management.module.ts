@@ -26,6 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -59,4 +60,4 @@ import { MatSortModule } from '@angular/material/sort';
     DesignSystemModule,
   ],
 })
-export class UsersManagementModule {}
+export class UsersManagementModule { }

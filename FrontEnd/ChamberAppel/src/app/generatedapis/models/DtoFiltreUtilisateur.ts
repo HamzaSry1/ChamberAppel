@@ -2,9 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { DtoFiltreMotsCle } from './DtoFiltreMotsCle';
 export type DtoFiltreUtilisateur = {
-    filtreMotsCle?: DtoFiltreMotsCle;
+    motsCle?: string | null;
     nomComplete?: string | null;
     cin?: string | null;
     email?: string | null;

@@ -12,8 +12,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240909111346_AddUtilisateurRoleTable")]
-    partial class AddUtilisateurRoleTable
+    [Migration("20240915123751_Initail-Migration")]
+    partial class InitailMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -153,8 +153,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Label")
                         .IsRequired()
@@ -193,8 +193,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("NVARCHAR2(10)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Nom")
                         .IsRequired()
@@ -245,8 +245,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("NVARCHAR2(255)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Label")
                         .IsRequired()
@@ -285,8 +285,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("RAW(16)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Login")
                         .IsRequired()

@@ -150,8 +150,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Label")
                         .IsRequired()
@@ -190,8 +190,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("NVARCHAR2(10)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Nom")
                         .IsRequired()
@@ -242,8 +242,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("NVARCHAR2(255)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Label")
                         .IsRequired()
@@ -282,8 +282,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("RAW(16)");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Login")
                         .IsRequired()

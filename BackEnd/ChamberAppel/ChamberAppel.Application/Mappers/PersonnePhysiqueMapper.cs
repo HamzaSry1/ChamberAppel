@@ -23,7 +23,7 @@ namespace ChamberAppel.Application.Mappers
             target.Gsm = request.Gsm ?? "";
             target.UpdatedBy = request.UpdatedBy ?? "";
             target.UpdateTime = DateTime.Now;
-            target.IsActive = request.IsActive ?? false;
+            target.IsActive = request.IsActive ?? 0;
             return target;
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace ChamberAppel.Domain.DTOs
+﻿using ChamberAppel.Domain.Enums;
+
+namespace ChamberAppel.Domain.DTOs
 {
     public class DtoUtilisateur
     {
@@ -12,13 +14,13 @@
         public string? Adresse { get; set; }
         public string? Email { get; set; }
         public string? Gsm { get; set; }
-        public string? SituationFamiliale { get; set; }
-        public string? Sexe { get; set; }
+        public SituationFamilialeEnum? SituationFamiliale { get; set; }
+        public GendersEnum? Sexe { get; set; }
         public string? DateNaissance { get; set; }
         public string? Login { get; set; }
         public string? Password { get; set; }
         public string? UpdatedBy { get; set; }
         public string? UpdateTime { get; set; }
-        public bool? IsActive { get; set; }
+        public int? IsActive { get; set; }
     }
 }

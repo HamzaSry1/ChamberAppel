@@ -13,16 +13,16 @@ import { Const } from 'src/app/Helpers/Const';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FilterSaver } from 'src/app/Helpers/FilterSaver';
 import { Features } from 'src/app/auth/permissions';
-import { MatDialog } from '@angular/material/dialog';
 import { DtoUtilisateur } from 'src/app/generatedapis/models/DtoUtilisateur';
 import { DtoFiltreUtilisateurDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreUtilisateurDatatableRequest';
 import { DtoUtilisateurDatatableResponse } from 'src/app/generatedapis/models/DtoUtilisateurDatatableResponse';
+import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
-  // animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
+  animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
 })
 export class UsersListComponent implements OnInit {
   public features = {
@@ -58,7 +58,6 @@ export class UsersListComponent implements OnInit {
     nomComplete: new FormControl(),
     cin: new FormControl(),
     email: new FormControl(),
-    typeUtilisateurId: new FormControl(),
     motsCle: new FormControl(),
   });
 
@@ -67,7 +66,6 @@ export class UsersListComponent implements OnInit {
     private _notify: AppMessageService,
     private _loader: NgxSpinnerService,
     private http: HttpClient,
-    private _dialog: MatDialog,
     private _notifyConfirm: ConfirmBoxEvokeService,
     private authService: AuthService
   ) {
@@ -138,9 +136,7 @@ export class UsersListComponent implements OnInit {
         .post(
           environment.apiUrl + '/api/Utilisateurs/Exporter',
           (this.DataTableRequest.filtre = {
-            filtreMotsCle: {
-              motsCle: this.FilterForm.getRawValue().motsCle,
-            },
+            motsCle: this.FilterForm.getRawValue().motsCle,
             cin: this.FilterForm.getRawValue().cin,
             email: this.FilterForm.getRawValue().email,
             nomComplete: this.FilterForm.getRawValue().nomComplete,
@@ -173,9 +169,7 @@ export class UsersListComponent implements OnInit {
     this._loader.show();
     this.DataTableRequest = {
       filtre: {
-        filtreMotsCle: {
-          motsCle: this.FilterForm.getRawValue().motsCle,
-        },
+        motsCle: this.FilterForm.getRawValue().motsCle,
         nomComplete: this.FilterForm.getRawValue().nomComplete,
         cin: this.FilterForm.getRawValue().cin,
         email: this.FilterForm.getRawValue().email,
@@ -187,6 +181,9 @@ export class UsersListComponent implements OnInit {
         orderByDirection: this.orderByDirection,
       },
     };
+
+    console.log(this.DataTableRequest);
+
     UtilisateursService.postApiUtilisateursGetAllAsync(this.DataTableRequest)
       .then((result: DtoUtilisateurDatatableResponse) => {
         this.Users = result.data ?? [];
@@ -201,23 +198,6 @@ export class UsersListComponent implements OnInit {
       })
       .finally(() => {
         this._loader.hide();
-      });
-  }
-
-  /* Send email confirmation */
-  ResetPassword(user: DtoUtilisateur) {
-    this._notifyConfirm
-      .info(
-        'Réinitialiser mot de passe ',
-        'Souhaitez-vous réinitialiser le mot de passe  de ' + user.nom + ' ?',
-        'Réinitialiser',
-        'Fermer'
-      )
-      .subscribe((resp) => {
-        const ClickedButton = resp.clickedButtonID;
-        if (ClickedButton == 'réinitialiser') {
-          // todo send link to the user email
-        }
       });
   }
 }

@@ -1,6 +1,5 @@
 using ChamberAppel.Api;
 using ChamberAppel.Api.Config;
-using Microsoft.AspNetCore.CookiePolicy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +9,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.RegisterSwagger();
 builder.Services.RegisterCROS(builder.Configuration);
-builder.Services.RegisterRateLimit();
-builder.Services.RegisterCSRF();
+//builder.Services.RegisterRateLimit();
+//builder.Services.RegisterCSRF();
 builder.Services.RegisterApi(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 
@@ -21,11 +20,14 @@ var app = builder.Build();
 app.UseSwaggerInDevelopment(app.Environment);
 
 app.UseHttpsRedirection();
+
+// Ensure CORS is applied before authentication/authorization
+app.UseCors("AllowOnlyChamberAppel");
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
 
-app.UseCorsPolicy();
 //app.UseCspHeaders();
 //app.UseCsrfProtection();
 //app.UseSecureCookies();

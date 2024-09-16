@@ -3,6 +3,7 @@ using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
@@ -52,7 +53,6 @@ namespace ChamberAppel.Infrastructure.Repository
             await _dbContext.UtilisateurRoles.AddRangeAsync(up);
             await _dbContext.SaveChangesAsync();
         }
-
         //not declared in the interface
         public async Task<List<Guid>> GetRollesAsync(Guid userId)
         {
@@ -147,30 +147,40 @@ namespace ChamberAppel.Infrastructure.Repository
         }
         public async Task<DtoUtilisateur?> GetDtoUtilisateurByIdAsync(Guid id)
         {
-            return await _dbContext
-            .Utilisateurs
-            .Include(x => x.PersonnePhysique)
-            .Where(u => u.Id == id)
-            .Select(u => new DtoUtilisateur
+            try
             {
-                Id = u.Id,
-                PersonnePhysiqueId = u.PersonnePhysique.Id,
-                Nom = u.PersonnePhysique.Nom,
-                NomArabe = u.PersonnePhysique.NomArabe,
-                Prenom = u.PersonnePhysique.Prenom,
-                PrenomArabe = u.PersonnePhysique.PrenomArabe,
-                DateNaissance = u.PersonnePhysique.DateNaissance.HasValue ? u.PersonnePhysique.DateNaissance.Value.ToString("yyyy-MM-dd") : "",
-                Cin = u.PersonnePhysique.Cin,
-                Sexe = !string.IsNullOrEmpty(u.PersonnePhysique.Sexe.ToString()) ? (u.PersonnePhysique.Sexe.ToString() == "Homme" ? "Homme" : "Femme") : "",
-                Adresse = u.PersonnePhysique.Adresse,
-                Gsm = u.PersonnePhysique.Gsm,
-                Email = u.PersonnePhysique.Email,
-                Login = u.Login,
-                Password = u.Password,
-                IsActive = u.IsActive,
-                UpdatedBy = u.PersonnePhysique.UpdatedBy,
-                UpdateTime = u.PersonnePhysique.UpdateTime.HasValue ? u.PersonnePhysique.UpdateTime.Value.ToString("yyyy-MM-dd") : "",
-            }).FirstOrDefaultAsync();
+                return await _dbContext.Utilisateurs
+               .Include(x => x.PersonnePhysique)
+               .Where(u => u.Id == id)
+                   .Select(u => new DtoUtilisateur
+                   {
+                       Id = u.Id,
+                       PersonnePhysiqueId = u.PersonnePhysique.Id,
+                       Nom = u.PersonnePhysique.Nom,
+                       NomArabe = u.PersonnePhysique.NomArabe,
+                       Prenom = u.PersonnePhysique.Prenom,
+                       PrenomArabe = u.PersonnePhysique.PrenomArabe,
+                       //DateNaissance = u.PersonnePhysique.DateNaissance.HasValue ? u.PersonnePhysique.DateNaissance.Value.ToString("yyyy-MM-dd") : "",
+                       DateNaissance = DateTime.Now.ToString("yyyy-MM-dd"),
+                       Cin = u.PersonnePhysique.Cin,
+                       Sexe = u.PersonnePhysique.Sexe,
+                       Adresse = u.PersonnePhysique.Adresse,
+                       Gsm = u.PersonnePhysique.Gsm,
+                       Email = u.PersonnePhysique.Email,
+                       Login = u.Login,
+                       Password = u.Password,
+                       IsActive = u.IsActive,
+                       UpdatedBy = u.PersonnePhysique.UpdatedBy,
+                       UpdateTime = DateTime.Now.ToString("yyyy-MM-dd"),
+                       //UpdateTime = u.PersonnePhysique.UpdateTime.HasValue ? u.PersonnePhysique.UpdateTime.Value.ToString("yyyy-MM-dd") : "",
+                   }).FirstOrDefaultAsync();
+
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+                throw;
+            }
         }
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllDtoUtilisateurAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
         {
@@ -200,14 +210,14 @@ namespace ChamberAppel.Infrastructure.Repository
                     query = query.Where(item => item.PersonnePhysique.Email == filtre.Email);
                 }
 
-                if (!string.IsNullOrEmpty(filtre.FiltreMotsCle.MotsCle))
+                if (!string.IsNullOrEmpty(filtre.MotsCle))
                 {
-                    query = query.Where(item => item.PersonnePhysique.Nom.Contains(filtre.FiltreMotsCle.MotsCle)
-                    || item.PersonnePhysique.Prenom.Contains(filtre.FiltreMotsCle.MotsCle)
-                    || item.PersonnePhysique.Cin.Contains(filtre.FiltreMotsCle.MotsCle)
-                    || item.PersonnePhysique.Email.Contains(filtre.FiltreMotsCle.MotsCle)
-                    || item.PersonnePhysique.Gsm.Contains(filtre.FiltreMotsCle.MotsCle)
-                    || item.PersonnePhysique.Adresse.Contains(filtre.FiltreMotsCle.MotsCle));
+                    query = query.Where(item => item.PersonnePhysique.Nom.Contains(filtre.MotsCle)
+                    || item.PersonnePhysique.Prenom.Contains(filtre.MotsCle)
+                    || item.PersonnePhysique.Cin.Contains(filtre.MotsCle)
+                    || item.PersonnePhysique.Email.Contains(filtre.MotsCle)
+                    || item.PersonnePhysique.Gsm.Contains(filtre.MotsCle)
+                    || item.PersonnePhysique.Adresse.Contains(filtre.MotsCle));
                 }
             }
 
@@ -218,24 +228,32 @@ namespace ChamberAppel.Infrastructure.Repository
                 //query = ApplyPagination(query, pagination);
             }
 
-            response.Data = query.Select(item => new DtoUtilisateur
+            try
             {
-                Id = item.Id,
-                PersonnePhysiqueId = item.PersonnePhysique.Id,
-                Nom = item.PersonnePhysique.Nom,
-                Prenom = item.PersonnePhysique.Prenom,
-                DateNaissance = item.PersonnePhysique.DateNaissance.HasValue ? item.PersonnePhysique.DateNaissance.Value.ToString("yyyy-MM-dd") : "",
-                Cin = item.PersonnePhysique.Cin,
-                Sexe = !string.IsNullOrEmpty(item.PersonnePhysique.Sexe.ToString()) ? (item.PersonnePhysique.Sexe.ToString() == "Homme" ? "Homme" : "Femme") : "",
-                Adresse = item.PersonnePhysique.Adresse,
-                Gsm = item.PersonnePhysique.Gsm,
-                Email = item.PersonnePhysique.Email,
-                Login = item.Login,
-                Password = item.Password,
-                IsActive = item.IsActive,
-                UpdatedBy = item.PersonnePhysique.UpdatedBy,
-                UpdateTime = item.PersonnePhysique.UpdateTime.HasValue ? item.PersonnePhysique.UpdateTime.Value.ToString("yyyy-MM-dd") : "",
-            }).ToList();
+                response.Data = query.Select(item => new DtoUtilisateur
+                {
+                    Id = item.Id,
+                    PersonnePhysiqueId = item.PersonnePhysique.Id,
+                    Nom = item.PersonnePhysique.Nom,
+                    Prenom = item.PersonnePhysique.Prenom,
+                    //DateNaissance = item.PersonnePhysique.DateNaissance.HasValue ? item.PersonnePhysique.DateNaissance.Value.ToString("yyyy/MM/dd") : "",
+                    DateNaissance = DateTime.Now.ToString("yyyy-MM-dd"),
+                    Cin = item.PersonnePhysique.Cin,
+                    Sexe = item.PersonnePhysique.Sexe,
+                    Adresse = item.PersonnePhysique.Adresse,
+                    Gsm = item.PersonnePhysique.Gsm,
+                    Email = item.PersonnePhysique.Email,
+                    Login = item.Login,
+                    Password = item.Password,
+                    IsActive = item.IsActive,
+                    UpdatedBy = item.PersonnePhysique.UpdatedBy,
+                    UpdateTime = DateTime.Now.ToString("yyyy-MM-dd"),
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+            }
 
             return response;
         }
