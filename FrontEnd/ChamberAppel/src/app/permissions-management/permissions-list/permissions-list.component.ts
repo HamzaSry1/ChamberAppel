@@ -26,7 +26,7 @@ export class PermissionsListComponent {
     Edit: this.authService.checkPermission(Features.Permissions.Update),
     Delete: this.authService.checkPermission(Features.Permissions.Delete),
     Show: this.authService.checkPermission(Features.Permissions.GetById),
-    Create: this.authService.checkPermission(Features.Permissions.Add),
+    Create: this.authService.checkPermission(Features.Permissions.Create),
     Exporter: this.authService.checkPermission(Features.Permissions.Exporter),
   };
 

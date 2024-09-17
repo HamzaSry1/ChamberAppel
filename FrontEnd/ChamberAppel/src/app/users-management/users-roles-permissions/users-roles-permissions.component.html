@@ -1,7 +1,9 @@
 <div class="container-fluid">
-  <app-page-action-header [icon]="'fa fa-lock'" [title]="'Détail rôles et permissions'" [titleMobile]="'Dtl. rôles et permissions'">
+  <app-page-action-header [icon]="'fa fa-lock'" [title]="'Détail rôles et permissions'"
+    [titleMobile]="'Dtl. rôles et permissions'">
     <ng-container>
-      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des utilisateurs" routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des utilisateurs"
+        routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
 
@@ -22,7 +24,8 @@
                     <ul *ngFor="let item of Roles">
                       <li>
                         <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" formArrayName="selectedRoles" [value]="item.id" (change)="OnChangeRole($event)" [checked]="FindRoleById(item.id)" />
+                          <input type="checkbox" class="form-check-input" formArrayName="selectedRoles"
+                            [value]="item.id" (change)="OnChangeRole($event)" [checked]="FindRoleById(item.id)" />
                           {{ item.label }}
                         </label>
                       </li>
@@ -31,7 +34,8 @@
                 </form>
               </div>
               <div class="card-footer d-flex justify-content-end">
-                <button *ngIf="features.AddRoles | async" class="btn btn-sm btn-primary" (click)="SaveRoles()"> <i class="fa fa-plus"></i> &nbsp; Enregister rôles </button>
+                <button class="btn btn-sm btn-primary" (click)="SaveRoles()"> <i class="fa fa-plus"></i> &nbsp;
+                  Enregister rôles </button>
               </div>
             </div>
           </c-tab-pane>
@@ -43,17 +47,22 @@
                   <ng-container *ngFor="let group of Permissions; let i = index">
                     <div class="group-container">
                       <button class="toggle-button" (click)="toggleGroup(i)">
-                        <i class="toggle-icon" [class.fa-chevron-down]="!isGroupCollapsed(i)" [class.fa-chevron-right]="isGroupCollapsed(i)"></i>
+                        <i class="toggle-icon" [class.fa-chevron-down]="!isGroupCollapsed(i)"
+                          [class.fa-chevron-right]="isGroupCollapsed(i)"></i>
                       </button>
                       <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" [value]="group" [indeterminate]="isGroupIndeterminate(group)" [checked]="IsGroupChecked(group?.groupe)" (change)="toggleGroupPermissions($event, group)" />
+                        <input type="checkbox" class="form-check-input" [value]="group"
+                          [indeterminate]="isGroupIndeterminate(group)" [checked]="IsGroupChecked(group?.groupe)"
+                          (change)="toggleGroupPermissions($event, group)" />
                         {{ group.groupe }}
                       </label>
                     </div>
                     <ul *ngIf="!isGroupCollapsed(i)" class="permission-list">
                       <li *ngFor="let permission of group.permissions">
                         <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" formArrayName="selectedPermissions" [value]="permission.id" (change)="OnChangePermissions($event)" [checked]="IsPermissionIdChecked(permission.id)" />
+                          <input type="checkbox" class="form-check-input" formArrayName="selectedPermissions"
+                            [value]="permission.id" (change)="OnChangePermissions($event)"
+                            [checked]="IsPermissionIdChecked(permission.id)" />
                           {{ permission.label }}
                         </label>
                       </li>
@@ -62,7 +71,8 @@
                 </form>
               </div>
               <div class="card-footer d-flex justify-content-end">
-                <button *ngIf="features.AddPermissions | async" class="btn btn-sm btn-primary" (click)="SavePermissions()"> <i class="fa fa-plus"></i> &nbsp; Enregister permissions </button>
+                <button class="btn btn-sm btn-primary" (click)="SavePermissions()"> <i class="fa fa-plus"></i> &nbsp;
+                  Enregister permissions </button>
               </div>
             </div>
           </c-tab-pane>

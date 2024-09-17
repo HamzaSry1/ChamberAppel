@@ -14,7 +14,7 @@ namespace ChamberAppel.Application.Mappers
             target.Prenom = request.Prenom ?? "";
             target.NomArabe = request.NomArabe ?? "";
             target.PrenomArabe = request.PrenomArabe ?? "";
-            target.DateNaissance = DateTime.Parse(request.DateNaissance);
+            target.DateNaissance = request.DateNaissance;
             target.Cin = request.Cin ?? "";
             target.SituationFamiliale = SituationFamilialeEnum.Celebataire;
             target.Sexe = GendersEnum.Homme;
@@ -23,7 +23,7 @@ namespace ChamberAppel.Application.Mappers
             target.Gsm = request.Gsm ?? "";
             target.UpdatedBy = request.UpdatedBy ?? "";
             target.UpdateTime = DateTime.Now;
-            target.IsActive = request.IsActive ?? 0;
+            target.IsActive = request.IsActive;
             return target;
         }
     }

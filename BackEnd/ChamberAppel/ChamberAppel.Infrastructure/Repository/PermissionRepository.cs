@@ -3,7 +3,6 @@ using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
@@ -44,7 +43,6 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return response;
         }
-
         private IQueryable<Permission> ApplyPagination(IQueryable<Permission> query, DtoPagination pagination)
         {
             // Apply pagination

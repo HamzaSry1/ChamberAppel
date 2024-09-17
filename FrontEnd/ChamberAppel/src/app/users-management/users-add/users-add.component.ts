@@ -21,7 +21,7 @@ import { DtoUtilisateur } from 'src/app/generatedapis/models/DtoUtilisateur';
 })
 export class UsersAddComponent implements OnInit {
   public features = {
-    Create: this._authService.checkPermission(Features.Utilisateurs.Add),
+    Create: this._authService.checkPermission(Features.Utilisateurs.Create),
   };
   public UserId: string;
   public DefaultSelectName!: string;

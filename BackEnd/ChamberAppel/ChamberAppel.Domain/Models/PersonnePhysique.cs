@@ -20,8 +20,8 @@ namespace ChamberAppel.Domain.Models
         public DateTime? DateNaissance { get; set; }
         [Required, MaxLength(10), MinLength(5)]
         public string Cin { get; set; } = null!;
-        public SituationFamilialeEnum SituationFamiliale { get; set; }
-        public GendersEnum Sexe { get; set; }
+        public SituationFamilialeEnum? SituationFamiliale { get; set; }
+        public GendersEnum? Sexe { get; set; }
         [MaxLength(255), MinLength(10)]
         public string? Adresse { get; set; }
         [Required, DataType(DataType.EmailAddress), MaxLength(80), MinLength(10)]

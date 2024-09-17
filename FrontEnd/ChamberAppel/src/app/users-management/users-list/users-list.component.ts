@@ -28,7 +28,7 @@ export class UsersListComponent implements OnInit {
   public features = {
     Show: this.authService.checkPermission(Features.Utilisateurs.GetById),
     Edit: this.authService.checkPermission(Features.Utilisateurs.Update),
-    Create: this.authService.checkPermission(Features.Utilisateurs.Add),
+    Create: this.authService.checkPermission(Features.Utilisateurs.Create),
     Delete: this.authService.checkPermission(Features.Utilisateurs.Delete),
     Exporter: this.authService.checkPermission(Features.Utilisateurs.Exporter),
     Roles: this.authService.checkPermission(Features.Utilisateurs.GetRoles),
@@ -182,11 +182,12 @@ export class UsersListComponent implements OnInit {
       },
     };
 
-    console.log(this.DataTableRequest);
-
     UtilisateursService.postApiUtilisateursGetAllAsync(this.DataTableRequest)
       .then((result: DtoUtilisateurDatatableResponse) => {
         this.Users = result.data ?? [];
+
+        console.log(this.Users);
+
         this.RecordTotal = result.recordTotal ?? 0;
         this.RecordFiltred = result.recordFiltred ?? 0;
         /* set page status */

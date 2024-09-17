@@ -24,15 +24,14 @@ namespace ChamberAppel.Infrastructure.Services
             }).OrderBy(x => x.Code)
               .ToList();
         }
-
         public async Task<DatatableResponse<Permission>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination)
         {
             return await _repository.GetAll(filter, pagination);
         }
-
         public async Task<List<DtoPermissionGroupe>> GetAllByGroupeAsync()
         {
             var list = await _repository.GetAllAsync();
+
             var resultat = list.GroupBy(list => list.Groupe)
                 .Select(x => new DtoPermissionGroupe
                 {

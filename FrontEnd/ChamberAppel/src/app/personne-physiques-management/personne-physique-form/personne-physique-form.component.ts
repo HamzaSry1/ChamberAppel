@@ -17,7 +17,7 @@ import { PersonnePhysiquesService } from 'src/app/generatedapis/services/Personn
 })
 export class PersonnePhysiqueFormComponent implements OnInit {
   public features = {
-    Create: this.authService.checkPermission(Features.PersonnePhysique.Add),
+    Create: this.authService.checkPermission(Features.PersonnePhysique.Create),
     Edit: this.authService.checkPermission(Features.PersonnePhysique.Update),
     Delete: this.authService.checkPermission(Features.PersonnePhysique.Delete),
   };

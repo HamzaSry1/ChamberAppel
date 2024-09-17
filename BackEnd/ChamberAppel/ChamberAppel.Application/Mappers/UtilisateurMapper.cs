@@ -13,7 +13,7 @@ namespace ChamberAppel.Application.Mappers
             target.PersonnePhysiqueId = request.PersonnePhysiqueId ?? Guid.Empty;
             target.Login = request.Login ?? "";
             target.Password = request.Password ?? "";
-            target.IsActive = request.IsActive ?? 0;
+            target.IsActive = request.IsActive;
 
             return target;
         }

@@ -16,7 +16,7 @@ import { Features } from 'src/app/auth/permissions';
 })
 export class PermissionsAddComponent {
   public features = {
-    Create: this.authService.checkPermission(Features.Permissions.Add),
+    Create: this.authService.checkPermission(Features.Permissions.Create),
   };
   public validationMessages: any = Const.ValidationMessages;
   constructor(

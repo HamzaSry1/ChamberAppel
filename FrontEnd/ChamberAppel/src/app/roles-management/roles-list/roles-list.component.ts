@@ -25,7 +25,7 @@ export class RolesListComponent {
     Delete: this.authService.checkPermission(Features.Roles.Delete),
     Show: this.authService.checkPermission(Features.Roles.GetById),
     Permissions: this.authService.checkPermission(Features.Roles.GetPermissions),
-    Create: this.authService.checkPermission(Features.Roles.Add),
+    Create: this.authService.checkPermission(Features.Roles.Create),
     Exporter: this.authService.checkPermission(Features.Roles.Exporter),
   };
 

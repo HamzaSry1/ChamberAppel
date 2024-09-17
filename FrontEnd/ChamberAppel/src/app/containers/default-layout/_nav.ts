@@ -11,18 +11,24 @@ export const navItems: INavData[] = [
     // },
   },
   {
-    name: 'Utilisateurs',
-    url: '/utilisateurs',
-    iconComponent: { name: 'cil-group' },
-  },
-  {
-    name: 'Permissions',
-    url: '/permissions',
-    iconComponent: { name: 'cil-lock-locked' },
-  },
-  {
-    name: 'Roles',
-    url: '/roles',
-    iconComponent: { name: 'cil-lock-unlocked' },
+    name: "Gestion d'accès",
+    iconComponent: { name: 'cil-settings' },
+    children: [
+      {
+        name: 'Utilisateurs',
+        url: '/utilisateurs',
+        iconComponent: { name: 'cil-group' },
+      },
+      {
+        name: 'Permissions',
+        url: '/permissions',
+        iconComponent: { name: 'cil-lock-locked' },
+      },
+      {
+        name: 'Roles',
+        url: '/roles',
+        iconComponent: { name: 'cil-lock-unlocked' },
+      }
+    ]
   },
 ];

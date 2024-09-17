@@ -7,6 +7,9 @@ import { Permission } from '../generatedapis/models/Permission';
 export class AuthService {
   public permissions: string[] = [];
   private initialized: boolean = false;
+  private permissionLock: Promise<void> | null = null;
+  private permissionsCache: Permission[] | null = null;
+
 
   public decodeToken(): any {
     const token = this.getToken();
@@ -21,8 +24,6 @@ export class AuthService {
       ];
     return userId;
   }
-  private permissionLock: Promise<void> | null = null;
-  private permissionsCache: Permission[] | null = null;
 
   public ResetPermissions() {
     this.permissionsCache = null;
@@ -41,8 +42,6 @@ export class AuthService {
       });
     }
 
-    const userId = this.geCurrentUserId();
-
     this.permissionLock =
       UtilisateursService.getApiUtilisateursGetMyPermissionsAsync().then(
         (r) => {
@@ -52,6 +51,7 @@ export class AuthService {
 
     return this.permissionLock;
   }
+
   LoadPermissions(p: Permission[] | undefined | null) {
     const ListPermissions: string[] = p?.map((d) => d.code) as string[];
     this.permissionsCache = p as Permission[];

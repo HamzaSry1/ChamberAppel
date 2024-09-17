@@ -1,5 +1,5 @@
 <!--sidebar-->
-<c-sidebar #sidebar="cSidebar" class="d-print-none sidebar sidebar-fixed" id="sidebar" visible>
+<c-sidebar #sidebar="cSidebar" class="d-print-none sidebar sidebar-dark sidebar-fixed" id="sidebar" visible>
   <c-sidebar-brand [brandFull]="{
       src: '../../../assets/images/CDC_PNG.png',
       width: 50,
@@ -7,11 +7,10 @@
       alt: 'Cour des comptes Logo'
     }" [brandNarrow]="{
       src: '../../../assets/images/CDC_PNG.png',
-      width: 46,
-      height: 46,
+      width: 50,
+      height: 50,
       alt: 'Cour des comptes Logo'
-    }" routerLink="./" />
-
+    }" routerLink="accueil" />
   <ng-scrollbar pointerEventsMethod="scrollbar">
     <c-sidebar-nav [navItems]="navItems" dropdownMode="close" />
   </ng-scrollbar>

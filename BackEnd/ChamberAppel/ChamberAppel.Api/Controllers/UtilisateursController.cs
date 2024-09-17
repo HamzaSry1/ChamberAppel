@@ -163,31 +163,31 @@ namespace ChamberAppel.Api.Controllers
         }
 
         [HttpGet("GetMyPermissionsAsync")]
-        //[Authorize()]
-        //public async Task<ApiResponse<List<Permission>>> GetMyPermissionsAsync()
-        //{
-        //    var __userId = await _sessionService.GetCurrentUserIdAsync();
+        [Authorize()]
+        public async Task<ApiResponse<List<Permission>>> GetMyPermissionsAsync()
+        {
+            var __userId = await _sessionService.GetCurrentUserIdAsync();
 
-        //    var nameIdentifier = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
+            var nameIdentifier = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
 
-        //    if (!Guid.TryParse(nameIdentifier?.Value, out var userId))
-        //    {
-        //        return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.BadRequest };
-        //    }
+            if (!Guid.TryParse(nameIdentifier?.Value, out var userId))
+            {
+                return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.BadRequest };
+            }
 
-        //    var user = await _service.GetByIdAsync(userId);
-        //    if (user == null)
-        //    {
-        //        return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NotFound };
-        //    }
+            var user = await _service.GetByIdAsync(userId);
+            if (user == null)
+            {
+                return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NotFound };
+            }
 
-        //    var r = await _service.GetAllPermissionsAsync(userId);
-        //    if (r.Any())
-        //    {
-        //        return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.OK, Data = r };
-        //    }
-        //    return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
-        //}
+            var r = await _service.GetAllPermissionsAsync(userId);
+            if (r.Any())
+            {
+                return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.OK, Data = r };
+            }
+            return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
+        }
 
         [HttpPost("LoginAsync")]
         [AllowAnonymous]
