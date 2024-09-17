@@ -29,7 +29,7 @@ export class RolesDetailComponent {
     }),
     label: new FormControl('', Validators.required),
     code: new FormControl('', Validators.required),
-    isActive: new FormControl(false),
+    isActive: new FormControl(1),
   });
 
   Get(id: string) {
@@ -40,7 +40,7 @@ export class RolesDetailComponent {
           id: result.data?.id ?? '',
           label: result.data?.label ?? '',
           code: result.data?.code ?? '',
-          isActive: result.data?.isActive ?? false,
+          isActive: result.data?.isActive ?? 0,
         });
       })
       .finally(() => this._loader.hide());

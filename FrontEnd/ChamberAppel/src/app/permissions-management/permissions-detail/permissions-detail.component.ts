@@ -28,7 +28,7 @@ export class PermissionsDetailComponent {
     label: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required),
     description: new FormControl(''),
-    isActive: new FormControl(false),
+    isActive: new FormControl(1),
   });
 
   Get(id: string) {
@@ -41,7 +41,7 @@ export class PermissionsDetailComponent {
           label: result.data?.label ?? '',
           groupe: result.data?.groupe ?? '',
           description: result.data?.description ?? '',
-          isActive: result.data?.isActive ?? false,
+          isActive: result.data?.isActive ?? 0,
         });
       })
       .finally(() => this._loader.hide());

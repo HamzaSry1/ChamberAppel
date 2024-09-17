@@ -127,7 +127,7 @@ export class UsersEditComponent implements OnInit {
         email: this.Reactiveform.getRawValue().email,
         login: this.Reactiveform.getRawValue().login,
         password: this.Reactiveform.getRawValue().password,
-        isActive: this.Reactiveform.getRawValue().isActive,
+        isActive: this.Reactiveform.getRawValue().isActive ?? 1,
         updatedBy: this.UserId,
         updateTime: new Date().toISOString(),
       };

@@ -22,6 +22,6 @@ export type DtoUtilisateur = {
     password?: string | null;
     updatedBy?: string | null;
     updateTime?: string | null;
-    isActive?: number | null;
+    isActive?: number;
 };
 

@@ -19,6 +19,6 @@ export type PersonnePhysique = {
     gsm?: string | null;
     updatedBy?: string | null;
     updateTime?: string | null;
-    isActive?: number | null;
+    isActive?: number;
 };
 

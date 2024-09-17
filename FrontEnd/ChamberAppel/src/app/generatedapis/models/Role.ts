@@ -7,6 +7,6 @@ export type Role = {
     code?: string | null;
     label: string;
     description?: string | null;
-    isActive?: boolean | null;
+    isActive?: number;
 };
 

@@ -23,7 +23,7 @@ export class PermissionsAddComponent {
     private _notify: AppMessageService,
     private _router: Router,
     private authService: AuthService,
-  ) {}
+  ) { }
 
   Reactiveform = new FormGroup({
     id: new FormControl({
@@ -39,7 +39,7 @@ export class PermissionsAddComponent {
 
   Save() {
     if (this.Reactiveform.valid) {
-      PermissionsService.postApiPermissionsCreateAsync(this.Reactiveform.getRawValue() as Permission)
+      PermissionsService.postApiPermissionsCreateAsync(this.Reactiveform.getRawValue() as any)
         .then(() => {
           this._notify.Success(AppMessageService.Add);
           this._router.navigate(['/permissions']);

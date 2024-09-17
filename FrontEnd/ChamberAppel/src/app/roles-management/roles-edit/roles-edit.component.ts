@@ -40,7 +40,7 @@ export class RolesEditComponent {
     }),
     code: new FormControl('', Validators.required),
     label: new FormControl('', Validators.required),
-    isArchive: new FormControl(false),
+    isArchive: new FormControl(1),
   });
 
   Get(id: string) {
@@ -51,7 +51,7 @@ export class RolesEditComponent {
           id: result.data?.id ?? '',
           code: result.data?.code ?? '',
           label: result.data?.label ?? '',
-          isArchive: result.data?.isActive ?? false,
+          isArchive: result.data?.isActive ?? 0,
         });
       })
       .finally(() => this._loader.hide());

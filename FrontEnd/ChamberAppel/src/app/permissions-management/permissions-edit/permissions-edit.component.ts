@@ -42,7 +42,7 @@ export class PermissionsEditComponent {
     code: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required),
     description: new FormControl(''),
-    isActive: new FormControl(false),
+    isActive: new FormControl(1),
   });
 
   Get(id: string) {
@@ -56,7 +56,7 @@ export class PermissionsEditComponent {
           code: data.code as string,
           groupe: data.groupe as string,
           description: data.description as string,
-          isActive: data.isActive as boolean,
+          isActive: data.isActive ?? 0,
         });
       })
       .finally(() => this._loader.hide());

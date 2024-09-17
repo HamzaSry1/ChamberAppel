@@ -7,7 +7,7 @@ export type Permission = {
     code?: string | null;
     label: string;
     description?: string | null;
-    isActive?: boolean | null;
+    isActive?: number;
     groupe: string;
 };
 

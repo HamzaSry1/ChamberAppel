@@ -173,18 +173,13 @@ export class UtilisateursService {
         });
     }
     /**
-     * @param requestBody
-     * @returns DtoLoginResultApiResponse Success
+     * @returns PermissionListApiResponse Success
      * @throws ApiError
      */
-    public static getApiUtilisateursGetMyPermissionsAsync(
-        requestBody?: DtoLogin,
-    ): CancelablePromise<DtoLoginResultApiResponse> {
+    public static getApiUtilisateursGetMyPermissionsAsync(): CancelablePromise<PermissionListApiResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Utilisateurs/GetMyPermissionsAsync',
-            body: requestBody,
-            mediaType: 'application/json',
         });
     }
     /**

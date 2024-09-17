@@ -2,6 +2,6 @@
 {
     public class DtoFiltreMotsCle
     {
-        public string MotsCle { get; set; } = null!;
+        public string? MotsCle { get; set; }
     }
 }
