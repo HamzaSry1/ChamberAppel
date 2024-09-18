@@ -1,26 +1,12 @@
 <!-- Interface fiche utilisateur -->
 <form [formGroup]="Reactiveform" class="container-fluid">
   <!-- header -->
-  <app-page-action-header
-    [icon]="'fa fa-user'"
-    [title]="'Ajouter un utilisateur'"
-    [titleMobile]="'Ajt. utilisateur'"
-  >
+  <app-page-action-header [icon]="'fa fa-user'" [title]="'Ajouter un utilisateur'" [titleMobile]="'Ajt. utilisateur'">
     <ng-container>
-      <app-header-action-button
-        buttonClass="btn-secondary me-2"
-        title="Revenir à la liste des utilisateurs"
-        routerLink="/utilisateurs"
-        iconClass="fa fa-arrow-left"
-        label="Retour"
-      ></app-header-action-button>
-      <app-header-action-button
-        buttonClass="btn-primary "
-        title="Enregistrer les données"
-        iconClass="fa fa-save"
-        label="Enregistrer"
-        (clicked)="Save()"
-      ></app-header-action-button>
+      <app-header-action-button buttonClass="btn-secondary me-2" title="Revenir à la liste des utilisateurs"
+        routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+      <app-header-action-button buttonClass="btn-primary " title="Enregistrer les données" iconClass="fa fa-save"
+        label="Enregistrer" (clicked)="Save()"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
 
@@ -28,7 +14,7 @@
   <div class="row my-3">
     <div class="col-12">
       <div class="card">
-        <div class="card-header text-white" style="background-color: #a2291f ">
+        <div class="card-header">
           <div class="col-md-6">
             <h5 class="">
               <i class="fa fa-book"></i> Informations personnelles
@@ -39,156 +25,92 @@
           <div class="row">
             <div class="col-md-3 form-group">
               <label class="my-2" for="Nom">Nom</label>
-              <input
-                type="text"
-                placeholder="Nom"
-                class="form-control"
-                id="Nom"
-                formControlName="nom"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom"
+                autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('nom')?.touched &&
                   Reactiveform.get('nom')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('nom')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Prénom">Prénom</label>
-              <input
-                type="text"
-                placeholder="Prénom"
-                class="form-control"
-                id="Prénom"
-                formControlName="prenom"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom"
+                autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('prenom')?.touched &&
                   Reactiveform.get('prenom')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('prenom')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="nomArabe"> اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
-              <input
-                type="text"
-                placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ "
-                class="form-control"
-                id="nomArabe"
-                formControlName="nomArabe"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="nomArabe"
+                formControlName="nomArabe" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('nomArabe')?.touched &&
                   Reactiveform.get('nomArabe')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('nomArabe')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="prenomArabe"> الاسم العائلي </label>
-              <input
-                type="text"
-                placeholder="الاسم العائلي"
-                class="form-control"
-                id="prenomArabe"
-                formControlName="prenomArabe"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="الاسم العائلي" class="form-control" id="prenomArabe"
+                formControlName="prenomArabe" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('prenomArabe')?.touched &&
                   Reactiveform.get('prenomArabe')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('prenomArabe')?.errors
                       | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="DateNaissance">Date naissance</label>
-              <input
-                type="date"
-                placeholder="Date Naissance"
-                class="form-control"
-                id="DateNaissance"
-                formControlName="dateNaissance"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="date" placeholder="Date Naissance" class="form-control" id="DateNaissance"
+                formControlName="dateNaissance" autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('dateNaissance')?.touched &&
                   Reactiveform.get('dateNaissance')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('dateNaissance')?.errors
                       | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Cin">Cin</label>
-              <input
-                type="text"
-                placeholder="Cin"
-                class="form-control"
-                id="Cin"
-                formControlName="cin"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="Cin" class="form-control" id="Cin" formControlName="cin"
+                autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('cin')?.touched &&
                   Reactiveform.get('cin')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('cin')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
@@ -206,51 +128,28 @@
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Adresse">Adresse</label>
-              <input
-                type="text"
-                placeholder="Adresse"
-                class="form-control"
-                id="Adresse"
-                formControlName="adresse"
-                autocomplete="on"
-              />
+              <input type="text" placeholder="Adresse" class="form-control" id="Adresse" formControlName="adresse"
+                autocomplete="on" />
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Email">Email</label>
-              <input
-                type="text"
-                placeholder="........@courdescomptes.ma"
-                class="form-control"
-                id="Email"
-                formControlName="email"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="........@courdescomptes.ma" class="form-control" id="Email"
+                formControlName="email" autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('email')?.touched &&
                   Reactiveform.get('email')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('email')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="gsm">Gsm</label>
-              <input
-                type="text"
-                placeholder="Gsm"
-                class="form-control"
-                id="gsm"
-                formControlName="gsm"
-                autocomplete="on"
-              />
+              <input type="text" placeholder="Gsm" class="form-control" id="gsm" formControlName="gsm"
+                autocomplete="on" />
             </div>
           </div>
         </div>
@@ -270,101 +169,69 @@
           <div class="row">
             <div class="col-md-4 form-group my-2">
               <label for="Login">Login</label>
-              <input
-                type="text"
-                placeholder="Login"
-                class="form-control"
-                id="Login"
-                formControlName="login"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" placeholder="Login" class="form-control" id="Login" formControlName="login"
+                autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('login')?.touched &&
                   Reactiveform.get('login')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('login')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
             </div>
             <div class="col-md-4 form-group my-2">
               <label for="password">Mot de passe</label>
-              <input
-                type="password"
-                placeholder="*********"
-                class="form-control"
-                id="password"
-                formControlName="password"
-                autocomplete="on"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="password" placeholder="*********" class="form-control" id="password"
+                formControlName="password" autocomplete="on" />
+              <div class="text-danger" *ngIf="
                   Reactiveform.get('password')?.touched &&
                   Reactiveform.get('password')?.errors
-                "
-              >
-                <div
-                  *ngFor="
+                ">
+                <div *ngFor="
                     let error of Reactiveform.get('password')?.errors | keyvalue
-                  "
-                >
+                  ">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
               <div class="col-12 from-group">
                 Le nouveau mot de passe doit respecter les règles suivantes :
                 <ul>
-                  <li
-                    [class]="
+                  <li [class]="
                       Reactiveform.get('password')?.hasError('minlength')
                         ? 'text-danger'
                         : 'text-success'
-                    "
-                  >
+                    ">
                     Longueur supérieur à 8 characters
                   </li>
-                  <li
-                    [class]="
+                  <li [class]="
                       Reactiveform.get('password')?.hasError('digitCount')
                         ? 'text-danger'
                         : 'text-success'
-                    "
-                  >
+                    ">
                     Contient deux chiffres ou plus
                   </li>
-                  <li
-                    [class]="
+                  <li [class]="
                       Reactiveform.get('password')?.hasError('specialCharCount')
                         ? 'text-danger'
                         : 'text-success'
-                    "
-                  >
+                    ">
                     Contient deux characters spéciaux ou plus
                   </li>
-                  <li
-                    [class]="
+                  <li [class]="
                       Reactiveform.get('password')?.hasError('lowercaseChar')
                         ? 'text-danger'
                         : 'text-success'
-                    "
-                  >
+                    ">
                     Contient deux characters miniscule
                   </li>
-                  <li
-                    [class]="
+                  <li [class]="
                       Reactiveform.get('password')?.hasError('uppercaseChar')
                         ? 'text-danger'
                         : 'text-success'
-                    "
-                  >
+                    ">
                     Contient deux characters majuscule
                   </li>
                 </ul>

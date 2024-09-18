@@ -1,8 +1,12 @@
 <form [formGroup]="Reactiveform" class="container-fluid">
-  <app-page-action-header [icon]="'fa fa-lock'" [title]="'Supprimer permission'" [titleMobile]="'Spr. permission'">
+  <app-page-action-header [icon]="'fa fa-lock'" [title]="'supprimer la permission'"
+    [titleMobile]="'Spr. la permission'">
     <ng-container>
-      <app-header-action-button *ngIf="features.Delete | async" buttonClass="btn-danger me-2" title="Supprimer les données" iconClass="fa fa-trash" label="Supprimer" (clicked)="ConfirmDelete()"></app-header-action-button>
-      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des permissions" routerLink="/permissions" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+      <app-header-action-button buttonClass="btn-secondary me-2" title="Revenir à la liste des permissions"
+        routerLink="/permissions" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+
+      <app-header-action-button buttonClass="btn-danger" title="Supprimer les données" iconClass="fa fa-trash"
+        label="Supprimer" (clicked)="ConfirmDelete()"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
   <div class="card">
@@ -20,9 +24,12 @@
           <label for="Groupe">Groupe</label>
           <input type="text" placeholder="Groupe" class="form-control" id="Groupe" formControlName="groupe" />
         </div>
-        <div class="col-md-4 form-group my-2">
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group my-2">
           <label for="Description">Description</label>
-          <textarea rows="3" placeholder="Description" class="form-control" id="Description" formControlName="description"> </textarea>
+          <textarea rows="3" placeholder="Description" class="form-control" id="Description"
+            formControlName="description"> </textarea>
         </div>
       </div>
     </div>
@@ -30,4 +37,6 @@
 </form>
 
 <!-- loader -->
-<ngx-spinner type="line-spin-fade"><p class="text-light">Chargement en cours...</p></ngx-spinner>
+<ngx-spinner type="line-spin-fade">
+  <p class="text-light">Chargement en cours...</p>
+</ngx-spinner>
