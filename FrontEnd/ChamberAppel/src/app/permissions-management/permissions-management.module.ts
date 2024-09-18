@@ -16,9 +16,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedTableCaseModule } from '../shared-table-case/shared-table-case.module';
 import { DesignSystemModule } from '../design-system/design-system.module';
+import { PermissionsFormComponent } from './permissions-form/permissions-form.component';
 
 @NgModule({
-  declarations: [PermissionsAddComponent, PermissionsEditComponent, PermissionsDeleteComponent, PermissionsDetailComponent, PermissionsListComponent],
+  declarations: [PermissionsAddComponent, PermissionsEditComponent, PermissionsDeleteComponent, PermissionsDetailComponent, PermissionsListComponent, PermissionsFormComponent],
   imports: [CommonModule, PermissionsManagementRoutingModule, AlertModule, ButtonModule, TableModule, NgxSpinnerModule, CardModule, GridModule, IconModule, FormsModule, NgbModule, MatIconModule, MatSortModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule],
 })
-export class PermissionsManagementModule {}
+export class PermissionsManagementModule { }

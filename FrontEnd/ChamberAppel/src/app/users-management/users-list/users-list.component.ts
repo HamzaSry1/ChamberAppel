@@ -185,9 +185,6 @@ export class UsersListComponent implements OnInit {
     UtilisateursService.postApiUtilisateursGetAllAsync(this.DataTableRequest)
       .then((result: DtoUtilisateurDatatableResponse) => {
         this.Users = result.data ?? [];
-
-        console.log(this.Users);
-
         this.RecordTotal = result.recordTotal ?? 0;
         this.RecordFiltred = result.recordFiltred ?? 0;
         /* set page status */

@@ -3,9 +3,9 @@
   <app-page-action-header [icon]="'fa fa-lock'" [title]="'Gestion des permissions'"
     [titleMobile]="'G. des permissions'">
     <ng-container>
-      <app-header-action-button buttonClass="btn-secondary me-2" title="Exporter les permissions"
+      <app-header-action-button buttonClass="{{ExporterButtonStyle}} me-2" title="Exporter les permissions"
         iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
-      <app-header-action-button buttonClass="btn-success" title="Ajouter un permissions"
+      <app-header-action-button buttonClass="{{CreateButtonStyle}}" title="Ajouter un permissions"
         routerLink="/permissions/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
@@ -23,7 +23,7 @@
           <div class="col mt-4">
             <div class="d-flex justify-content-between">
               <div class="flex-grow-1">
-                <button tabindex="10" type="submit" class="btn btn-primary btn-block w-100">
+                <button tabindex="10" type="submit" class="{{SearchButtonStyle}} btn-block w-100">
                   <i class="fa fa-search"></i>
                   <span class="d-none d-sm-inline"> Rechercher</span>
                 </button>
@@ -73,11 +73,11 @@
                 <td class="text-start">{{ item.code }}</td>
                 <td class="text-start">{{ item.groupe }}</td>
                 <td class="text-end">
-                  <a routerLink="/permissions/detail/{{ item.id }}" class="btn btn-sm btn-primary me-1"
+                  <a routerLink="/permissions/detail/{{ item.id }}" class="{{DetailButtonStyle}} me-1"
                     title="Détail de permission"><i class="fa fa-eye"> </i></a>
-                  <a routerLink="/permissions/modifier/{{ item.id }}" class="btn btn-sm btn-success me-1"
+                  <a routerLink="/permissions/modifier/{{ item.id }}" class="{{UpdateButtonStyle}} me-1"
                     title="Modifier la permission"><i class="fa fa-edit"> </i></a>
-                  <a routerLink="/permissions/supprimer/{{ item.id }}" class="btn btn-sm btn-danger"
+                  <a routerLink="/permissions/supprimer/{{ item.id }}" class="{{DeleteButtonStyle}}"
                     title="Supprimer la permission">
                     <i class="fa fa-trash"></i>
                   </a>

@@ -1,0 +1,80 @@
+<form [formGroup]="ReactiveForm">
+    <!-- header -->
+    <app-page-action-header [icon]="'fa fa-lock'" [title]="title" [titleMobile]="titleMobile">
+        <ng-container>
+            <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2"
+                title="Revenir à la liste des permissions" routerLink="/permissions" iconClass="fa fa-arrow-left"
+                label="Retour"></app-header-action-button>
+
+            <app-header-action-button *ngIf="IsCreateOrUpdate" buttonClass="{{AddOrEditButtonStyle}}"
+                title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
+                (clicked)="OnSave()"></app-header-action-button>
+
+            <app-header-action-button *ngIf="IsDelete" buttonClass="{{DeleteButtonStyle}}" title="Supprimer les données"
+                iconClass="fa fa-trash" label="Supprimer" (clicked)="OnDelete()"></app-header-action-button>
+        </ng-container>
+    </app-page-action-header>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 form-group my-2">
+                    <label for="Label">Label</label>
+                    <input type="text" placeholder="Label" class="form-control" id="Label" formControlName="label" />
+                    <div class="text-danger" *ngIf="
+                ReactiveForm.get('label')?.touched &&
+                ReactiveForm.get('label')?.errors
+              ">
+                        <div *ngFor="let error of ReactiveForm.get('label')?.errors | keyvalue">
+                            {{ validationMessages[error.key] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group my-2">
+                    <label for="Code">Code</label>
+                    <input type="text" placeholder="Code" class="form-control" id="Code" formControlName="code" />
+                    <div class="text-danger" *ngIf="
+                ReactiveForm.get('code')?.touched &&
+                ReactiveForm.get('code')?.errors
+              ">
+                        <div *ngFor="let error of ReactiveForm.get('code')?.errors | keyvalue">
+                            {{ validationMessages[error.key] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group my-2">
+                    <label for="Groupe">Groupe</label>
+                    <input type="text" placeholder="Groupe" class="form-control" id="Groupe" formControlName="groupe" />
+                    <div class="text-danger" *ngIf="
+                ReactiveForm.get('groupe')?.touched &&
+                ReactiveForm.get('groupe')?.errors
+              ">
+                        <div *ngFor="
+                  let error of ReactiveForm.get('groupe')?.errors | keyvalue
+                ">
+                            {{ validationMessages[error.key] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group my-2">
+                    <label for="Description">Description</label>
+                    <textarea rows="3" placeholder="Description" class="form-control" id="Description"
+                        formControlName="description"></textarea>
+
+                    <div class="text-danger" *ngIf="
+              ReactiveForm.get('description')?.touched &&
+              ReactiveForm.get('description')?.errors
+            ">
+                        <div *ngFor="
+                let error of ReactiveForm.get('description')?.errors | keyvalue
+              ">
+                            {{ validationMessages[error.key] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

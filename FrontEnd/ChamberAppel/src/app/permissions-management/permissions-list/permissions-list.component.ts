@@ -9,11 +9,10 @@ import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
 import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
-import { DtoFiltreUtilisateurDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreUtilisateurDatatableRequest';
-import { DtoUtilisateurDatatableResponse } from 'src/app/generatedapis/models/DtoUtilisateurDatatableResponse';
 import { Permission } from 'src/app/generatedapis/models/Permission';
 import { PermissionDatatableResponse } from 'src/app/generatedapis/models/PermissionDatatableResponse';
 import { PermissionsService } from 'src/app/generatedapis/services/PermissionsService';
+import { ButtonStyle } from 'src/app/shared/button-style';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -30,24 +29,31 @@ export class PermissionsListComponent {
     Exporter: this.authService.checkPermission(Features.Permissions.Exporter),
   };
 
-  Data!: Permission[];
-  pageNumber = 1;
-  orderBy = 'label';
-  orderByDirection = 'desc';
-  RecordTotal = 0;
-  RecordFiltred = 0;
-  DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
-  filterSaver!: FilterSaver;
-  pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
-  pageSize = environment.pageSize;
-  selectionPageSize: boolean = false;
+  public CreateButtonStyle = ButtonStyle.Create;
+  public DetailButtonStyle = ButtonStyle.Detail;
+  public DeleteButtonStyle = ButtonStyle.Delete;
+  public UpdateButtonStyle = ButtonStyle.Update;
+  public ExporterButtonStyle = ButtonStyle.Return;
+  public SearchButtonStyle = ButtonStyle.Search;
+
+  public Data!: Permission[];
+  public pageNumber = 1;
+  public orderBy = 'label';
+  public orderByDirection = 'desc';
+  public RecordTotal = 0;
+  public RecordFiltred = 0;
+  public DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
+  public filterSaver!: FilterSaver;
+  public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
+  public pageSize = environment.pageSize;
+  public selectionPageSize: boolean = false;
 
   constructor(
     private authService: AuthService,
     private _loader: NgxSpinnerService,
     private _notify: AppMessageService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.filterSaver = new FilterSaver(

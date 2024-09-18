@@ -5,4 +5,5 @@ export class ButtonStyle {
   public static Delete = 'btn btn-sm btn-danger';
   public static Return = 'btn btn-sm btn-secondary';
   public static Default = 'btn btn-sm btn-info';
+  public static Search = 'btn btn-primary';
 }

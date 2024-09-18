@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{DFF0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F4E2DA4C-9920-47FD-ADD8-FD7338610BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamberAppel.Api", "ChamberAppel.Api\ChamberAppel.Api.csproj", "{C9D9CB26-434E-48FB-9CB4-0FB2EFD47E9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChamberAppel.Api", "ChamberAppel.Api\ChamberAppel.Api.csproj", "{C9D9CB26-434E-48FB-9CB4-0FB2EFD47E9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamberAppel.Domain", "ChamberAppel.Domain\ChamberAppel.Domain.csproj", "{E4FB3274-88FA-4AFE-BCE8-85F3B548AFE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChamberAppel.Domain", "ChamberAppel.Domain\ChamberAppel.Domain.csproj", "{E4FB3274-88FA-4AFE-BCE8-85F3B548AFE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamberAppel.Application", "ChamberAppel.Application\ChamberAppel.Application.csproj", "{33D6ACC4-C2C0-4E12-A546-A0BE2598363F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChamberAppel.Application", "ChamberAppel.Application\ChamberAppel.Application.csproj", "{33D6ACC4-C2C0-4E12-A546-A0BE2598363F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamberAppel.Infrastructure", "ChamberAppel.Infrastructure\ChamberAppel.Infrastructure.csproj", "{CDFA6011-9508-45DA-9A20-7EAD20B5BC05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChamberAppel.Infrastructure", "ChamberAppel.Infrastructure\ChamberAppel.Infrastructure.csproj", "{CDFA6011-9508-45DA-9A20-7EAD20B5BC05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
