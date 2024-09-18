@@ -1,32 +1,52 @@
-<!--sidebar-->
-<c-sidebar #sidebar="cSidebar" class="d-print-none sidebar sidebar-dark sidebar-fixed" id="sidebar" visible>
-  <c-sidebar-brand [brandFull]="{
+<!-- Sidebar -->
+<c-sidebar
+  #sidebar="cSidebar"
+  class="d-print-none sidebar sidebar-fixed"
+  id="sidebar"
+  visible
+>
+  <c-sidebar-brand
+    [brandFull]="{
       src: '../../../assets/images/CDC_PNG.png',
       width: 50,
       height: 50,
       alt: 'Cour des comptes Logo'
-    }" [brandNarrow]="{
+    }"
+    [brandNarrow]="{
       src: '../../../assets/images/CDC_PNG.png',
       width: 50,
       height: 50,
       alt: 'Cour des comptes Logo'
-    }" routerLink="accueil" />
+    }"
+    routerLink="accueil"
+  />
+
   <ng-scrollbar pointerEventsMethod="scrollbar">
     <c-sidebar-nav [navItems]="navItems" dropdownMode="close" />
   </ng-scrollbar>
-  <c-sidebar-toggler *ngIf="!sidebar.narrow" toggle="unfoldable" cSidebarToggle="sidebar" />
+  <c-sidebar-toggler
+    *ngIf="!sidebar.narrow"
+    toggle="unfoldable"
+    cSidebarToggle="sidebar"
+  />
 </c-sidebar>
 
-<!--main-->
+<!-- Main -->
 <div class="wrapper d-flex flex-column min-vh-100">
-  <!--app-header-->
-  <app-default-header class="mb-4 d-print-none header header-sticky" position="sticky" sidebarId="sidebar" />
-  <!--app-body-->
+  <!-- App Header -->
+  <app-default-header
+    class="mb-4 d-print-none header header-sticky"
+    position="sticky"
+    sidebarId="sidebar"
+  />
+
+  <!-- App Body -->
   <div class="body flex-grow-1 px-3">
-    <c-container breakpoint="lg" class="h-auto">
-      <router-outlet />
-    </c-container>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <!--app footer-->
+
+  <!-- App Footer -->
   <app-default-footer />
 </div>

@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
-import { DefaultUrlSerializer, RouterModule, Routes, UrlSerializer, UrlTree } from '@angular/router';
+import {
+  DefaultUrlSerializer,
+  RouterModule,
+  Routes,
+  UrlSerializer,
+  UrlTree,
+} from '@angular/router';
 
 import { DefaultLayoutComponent } from './containers';
 import { Page404Component } from './views/pages/page404/page404.component';
@@ -17,49 +23,58 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'accueil',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'auth',
-    loadChildren: () =>
-      import('./auth/auth.module').then((m) => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      title: 'Accueil'
+      title: 'Accueil',
     },
     children: [
       {
         path: 'accueil',
         loadChildren: () =>
-          import('./accueil-management/accueil-management.module').then((m) => m.AccueilManagementModule),
+          import('./accueil-management/accueil-management.module').then(
+            (m) => m.AccueilManagementModule
+          ),
         canActivate: [AuthGuard],
       },
 
       {
         path: 'utilisateurs',
         loadChildren: () =>
-          import('./users-management/users-management.module').then((m) => m.UsersManagementModule),
+          import('./users-management/users-management.module').then(
+            (m) => m.UsersManagementModule
+          ),
         canActivate: [AuthGuard],
       },
       {
         path: 'permissions',
         loadChildren: () =>
-          import('./permissions-management/permissions-management.module').then((m) => m.PermissionsManagementModule),
+          import('./permissions-management/permissions-management.module').then(
+            (m) => m.PermissionsManagementModule
+          ),
         canActivate: [AuthGuard],
       },
       {
         path: 'personne-physiques',
         loadChildren: () =>
-          import('./personne-physiques-management/personne-physiques-management.module').then((m) => m.PersonnePhysiquesManagementModule),
+          import(
+            './personne-physiques-management/personne-physiques-management.module'
+          ).then((m) => m.PersonnePhysiquesManagementModule),
         canActivate: [AuthGuard],
       },
       {
         path: 'roles',
         loadChildren: () =>
-          import('./roles-management/roles-management.module').then((m) => m.RolesManagementModule),
+          import('./roles-management/roles-management.module').then(
+            (m) => m.RolesManagementModule
+          ),
         canActivate: [AuthGuard],
       },
       {
@@ -68,16 +83,16 @@ const routes: Routes = [
           import('./views/pages/pages.module').then((m) => m.PagesModule),
         canActivate: [AuthGuard],
       },
-    ]
+    ],
   },
   {
     path: '500',
     component: Page500Component,
     data: {
-      title: 'Page 500'
-    }
+      title: 'Page 500',
+    },
   },
-  { path: '**', component: Page404Component }
+  { path: '**', component: Page404Component },
 ];
 
 const config: any = {
@@ -86,6 +101,7 @@ const config: any = {
   anchorScrolling: 'enabled',
   initialNavigation: 'enabledBlocking',
 };
+
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
@@ -96,5 +112,4 @@ const config: any = {
     },
   ],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
