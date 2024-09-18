@@ -16,9 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { SharedTableCaseModule } from '../shared-table-case/shared-table-case.module';
 import { DesignSystemModule } from '../design-system/design-system.module';
+import { RolesFormComponent } from './roles-form/roles-form.component';
 
 @NgModule({
-  declarations: [RolesListComponent, RolesAddComponent, RolesEditComponent, RolesDetailComponent, RolesDeleteComponent, RolesPermissionsComponent],
+  declarations: [RolesListComponent, RolesAddComponent, RolesEditComponent, RolesDetailComponent, RolesDeleteComponent, RolesPermissionsComponent, RolesFormComponent],
   imports: [CommonModule, RolesManagementRoutingModule, AlertModule, ButtonModule, MatIconModule, MatSortModule, TableModule, CardModule, NgbModule, FormsModule, GridModule, IconModule, NgxSpinnerModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule],
 })
 export class RolesManagementModule {}

@@ -1,25 +1,3 @@
-<form [formGroup]="Reactiveform" class="container-fluid">
-  <!-- header -->
-  <app-page-action-header [icon]="'fa fa-unlock-alt'" [title]="'Supprimer un rôle'" [titleMobile]="'Spr. rôle'">
-    <ng-container>
-      <app-header-action-button *ngIf="features.Delete | async" buttonClass="btn-danger me-2" title="Supprimer les données" iconClass="fa fa-trash" label="Supprimer" (clicked)="ConfirmDelete()"></app-header-action-button>
-      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des rôles" routerLink="/roles" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
-    </ng-container>
-  </app-page-action-header>
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6 form-group my-2">
-          <label for="Label">Label</label>
-          <input type="text" placeholder="Label" class="form-control" id="Label" formControlName="label" />
-        </div>
-        <div class="col-md-6 form-group my-2">
-          <label for="Code">Code</label>
-          <input type="text" placeholder="Code" class="form-control" id="Code" formControlName="code" />
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-<!-- loader -->
-<ngx-spinner type="line-spin-fade"><p class="text-light">Chargement en cours...</p></ngx-spinner>
+<app-roles-form [title]="'Supprimer le role'" [titleMobile]="'Spr. le role'"
+    [IsCreateOrUpdate]="false" [formIsDisabled]="true" [IsDelete]="true"
+    (Delete)="ConfirmDelete($event)"></app-roles-form>

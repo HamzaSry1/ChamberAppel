@@ -1,24 +1,2 @@
-<form [formGroup]="Reactiveform" class="container-fluid">
-  <!-- header -->
-  <app-page-action-header [icon]="'fa fa-unlock-alt'" [title]="'Détail un rôle'" [titleMobile]="'Dtl. rôle'">
-    <ng-container>
-      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des rôles" routerLink="/roles" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
-    </ng-container>
-  </app-page-action-header>
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6 form-group my-2">
-          <label for="Label">Label</label>
-          <input type="text" placeholder="Label" class="form-control" id="Label" formControlName="label" />
-        </div>
-        <div class="col-md-6 form-group my-2">
-          <label for="Code">Code</label>
-          <input type="text" placeholder="Code" class="form-control" id="Code" formControlName="code" />
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-<!-- loader -->
-<ngx-spinner type="line-spin-fade"><p class="text-light">Chargement en cours...</p></ngx-spinner>
+<app-roles-form [title]="'Détail de role'" [titleMobile]="'Dtl. de role'"
+    [IsCreateOrUpdate]="false" [formIsDisabled]="true" [IsDelete]="false"></app-roles-form>

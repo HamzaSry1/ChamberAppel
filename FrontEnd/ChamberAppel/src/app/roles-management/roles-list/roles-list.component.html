@@ -2,9 +2,9 @@
   <!-- header -->
   <app-page-action-header [icon]="'fa fa-unlock-alt'" [title]="'Gestion des rôles'" [titleMobile]="'G. des rôles'">
     <ng-container>
-      <app-header-action-button buttonClass="btn-secondary me-2" title="Exporter les rôles"
+      <app-header-action-button buttonClass="{{ExporterButtonStyle}} me-2" title="Exporter les rôles"
         iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
-      <app-header-action-button buttonClass="btn-success" title="Ajouter un rôles" routerLink="/roles/ajouter"
+      <app-header-action-button buttonClass="{{CreateButtonStyle}}" title="Ajouter un rôle" routerLink="/roles/ajouter"
         iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
@@ -21,7 +21,7 @@
           <div class="col mt-4">
             <div class="d-flex justify-content-between">
               <div class="flex-grow-1">
-                <button tabindex="10" type="submit" class="btn btn-primary btn-block w-100">
+                <button tabindex="10" type="submit" class="{{SearchButtonStyle}} btn-block w-100">
                   <i class="fa fa-search"></i>
                   <span class="d-none d-sm-inline"> Rechercher</span>
                 </button>
@@ -69,16 +69,16 @@
                 <td class="text-start">{{ item.label }}</td>
                 <td class="text-start">{{ item.code }}</td>
                 <td class="text-end">
-                  <a routerLink="/roles/detail/{{ item.id }}" class="btn btn-sm btn-primary me-1"
+                  <a routerLink="/roles/detail/{{ item.id }}" class="{{DetailButtonStyle}} me-1"
                     title="Détail de rôle"><i class="fa fa-eye"> </i></a>
-                  <a routerLink="/roles/modifier/{{ item.id }}" class="btn btn-sm btn-success me-1"
+                  <a routerLink="/roles/modifier/{{ item.id }}" class="{{UpdateButtonStyle}} me-1"
                     title="Modifier le rôle"><i class="fa fa-edit"> </i></a>
-                  <a routerLink="/roles/roles-permissions/{{ item.id }}" class="btn btn-sm btn-info me-1"
+                  <a routerLink="/roles/roles-permissions/{{ item.id }}" class="{{DefaultButtnStyle}} me-1"
                     title="Affecter des permissions">
                     <i class="fa fa-unlock-alt"></i>
                   </a>
-                  <a routerLink="/roles/supprimer/{{ item.id }}"
-                    class="btn btn-sm btn-danger" title="Supprimer le rôle">
+                  <a routerLink="/roles/supprimer/{{ item.id }}" class="{{DeleteButtonStyle}}"
+                    title="Supprimer le rôle">
                     <i class="fa fa-trash"></i>
                   </a>
                 </td>

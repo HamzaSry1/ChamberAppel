@@ -13,6 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FilterSaver } from 'src/app/Helpers/FilterSaver';
 import { Features } from 'src/app/auth/permissions';
 import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
+import { ButtonStyle } from 'src/app/shared/button-style';
 
 @Component({
   selector: 'app-roles-list',
@@ -29,24 +30,32 @@ export class RolesListComponent {
     Exporter: this.authService.checkPermission(Features.Roles.Exporter),
   };
 
-  Data!: Role[];
-  pageNumber = 1;
-  orderBy = 'label';
-  orderByDirection = 'desc';
-  RecordTotal = 0;
-  RecordFiltred = 0;
-  DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
-  filterSaver!: FilterSaver;
-  pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
-  pageSize = environment.pageSize;
-  selectionPageSize: boolean = false;
+  public CreateButtonStyle = ButtonStyle.Create;
+  public DetailButtonStyle = ButtonStyle.Detail;
+  public DeleteButtonStyle = ButtonStyle.Delete;
+  public UpdateButtonStyle = ButtonStyle.Update;
+  public ExporterButtonStyle = ButtonStyle.Return;
+  public SearchButtonStyle = ButtonStyle.Search;
+  public DefaultButtnStyle = ButtonStyle.Default;
+
+  public Data!: Role[];
+  public pageNumber = 1;
+  public orderBy = 'label';
+  public orderByDirection = 'desc';
+  public RecordTotal = 0;
+  public RecordFiltred = 0;
+  public DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
+  public filterSaver!: FilterSaver;
+  public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
+  public pageSize = environment.pageSize;
+  public selectionPageSize: boolean = false;
 
   constructor(
     private authService: AuthService,
     private _loader: NgxSpinnerService,
     private http: HttpClient,
     private _notify: AppMessageService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.filterSaver = new FilterSaver(this.FilterForm, 'Roles-list-filters');
