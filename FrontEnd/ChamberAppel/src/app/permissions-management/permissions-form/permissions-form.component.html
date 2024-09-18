@@ -62,17 +62,6 @@
                     <label for="Description">Description</label>
                     <textarea rows="3" placeholder="Description" class="form-control" id="Description"
                         formControlName="description"></textarea>
-
-                    <div class="text-danger" *ngIf="
-              ReactiveForm.get('description')?.touched &&
-              ReactiveForm.get('description')?.errors
-            ">
-                        <div *ngFor="
-                let error of ReactiveForm.get('description')?.errors | keyvalue
-              ">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
