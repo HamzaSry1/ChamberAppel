@@ -20,8 +20,8 @@ export class PermissionsFormComponent implements OnInit {
   public Id!: string;
   public validationMessages = Const.ValidationMessages;
   public AddOrEditButtonStyle!: string;
-  public DeleteButtonStyle = ButtonStyle.Delete;
-  public ReturnButtonStyle = ButtonStyle.Return;
+  public DeleteButtonStyle = ButtonStyle.danger;
+  public ReturnButtonStyle = ButtonStyle.secondary;
   @Input() title!: string;
   @Input() titleMobile!: string;
   @Input() formIsDisabled!: boolean;
@@ -52,9 +52,9 @@ export class PermissionsFormComponent implements OnInit {
     }
     // Create
     if (this.IsCreateOrUpdate == true && this.Id == null) {
-      this.AddOrEditButtonStyle = ButtonStyle.Create;
+      this.AddOrEditButtonStyle = ButtonStyle.primary;
     } else {
-      this.AddOrEditButtonStyle = ButtonStyle.Update;
+      this.AddOrEditButtonStyle = ButtonStyle.success;
     }
     if (this.formIsDisabled) {
       this.ReactiveForm.disable();

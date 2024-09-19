@@ -1,23 +1,22 @@
-<form [formGroup]="ReactiveForm">
-    <!-- header -->
-    <app-page-action-header [icon]="'fa fa-user'" [title]="title" [titleMobile]="titleMobile">
-        <ng-container>
-            <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2"
-                title="Revenir à la liste des utilisateurs" routerLink="/utilisateurs" iconClass="fa fa-arrow-left"
-                label="Retour"></app-header-action-button>
+<!-- header -->
+<app-page-action-header [icon]="'fa fa-user'" [title]="title" [titleMobile]="titleMobile">
+    <ng-container>
+        <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2" title="Revenir à la liste des utilisateurs"
+            routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
 
-            <app-header-action-button *ngIf="IsCreateOrUpdate" buttonClass="{{AddOrEditButtonStyle}}"
-                title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
-                (clicked)="OnSave()"></app-header-action-button>
+        <app-header-action-button *ngIf="IsCreateOrUpdate" buttonClass="{{AddOrEditButtonStyle}}"
+            title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
+            (clicked)="OnSave()"></app-header-action-button>
 
-            <app-header-action-button *ngIf="IsDelete" buttonClass="{{DeleteButtonStyle}}" title="Supprimer les données"
-                iconClass="fa fa-trash" label="Supprimer" (clicked)="OnDelete()"></app-header-action-button>
-        </ng-container>
-    </app-page-action-header>
+        <app-header-action-button *ngIf="IsDelete" buttonClass="{{DeleteButtonStyle}}" title="Supprimer les données"
+            iconClass="fa fa-trash" label="Supprimer" (clicked)="OnDelete()"></app-header-action-button>
+    </ng-container>
+</app-page-action-header>
 
-    <!-- Info Personnelles -->
-    <div class="row my-3">
-        <div class="col-12">
+<!-- Info Personnelles -->
+<div class="row my-3">
+    <div class="col-12">
+        <form [formGroup]="ReactiveForm">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -130,9 +129,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-</form>
+</div>
 
 <!-- loader -->
 <ngx-spinner type="line-spin-fade">

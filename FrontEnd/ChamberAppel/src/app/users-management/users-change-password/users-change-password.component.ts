@@ -15,6 +15,7 @@ import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiRespo
 import { DtoChangePassword } from 'src/app/generatedapis/models/DtoChangePassword';
 import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
 import { UtilisateursService } from 'src/app/generatedapis/services/UtilisateursService';
+import { ButtonStyle } from 'src/app/shared/button-style';
 
 @Component({
   selector: 'app-users-change-password',
@@ -27,6 +28,7 @@ export class UsersChangePasswordComponent implements OnInit {
       Features.Utilisateurs.ChangePassword
     ),
   };
+  public ChangePasswordButtonStyle = ButtonStyle.primary;
   validationMessages: any = Const.ValidationMessages;
   ChangePasswordModel!: DtoChangePassword;
   ReactiveForm: FormGroup = new FormGroup({
@@ -46,8 +48,8 @@ export class UsersChangePasswordComponent implements OnInit {
     private _authService: AuthService,
     private _notify: AppMessageService,
     private _router: Router
-  ) {}
-  ngOnInit(): void {}
+  ) { }
+  ngOnInit(): void { }
 
   passwordMatchValidator(control: any) {
     const password = control.get('newpassword');

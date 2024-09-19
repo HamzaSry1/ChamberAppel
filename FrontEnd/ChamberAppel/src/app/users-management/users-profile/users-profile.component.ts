@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { Features } from 'src/app/auth/permissions';
 import { DtoUtilisateurApiResponse } from 'src/app/generatedapis/models/DtoUtilisateurApiResponse';
 import { UtilisateursService } from 'src/app/generatedapis/services/UtilisateursService';
+import { ButtonStyle } from 'src/app/shared/button-style';
 
 @Component({
   selector: 'app-users-profile',
@@ -19,14 +20,16 @@ export class UsersProfileComponent {
     ),
   };
 
-  UserName!: string;
+  public UserName!: string;
+  public ChangePasswordButtonStyle = ButtonStyle.primary;
+
 
   constructor(
     private _authService: AuthService,
     private _loader: NgxSpinnerService
   ) {
     this.GetUser(this._authService.geCurrentUserId());
-    this.Reactiveform.disable();
+    this.ReactiveForm.disable();
   }
 
   GetUser(userId: string) {
@@ -34,7 +37,7 @@ export class UsersProfileComponent {
     UtilisateursService.getApiUtilisateursGetByIdAsync(userId)
       .then((result: DtoUtilisateurApiResponse) => {
         this.UserName = result.data?.nom + '\t' + result.data?.prenom;
-        this.Reactiveform.patchValue({
+        this.ReactiveForm.patchValue({
           id: result.data?.id ?? '',
           personnePhysiqueId: result.data?.personnePhysiqueId ?? '',
           nom: result.data?.nom ?? '',
@@ -51,7 +54,7 @@ export class UsersProfileComponent {
       .finally(() => this._loader.hide());
   }
 
-  Reactiveform = new FormGroup({
+  ReactiveForm = new FormGroup({
     id: new FormControl({
       value: Guid.EMPTY,
       disabled: true,

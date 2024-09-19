@@ -30,13 +30,13 @@ export class RolesListComponent {
     Exporter: this.authService.checkPermission(Features.Roles.Exporter),
   };
 
-  public CreateButtonStyle = ButtonStyle.Create;
-  public DetailButtonStyle = ButtonStyle.Detail;
-  public DeleteButtonStyle = ButtonStyle.Delete;
-  public UpdateButtonStyle = ButtonStyle.Update;
-  public ExporterButtonStyle = ButtonStyle.Return;
-  public SearchButtonStyle = ButtonStyle.Search;
-  public DefaultButtnStyle = ButtonStyle.Default;
+  public CreateButtonStyle = ButtonStyle.primary;
+  public DetailButtonStyle = ButtonStyle.secondary;
+  public DeleteButtonStyle = ButtonStyle.danger;
+  public UpdateButtonStyle = ButtonStyle.success;
+  public ExporterButtonStyle = ButtonStyle.secondary;
+  public SearchButtonStyle = ButtonStyle.primary_block;
+  public DefaultButtnStyle = ButtonStyle.info;
 
   public Data!: Role[];
   public pageNumber = 1;

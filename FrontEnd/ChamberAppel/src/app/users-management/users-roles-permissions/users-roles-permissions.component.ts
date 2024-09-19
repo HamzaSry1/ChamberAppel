@@ -31,8 +31,8 @@ export class UsersRolesPermissionsComponent implements OnInit {
     AddRoles: this.authService.checkPermission(Features.Utilisateurs.AddRoles),
   };
 
-  public CreateButtonStyle = ButtonStyle.Create;
-  public ReturnButtonStyle = ButtonStyle.Return;
+  public CreateButtonStyle = ButtonStyle.primary;
+  public ReturnButtonStyle = ButtonStyle.secondary;
 
   public Roles!: Role[];
   public Permissions!: DtoPermissionGroupe[];

@@ -1,72 +1,60 @@
-<form [formGroup]="Reactiveform">
-  <!-- header -->
-  <app-page-action-header [icon]="'fa fa-user'" title="{{ UserName }}" titleMobile="{{ UserName }}">
-    <ng-container>
-      <app-header-action-button buttonClass="btn-primary" title="Changer mot de passe "
-        routerLink="/utilisateurs/changepassword" iconClass="fa fa-lock"
-        label="Changer mot de passe"></app-header-action-button>
-    </ng-container>
-  </app-page-action-header>
+<!-- header -->
+<app-page-action-header [icon]="'fa fa-user'" title="{{ UserName }}" titleMobile="{{ UserName }}">
+  <ng-container>
+    <app-header-action-button buttonClass="{{ChangePasswordButtonStyle}}" title="Changer mot de passe "
+      routerLink="/utilisateurs/changepassword" iconClass="fa fa-lock"
+      label="Changer mot de passe"></app-header-action-button>
+  </ng-container>
+</app-page-action-header>
 
-  <!-- Info Personnelles -->
-  <div class="row my-3">
-    <div class="col-12">
+
+<div class="row my-3">
+  <div class="col-12">
+    <form [formGroup]="ReactiveForm">
       <div class="card">
-        <div class="card-header">
-          <div class="col-md-6">
-            <h5 class=""> <i class="fa fa-list"></i> informations personnelles </h5>
-          </div>
-        </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-3 form-group">
+            <div class="col-md-4 form-group">
               <label class="my-2" for="Nom">Nom</label>
-              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom" />
+              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom"
+                autocomplete="on" />
+
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-4 form-group">
               <label class="my-2" for="Prénom">Prénom</label>
-              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom" />
+              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom"
+                autocomplete="on" />
+
             </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="nomArabe">Nom</label>
-              <input type="text" placeholder="الاسم العائلي " class="form-control" id="nomArabe"
+            <div class="col-md-4 form-group">
+              <label class="my-2" for="nomArabe"> اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
+              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="nomArabe"
                 formControlName="nomArabe" />
+
             </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="prenomArabe">اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
-              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="prenomArabe"
+            <div class="col-md-4 form-group">
+              <label class="my-2" for="prenomArabe"> الاسم العائلي </label>
+              <input type="text" placeholder="الاسم العائلي" class="form-control" id="prenomArabe"
                 formControlName="prenomArabe" />
+
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-4 form-group">
               <label class="my-2" for="Email">Email</label>
-              <input type="text" placeholder="Adresse Email" class="form-control" id="Email" formControlName="email" />
+              <input type="text" placeholder="........@courdescomptes.ma" class="form-control" id="Email"
+                formControlName="email" autocomplete="on" />
+
+            </div>
+            <div class="col-md-4 form-group">
+              <label class="my-2" for="Login">Login</label>
+              <input type="text" placeholder="Login" class="form-control" id="Login" formControlName="login"
+                autocomplete="on" />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-  <!-- info Utilisateur -->
-  <div class="row my-3">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="col-md-6">
-            <h5 class=""><i class="fa fa-user"></i> Utilisateur</h5>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4 form-group my-2">
-              <label for="Login">Login</label>
-              <input type="text" placeholder="Login" class="form-control" id="Login" formControlName="login" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
+</div>
 <!-- loader -->
 <ngx-spinner type="line-spin-fade">
   <p class="text-light">Chargement en cours ...</p>

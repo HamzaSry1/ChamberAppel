@@ -23,8 +23,8 @@ export class UsersFormComponent implements OnInit {
   public validationMessages = Const.ValidationMessages;
   public DefaultSelectName!: string;
   public AddOrEditButtonStyle!: string;
-  public DeleteButtonStyle = ButtonStyle.Delete;
-  public ReturnButtonStyle = ButtonStyle.Return;
+  public DeleteButtonStyle = ButtonStyle.danger;
+  public ReturnButtonStyle = ButtonStyle.secondary;
   @Input() title!: string;
   @Input() titleMobile!: string;
   @Input() formIsDisabled!: boolean;
@@ -44,9 +44,9 @@ export class UsersFormComponent implements OnInit {
     }
     // Create
     if (this.IsCreateOrUpdate == true && this.Id == null) {
-      this.AddOrEditButtonStyle = ButtonStyle.Create;
+      this.AddOrEditButtonStyle = ButtonStyle.primary;
     } else {
-      this.AddOrEditButtonStyle = ButtonStyle.Update;
+      this.AddOrEditButtonStyle = ButtonStyle.success;
       // Remove password validation for update
       this.ReactiveForm.get('password')?.clearValidators();
       this.ReactiveForm.get('password')?.updateValueAndValidity();
