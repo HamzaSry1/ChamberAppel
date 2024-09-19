@@ -102,15 +102,12 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreMotsCle request)
         {
-            //var r = await _service.Exporter(request, null);
-            //return SheardController.DownloadAsExcelFile(this, r, MessageResult.List_Permissions);
             return null;
         }
 
         #endregion CRUD
 
         #region validation
-
         private List<FluentValidationErrors> Validation(Permission model)
         {
             PermissionValidation validationRules = new PermissionValidation();
@@ -130,7 +127,6 @@ namespace ChamberAppel.Api.Controllers
             }
             return listErrors;
         }
-
         #endregion validation
     }
 }

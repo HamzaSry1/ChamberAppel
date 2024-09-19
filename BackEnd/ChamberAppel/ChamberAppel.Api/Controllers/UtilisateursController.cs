@@ -47,8 +47,6 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreUtilisateur request)
         {
-            //var r = await _service.Exporter(request, null);
-            //return SheardController.DownloadAsExcelFile(this, r, Const.List_Utilisateurs);
             return null;
         }
 

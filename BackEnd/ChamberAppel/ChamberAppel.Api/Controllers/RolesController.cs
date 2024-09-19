@@ -36,8 +36,8 @@ namespace ChamberAppel.Api.Controllers
             return new ApiResponse<List<Role>> { StatusCode = HttpStatusCode.NoContent };
         }
 
-        [HttpGet("GetById/{id}")]
-        public async Task<ApiResponse<Role>> GetById(Guid id)
+        [HttpGet("GetByIdAsync/{id}")]
+        public async Task<ApiResponse<Role>> GetByIdAsync(Guid id)
         {
             var r = await _service.GetByIdAsync(id);
             if (r == null)
@@ -93,13 +93,11 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreMotsCle request)
         {
-            //var r = await _service.ExporterAsync(request, null);
-            //return SheardController.DownloadAsExcelFile(this, r, Const.List_Roles);
             return null;
         }
 
         #endregion CRUD
-
+        
         #region permissions
 
         [HttpPost("AddPermissionsAsync")]
@@ -126,7 +124,7 @@ namespace ChamberAppel.Api.Controllers
         }
 
         #endregion permissions
-
+        
         #region validation
         private List<FluentValidationErrors> Validation(Role model)
         {

@@ -78,7 +78,6 @@ namespace ChamberAppel.Api.Controllers
         }
 
         #endregion CRUD
-
         #region validation
         private List<FluentValidationErrors> Validation(PersonnePhysique model)
         {
