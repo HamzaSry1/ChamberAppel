@@ -34,7 +34,7 @@ export class RolesDetailComponent {
 
   Get(id: string) {
     this._loader.show();
-    RolesService.getApiRolesGetById(id)
+    RolesService.getApiRolesGetByIdAsync(id)
       .then((result) => {
         this.Reactiveform.setValue({
           id: result.data?.id ?? '',

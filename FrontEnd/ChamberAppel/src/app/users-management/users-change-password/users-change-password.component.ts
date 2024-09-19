@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -22,7 +22,7 @@ import { ButtonStyle } from 'src/app/shared/button-style';
   templateUrl: './users-change-password.component.html',
   styleUrls: ['./users-change-password.component.scss'],
 })
-export class UsersChangePasswordComponent implements OnInit {
+export class UsersChangePasswordComponent {
   public features = {
     ResetPassword: this._authService.checkPermission(
       Features.Utilisateurs.ChangePassword
@@ -35,11 +35,9 @@ export class UsersChangePasswordComponent implements OnInit {
     oldpassword: new FormControl('', [Validators.required]),
     newpassword: new FormControl('', [
       Validators.required,
-      Validator.passwordValidator,
     ]),
     confirmnewpassword: new FormControl('', [
       Validators.required,
-      this.passwordMatchValidator,
     ]),
   });
 
@@ -49,20 +47,8 @@ export class UsersChangePasswordComponent implements OnInit {
     private _notify: AppMessageService,
     private _router: Router
   ) { }
-  ngOnInit(): void { }
 
-  passwordMatchValidator(control: any) {
-    const password = control.get('newpassword');
-    const confirmPassword = control.get('confirmnewpassword');
-    if (
-      password &&
-      confirmPassword &&
-      password.value !== confirmPassword.value
-    ) {
-      return { passwordMismatch: true };
-    }
-    return null;
-  }
+
   ChangePassword() {
     if (this.ReactiveForm.valid) {
       this.ChangePasswordModel = {

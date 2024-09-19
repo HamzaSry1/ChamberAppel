@@ -62,7 +62,7 @@ export class RolesFormComponent implements OnInit {
 
   GetDataById(Id: string) {
     this._loader.show();
-    RolesService.getApiRolesGetById(this.Id).then((res: RoleApiResponse) => {
+    RolesService.getApiRolesGetByIdAsync(this.Id).then((res: RoleApiResponse) => {
       if (res.statusCode == HttpStatusCode._200) {
         this.ReactiveForm.patchValue({
           id: res.data?.id,

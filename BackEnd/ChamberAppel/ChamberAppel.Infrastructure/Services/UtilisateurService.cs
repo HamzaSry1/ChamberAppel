@@ -25,9 +25,6 @@ namespace ChamberAppel.Infrastructure.Services
         public async Task AddRolesAsync(DtoCheckedListRequest model)
           => await _repository.AddRolesAsync(model.Id, model.ListCheckedId);
 
-        public async Task DeletePermissionsAsync(Guid userId) => await _repository.DeletePermissionsAsync(userId);
-        public async Task DeleteRolesAsync(Guid userId) => await _repository.DeleteRolesAsync(userId);
-
         public async Task<List<Permission>> GetAllPermissionsAsync(Guid userId)
             => await _repository.GetAllPermissionsAsync(userId);
         public async Task<List<Permission>> GetUtilisateurPermissionsAsync(Guid userId)
@@ -97,17 +94,6 @@ namespace ChamberAppel.Infrastructure.Services
             var hashedOldPassword = PasswordService.Encrypt(oldPassword);
             var hashedNewPassword = PasswordService.Encrypt(newPassword);
             return _repository.ResetPasswordAsync(userId, hashedOldPassword, hashedNewPassword);
-        }
-        public async Task<bool> ResetPasswordConfirmationAsync(string token, string newPassword)
-        {
-            var data = await Authentification.DecodeTokenResetPassword(token);
-
-            if (data != null)
-            {
-                var hashedNewPassword = PasswordService.Encrypt(newPassword);
-                return await _repository.ResetPasswordConfirmationAsync(data.UserId, hashedNewPassword);
-            }
-            return false;
         }
     }
 }

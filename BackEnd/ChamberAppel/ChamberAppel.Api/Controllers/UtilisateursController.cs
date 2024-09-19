@@ -15,13 +15,11 @@ namespace ChamberAppel.Api.Controllers
     public class UtilisateursController : ControllerBase
     {
         private readonly IUtilisateurService _service;
-        private readonly IUserSessionService _sessionService;
         private readonly IAuthentification authentification;
-        public UtilisateursController(IUtilisateurService service, IAuthentification authentification, IUserSessionService sessionService)
+        public UtilisateursController(IUtilisateurService service, IAuthentification authentification)
         {
             _service = service;
             this.authentification = authentification;
-            _sessionService = sessionService;
         }
 
         #region CRUD
@@ -42,12 +40,6 @@ namespace ChamberAppel.Api.Controllers
             }
             return new ApiResponse<DtoUtilisateur> { StatusCode = HttpStatusCode.OK, Data = r };
 
-        }
-
-        [HttpPost("ExporterAsync")]
-        public async Task<IActionResult> ExporterAsync(DtoFiltreUtilisateur request)
-        {
-            return null;
         }
 
         [HttpPost("CreateAsync")]
@@ -78,16 +70,17 @@ namespace ChamberAppel.Api.Controllers
         [HttpDelete("DeleteAsync/{id}")]
         public async Task<ApiResponse<bool>> DeleteAsync(Guid id)
         {
-            // remove the persmission and the role from the user before deleted
-
-            //await _service.DeletePermissions(id);
-            //await _service.DeleteRoles(id);
-
             var user = await _service.DeleteByIdAsync(id);
             if (user == null)
                 return new ApiResponse<bool> { StatusCode = HttpStatusCode.BadRequest };
 
             return new ApiResponse<bool> { StatusCode = HttpStatusCode.OK, Data = true };
+        }
+
+        [HttpPost("ExporterAsync")]
+        public async Task<IActionResult> ExporterAsync(DtoFiltreUtilisateur request)
+        {
+            return null;
         }
 
         #endregion CRUD
@@ -155,8 +148,6 @@ namespace ChamberAppel.Api.Controllers
         [Authorize()]
         public async Task<ApiResponse<List<Permission>>> GetMyPermissionsAsync()
         {
-            var __userId = await _sessionService.GetCurrentUserIdAsync();
-
             var nameIdentifier = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
 
             if (!Guid.TryParse(nameIdentifier?.Value, out var userId))

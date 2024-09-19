@@ -8,6 +8,9 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { BooleanApiResponse } from './models/BooleanApiResponse';
+export type { ChamberAppelDisciplineBudgetaire } from './models/ChamberAppelDisciplineBudgetaire';
+export type { ChamberAppelDisciplineBudgetaireApiResponse } from './models/ChamberAppelDisciplineBudgetaireApiResponse';
+export type { ChamberAppelDisciplineBudgetaireDatatableResponse } from './models/ChamberAppelDisciplineBudgetaireDatatableResponse';
 export type { DtoChangePassword } from './models/DtoChangePassword';
 export type { DtoCheckedListRequest } from './models/DtoCheckedListRequest';
 export type { DtoFiltreMotsCle } from './models/DtoFiltreMotsCle';
@@ -37,6 +40,7 @@ export type { RoleApiResponse } from './models/RoleApiResponse';
 export type { RoleDatatableResponse } from './models/RoleDatatableResponse';
 export type { RoleListApiResponse } from './models/RoleListApiResponse';
 
+export { ChamberAppelDisciplineBudgetairesService } from './services/ChamberAppelDisciplineBudgetairesService';
 export { PermissionsService } from './services/PermissionsService';
 export { PersonnePhysiquesService } from './services/PersonnePhysiquesService';
 export { RolesService } from './services/RolesService';

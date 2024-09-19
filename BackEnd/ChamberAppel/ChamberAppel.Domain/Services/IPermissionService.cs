@@ -6,7 +6,7 @@ namespace ChamberAppel.Domain.Services
     public interface IPermissionService : IBaseService<Permission>
     {
         Task<List<DtoPermissionGroupe>> GetAllByGroupeAsync();
-        Task<List<DtoExportPermission>> Exporter(DtoFiltreMotsCle? filtre, DtoPagination? pagination);
-        Task<DatatableResponse<Permission>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination);
+        Task<List<DtoExportPermission>> ExporterAsync(DtoFiltreMotsCle? filtre, DtoPagination? pagination);
+        Task<DatatableResponse<Permission>> GetAllFiltredAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination);
     }
 }

@@ -51,21 +51,6 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns any Success
-     * @throws ApiError
-     */
-    public static postApiUtilisateursExporterAsync(
-        requestBody?: DtoFiltreUtilisateur,
-    ): CancelablePromise<any> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/api/Utilisateurs/ExporterAsync',
-            body: requestBody,
-            mediaType: 'application/json',
-        });
-    }
-    /**
-     * @param requestBody
      * @returns DtoUtilisateurApiResponse Success
      * @throws ApiError
      */
@@ -108,6 +93,21 @@ export class UtilisateursService {
             path: {
                 'id': id,
             },
+        });
+    }
+    /**
+     * @param requestBody
+     * @returns any Success
+     * @throws ApiError
+     */
+    public static postApiUtilisateursExporterAsync(
+        requestBody?: DtoFiltreUtilisateur,
+    ): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/Utilisateurs/ExporterAsync',
+            body: requestBody,
+            mediaType: 'application/json',
         });
     }
     /**

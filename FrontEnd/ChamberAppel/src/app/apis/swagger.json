@@ -10,6 +10,261 @@
     "version": "v1"
   },
   "paths": {
+    "/api/ChamberAppelDisciplineBudgetaires/GetAllFiltredAsync": {
+      "post": {
+        "tags": [
+          "ChamberAppelDisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppelDisciplineBudgetaires/GetByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "ChamberAppelDisciplineBudgetaires"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppelDisciplineBudgetaires/CreateAsync": {
+      "post": {
+        "tags": [
+          "ChamberAppelDisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppelDisciplineBudgetaires/UpdateAsync": {
+      "put": {
+        "tags": [
+          "ChamberAppelDisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppelDisciplineBudgetaires/DeleteAsync/{id}": {
+      "delete": {
+        "tags": [
+          "ChamberAppelDisciplineBudgetaires"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppelDisciplineBudgetaires/ExporterAsync": {
+      "post": {
+        "tags": [
+          "ChamberAppelDisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Permissions/GetAllFiltredAsync": {
       "post": {
         "tags": [
@@ -51,35 +306,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PermissionDatatableResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Permissions/GetAllAsync": {
-      "get": {
-        "tags": [
-          "Permissions"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionListApiResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionListApiResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermissionListApiResponse"
                 }
               }
             }
@@ -605,7 +831,7 @@
         }
       }
     },
-    "/api/Roles/GetById/{id}": {
+    "/api/Roles/GetByIdAsync/{id}": {
       "get": {
         "tags": [
           "Roles"
@@ -987,37 +1213,6 @@
         }
       }
     },
-    "/api/Utilisateurs/ExporterAsync": {
-      "post": {
-        "tags": [
-          "Utilisateurs"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/Utilisateurs/CreateAsync": {
       "post": {
         "tags": [
@@ -1150,6 +1345,37 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/ExporterAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -1477,6 +1703,208 @@
               "$ref": "#/components/schemas/FluentValidationErrors"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppelDisciplineBudgetaire": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "numero_de_dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_de_verdict_appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "publie_le": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "a_propos_du_CRC_de_la_region": {
+            "type": "string",
+            "nullable": true
+          },
+          "centre_comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_enregistrement_de_la_requete_aupres_du_CRC": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_et_numero_de_la_requete_du_ministere_public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_et_numero_de_ordre_de_nomination_du_conseiller_programme": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_et_numero_de_arrete_designant_le_rapporteur_successeur": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_rapporteur_successeur": {
+            "type": "string",
+            "nullable": true
+          },
+          "la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_demande_de_documents_complementaires": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "la_date_a_laquelle_observateur_a_ete_convoque_a_audience": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_de_realisation_de_la_recherche_sur_le_terrain": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_le_rapport_a_ete_prepare": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_et_numero_des_conclusions_du_ministere_public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_et_numero_des_conclusions_du_parquet": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_le_suiveur_a_ete_informe": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_avocat_a_ete_informe": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_contrôle": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_audience_du_jugement": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_de_audience_de_determination_de_la_peine": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "operateur_de_decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_de_resolution": {
+            "type": "string",
+            "nullable": true
+          },
+          "la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "la_date_a_laquelle_le_comptable_a_reçu_une_copie_de_la_decision": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppelDisciplineBudgetaireApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppelDisciplineBudgetaireDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

@@ -5,6 +5,6 @@ namespace ChamberAppel.Domain.Repository
 {
     public interface IPermissionRepository : IBaseRepository<Permission>
     {
-        Task<DatatableResponse<Permission>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination);
+        Task<DatatableResponse<Permission>> GetAllFiltredAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination);
     }
 }

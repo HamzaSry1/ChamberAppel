@@ -22,18 +22,7 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("GetAllFiltredAsync")]
         public async Task<DatatableResponse<Permission>> GetAllFiltredAsync(DatatableRequest<DtoFiltreMotsCle> request)
         {
-            return await _service.GetAll(request.Filtre, request.Pagination);
-        }
-
-        [HttpGet("GetAllAsync")]
-        public async Task<ApiResponse<List<Permission>>> GetAllAsync()
-        {
-            var r = await _service.GetAllAsync();
-            if (r.Any())
-            {
-                return new ApiResponse<List<Permission>> { Data = r, StatusCode = HttpStatusCode.OK };
-            }
-            return new ApiResponse<List<Permission>> { StatusCode = HttpStatusCode.NoContent };
+            return await _service.GetAllFiltredAsync(request.Filtre, request.Pagination);
         }
 
         [HttpGet("GetAllByGroupeAsync")]

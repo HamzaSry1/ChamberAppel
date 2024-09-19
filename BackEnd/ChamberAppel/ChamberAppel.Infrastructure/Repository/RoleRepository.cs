@@ -43,7 +43,7 @@ namespace ChamberAppel.Infrastructure.Repository
                 .Select(r => r.Permission)
                 .ToListAsync();
         }
-        public async Task<DatatableResponse<Role>> GetAllAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
+        public async Task<DatatableResponse<Role>> GetAllFiltredAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
         {
             var dbSet = _dbContext.Roles;
 

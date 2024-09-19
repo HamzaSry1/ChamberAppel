@@ -13,9 +13,12 @@ namespace ChamberAppel.Infrastructure.Services
             _repository = repository;
         }
 
-        public async Task<List<DtoExportPermission>> Exporter(DtoFiltreMotsCle? filtre, DtoPagination? pagination)
+        public async Task<DatatableResponse<Permission>> GetAllFiltredAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
+             => await _repository.GetAllFiltredAsync(filter, pagination);
+
+        public async Task<List<DtoExportPermission>> ExporterAsync(DtoFiltreMotsCle? filtre, DtoPagination? pagination)
         {
-            var r = await GetAll(filtre, null);
+            var r = await GetAllFiltredAsync(filtre, null);
             return r.Data.Select(x => new DtoExportPermission
             {
                 Code = x.Code,
@@ -23,10 +26,6 @@ namespace ChamberAppel.Infrastructure.Services
                 Label = x.Label,
             }).OrderBy(x => x.Code)
               .ToList();
-        }
-        public async Task<DatatableResponse<Permission>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination)
-        {
-            return await _repository.GetAll(filter, pagination);
         }
         public async Task<List<DtoPermissionGroupe>> GetAllByGroupeAsync()
         {

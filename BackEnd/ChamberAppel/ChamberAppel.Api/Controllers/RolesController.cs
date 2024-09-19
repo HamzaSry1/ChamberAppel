@@ -22,7 +22,7 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("GetAllFiltredAsync")]
         public async Task<DatatableResponse<Role>> GetAllFiltredAsync(DatatableRequest<DtoFiltreMotsCle> request)
         {
-            return await _service.GetAllAsync(request.Filtre, request.Pagination);
+            return await _service.GetAllFiltredAsync(request.Filtre, request.Pagination);
         }
 
         [HttpGet("GetAllAsync")]
@@ -97,7 +97,7 @@ namespace ChamberAppel.Api.Controllers
         }
 
         #endregion CRUD
-        
+
         #region permissions
 
         [HttpPost("AddPermissionsAsync")]
@@ -124,7 +124,7 @@ namespace ChamberAppel.Api.Controllers
         }
 
         #endregion permissions
-        
+
         #region validation
         private List<FluentValidationErrors> Validation(Role model)
         {

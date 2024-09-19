@@ -14,7 +14,7 @@ namespace ChamberAppel.Infrastructure.Repository
             _dbContext = dbContext;
         }
 
-        public async Task<DatatableResponse<Permission>> GetAll(DtoFiltreMotsCle? filter, DtoPagination? pagination)
+        public async Task<DatatableResponse<Permission>> GetAllFiltredAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
         {
             var dbSet = _dbContext.Permissions;
 

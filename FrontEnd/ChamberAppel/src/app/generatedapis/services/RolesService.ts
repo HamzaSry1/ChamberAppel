@@ -45,12 +45,12 @@ export class RolesService {
      * @returns RoleApiResponse Success
      * @throws ApiError
      */
-    public static getApiRolesGetById(
+    public static getApiRolesGetByIdAsync(
         id: string,
     ): CancelablePromise<RoleApiResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/Roles/GetById/{id}',
+            url: '/api/Roles/GetByIdAsync/{id}',
             path: {
                 'id': id,
             },

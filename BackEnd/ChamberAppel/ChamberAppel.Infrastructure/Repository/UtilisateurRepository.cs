@@ -53,26 +53,6 @@ namespace ChamberAppel.Infrastructure.Repository
             await _dbContext.UtilisateurRoles.AddRangeAsync(up);
             await _dbContext.SaveChangesAsync();
         }
-        //not declared in the interface
-        public async Task<List<Guid>> GetRollesAsync(Guid userId)
-        {
-            return await _dbContext.UtilisateurRoles
-                .Where(ur => ur.UtilisateurId == userId && ur.RoleId != null)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-        }
-        public async Task DeletePermissionsAsync(Guid userId)
-        {
-            var list = await _dbContext.UtilisateurPermissions.Where(u => u.UtilisateurId == userId).ToListAsync();
-            _dbContext.UtilisateurPermissions.RemoveRange(list);
-            await _dbContext.SaveChangesAsync();
-        }
-        public async Task DeleteRolesAsync(Guid userId)
-        {
-            var list = await _dbContext.UtilisateurRoles.Where(u => u.UtilisateurId == userId).ToListAsync();
-            _dbContext.UtilisateurRoles.RemoveRange(list);
-            await _dbContext.SaveChangesAsync();
-        }
         public async Task<List<Permission>> GetAllPermissionsAsync(Guid userId)
         {
             var List = (from up in _dbContext.UtilisateurPermissions
@@ -139,33 +119,27 @@ namespace ChamberAppel.Infrastructure.Repository
             }
             return false;
         }
-        public async Task<bool> ResetPasswordConfirmationAsync(Guid userId, string hashedNewPassword)
-        {
-            // TODO : remove
-
-            return false;
-        }
         public async Task<DtoUtilisateur?> GetDtoUtilisateurByIdAsync(Guid id)
         {
 
             return await _dbContext.Utilisateurs
-           .Include(x => x.PersonnePhysique)
-           .Where(u => u.Id == id)
-               .Select(u => new DtoUtilisateur
-               {
-                   Id = u.Id,
-                   PersonnePhysiqueId = u.PersonnePhysique.Id,
-                   Nom = u.PersonnePhysique.Nom,
-                   NomArabe = u.PersonnePhysique.NomArabe,
-                   Prenom = u.PersonnePhysique.Prenom,
-                   PrenomArabe = u.PersonnePhysique.PrenomArabe,
-                   Email = u.PersonnePhysique.Email,
-                   Password = u.Password,
-                   Login = u.Login,
-                   IsActive = u.PersonnePhysique.IsActive,
-                   UpdatedBy = u.PersonnePhysique.UpdatedBy,
-                   UpdateTime = u.PersonnePhysique.UpdateTime,
-               }).FirstOrDefaultAsync();
+             .Include(x => x.PersonnePhysique)
+             .Where(u => u.Id == id)
+                 .Select(u => new DtoUtilisateur
+                 {
+                     Id = u.Id,
+                     PersonnePhysiqueId = u.PersonnePhysique.Id,
+                     Nom = u.PersonnePhysique.Nom,
+                     NomArabe = u.PersonnePhysique.NomArabe,
+                     Prenom = u.PersonnePhysique.Prenom,
+                     PrenomArabe = u.PersonnePhysique.PrenomArabe,
+                     Email = u.PersonnePhysique.Email,
+                     Password = u.Password,
+                     Login = u.Login,
+                     IsActive = u.PersonnePhysique.IsActive,
+                     UpdatedBy = u.PersonnePhysique.UpdatedBy,
+                     UpdateTime = u.PersonnePhysique.UpdateTime,
+                 }).FirstOrDefaultAsync();
         }
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllDtoUtilisateurAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
         {
