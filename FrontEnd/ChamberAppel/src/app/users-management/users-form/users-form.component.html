@@ -1,0 +1,140 @@
+<form [formGroup]="ReactiveForm">
+    <!-- header -->
+    <app-page-action-header [icon]="'fa fa-user'" [title]="title" [titleMobile]="titleMobile">
+        <ng-container>
+            <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2"
+                title="Revenir à la liste des utilisateurs" routerLink="/utilisateurs" iconClass="fa fa-arrow-left"
+                label="Retour"></app-header-action-button>
+
+            <app-header-action-button *ngIf="IsCreateOrUpdate" buttonClass="{{AddOrEditButtonStyle}}"
+                title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
+                (clicked)="OnSave()"></app-header-action-button>
+
+            <app-header-action-button *ngIf="IsDelete" buttonClass="{{DeleteButtonStyle}}" title="Supprimer les données"
+                iconClass="fa fa-trash" label="Supprimer" (clicked)="OnDelete()"></app-header-action-button>
+        </ng-container>
+    </app-page-action-header>
+
+    <!-- Info Personnelles -->
+    <div class="row my-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label class="my-2" for="Nom">Nom</label>
+                            <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom"
+                                autocomplete="on" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('nom')?.touched &&
+                    ReactiveForm.get('nom')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('nom')?.errors | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="my-2" for="Prénom">Prénom</label>
+                            <input type="text" placeholder="Prénom" class="form-control" id="Prénom"
+                                formControlName="prenom" autocomplete="on" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('prenom')?.touched &&
+                    ReactiveForm.get('prenom')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('prenom')?.errors | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="my-2" for="nomArabe"> اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
+                            <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="nomArabe"
+                                formControlName="nomArabe" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('nomArabe')?.touched &&
+                    ReactiveForm.get('nomArabe')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('nomArabe')?.errors | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="my-2" for="prenomArabe"> الاسم العائلي </label>
+                            <input type="text" placeholder="الاسم العائلي" class="form-control" id="prenomArabe"
+                                formControlName="prenomArabe" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('prenomArabe')?.touched &&
+                    ReactiveForm.get('prenomArabe')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('prenomArabe')?.errors
+                        | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="my-2" for="Email">Email</label>
+                            <input type="text" placeholder="........@courdescomptes.ma" class="form-control" id="Email"
+                                formControlName="email" autocomplete="on" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('email')?.touched &&
+                    ReactiveForm.get('email')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('email')?.errors | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="my-2" for="Login">Login</label>
+                            <input type="text" placeholder="Login" class="form-control" id="Login"
+                                formControlName="login" autocomplete="on" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('login')?.touched &&
+                    ReactiveForm.get('login')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('login')?.errors | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group" *ngIf="IsCreateOrUpdate && Id == null">
+                            <label class="my-2" for="password">Mot de passe</label>
+                            <input type="password" placeholder="*********" class="form-control" id="password"
+                                formControlName="password" autocomplete="on" />
+                            <div class="text-danger" *ngIf="
+                    ReactiveForm.get('password')?.touched &&
+                    ReactiveForm.get('password')?.errors
+                  ">
+                                <div *ngFor="
+                      let error of ReactiveForm.get('password')?.errors | keyvalue
+                    ">
+                                    {{ validationMessages[error.key] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- loader -->
+<ngx-spinner type="line-spin-fade">
+    <p class="text-light">Chargement en cours...</p>
+</ngx-spinner>

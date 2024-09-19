@@ -16,6 +16,16 @@ namespace ChamberAppel.Application.Validators
                 .NotEmpty()
                 .NotNull()
                 .WithMessage("the Prenom is required");
+
+            RuleFor(user => user.Password)
+               .NotEmpty()
+               .NotNull()
+               .WithMessage("the Password is required");
+
+            RuleFor(user => user.Login)
+              .NotEmpty()
+              .NotNull()
+              .WithMessage("the Login is required");
         }
     }
 }

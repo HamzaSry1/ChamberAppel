@@ -24,7 +24,6 @@ export type { DtoUtilisateur } from './models/DtoUtilisateur';
 export type { DtoUtilisateurApiResponse } from './models/DtoUtilisateurApiResponse';
 export type { DtoUtilisateurDatatableResponse } from './models/DtoUtilisateurDatatableResponse';
 export type { FluentValidationErrors } from './models/FluentValidationErrors';
-export { GendersEnum } from './models/GendersEnum';
 export { HttpStatusCode } from './models/HttpStatusCode';
 export type { Permission } from './models/Permission';
 export type { PermissionApiResponse } from './models/PermissionApiResponse';
@@ -37,7 +36,6 @@ export type { Role } from './models/Role';
 export type { RoleApiResponse } from './models/RoleApiResponse';
 export type { RoleDatatableResponse } from './models/RoleDatatableResponse';
 export type { RoleListApiResponse } from './models/RoleListApiResponse';
-export { SituationFamilialeEnum } from './models/SituationFamilialeEnum';
 
 export { PermissionsService } from './services/PermissionsService';
 export { PersonnePhysiquesService } from './services/PersonnePhysiquesService';

@@ -5,7 +5,6 @@
 export type DtoFiltreUtilisateur = {
     motsCle?: string | null;
     nomComplete?: string | null;
-    cin?: string | null;
     email?: string | null;
 };
 

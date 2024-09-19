@@ -27,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersFormComponent } from './users-form/users-form.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsersRolesPermissionsComponent,
     UsersProfileComponent,
     UsersChangePasswordComponent,
+    UsersFormComponent,
   ],
   imports: [
     CommonModule,

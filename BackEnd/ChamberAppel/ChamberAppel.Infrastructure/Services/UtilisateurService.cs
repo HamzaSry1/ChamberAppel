@@ -70,7 +70,6 @@ namespace ChamberAppel.Infrastructure.Services
             var r = await GetAllAsync(filtre, null);
             return r.Data.Select(x => new DtoExportUtilisateur
             {
-                Cin = x.Cin,
                 Email = x.Email,
                 Login = x.Login,
                 Nom = x.Nom,

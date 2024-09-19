@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Net;
 using ChamberAppel.Application.Validators;
-using System.Diagnostics;
 
 namespace ChamberAppel.Api.Controllers
 {
@@ -30,15 +29,7 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("GetAllAsync")]
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllAsync(DatatableRequest<DtoFiltreUtilisateur> request)
         {
-            try
-            {
-                return await _service.GetAllAsync(request.Filtre, request.Pagination);
-            }
-            catch (Exception ex)
-            {
-                Debug.Write(ex.Message);
-                throw;
-            }
+            return await _service.GetAllAsync(request.Filtre, request.Pagination);
         }
 
         [HttpGet("GetByIdAsync/{id}")]

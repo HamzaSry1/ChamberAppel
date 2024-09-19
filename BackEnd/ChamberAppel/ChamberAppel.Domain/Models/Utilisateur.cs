@@ -13,7 +13,6 @@ namespace ChamberAppel.Domain.Models
         public string Login { get; set; } = null!;
         [Required, MaxLength(50), MinLength(5)]
         public string Password { get; set; } = null!;
-        public int IsActive { get; set; }
         [ForeignKey(nameof(PersonnePhysiqueId))]
         public PersonnePhysique? PersonnePhysique { get; set; }
     }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ConfirmBoxEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'src/environments/environment';
 /* custom services */
@@ -17,6 +16,7 @@ import { DtoUtilisateur } from 'src/app/generatedapis/models/DtoUtilisateur';
 import { DtoFiltreUtilisateurDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreUtilisateurDatatableRequest';
 import { DtoUtilisateurDatatableResponse } from 'src/app/generatedapis/models/DtoUtilisateurDatatableResponse';
 import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
+import { ButtonStyle } from 'src/app/shared/button-style';
 
 @Component({
   selector: 'app-users-list',
@@ -40,23 +40,32 @@ export class UsersListComponent implements OnInit {
     ),
   };
 
-  pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
-  selectionPageSize: boolean = false;
-  Users!: DtoUtilisateur[];
+  public CreateButtonStyle = ButtonStyle.Create;
+  public DetailButtonStyle = ButtonStyle.Detail;
+  public DeleteButtonStyle = ButtonStyle.Delete;
+  public UpdateButtonStyle = ButtonStyle.Update;
+  public ExporterButtonStyle = ButtonStyle.Return;
+  public SearchButtonStyle = ButtonStyle.Search;
+  public DefaultButtnStyle = ButtonStyle.Default;
+
+  public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
+  public selectionPageSize: boolean = false;
+  public Users!: DtoUtilisateur[];
   public DefaultSelectName!: string;
-  DataTableRequest!: DtoFiltreUtilisateurDatatableRequest;
-  pageNumber = 1;
-  pageSize = environment.pageSize;
-  orderBy = 'UpdateTime';
-  orderByDirection = 'desc';
-  RecordTotal = 0;
-  RecordFiltred = 0;
-  showDetailsState: string = 'hidden';
-  filterSaver!: FilterSaver;
-  showDetails: boolean = false;
+  public DataTableRequest!: DtoFiltreUtilisateurDatatableRequest;
+  public pageNumber = 1;
+  public pageSize = environment.pageSize;
+  public orderBy = 'UpdateTime';
+  public orderByDirection = 'desc';
+  public RecordTotal = 0;
+  public RecordFiltred = 0;
+  public showDetailsState: string = 'hidden';
+  public filterSaver!: FilterSaver;
+  public showDetails: boolean = false;
+
+
   FilterForm = new FormGroup({
     nomComplete: new FormControl(),
-    cin: new FormControl(),
     email: new FormControl(),
     motsCle: new FormControl(),
   });
@@ -66,7 +75,6 @@ export class UsersListComponent implements OnInit {
     private _notify: AppMessageService,
     private _loader: NgxSpinnerService,
     private http: HttpClient,
-    private _notifyConfirm: ConfirmBoxEvokeService,
     private authService: AuthService
   ) {
     this.DefaultSelectName = this._notify.DefaultSelectOption;
@@ -137,7 +145,6 @@ export class UsersListComponent implements OnInit {
           environment.apiUrl + '/api/Utilisateurs/Exporter',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
-            cin: this.FilterForm.getRawValue().cin,
             email: this.FilterForm.getRawValue().email,
             nomComplete: this.FilterForm.getRawValue().nomComplete,
           }),
@@ -171,7 +178,6 @@ export class UsersListComponent implements OnInit {
       filtre: {
         motsCle: this.FilterForm.getRawValue().motsCle,
         nomComplete: this.FilterForm.getRawValue().nomComplete,
-        cin: this.FilterForm.getRawValue().cin,
         email: this.FilterForm.getRawValue().email,
       },
       pagination: {

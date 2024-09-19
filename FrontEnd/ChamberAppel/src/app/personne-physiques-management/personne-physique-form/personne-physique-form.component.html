@@ -2,8 +2,12 @@
   <!-- header -->
   <app-page-action-header [icon]="'fa fa-user'" [title]="title" [titleMobile]="titleMobile">
     <ng-container>
-      <app-header-action-button *ngIf="IsAddOrEdit && (features.Create || features.Edit)" buttonClass="btn-primary me-2" title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer" (clicked)="Save()"></app-header-action-button>
-      <app-header-action-button *ngIf="IsDelete && features.Delete" buttonClass="btn-danger me-2" title="Supprimer les données" iconClass="fa fa-trash" label="Enregistrer" (clicked)="Delete()"></app-header-action-button>
+      <app-header-action-button *ngIf="IsAddOrEdit && (features.Create || features.Edit)" buttonClass="btn-primary me-2"
+        title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
+        (clicked)="Save()"></app-header-action-button>
+      <app-header-action-button *ngIf="IsDelete && features.Delete" buttonClass="btn-danger me-2"
+        title="Supprimer les données" iconClass="fa fa-trash" label="Enregistrer"
+        (clicked)="Delete()"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
 
@@ -19,7 +23,8 @@
           <div class="row">
             <div class="col-md-3 form-group">
               <label class="my-2" for="Nom">Nom</label>
-              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom" autocomplete="on" />
+              <input type="text" placeholder="Nom" class="form-control" id="Nom" formControlName="nom"
+                autocomplete="on" />
               <div class="text-danger" *ngIf="ReactiveForm.get('nom')?.touched && ReactiveForm.get('nom')?.errors">
                 <div *ngFor="let error of ReactiveForm.get('nom')?.errors | keyvalue">
                   {{ validationMessages[error.key] }}
@@ -28,8 +33,10 @@
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Prénom">Prénom</label>
-              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom" autocomplete="on" />
-              <div class="text-danger" *ngIf="ReactiveForm.get('prenom')?.touched && ReactiveForm.get('prenom')?.errors">
+              <input type="text" placeholder="Prénom" class="form-control" id="Prénom" formControlName="prenom"
+                autocomplete="on" />
+              <div class="text-danger"
+                *ngIf="ReactiveForm.get('prenom')?.touched && ReactiveForm.get('prenom')?.errors">
                 <div *ngFor="let error of ReactiveForm.get('prenom')?.errors | keyvalue">
                   {{ validationMessages[error.key] }}
                 </div>
@@ -37,63 +44,23 @@
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="nomArabe"> اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
-              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="nomArabe" formControlName="nomArabe" />
+              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="nomArabe"
+                formControlName="nomArabe" />
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="prenomArabe"> الاسم العائلي </label>
-              <input type="text" placeholder="الاسم العائلي" class="form-control" id="prenomArabe" formControlName="prenomArabe" />
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="DateNaissance">Date naissance</label>
-              <input type="date" [max]="dateMaximale" placeholder="Date Naissance" class="form-control" id="DateNaissance" formControlName="dateNaissance" autocomplete="on" />
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="Cin">Cin</label>
-              <input type="text" placeholder="Cin" class="form-control" id="Cin" formControlName="cin" autocomplete="on" [ngModel]="Cin" />
-              <div class="text-danger" *ngIf="ReactiveForm.get('cin')?.touched && ReactiveForm.get('cin')?.errors">
-                <div *ngFor="let error of ReactiveForm.get('cin')?.errors | keyvalue">
-                  {{ validationMessages[error.key] }}
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <label class="my-2" for="sexe">Sexe</label>
-              <select class="form-select" id="sexe" formControlName="sexe">
-                <option [ngValue]="null" disabled>
-                  {{ DefaultSelectName }}
-                </option>
-                <option *ngFor="let item of Sexe" [value]="item.value">
-                  {{ item.label }}
-                </option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <label class="my-2" for="IdTypeSituationFamiliale">Situation Familiale</label>
-              <!-- <select class="form-select" id="IdTypeSituationFamiliale" formControlName="IdTypeSituationFamiliale">
-                <option [ngValue]="null" disabled>
-                  {{ DefaultSelectName }}
-                </option>
-                <option *ngFor="let item of TypeSituationFamiliales" [value]="item.id">
-                  {{ item.label }}
-                </option>
-              </select> -->
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="Adresse">Adresse</label>
-              <input type="text" placeholder="Adresse" class="form-control" id="Adresse" formControlName="adresse" autocomplete="on" />
+              <input type="text" placeholder="الاسم العائلي" class="form-control" id="prenomArabe"
+                formControlName="prenomArabe" />
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Email">Email</label>
-              <input type="text" placeholder="........@...." class="form-control" id="Email" formControlName="email" autocomplete="on" />
+              <input type="text" placeholder="........@...." class="form-control" id="Email" formControlName="email"
+                autocomplete="on" />
               <div class="text-danger" *ngIf="ReactiveForm.get('email')?.touched && ReactiveForm.get('email')?.errors">
                 <div *ngFor="let error of ReactiveForm.get('email')?.errors | keyvalue">
                   {{ validationMessages[error.key] }}
                 </div>
               </div>
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="gsm">Gsm</label>
-              <input type="text" placeholder="Gsm" class="form-control" id="gsm" formControlName="gsm" autocomplete="on" />
             </div>
           </div>
         </div>

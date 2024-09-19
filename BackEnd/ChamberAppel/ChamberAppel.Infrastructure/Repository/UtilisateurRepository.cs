@@ -160,14 +160,9 @@ namespace ChamberAppel.Infrastructure.Repository
                        NomArabe = u.PersonnePhysique.NomArabe,
                        Prenom = u.PersonnePhysique.Prenom,
                        PrenomArabe = u.PersonnePhysique.PrenomArabe,
-                       DateNaissance = u.PersonnePhysique.DateNaissance,
-                       Cin = u.PersonnePhysique.Cin,
-                       Sexe = u.PersonnePhysique.Sexe,
-                       Adresse = u.PersonnePhysique.Adresse,
-                       Gsm = u.PersonnePhysique.Gsm,
                        Email = u.PersonnePhysique.Email,
                        Login = u.Login,
-                       IsActive = u.IsActive,
+                       IsActive = u.PersonnePhysique.IsActive,
                        UpdatedBy = u.PersonnePhysique.UpdatedBy,
                        UpdateTime = u.PersonnePhysique.UpdateTime,
                    }).FirstOrDefaultAsync();
@@ -198,10 +193,6 @@ namespace ChamberAppel.Infrastructure.Repository
                 {
                     query = query.Where(item => (item.PersonnePhysique.Nom + " " + item.PersonnePhysique.Prenom).Contains(filtre.NomComplete));
                 }
-                if (!string.IsNullOrEmpty(filtre.Cin))
-                {
-                    query = query.Where(item => item.PersonnePhysique.Cin == filtre.Cin);
-                }
                 if (!string.IsNullOrEmpty(filtre.Email))
                 {
                     query = query.Where(item => item.PersonnePhysique.Email == filtre.Email);
@@ -211,10 +202,7 @@ namespace ChamberAppel.Infrastructure.Repository
                 {
                     query = query.Where(item => item.PersonnePhysique.Nom.Contains(filtre.MotsCle)
                     || item.PersonnePhysique.Prenom.Contains(filtre.MotsCle)
-                    || item.PersonnePhysique.Cin.Contains(filtre.MotsCle)
-                    || item.PersonnePhysique.Email.Contains(filtre.MotsCle)
-                    || item.PersonnePhysique.Gsm.Contains(filtre.MotsCle)
-                    || item.PersonnePhysique.Adresse.Contains(filtre.MotsCle));
+                    || item.PersonnePhysique.Email.Contains(filtre.MotsCle));
                 }
             }
 
@@ -233,14 +221,9 @@ namespace ChamberAppel.Infrastructure.Repository
                     PersonnePhysiqueId = item.PersonnePhysique.Id,
                     Nom = item.PersonnePhysique.Nom ?? "",
                     Prenom = item.PersonnePhysique.Prenom ?? "",
-                    DateNaissance = item.PersonnePhysique.DateNaissance,
-                    Cin = item.PersonnePhysique.Cin ?? "",
-                    Sexe = item.PersonnePhysique.Sexe,
-                    Adresse = item.PersonnePhysique.Adresse ?? "",
-                    Gsm = item.PersonnePhysique.Gsm ?? "",
                     Email = item.PersonnePhysique.Email ?? "",
                     Login = item.Login ?? "",
-                    IsActive = item.IsActive,
+                    IsActive = item.PersonnePhysique.IsActive,
                     UpdatedBy = item.PersonnePhysique.UpdatedBy ?? "",
                     UpdateTime = item.PersonnePhysique.UpdateTime,
                 }).ToList();

@@ -34,18 +34,13 @@ export class UsersProfileComponent {
     UtilisateursService.getApiUtilisateursGetByIdAsync(userId)
       .then((result: DtoUtilisateurApiResponse) => {
         this.UserName = result.data?.nom + '\t' + result.data?.prenom;
-        this.Reactiveform.setValue({
+        this.Reactiveform.patchValue({
           id: result.data?.id ?? '',
           personnePhysiqueId: result.data?.personnePhysiqueId ?? '',
           nom: result.data?.nom ?? '',
           prenom: result.data?.prenom ?? '',
           nomArabe: result.data?.nomArabe ?? '',
           prenomArabe: result.data?.prenomArabe ?? '',
-          dateNaissance: result.data?.dateNaissance,
-          cin: result.data?.cin ?? '',
-          sexe: result.data?.sexe,
-          adresse: result.data?.adresse,
-          gsm: result.data?.gsm,
           email: result.data?.email ?? '',
           login: result.data?.login ?? '',
           isActive: result.data?.isActive ?? 0,
@@ -69,11 +64,6 @@ export class UsersProfileComponent {
     prenom: new FormControl(''),
     nomArabe: new FormControl(''),
     prenomArabe: new FormControl(''),
-    dateNaissance: new FormControl(),
-    cin: new FormControl(''),
-    sexe: new FormControl(),
-    adresse: new FormControl(),
-    gsm: new FormControl(),
     email: new FormControl(''),
     login: new FormControl(''),
     isActive: new FormControl(1),

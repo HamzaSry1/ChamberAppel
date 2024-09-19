@@ -14,34 +14,18 @@ import { PersonnePhysiquesService } from 'src/app/generatedapis/services/Personn
   templateUrl: './personne-physique-add.component.html',
   styleUrls: ['./personne-physique-add.component.scss'],
 })
-export class PersonnePhysiqueAddComponent implements OnInit {
+export class PersonnePhysiqueAddComponent {
   public IsAddOrEdit = true;
   public title = 'Ajouter Personne Physique';
   public titleMobile = 'Ajt. Personne Physique';
   public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loaded';
   public validationMessages: any = Const.ValidationMessages;
   public DefaultSelectName!: string;
-  public Cin!: string;
-
-  public url!: string;
   constructor(
     private _notify: AppMessageService,
-    private _loader: NgxSpinnerService,
     private _router: Router,
-    private _activeRoute: ActivatedRoute,
   ) {
-    this.url = this._router.getCurrentNavigation()?.previousNavigation?.finalUrl?.toString() as string;
   }
-
-  ngOnInit(): void {
-    this.DefaultSelectName = this._notify.DefaultSelectOption;
-  }
-
   Save(data: PersonnePhysique) {
   }
-  SearchCinForm = new FormGroup({
-    cin: new FormControl('', [Validator.cinValidatorNotRequired(), Validators.minLength(2), Validators.maxLength(50)]),
-    IdTypeRelationPersonnePhysique: new FormControl(),
-  });
-
 }

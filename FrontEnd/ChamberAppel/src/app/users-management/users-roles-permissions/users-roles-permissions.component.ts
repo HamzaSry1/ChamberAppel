@@ -15,6 +15,8 @@ import { DtoCheckedListRequest } from 'src/app/generatedapis/models/DtoCheckedLi
 import { DtoChecked } from 'src/app/shared/DtoChecked';
 import { DtoPermissionGroupeListApiResponse } from 'src/app/generatedapis/models/DtoPermissionGroupeListApiResponse';
 import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiResponse';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ButtonStyle } from 'src/app/shared/button-style';
 
 @Component({
   selector: 'app-users-roles-permissions',
@@ -29,21 +31,25 @@ export class UsersRolesPermissionsComponent implements OnInit {
     AddRoles: this.authService.checkPermission(Features.Utilisateurs.AddRoles),
   };
 
-  Roles!: Role[];
-  Permissions!: DtoPermissionGroupe[];
-  PermissionModel!: DtoCheckedListRequest;
-  RolesModel!: DtoCheckedListRequest;
-  ListPermissionChecked!: DtoChecked[];
-  ListRolesChecked!: string[];
-  UserId!: string;
-  form!: FormGroup;
-  collapsedGroups: boolean[] = [];
+  public CreateButtonStyle = ButtonStyle.Create;
+  public ReturnButtonStyle = ButtonStyle.Return;
+
+  public Roles!: Role[];
+  public Permissions!: DtoPermissionGroupe[];
+  public PermissionModel!: DtoCheckedListRequest;
+  public RolesModel!: DtoCheckedListRequest;
+  public ListPermissionChecked!: DtoChecked[];
+  public ListRolesChecked!: string[];
+  public UserId!: string;
+  public form!: FormGroup;
+  public collapsedGroups: boolean[] = [];
 
   constructor(
     fb: FormBuilder,
     private _notify: AppMessageService,
     private _activeRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private _loader: NgxSpinnerService,
   ) {
     this.form = fb.group({
       selectedPermissions: new FormArray([]),
@@ -132,6 +138,7 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   GetPermissionsIdChecked() {
+    this._loader.show();
     return UtilisateursService.getApiUtilisateursGetPermissionsAsync(
       this.UserId
     ).then((result) => {
@@ -141,7 +148,7 @@ export class UsersRolesPermissionsComponent implements OnInit {
           .map((p) => new DtoChecked(p.id || '', p.groupe || '')) ?? [];
       const selected = this.form.controls['selectedPermissions'] as FormArray;
       this.ListPermissionChecked.map((p) => selected.push(new FormControl(p)));
-    });
+    }).finally(() => this._loader.hide());
   }
 
   AddRoleIdAsChecked(id: string) {
@@ -153,13 +160,14 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   GetRolesIdChecked() {
+    this._loader.show();
     return UtilisateursService.getApiUtilisateursGetRolesAsync(
       this.UserId
     ).then((result) => {
       this.ListRolesChecked = result.data?.map((p) => p.id ?? '') ?? [];
       const selected = this.form.controls['selectedRoles'] as FormArray;
       this.ListRolesChecked.map((r) => selected.push(new FormControl(r)));
-    });
+    }).finally(() => this._loader.hide());
   }
 
   FindPermissionById(id: string): Permission | undefined {
@@ -183,18 +191,20 @@ export class UsersRolesPermissionsComponent implements OnInit {
   }
 
   LoadRoles() {
+    this._loader.show();
     RolesService.getApiRolesGetAllAsync().then((result) => {
       this.Roles = result.data ?? [];
-    });
+    }).finally(() => this._loader.hide());;
   }
 
   LoadPermissions() {
+    this._loader.show();
     PermissionsService.getApiPermissionsGetAllByGroupeAsync().then(
       (result: DtoPermissionGroupeListApiResponse) => {
         this.Permissions = result.data ?? [];
         this.collapsedGroups = this.Permissions.map((p) => true);
       }
-    );
+    ).finally(() => this._loader.hide());
   }
 
   OnChangeRole(event: any) {
@@ -226,8 +236,6 @@ export class UsersRolesPermissionsComponent implements OnInit {
         }
       })
       .catch(() => this._notify.Error(AppMessageService.ErrorAddEdit));
-    //Scroll to top
-    window.scroll(0, 0);
   }
 
   SavePermissions() {
@@ -244,7 +252,5 @@ export class UsersRolesPermissionsComponent implements OnInit {
         this._notify.Error(AppMessageService.ErrorAddEdit);
       }
     });
-    //Scroll to top
-    window.scroll(0, 0);
   }
 }

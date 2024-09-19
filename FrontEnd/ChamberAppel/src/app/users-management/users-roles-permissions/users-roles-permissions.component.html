@@ -1,83 +1,79 @@
-<div class="container-fluid">
-  <app-page-action-header [icon]="'fa fa-lock'" [title]="'Détail rôles et permissions'"
-    [titleMobile]="'Dtl. rôles et permissions'">
-    <ng-container>
-      <app-header-action-button buttonClass="btn-secondary" title="Revenir à la liste des utilisateurs"
-        routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
-    </ng-container>
-  </app-page-action-header>
+<app-page-action-header [icon]="'fa fa-lock'" [title]="'Détail de rôles et permissions'"
+  [titleMobile]="'Dtl. de rôles et permissions'">
+  <ng-container>
+    <app-header-action-button buttonClass="{{ReturnButtonStyle}}" title="Revenir à la liste des utilisateurs"
+      routerLink="/utilisateurs" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+  </ng-container>
+</app-page-action-header>
 
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <c-nav variant="tabs" class="d-flex justify-content-center">
-          <a [active]="true" [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="0" cNavLink>Rôles</a>
-          <a [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="1" cNavLink>Permissions</a>
-        </c-nav>
-        <c-tab-content #tabContent="cTabContent">
-          <c-tab-pane class="p-3">
-            <div class="card">
-              <div class="card-body">
-                <h4><i class="fa fa-tasks"></i> &nbsp;List des rôles</h4>
-                <form [formGroup]="form" class="my-3">
-                  <div class="form-check">
-                    <ul *ngFor="let item of Roles">
-                      <li>
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" formArrayName="selectedRoles"
-                            [value]="item.id" (change)="OnChangeRole($event)" [checked]="FindRoleById(item.id)" />
-                          {{ item.label }}
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
-                </form>
-              </div>
-              <div class="card-footer d-flex justify-content-end">
-                <button class="btn btn-sm btn-primary" (click)="SaveRoles()"> <i class="fa fa-plus"></i> &nbsp;
-                  Enregister rôles </button>
-              </div>
-            </div>
-          </c-tab-pane>
-          <c-tab-pane class="p-3">
-            <div class="card">
-              <div class="card-body">
-                <h4><i class="fa fa-tasks"></i> &nbsp;List des permissions</h4>
-                <form [formGroup]="form" class="my-3">
-                  <ng-container *ngFor="let group of Permissions; let i = index">
-                    <div class="group-container">
-                      <button class="toggle-button" (click)="toggleGroup(i)">
-                        <i class="toggle-icon" [class.fa-chevron-down]="!isGroupCollapsed(i)"
-                          [class.fa-chevron-right]="isGroupCollapsed(i)"></i>
-                      </button>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <c-nav variant="tabs" class="d-flex justify-content-center">
+        <a [active]="true" [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="0" cNavLink>List des rôles</a>
+        <a [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="1" cNavLink>List des permissions</a>
+      </c-nav>
+      <c-tab-content #tabContent="cTabContent">
+        <c-tab-pane class="p-3">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="form">
+                <div class="form-check">
+                  <ul *ngFor="let item of Roles">
+                    <li>
                       <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" [value]="group"
-                          [indeterminate]="isGroupIndeterminate(group)" [checked]="IsGroupChecked(group?.groupe)"
-                          (change)="toggleGroupPermissions($event, group)" />
-                        {{ group.groupe }}
+                        <input type="checkbox" class="form-check-input" formArrayName="selectedRoles" [value]="item.id"
+                          (change)="OnChangeRole($event)" [checked]="FindRoleById(item.id)" />
+                        {{ item.label }}
                       </label>
-                    </div>
-                    <ul *ngIf="!isGroupCollapsed(i)" class="permission-list">
-                      <li *ngFor="let permission of group.permissions">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" formArrayName="selectedPermissions"
-                            [value]="permission.id" (change)="OnChangePermissions($event)"
-                            [checked]="IsPermissionIdChecked(permission.id)" />
-                          {{ permission.label }}
-                        </label>
-                      </li>
-                    </ul>
-                  </ng-container>
-                </form>
-              </div>
-              <div class="card-footer d-flex justify-content-end">
-                <button class="btn btn-sm btn-primary" (click)="SavePermissions()"> <i class="fa fa-plus"></i> &nbsp;
-                  Enregister permissions </button>
-              </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
             </div>
-          </c-tab-pane>
-        </c-tab-content>
-      </div>
+            <div class="card-footer d-flex justify-content-end">
+              <button class="{{CreateButtonStyle}}" (click)="SaveRoles()"> <i class="fa fa-save"></i>
+                Enregister les rôles </button>
+            </div>
+          </div>
+        </c-tab-pane>
+        <c-tab-pane class="p-3">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="form">
+                <ng-container *ngFor="let group of Permissions; let i = index">
+                  <div class="group-container">
+                    <button class="toggle-button" (click)="toggleGroup(i)">
+                      <i class="toggle-icon" [class.fa-chevron-down]="!isGroupCollapsed(i)"
+                        [class.fa-chevron-right]="isGroupCollapsed(i)"></i>
+                    </button>
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" [value]="group"
+                        [indeterminate]="isGroupIndeterminate(group)" [checked]="IsGroupChecked(group?.groupe)"
+                        (change)="toggleGroupPermissions($event, group)" />
+                      {{ group.groupe }}
+                    </label>
+                  </div>
+                  <ul *ngIf="!isGroupCollapsed(i)" class="permission-list">
+                    <li *ngFor="let permission of group.permissions">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" formArrayName="selectedPermissions"
+                          [value]="permission.id" (change)="OnChangePermissions($event)"
+                          [checked]="IsPermissionIdChecked(permission.id)" />
+                        {{ permission.label }}
+                      </label>
+                    </li>
+                  </ul>
+                </ng-container>
+              </form>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+              <button class="{{CreateButtonStyle}}" (click)="SavePermissions()"> <i class="fa fa-save"></i>
+                Enregister les permissions </button>
+            </div>
+          </div>
+        </c-tab-pane>
+      </c-tab-content>
     </div>
   </div>
 </div>

@@ -1,8 +1,10 @@
-<form [formGroup]="Reactiveform" class="container-fluid">
+<form [formGroup]="Reactiveform">
   <!-- header -->
   <app-page-action-header [icon]="'fa fa-user'" title="{{ UserName }}" titleMobile="{{ UserName }}">
     <ng-container>
-      <app-header-action-button *ngIf="features.ResetPassword | async" buttonClass="btn-primary" title="Changer mot de passe " routerLink="/utilisateurs/changepassword" iconClass="fa fa-lock" label="Changer mot de passe"></app-header-action-button>
+      <app-header-action-button buttonClass="btn-primary" title="Changer mot de passe "
+        routerLink="/utilisateurs/changepassword" iconClass="fa fa-lock"
+        label="Changer mot de passe"></app-header-action-button>
     </ng-container>
   </app-page-action-header>
 
@@ -27,35 +29,17 @@
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="nomArabe">Nom</label>
-              <input type="text" placeholder="الاسم العائلي " class="form-control" id="nomArabe" formControlName="nomArabe" />
+              <input type="text" placeholder="الاسم العائلي " class="form-control" id="nomArabe"
+                formControlName="nomArabe" />
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="prenomArabe">اﻻﺳﻢ اﻟﺸﺨﺼﻲ </label>
-              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="prenomArabe" formControlName="prenomArabe" />
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="DateNaissance">Date naissance</label>
-              <input type="date" placeholder="Date Naissance" class="form-control" id="DateNaissance" formControlName="dateNaissance" />
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="Cin">Cin</label>
-              <input type="text" placeholder="Cin" class="form-control" id="Cin" formControlName="cin" />
-            </div>
-            <div class="col-md-3">
-              <label class="my-2" for="sexe">Sexe</label>
-              <input type="text" placeholder="Sexe" class="form-control" id="sexe" formControlName="sexe" />
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="Adresse">Adresse</label>
-              <input type="text" placeholder="Adresse" class="form-control" id="Adresse" formControlName="adresse" />
+              <input type="text" placeholder="اﻻﺳﻢ اﻟﺸﺨﺼﻲ " class="form-control" id="prenomArabe"
+                formControlName="prenomArabe" />
             </div>
             <div class="col-md-3 form-group">
               <label class="my-2" for="Email">Email</label>
               <input type="text" placeholder="Adresse Email" class="form-control" id="Email" formControlName="email" />
-            </div>
-            <div class="col-md-3 form-group">
-              <label class="my-2" for="gsm">Gsm</label>
-              <input type="text" placeholder="Gsm" class="form-control" id="gsm" formControlName="gsm" />
             </div>
           </div>
         </div>
@@ -84,4 +68,6 @@
   </div>
 </form>
 <!-- loader -->
-<ngx-spinner type="line-spin-fade"><p class="text-light">Chargement en cours ...</p></ngx-spinner>
+<ngx-spinner type="line-spin-fade">
+  <p class="text-light">Chargement en cours ...</p>
+</ngx-spinner>

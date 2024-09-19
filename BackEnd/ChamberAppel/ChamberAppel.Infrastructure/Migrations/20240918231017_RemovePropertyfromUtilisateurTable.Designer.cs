@@ -3,6 +3,7 @@ using System;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -11,9 +12,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240918231017_RemovePropertyfromUtilisateurTable")]
+    partial class RemovePropertyfromUtilisateurTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,10 +172,26 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("RAW(16)");
 
+                    b.Property<string>("Adresse")
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR2(255)");
+
+                    b.Property<string>("Cin")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR2(10)");
+
+                    b.Property<DateTime?>("DateNaissance")
+                        .HasColumnType("TIMESTAMP(7)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("NVARCHAR2(80)");
+
+                    b.Property<string>("Gsm")
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR2(10)");
 
                     b.Property<int>("IsActive")
                         .HasColumnType("NUMBER(10)");
@@ -195,12 +214,14 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("NVARCHAR2(20)");
 
+                    b.Property<int?>("Sexe")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<string>("UpdatedBy")
-                        .HasMaxLength(10)
-                        .HasColumnType("NVARCHAR2(10)");
+                        .HasColumnType("NVARCHAR2(2000)");
 
                     b.HasKey("Id");
 
@@ -260,6 +281,9 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("RAW(16)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Login")
                         .IsRequired()
