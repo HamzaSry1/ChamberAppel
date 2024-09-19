@@ -22,4 +22,4 @@ import { RolesFormComponent } from './roles-form/roles-form.component';
   declarations: [RolesListComponent, RolesAddComponent, RolesEditComponent, RolesDetailComponent, RolesDeleteComponent, RolesPermissionsComponent, RolesFormComponent],
   imports: [CommonModule, RolesManagementRoutingModule, AlertModule, ButtonModule, MatIconModule, MatSortModule, TableModule, CardModule, NgbModule, FormsModule, GridModule, IconModule, NgxSpinnerModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule],
 })
-export class RolesManagementModule {}
+export class RolesManagementModule { }

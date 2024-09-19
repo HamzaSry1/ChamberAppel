@@ -31,4 +31,9 @@ export const navItems: INavData[] = [
       }
     ]
   },
+  {
+    name: "Discipline budgetaires",
+    url: 'discipline-budgetaires',
+    iconComponent: { name: 'cil-speedometer' },
+  }
 ];

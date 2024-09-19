@@ -78,7 +78,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'chamberAppelDisciplineBudgetaires',
+        path: 'discipline-budgetaires',
         loadChildren: () =>
           import('./chamber-appel-discipline-budgetaires-management/chamber-appel-discipline-budgetaires-management.module').then(
             (m) => m.ChamberAppelDisciplineBudgetairesManagementModule
