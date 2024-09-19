@@ -147,32 +147,25 @@ namespace ChamberAppel.Infrastructure.Repository
         }
         public async Task<DtoUtilisateur?> GetDtoUtilisateurByIdAsync(Guid id)
         {
-            try
-            {
-                return await _dbContext.Utilisateurs
-               .Include(x => x.PersonnePhysique)
-               .Where(u => u.Id == id)
-                   .Select(u => new DtoUtilisateur
-                   {
-                       Id = u.Id,
-                       PersonnePhysiqueId = u.PersonnePhysique.Id,
-                       Nom = u.PersonnePhysique.Nom,
-                       NomArabe = u.PersonnePhysique.NomArabe,
-                       Prenom = u.PersonnePhysique.Prenom,
-                       PrenomArabe = u.PersonnePhysique.PrenomArabe,
-                       Email = u.PersonnePhysique.Email,
-                       Login = u.Login,
-                       IsActive = u.PersonnePhysique.IsActive,
-                       UpdatedBy = u.PersonnePhysique.UpdatedBy,
-                       UpdateTime = u.PersonnePhysique.UpdateTime,
-                   }).FirstOrDefaultAsync();
 
-            }
-            catch (Exception ex)
-            {
-                Debug.Write(ex.Message);
-                throw;
-            }
+            return await _dbContext.Utilisateurs
+           .Include(x => x.PersonnePhysique)
+           .Where(u => u.Id == id)
+               .Select(u => new DtoUtilisateur
+               {
+                   Id = u.Id,
+                   PersonnePhysiqueId = u.PersonnePhysique.Id,
+                   Nom = u.PersonnePhysique.Nom,
+                   NomArabe = u.PersonnePhysique.NomArabe,
+                   Prenom = u.PersonnePhysique.Prenom,
+                   PrenomArabe = u.PersonnePhysique.PrenomArabe,
+                   Email = u.PersonnePhysique.Email,
+                   Password = u.Password,
+                   Login = u.Login,
+                   IsActive = u.PersonnePhysique.IsActive,
+                   UpdatedBy = u.PersonnePhysique.UpdatedBy,
+                   UpdateTime = u.PersonnePhysique.UpdateTime,
+               }).FirstOrDefaultAsync();
         }
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllDtoUtilisateurAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
         {
