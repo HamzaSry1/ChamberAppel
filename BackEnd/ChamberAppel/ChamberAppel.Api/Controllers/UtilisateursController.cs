@@ -68,6 +68,7 @@ namespace ChamberAppel.Api.Controllers
         }
 
         [HttpDelete("DeleteAsync/{id}")]
+
         public async Task<ApiResponse<bool>> DeleteAsync(Guid id)
         {
             var user = await _service.DeleteByIdAsync(id);
