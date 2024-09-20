@@ -11,8 +11,8 @@ namespace ChamberAppel.Domain.Models
         [Required, MaxLength(255)]
         public string Action { get; set; } = null!;
         [Required]
-        public DateTime Timestamp { get; set; }
+        public DateTime DateLog { get; set; }
         [MaxLength(500)]
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; }
     }
 }

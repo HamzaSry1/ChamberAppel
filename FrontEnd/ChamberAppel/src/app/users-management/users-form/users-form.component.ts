@@ -91,7 +91,6 @@ export class UsersFormComponent implements OnInit {
       if (res.statusCode == HttpStatusCode._200) {
         this.ReactiveForm.patchValue({
           id: res.data?.id,
-          personnePhysiqueId: res.data?.personnePhysiqueId,
           nom: res.data?.nom ?? "",
           prenom: res.data?.prenom ?? "",
           nomArabe: res.data?.nomArabe ?? "",

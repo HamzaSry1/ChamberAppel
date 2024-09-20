@@ -549,211 +549,6 @@
         }
       }
     },
-    "/api/PersonnePhysiques/GetAllAsync": {
-      "get": {
-        "tags": [
-          "PersonnePhysiques"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueListApiResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueListApiResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueListApiResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/PersonnePhysiques/GetByIdAsync/{id}": {
-      "get": {
-        "tags": [
-          "PersonnePhysiques"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/PersonnePhysiques/CreateAsync": {
-      "post": {
-        "tags": [
-          "PersonnePhysiques"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PersonnePhysique"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PersonnePhysique"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PersonnePhysique"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/PersonnePhysiques/UpdateAsync": {
-      "put": {
-        "tags": [
-          "PersonnePhysiques"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PersonnePhysique"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PersonnePhysique"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PersonnePhysique"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PersonnePhysiqueApiResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/PersonnePhysiques/DeleteAsync/{Id}": {
-      "delete": {
-        "tags": [
-          "PersonnePhysiques"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/BooleanApiResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BooleanApiResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BooleanApiResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Roles/GetAllFiltredAsync": {
       "post": {
         "tags": [
@@ -2124,11 +1919,6 @@
             "type": "string",
             "format": "uuid"
           },
-          "personnePhysiqueId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
           "nom": {
             "type": "string",
             "nullable": true
@@ -2310,7 +2100,7 @@
             "format": "uuid"
           },
           "code": {
-            "maxLength": 20,
+            "maxLength": 80,
             "type": "string",
             "nullable": true
           },
@@ -2406,115 +2196,6 @@
         },
         "additionalProperties": false
       },
-      "PersonnePhysique": {
-        "required": [
-          "email",
-          "nom",
-          "prenom"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "nom": {
-            "maxLength": 20,
-            "minLength": 3,
-            "type": "string"
-          },
-          "prenom": {
-            "maxLength": 20,
-            "minLength": 3,
-            "type": "string"
-          },
-          "nomArabe": {
-            "maxLength": 20,
-            "minLength": 3,
-            "type": "string",
-            "nullable": true
-          },
-          "prenomArabe": {
-            "maxLength": 20,
-            "minLength": 3,
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "maxLength": 80,
-            "minLength": 10,
-            "type": "string",
-            "format": "email"
-          },
-          "updatedBy": {
-            "maxLength": 10,
-            "minLength": 10,
-            "type": "string",
-            "format": "tel",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PersonnePhysiqueApiResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/PersonnePhysique"
-          },
-          "statusCode": {
-            "$ref": "#/components/schemas/HttpStatusCode"
-          },
-          "message": {
-            "type": "string",
-            "nullable": true
-          },
-          "validationErrors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FluentValidationErrors"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PersonnePhysiqueListApiResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PersonnePhysique"
-            },
-            "nullable": true
-          },
-          "statusCode": {
-            "$ref": "#/components/schemas/HttpStatusCode"
-          },
-          "message": {
-            "type": "string",
-            "nullable": true
-          },
-          "validationErrors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FluentValidationErrors"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Role": {
         "required": [
           "label"
@@ -2526,7 +2207,7 @@
             "format": "uuid"
           },
           "code": {
-            "maxLength": 20,
+            "maxLength": 80,
             "type": "string",
             "nullable": true
           },

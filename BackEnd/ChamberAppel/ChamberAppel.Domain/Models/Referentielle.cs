@@ -6,7 +6,7 @@ namespace ChamberAppel.Domain.Models
     {
         [Key]
         public Guid Id { get; set; }
-        [MaxLength(20)]
+        [MaxLength(80)]
         public string? Code { get; set; }
         [Required, MaxLength(150)]
         public string Label { get; set; } = null!;

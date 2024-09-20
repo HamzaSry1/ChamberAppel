@@ -14,7 +14,7 @@ namespace ChamberAppel.Infrastructure.Repository
         public void LogAsync(Guid id, string action, string description)
         {
             // validate those param not empty ! 
-            
+
             // get the user id from the httpcontext
 
             // then save into the database
@@ -24,7 +24,7 @@ namespace ChamberAppel.Infrastructure.Repository
                 UtilisateurId = id,
                 Action = action,
                 Description = description,
-                Timestamp = DateTime.UtcNow,
+                DateLog = DateTime.UtcNow,
             };
 
             _database.UtilisateurLogs.Add(userLog);

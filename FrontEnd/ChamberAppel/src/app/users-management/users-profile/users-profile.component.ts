@@ -39,7 +39,6 @@ export class UsersProfileComponent {
         this.UserName = result.data?.nom + '\t' + result.data?.prenom;
         this.ReactiveForm.patchValue({
           id: result.data?.id ?? '',
-          personnePhysiqueId: result.data?.personnePhysiqueId ?? '',
           nom: result.data?.nom ?? '',
           prenom: result.data?.prenom ?? '',
           nomArabe: result.data?.nomArabe ?? '',

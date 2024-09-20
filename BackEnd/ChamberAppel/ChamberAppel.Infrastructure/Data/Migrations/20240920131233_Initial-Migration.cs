@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitailMigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,7 +61,7 @@ namespace ChamberAppel.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
                     Groupe = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    Code = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: true),
+                    Code = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: true),
                     Label = table.Column<string>(type: "NVARCHAR2(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
                     IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -72,36 +72,11 @@ namespace ChamberAppel.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PersonnePhysiques",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
-                    Nom = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
-                    Prenom = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
-                    NomArabe = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: true),
-                    PrenomArabe = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: true),
-                    DateNaissance = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
-                    Cin = table.Column<string>(type: "NVARCHAR2(10)", maxLength: 10, nullable: false),
-                    SituationFamiliale = table.Column<int>(type: "NUMBER(10)", nullable: false),
-                    Sexe = table.Column<int>(type: "NUMBER(10)", nullable: false),
-                    Adresse = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
-                    Email = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: false),
-                    Gsm = table.Column<string>(type: "NVARCHAR2(10)", maxLength: 10, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    UpdateTime = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
-                    IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PersonnePhysiques", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
-                    Code = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: true),
+                    Code = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: true),
                     Label = table.Column<string>(type: "NVARCHAR2(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
                     IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -118,8 +93,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
                     UtilisateurId = table.Column<Guid>(type: "RAW(16)", nullable: false),
                     Action = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
-                    Description = table.Column<string>(type: "NVARCHAR2(500)", maxLength: 500, nullable: false)
+                    DateLog = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    Description = table.Column<string>(type: "NVARCHAR2(500)", maxLength: 500, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -131,20 +106,20 @@ namespace ChamberAppel.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
-                    PersonnePhysiqueId = table.Column<Guid>(type: "RAW(16)", nullable: false),
-                    Login = table.Column<string>(type: "NVARCHAR2(50)", maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "NVARCHAR2(50)", maxLength: 50, nullable: false),
+                    Nom = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
+                    Prenom = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
+                    NomArabe = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: true),
+                    PrenomArabe = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: true),
+                    Email = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: false),
+                    Login = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: false),
+                    Password = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: false),
+                    UpdatedBy = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    UpdateTime = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
                     IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Utilisateurs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Utilisateurs_PersonnePhysiques_PersonnePhysiqueId",
-                        column: x => x.PersonnePhysiqueId,
-                        principalTable: "PersonnePhysiques",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -251,11 +226,6 @@ namespace ChamberAppel.Infrastructure.Migrations
                 name: "IX_UtilisateurRoles_UtilisateurId",
                 table: "UtilisateurRoles",
                 column: "UtilisateurId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Utilisateurs_PersonnePhysiqueId",
-                table: "Utilisateurs",
-                column: "PersonnePhysiqueId");
         }
 
         /// <inheritdoc />
@@ -284,9 +254,6 @@ namespace ChamberAppel.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Utilisateurs");
-
-            migrationBuilder.DropTable(
-                name: "PersonnePhysiques");
         }
     }
 }

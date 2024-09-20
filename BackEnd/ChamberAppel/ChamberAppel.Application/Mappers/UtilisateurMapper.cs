@@ -10,9 +10,16 @@ namespace ChamberAppel.Application.Mappers
             var target = new Utilisateur();
 
             target.Id = request.Id;
-            target.PersonnePhysiqueId = request.PersonnePhysiqueId ?? Guid.Empty;
+            target.Nom = request.Nom;
+            target.Prenom = request.Prenom ?? "";
+            target.NomArabe = request.NomArabe ?? "";
+            target.PrenomArabe = request.PrenomArabe ?? "";
+            target.Email = request.Email ?? "";
             target.Login = request.Login ?? "";
             target.Password = request.Password ?? "";
+            target.UpdatedBy = request.UpdatedBy ?? "";
+            target.UpdateTime = DateTime.Now;
+            target.IsActive = request.IsActive;
 
             return target;
         }

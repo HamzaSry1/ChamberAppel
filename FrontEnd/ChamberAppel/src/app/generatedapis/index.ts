@@ -32,9 +32,6 @@ export type { Permission } from './models/Permission';
 export type { PermissionApiResponse } from './models/PermissionApiResponse';
 export type { PermissionDatatableResponse } from './models/PermissionDatatableResponse';
 export type { PermissionListApiResponse } from './models/PermissionListApiResponse';
-export type { PersonnePhysique } from './models/PersonnePhysique';
-export type { PersonnePhysiqueApiResponse } from './models/PersonnePhysiqueApiResponse';
-export type { PersonnePhysiqueListApiResponse } from './models/PersonnePhysiqueListApiResponse';
 export type { Role } from './models/Role';
 export type { RoleApiResponse } from './models/RoleApiResponse';
 export type { RoleDatatableResponse } from './models/RoleDatatableResponse';
@@ -42,6 +39,5 @@ export type { RoleListApiResponse } from './models/RoleListApiResponse';
 
 export { ChamberAppelDisciplineBudgetairesService } from './services/ChamberAppelDisciplineBudgetairesService';
 export { PermissionsService } from './services/PermissionsService';
-export { PersonnePhysiquesService } from './services/PersonnePhysiquesService';
 export { RolesService } from './services/RolesService';
 export { UtilisateursService } from './services/UtilisateursService';

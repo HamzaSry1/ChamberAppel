@@ -7,7 +7,6 @@ namespace ChamberAppel.Infrastructure.Data
         : DbContext(options)
     {
 
-        public DbSet<PersonnePhysique> PersonnePhysiques { get; set; }
         public DbSet<Utilisateur> Utilisateurs { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Role> Roles { get; set; }

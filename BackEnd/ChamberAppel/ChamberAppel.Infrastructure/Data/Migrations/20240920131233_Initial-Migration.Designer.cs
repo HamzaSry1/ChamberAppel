@@ -3,6 +3,7 @@ using System;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -11,9 +12,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240920131233_Initial-Migration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,8 +142,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasColumnType("RAW(16)");
 
                     b.Property<string>("Code")
-                        .HasMaxLength(20)
-                        .HasColumnType("NVARCHAR2(20)");
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(255)
@@ -163,50 +166,6 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.ToTable("Permissions");
                 });
 
-            modelBuilder.Entity("ChamberAppel.Domain.Models.PersonnePhysique", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("RAW(16)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR2(80)");
-
-                    b.Property<int>("IsActive")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<string>("Nom")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("NVARCHAR2(20)");
-
-                    b.Property<string>("NomArabe")
-                        .HasMaxLength(20)
-                        .HasColumnType("NVARCHAR2(20)");
-
-                    b.Property<string>("Prenom")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("NVARCHAR2(20)");
-
-                    b.Property<string>("PrenomArabe")
-                        .HasMaxLength(20)
-                        .HasColumnType("NVARCHAR2(20)");
-
-                    b.Property<DateTime?>("UpdateTime")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasMaxLength(10)
-                        .HasColumnType("NVARCHAR2(10)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PersonnePhysiques");
-                });
-
             modelBuilder.Entity("ChamberAppel.Domain.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -214,8 +173,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasColumnType("RAW(16)");
 
                     b.Property<string>("Code")
-                        .HasMaxLength(20)
-                        .HasColumnType("NVARCHAR2(20)");
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(255)
@@ -261,22 +220,49 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("RAW(16)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<string>("Login")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("NVARCHAR2(50)");
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
+
+                    b.Property<string>("Nom")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("NVARCHAR2(20)");
+
+                    b.Property<string>("NomArabe")
+                        .HasMaxLength(20)
+                        .HasColumnType("NVARCHAR2(20)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("NVARCHAR2(50)");
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR2(255)");
 
-                    b.Property<Guid>("PersonnePhysiqueId")
-                        .HasColumnType("RAW(16)");
+                    b.Property<string>("Prenom")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("NVARCHAR2(20)");
+
+                    b.Property<string>("PrenomArabe")
+                        .HasMaxLength(20)
+                        .HasColumnType("NVARCHAR2(20)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("NVARCHAR2(2000)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonnePhysiqueId");
 
                     b.ToTable("Utilisateurs");
                 });
@@ -292,13 +278,12 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("NVARCHAR2(255)");
 
+                    b.Property<DateTime>("DateLog")
+                        .HasColumnType("TIMESTAMP(7)");
+
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("NVARCHAR2(500)");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<Guid>("UtilisateurId")
                         .HasColumnType("RAW(16)");
@@ -367,17 +352,6 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.Navigation("Permission");
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("ChamberAppel.Domain.Models.Utilisateur", b =>
-                {
-                    b.HasOne("ChamberAppel.Domain.Models.PersonnePhysique", "PersonnePhysique")
-                        .WithMany()
-                        .HasForeignKey("PersonnePhysiqueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PersonnePhysique");
                 });
 
             modelBuilder.Entity("ChamberAppel.Domain.Models.UtilisateurPermissions", b =>

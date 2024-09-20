@@ -11,12 +11,10 @@ namespace ChamberAppel.Infrastructure.Services
     {
         public IAuthentification Authentification { get; }
         private readonly IUtilisateurRepository _repository;
-        private readonly IPersonnePhysiqueRepository _PersonePhysiqueRepo;
 
-        public UtilisateurService(IUtilisateurRepository repository, IPersonnePhysiqueRepository personePhysiqueRepo, IAuthentification authentification) : base(repository)
+        public UtilisateurService(IUtilisateurRepository repository, IAuthentification authentification) : base(repository)
         {
             _repository = repository;
-            _PersonePhysiqueRepo = personePhysiqueRepo;
             Authentification = authentification;
         }
 
@@ -34,26 +32,12 @@ namespace ChamberAppel.Infrastructure.Services
 
         public async Task<DtoUtilisateur> CreateUtilisateurAsync(DtoUtilisateur model)
         {
-            //TODO: add the transaction , if the personnepyhsique successfuly created then commit else rollback
-            if (model.PersonnePhysiqueId == Guid.Empty)
-            {
-                model.PersonnePhysiqueId = Guid.NewGuid();
-                await _PersonePhysiqueRepo.CreateAsync(PersonnePhysiqueMapper.ToPersonnePhysique(model));
-            }
-            else
-                await _PersonePhysiqueRepo.UpdateAsync(PersonnePhysiqueMapper.ToPersonnePhysique(model));
-
             await _repository.CreateAsync(UtilisateurMapper.ToUtilisateur(model));
-
             return await GetDtoUtilisateurByIdAsync(model.Id);
         }
         public async Task<DtoUtilisateur> UpdateUtilisateurAsync(DtoUtilisateur model)
         {
-            //TODO: add the transaction , if the personnepyhsique successfuly updated then commit else rollback
-            await _PersonePhysiqueRepo.UpdateAsync(PersonnePhysiqueMapper.ToPersonnePhysique(model));
-
             await _repository.UpdateAsync(UtilisateurMapper.ToUtilisateur(model));
-
             return await GetDtoUtilisateurByIdAsync(model.Id);
         }
 

@@ -45,7 +45,7 @@ namespace ChamberAppel.Infrastructure.Services
             {
                 new Claim(ClaimTypes.Name, user.Login),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.PersonnePhysique.Email ?? ""),
+                new Claim(ClaimTypes.Email, user.Email ?? ""),
                 new Claim(ClaimTypes.Expiration, expirationDate.ToString()),
             };
 

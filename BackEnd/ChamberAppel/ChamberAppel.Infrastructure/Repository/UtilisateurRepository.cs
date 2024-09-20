@@ -3,7 +3,6 @@ using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
@@ -99,9 +98,7 @@ namespace ChamberAppel.Infrastructure.Repository
         {
             if (!string.IsNullOrEmpty(login))
             {
-                // TODO  : hach the password ,add salt
                 var user = await _dbContext.Utilisateurs
-                     .Include(item => item.PersonnePhysique)
                      .FirstOrDefaultAsync(u => u.Login == login);
 
                 return user;
@@ -121,30 +118,26 @@ namespace ChamberAppel.Infrastructure.Repository
         }
         public async Task<DtoUtilisateur?> GetDtoUtilisateurByIdAsync(Guid id)
         {
-
             return await _dbContext.Utilisateurs
-             .Include(x => x.PersonnePhysique)
              .Where(u => u.Id == id)
                  .Select(u => new DtoUtilisateur
                  {
                      Id = u.Id,
-                     PersonnePhysiqueId = u.PersonnePhysique.Id,
-                     Nom = u.PersonnePhysique.Nom,
-                     NomArabe = u.PersonnePhysique.NomArabe,
-                     Prenom = u.PersonnePhysique.Prenom,
-                     PrenomArabe = u.PersonnePhysique.PrenomArabe,
-                     Email = u.PersonnePhysique.Email,
+                     Nom = u.Nom,
+                     NomArabe = u.NomArabe,
+                     Prenom = u.Prenom,
+                     PrenomArabe = u.PrenomArabe,
+                     Email = u.Email,
                      Password = u.Password,
                      Login = u.Login,
-                     IsActive = u.PersonnePhysique.IsActive,
-                     UpdatedBy = u.PersonnePhysique.UpdatedBy,
-                     UpdateTime = u.PersonnePhysique.UpdateTime,
+                     IsActive = u.IsActive,
+                     UpdatedBy = u.UpdatedBy,
+                     UpdateTime = u.UpdateTime,
                  }).FirstOrDefaultAsync();
         }
         public async Task<DatatableResponse<DtoUtilisateur>> GetAllDtoUtilisateurAsync(DtoFiltreUtilisateur? filtre, DtoPagination? pagination)
         {
-            var dbSet = _dbContext.Utilisateurs
-                .Include(table => table.PersonnePhysique);
+            var dbSet = _dbContext.Utilisateurs;
 
             IQueryable<Utilisateur> query = dbSet;
             var response = new DatatableResponse<DtoUtilisateur>
@@ -152,24 +145,21 @@ namespace ChamberAppel.Infrastructure.Repository
                 RecordTotal = await query.CountAsync()
             };
 
-            // Check if Filtre Properties is Null
-
             if (filtre is not null)
             {
                 if (!string.IsNullOrEmpty(filtre.NomComplete))
                 {
-                    query = query.Where(item => (item.PersonnePhysique.Nom + " " + item.PersonnePhysique.Prenom).Contains(filtre.NomComplete));
+                    query = query.Where(item => (item.Nom + " " + item.Prenom).Contains(filtre.NomComplete));
                 }
                 if (!string.IsNullOrEmpty(filtre.Email))
                 {
-                    query = query.Where(item => item.PersonnePhysique.Email == filtre.Email);
+                    query = query.Where(item => item.Email == filtre.Email);
                 }
-
                 if (!string.IsNullOrEmpty(filtre.MotsCle))
                 {
-                    query = query.Where(item => item.PersonnePhysique.Nom.Contains(filtre.MotsCle)
-                    || item.PersonnePhysique.Prenom.Contains(filtre.MotsCle)
-                    || item.PersonnePhysique.Email.Contains(filtre.MotsCle));
+                    query = query.Where(item => item.Nom.Contains(filtre.MotsCle)
+                    || item.Prenom.Contains(filtre.MotsCle)
+                    || item.Email.Contains(filtre.MotsCle));
                 }
             }
 
@@ -177,28 +167,20 @@ namespace ChamberAppel.Infrastructure.Repository
 
             if (pagination != null)
             {
-                //query = ApplyPagination(query, pagination);
+                // Todo : generic pagination
             }
 
-            try
+            response.Data = query.Select(item => new DtoUtilisateur
             {
-                response.Data = query.Select(item => new DtoUtilisateur
-                {
-                    Id = item.Id,
-                    PersonnePhysiqueId = item.PersonnePhysique.Id,
-                    Nom = item.PersonnePhysique.Nom ?? "",
-                    Prenom = item.PersonnePhysique.Prenom ?? "",
-                    Email = item.PersonnePhysique.Email ?? "",
-                    Login = item.Login ?? "",
-                    IsActive = item.PersonnePhysique.IsActive,
-                    UpdatedBy = item.PersonnePhysique.UpdatedBy ?? "",
-                    UpdateTime = item.PersonnePhysique.UpdateTime,
-                }).ToList();
-            }
-            catch (Exception ex)
-            {
-                Debug.Write(ex.Message);
-            }
+                Id = item.Id,
+                Nom = item.Nom ?? "",
+                Prenom = item.Prenom ?? "",
+                Email = item.Email ?? "",
+                Login = item.Login ?? "",
+                IsActive = item.IsActive,
+                UpdatedBy = item.UpdatedBy ?? "",
+                UpdateTime = item.UpdateTime,
+            }).ToList();
 
             return response;
         }

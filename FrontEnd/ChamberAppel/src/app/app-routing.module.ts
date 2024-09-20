@@ -62,14 +62,6 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'personne-physiques',
-        loadChildren: () =>
-          import(
-            './personne-physiques-management/personne-physiques-management.module'
-          ).then((m) => m.PersonnePhysiquesManagementModule),
-        canActivate: [AuthGuard],
-      },
-      {
         path: 'roles',
         loadChildren: () =>
           import('./roles-management/roles-management.module').then(
