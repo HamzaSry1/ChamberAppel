@@ -9,7 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.RegisterSwagger();
 builder.Services.RegisterCROS(builder.Configuration);
-//builder.Services.RegisterRateLimit();
+builder.Services.RegisterRateLimit();
 //builder.Services.RegisterCSRF();
 builder.Services.RegisterApi(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
@@ -19,25 +19,24 @@ var app = builder.Build();
 // Use extension methods for middleware
 app.UseSwaggerInDevelopment(app.Environment);
 
+// Ensure HTTPS and CORS
 app.UseHttpsRedirection();
-
-// Ensure CORS is applied before authentication/authorization
 app.UseCors("AllowOnlyChamberAppel");
 
+// Security and authentication
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
 
+// Custom security headers
 //app.UseCspHeaders();
 //app.UseCsrfProtection();
 //app.UseSecureCookies();
 //app.UseSecurityHeaders();
 app.UseHstsInProduction(app.Environment);
 
+// Map routes
 app.MapControllers();
 
-// Enable documentation to be used in production
-app.UseSwagger();
-app.UseSwaggerUI();
-
+// Start the app
 app.Run();

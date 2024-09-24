@@ -1,341 +1,594 @@
+<!-- header -->
+<app-page-action-header
+  [icon]="'fa fa-lock'"
+  [title]="title"
+  [titleMobile]="titleMobile"
+>
+  <ng-container>
+    <app-header-action-button
+      buttonClass="{{ ReturnButtonStyle }} me-2"
+      title="Revenir à la liste des discipline budgetaires"
+      routerLink="/roles"
+      iconClass="fa fa-arrow-left"
+      label="Retour"
+    ></app-header-action-button>
+
+    <app-header-action-button
+      *ngIf="IsCreateOrUpdate"
+      buttonClass="{{ AddOrEditButtonStyle }}"
+      title="Enregistrer les données"
+      iconClass="fa fa-save"
+      label="Enregistrer"
+      (clicked)="OnSave()"
+    ></app-header-action-button>
+
+    <app-header-action-button
+      *ngIf="IsDelete"
+      buttonClass="{{ DeleteButtonStyle }}"
+      title="Supprimer les données"
+      iconClass="fa fa-trash"
+      label="Supprimer"
+      (clicked)="OnDelete()"
+    ></app-header-action-button>
+  </ng-container>
+</app-page-action-header>
+
 <form [formGroup]="ReactiveForm">
-    <!-- header -->
-    <app-page-action-header [icon]="'fa fa-lock'" [title]="title" [titleMobile]="titleMobile">
-        <ng-container>
-            <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2"
-                title="Revenir à la liste des discipline budgetaires" routerLink="/roles" iconClass="fa fa-arrow-left"
-                label="Retour"></app-header-action-button>
+  <!-- تسجيل العريضة الاستئناف -->
+  <div class="card my-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">تسجيل العريضة الاستئناف</h5>
+      <button
+        class="btn btn-sm btn-outline-secondary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseCard1"
+        aria-expanded="true"
+        aria-controls="collapseCard1"
+      >
+        <i class="fa fa-chevron-up"></i>
+      </button>
+    </div>
+    <div id="collapseCard1" class="collapse show">
+      <div class="card-body">
+        <div class="row">
+          <!-- Numero de dossier -->
+          <div class="col-md-4 form-group my-2">
+            <label for="numero_de_dossier">Numéro de dossier</label>
+            <input
+              type="text"
+              placeholder="Numéro de dossier"
+              class="form-control"
+              id="numero_de_dossier"
+              formControlName="numero_de_dossier"
+            />
+          </div>
 
-            <app-header-action-button *ngIf="IsCreateOrUpdate" buttonClass="{{AddOrEditButtonStyle}}"
-                title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
-                (clicked)="OnSave()"></app-header-action-button>
+          <!-- Appelant -->
+          <div class="col-md-4 form-group my-2">
+            <label for="appelant">Appelant</label>
+            <input
+              type="text"
+              placeholder="Appelant"
+              class="form-control"
+              id="appelant"
+              formControlName="appelant"
+            />
+          </div>
 
-            <app-header-action-button *ngIf="IsDelete" buttonClass="{{DeleteButtonStyle}}" title="Supprimer les données"
-                iconClass="fa fa-trash" label="Supprimer" (clicked)="OnDelete()"></app-header-action-button>
-        </ng-container>
-    </app-page-action-header>
+          <!-- Numero de verdict appelant -->
+          <div class="col-md-4 form-group my-2">
+            <label for="numero_de_verdict_appelant"
+              >Numéro de verdict appelant</label
+            >
+            <input
+              type="text"
+              placeholder="Numéro de verdict appelant"
+              class="form-control"
+              id="numero_de_verdict_appelant"
+              formControlName="numero_de_verdict_appelant"
+            />
+          </div>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
+          <!-- Publie le -->
+          <div class="col-md-4 form-group my-2">
+            <label for="publie_le">Publié le</label>
+            <input
+              type="date"
+              class="form-control"
+              id="publie_le"
+              formControlName="publie_le"
+            />
+          </div>
 
-                <!-- Numero de dossier -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="numero_de_dossier">Numéro de dossier</label>
-                    <input type="text" placeholder="Numéro de dossier" class="form-control" id="numero_de_dossier"
-                        formControlName="numero_de_dossier" />
-                    <div class="text-danger"
-                        *ngIf="ReactiveForm.get('numero_de_dossier')?.touched && ReactiveForm.get('numero_de_dossier')?.errors">
-                        <div *ngFor="let error of ReactiveForm.get('numero_de_dossier')?.errors | keyvalue">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
-                </div>
+          <!-- A propos du CRC de la région -->
+          <div class="col-md-4 form-group my-2">
+            <label for="a_propos_du_CRC_de_la_region"
+              >À propos du CRC de la région</label
+            >
+            <input
+              type="text"
+              placeholder="À propos du CRC de la région"
+              class="form-control"
+              id="a_propos_du_CRC_de_la_region"
+              formControlName="a_propos_du_CRC_de_la_region"
+            />
+          </div>
 
-                <!-- Appelant -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="appelant">Appelant</label>
-                    <input type="text" placeholder="Appelant" class="form-control" id="appelant"
-                        formControlName="appelant" />
-                    <div class="text-danger"
-                        *ngIf="ReactiveForm.get('appelant')?.touched && ReactiveForm.get('appelant')?.errors">
-                        <div *ngFor="let error of ReactiveForm.get('appelant')?.errors | keyvalue">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
-                </div>
+          <!-- Centre comptable -->
+          <div class="col-md-4 form-group my-2">
+            <label for="centre_comptable">Centre comptable</label>
+            <input
+              type="text"
+              placeholder="Centre comptable"
+              class="form-control"
+              id="centre_comptable"
+              formControlName="centre_comptable"
+            />
+          </div>
 
-                <!-- Numero de verdict appelant -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="numero_de_verdict_appelant">Numéro de verdict appelant</label>
-                    <input type="text" placeholder="Numéro de verdict appelant" class="form-control"
-                        id="numero_de_verdict_appelant" formControlName="numero_de_verdict_appelant" />
-                </div>
+          <!-- Date enregistrement de la requete auprès du CRC -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_enregistrement_de_la_requete_aupres_du_CRC"
+              >Date enregistrement de la requête auprès du CRC</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="date_enregistrement_de_la_requete_aupres_du_CRC"
+              formControlName="date_enregistrement_de_la_requete_aupres_du_CRC"
+            />
+          </div>
 
-                <!-- Publie le -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="publie_le">Publié le</label>
-                    <input type="date" class="form-control" id="publie_le" formControlName="publie_le" />
-                    <div class="text-danger"
-                        *ngIf="ReactiveForm.get('publie_le')?.touched && ReactiveForm.get('publie_le')?.errors">
-                        <div *ngFor="let error of ReactiveForm.get('publie_le')?.errors | keyvalue">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- A propos du CRC de la région -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="a_propos_du_CRC_de_la_region">À propos du CRC de la région</label>
-                    <input type="text" placeholder="À propos du CRC de la région" class="form-control"
-                        id="a_propos_du_CRC_de_la_region" formControlName="a_propos_du_CRC_de_la_region" />
-                </div>
-
-                <!-- Centre comptable -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="centre_comptable">Centre comptable</label>
-                    <input type="text" placeholder="Centre comptable" class="form-control" id="centre_comptable"
-                        formControlName="centre_comptable" />
-                </div>
-
-                <!-- Date enregistrement de la requete auprès du CRC -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_enregistrement_de_la_requete_aupres_du_CRC">Date enregistrement de la requête
-                        auprès du CRC</label>
-                    <input type="date" class="form-control" id="date_enregistrement_de_la_requete_aupres_du_CRC"
-                        formControlName="date_enregistrement_de_la_requete_aupres_du_CRC" />
-                </div>
-
-                <!-- Date et numero de la requête du ministère public -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_et_numero_de_la_requete_du_ministere_public">Date et numéro de la requête du
-                        ministère public</label>
-                    <input type="text" placeholder="Date et numéro de la requête du ministère public"
-                        class="form-control" id="date_et_numero_de_la_requete_du_ministere_public"
-                        formControlName="date_et_numero_de_la_requete_du_ministere_public" />
-                </div>
-
-                <!-- Date et numero de ordre de nomination du conseiller programme -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_et_numero_de_ordre_de_nomination_du_conseiller_programme">Date et numéro de l'ordre
-                        de nomination du conseiller programme</label>
-                    <input type="text" placeholder="Date et numéro de l'ordre de nomination du conseiller programme"
-                        class="form-control" id="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
-                        formControlName="date_et_numero_de_ordre_de_nomination_du_conseiller_programme" />
-                </div>
-
-                <!-- Conseiller rapporteur -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="conseiller_rapporteur">Conseiller rapporteur</label>
-                    <input type="text" placeholder="Conseiller rapporteur" class="form-control"
-                        id="conseiller_rapporteur" formControlName="conseiller_rapporteur" />
-                    <div class="text-danger"
-                        *ngIf="ReactiveForm.get('conseiller_rapporteur')?.touched && ReactiveForm.get('conseiller_rapporteur')?.errors">
-                        <div *ngFor="let error of ReactiveForm.get('conseiller_rapporteur')?.errors | keyvalue">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Date et numero de arrete designant le rapporteur successeur -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_et_numero_de_arrete_designant_le_rapporteur_successeur">Date et numéro de l'arrêté
-                        désignant le rapporteur successeur</label>
-                    <input type="text" placeholder="Date et numéro de l'arrêté désignant le rapporteur successeur"
-                        class="form-control" id="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
-                        formControlName="date_et_numero_de_arrete_designant_le_rapporteur_successeur" />
-                </div>
-
-                <!-- Conseiller rapporteur successeur -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="conseiller_rapporteur_successeur">Conseiller rapporteur successeur</label>
-                    <input type="text" placeholder="Conseiller rapporteur successeur" class="form-control"
-                        id="conseiller_rapporteur_successeur" formControlName="conseiller_rapporteur_successeur" />
-                    <div class="text-danger"
-                        *ngIf="ReactiveForm.get('conseiller_rapporteur_successeur')?.touched && ReactiveForm.get('conseiller_rapporteur_successeur')?.errors">
-                        <div
-                            *ngFor="let error of ReactiveForm.get('conseiller_rapporteur_successeur')?.errors | keyvalue">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- La date a laquelle la petition a ete envoyee aux parties -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties">La date à laquelle la pétition
-                        a été envoyée aux parties</label>
-                    <input type="text" placeholder="La date à laquelle la pétition a été envoyée aux parties"
-                        class="form-control" id="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
-                        formControlName="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties" />
-                </div>
-
-                <!-- Parties -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="parties">Parties</label>
-                    <input type="text" placeholder="Parties" class="form-control" id="parties"
-                        formControlName="parties" />
-                    <div class="text-danger"
-                        *ngIf="ReactiveForm.get('parties')?.touched && ReactiveForm.get('parties')?.errors">
-                        <div *ngFor="let error of ReactiveForm.get('parties')?.errors | keyvalue">
-                            {{ validationMessages[error.key] }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Date de demande de documents complementaires -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_de_demande_de_documents_complementaires">Date de demande de documents
-                        complémentaires</label>
-                    <input type="date" class="form-control" id="date_de_demande_de_documents_complementaires"
-                        formControlName="date_de_demande_de_documents_complementaires" />
-                </div>
-
-                <!-- La date a laquelle observateur a ete convoque a audience -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="la_date_a_laquelle_observateur_a_ete_convoque_a_audience">La date à laquelle
-                        l'observateur a été convoqué à l'audience</label>
-                    <input type="text" placeholder="La date à laquelle l'observateur a été convoqué à l'audience"
-                        class="form-control" id="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
-                        formControlName="la_date_a_laquelle_observateur_a_ete_convoque_a_audience" />
-                </div>
-
-                <!-- Date de realisation de la recherche sur le terrain -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_de_realisation_de_la_recherche_sur_le_terrain">Date de réalisation de la recherche
-                        sur le terrain</label>
-                    <input type="date" class="form-control" id="date_de_realisation_de_la_recherche_sur_le_terrain"
-                        formControlName="date_de_realisation_de_la_recherche_sur_le_terrain" />
-                </div>
-
-                <!-- Date a laquelle le rapport a ete prepare -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_a_laquelle_le_rapport_a_ete_prepare">Date à laquelle le rapport a été
-                        préparé</label>
-                    <input type="date" class="form-control" id="date_a_laquelle_le_rapport_a_ete_prepare"
-                        formControlName="date_a_laquelle_le_rapport_a_ete_prepare" />
-                </div>
-
-                <!-- La date a laquelle le dossier a ete transmis au ministere public -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public">La date à laquelle le
-                        dossier a été transmis au ministère public</label>
-                    <input type="text" placeholder="La date à laquelle le dossier a été transmis au ministère public"
-                        class="form-control" id="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
-                        formControlName="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public" />
-                </div>
-
-                <!-- Date et numero des conclusions du ministere public -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_et_numero_des_conclusions_du_ministere_public">Date et numéro des conclusions du
-                        ministère public</label>
-                    <input type="text" placeholder="Date et numéro des conclusions du ministère public"
-                        class="form-control" id="date_et_numero_des_conclusions_du_ministere_public"
-                        formControlName="date_et_numero_des_conclusions_du_ministere_public" />
-                </div>
-
-                <!-- Date et numero des conclusions du parquet -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_et_numero_des_conclusions_du_parquet">Date et numéro des conclusions du
-                        parquet</label>
-                    <input type="text" placeholder="Date et numéro des conclusions du parquet" class="form-control"
-                        id="date_et_numero_des_conclusions_du_parquet"
-                        formControlName="date_et_numero_des_conclusions_du_parquet" />
-                </div>
-
-                <!-- Date a laquelle le suiveur a reçu la convocation pour inspection -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection">Date à laquelle le
-                        suiveur a reçu la convocation pour inspection</label>
-                    <input type="text" placeholder="Date à laquelle le suiveur a reçu la convocation pour inspection"
-                        class="form-control" id="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
-                        formControlName="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection" />
-                </div>
-
-                <!-- Date a laquelle avocat a reçu la convocation pour inspection -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection">Date à laquelle l'avocat a
-                        reçu la convocation pour inspection</label>
-                    <input type="text" placeholder="Date à laquelle l'avocat a reçu la convocation pour inspection"
-                        class="form-control" id="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
-                        formControlName="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection" />
-                </div>
-
-                <!-- Date a laquelle le suiveur a ete informe -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_a_laquelle_le_suiveur_a_ete_informe">Date à laquelle le suiveur a été
-                        informé</label>
-                    <input type="text" placeholder="Date à laquelle le suiveur a été informé" class="form-control"
-                        id="date_a_laquelle_le_suiveur_a_ete_informe"
-                        formControlName="date_a_laquelle_le_suiveur_a_ete_informe" />
-                </div>
-
-                <!-- Date a laquelle avocat a ete informe -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_a_laquelle_avocat_a_ete_informe">Date à laquelle l'avocat a été informé</label>
-                    <input type="text" placeholder="Date à laquelle l'avocat a été informé" class="form-control"
-                        id="date_a_laquelle_avocat_a_ete_informe"
-                        formControlName="date_a_laquelle_avocat_a_ete_informe" />
-                </div>
-
-                <!-- Date a laquelle le dossier a ete renvoye par le bureau central de controle -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle">Date à
-                        laquelle le dossier a été renvoyé par le bureau central de contrôle</label>
-                    <input type="text"
-                        placeholder="Date à laquelle le dossier a été renvoyé par le bureau central de contrôle"
-                        class="form-control"
-                        id="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
-                        formControlName="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle" />
-                </div>
-
-                <!-- Convoquer observateur et avocat pour assister à audience de determination de la peine -->
-                <div class="col-md-4 form-group my-2">
-                    <label
-                        for="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine">Convoquer
-                        observateur et avocat pour assister à l'audience de détermination de la peine</label>
-                    <input type="text"
-                        placeholder="Convoquer observateur et avocat pour assister à l'audience de détermination de la peine"
-                        class="form-control"
-                        id="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
-                        formControlName="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine" />
-                </div>
-
-                <!-- Date audience du jugement -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_audience_du_jugement">Date audience du jugement</label>
-                    <input type="date" class="form-control" id="date_audience_du_jugement"
-                        formControlName="date_audience_du_jugement" />
-                </div>
-
-                <!-- Date de audience de determination de la peine -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date_de_audience_de_determination_de_la_peine">Date de l'audience de détermination de la
-                        peine</label>
-                    <input type="date" class="form-control" id="date_de_audience_de_determination_de_la_peine"
-                        formControlName="date_de_audience_de_determination_de_la_peine" />
-                </div>
-
-                <!-- Operateur de decision -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="operateur_de_decision">Opérateur de décision</label>
-                    <input type="text" placeholder="Opérateur de décision" class="form-control"
-                        id="operateur_de_decision" formControlName="operateur_de_decision" />
-                </div>
-
-                <!-- Numero de resolution -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="numero_de_resolution">Numéro de résolution</label>
-                    <input type="text" placeholder="Numéro de résolution" class="form-control" id="numero_de_resolution"
-                        formControlName="numero_de_resolution" />
-                </div>
-
-                <!-- La date a laquelle la decision a ete envoyee pour notification aux parties -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties">La date à
-                        laquelle la décision a été envoyée pour notification aux parties</label>
-                    <input type="text"
-                        placeholder="La date à laquelle la décision a été envoyée pour notification aux parties"
-                        class="form-control"
-                        id="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
-                        formControlName="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties" />
-                </div>
-
-                <!-- Note de rappel -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="note_de_rappel">Note de rappel</label>
-                    <input type="text" placeholder="Note de rappel" class="form-control" id="note_de_rappel"
-                        formControlName="note_de_rappel" />
-                </div>
-
-                <!-- Date -->
-                <div class="col-md-4 form-group my-2">
-                    <label for="date">Date</label>
-                    <input type="date" class="form-control" id="date" formControlName="date" />
-                </div>
-
-            </div>
+          <!-- Date et numero de la requête du ministère public -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_et_numero_de_la_requete_du_ministere_public"
+              >Date et numéro de la requête du ministère public</label
+            >
+            <input
+              type="text"
+              placeholder="Date et numéro de la requête du ministère public"
+              class="form-control"
+              id="date_et_numero_de_la_requete_du_ministere_public"
+              formControlName="date_et_numero_de_la_requete_du_ministere_public"
+            />
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- تعين المستشار -->
+  <div class="card my-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">تعين المستشار</h5>
+      <button
+        class="btn btn-sm btn-outline-secondary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseCard2"
+        aria-expanded="true"
+        aria-controls="collapseCard2"
+      >
+        <i class="fa fa-chevron-up"></i>
+      </button>
     </div>
 
+    <div id="collapseCard2" class="collapse show">
+      <div class="card-body">
+        <div class="row">
+          <!-- Date et numero de ordre de nomination du conseiller programme -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
+              >Date et numéro de l'ordre de nomination du conseiller
+              programme</label
+            >
+            <input
+              type="text"
+              placeholder="Date et numéro de l'ordre de nomination du conseiller programme"
+              class="form-control"
+              id="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
+              formControlName="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
+            />
+          </div>
 
+          <!-- Conseiller rapporteur -->
+          <div class="col-md-4 form-group my-2">
+            <label for="conseiller_rapporteur">Conseiller rapporteur</label>
+            <input
+              type="text"
+              placeholder="Conseiller rapporteur"
+              class="form-control"
+              id="conseiller_rapporteur"
+              formControlName="conseiller_rapporteur"
+            />
+          </div>
+
+          <!-- Date et numero de arrete designant le rapporteur successeur -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
+              >Date et numéro de l'arrêté désignant le rapporteur
+              successeur</label
+            >
+            <input
+              type="text"
+              placeholder="Date et numéro de l'arrêté désignant le rapporteur successeur"
+              class="form-control"
+              id="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
+              formControlName="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
+            />
+          </div>
+
+          <!-- Conseiller rapporteur successeur -->
+          <div class="col-md-4 form-group my-2">
+            <label for="conseiller_rapporteur_successeur"
+              >Conseiller rapporteur successeur</label
+            >
+            <input
+              type="text"
+              placeholder="Conseiller rapporteur successeur"
+              class="form-control"
+              id="conseiller_rapporteur_successeur"
+              formControlName="conseiller_rapporteur_successeur"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- الاطراف -->
+  <div class="card my-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">الاطراف</h5>
+      <button
+        class="btn btn-sm btn-outline-secondary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseCard3"
+        aria-expanded="true"
+        aria-controls="collapseCard3"
+      >
+        <i class="fa fa-chevron-up"></i>
+      </button>
+    </div>
+
+    <div id="collapseCard3" class="collapse show">
+      <div class="card-body">
+        <div class="row">
+          <!-- La date a laquelle la petition a ete envoyee aux parties -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
+              >La date à laquelle la pétition a été envoyée aux parties</label
+            >
+            <input
+              type="text"
+              placeholder="La date à laquelle la pétition a été envoyée aux parties"
+              class="form-control"
+              id="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
+              formControlName="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
+            />
+          </div>
+
+          <!-- Parties -->
+          <div class="col-md-4 form-group my-2">
+            <label for="parties">Parties</label>
+            <input
+              type="text"
+              placeholder="Parties"
+              class="form-control"
+              id="parties"
+              formControlName="parties"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- تتبغ الاعريضة الاستئناف -->
+  <div class="card my-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">تتبغ الاعريضة الاستئناف</h5>
+      <button
+        class="btn btn-sm btn-outline-secondary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseCard4"
+        aria-expanded="true"
+        aria-controls="collapseCard4"
+      >
+        <i class="fa fa-chevron-up"></i>
+      </button>
+    </div>
+
+    <div id="collapseCard4" class="collapse show">
+      <div class="card-body">
+        <div class="row">
+          <!-- Date de demande de documents complementaires -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_de_demande_de_documents_complementaires"
+              >Date de demande de documents complémentaires</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="date_de_demande_de_documents_complementaires"
+              formControlName="date_de_demande_de_documents_complementaires"
+            />
+          </div>
+
+          <!-- La date a laquelle observateur a ete convoque a audience -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
+              >La date à laquelle l'observateur a été convoqué à
+              l'audience</label
+            >
+            <input
+              type="text"
+              placeholder="La date à laquelle l'observateur a été convoqué à l'audience"
+              class="form-control"
+              id="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
+              formControlName="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
+            />
+          </div>
+
+          <!-- Date de realisation de la recherche sur le terrain -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_de_realisation_de_la_recherche_sur_le_terrain"
+              >Date de réalisation de la recherche sur le terrain</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="date_de_realisation_de_la_recherche_sur_le_terrain"
+              formControlName="date_de_realisation_de_la_recherche_sur_le_terrain"
+            />
+          </div>
+
+          <!-- Date a laquelle le rapport a ete prepare -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_a_laquelle_le_rapport_a_ete_prepare"
+              >Date à laquelle le rapport a été préparé</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="date_a_laquelle_le_rapport_a_ete_prepare"
+              formControlName="date_a_laquelle_le_rapport_a_ete_prepare"
+            />
+          </div>
+
+          <!-- La date a laquelle le dossier a ete transmis au ministere public -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
+              >La date à laquelle le dossier a été transmis au ministère
+              public</label
+            >
+            <input
+              type="text"
+              placeholder="La date à laquelle le dossier a été transmis au ministère public"
+              class="form-control"
+              id="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
+              formControlName="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
+            />
+          </div>
+
+          <!-- Date et numero des conclusions du ministere public -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_et_numero_des_conclusions_du_ministere_public"
+              >Date et numéro des conclusions du ministère public</label
+            >
+            <input
+              type="text"
+              placeholder="Date et numéro des conclusions du ministère public"
+              class="form-control"
+              id="date_et_numero_des_conclusions_du_ministere_public"
+              formControlName="date_et_numero_des_conclusions_du_ministere_public"
+            />
+          </div>
+
+          <!-- Date et numero des conclusions du parquet -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_et_numero_des_conclusions_du_parquet"
+              >Date et numéro des conclusions du parquet</label
+            >
+            <input
+              type="text"
+              placeholder="Date et numéro des conclusions du parquet"
+              class="form-control"
+              id="date_et_numero_des_conclusions_du_parquet"
+              formControlName="date_et_numero_des_conclusions_du_parquet"
+            />
+          </div>
+
+          <!-- Date a laquelle le suiveur a reçu la convocation pour inspection -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
+              >Date à laquelle le suiveur a reçu la convocation pour
+              inspection</label
+            >
+            <input
+              type="text"
+              placeholder="Date à laquelle le suiveur a reçu la convocation pour inspection"
+              class="form-control"
+              id="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
+              formControlName="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
+            />
+          </div>
+
+          <!-- Date a laquelle avocat a reçu la convocation pour inspection -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
+              >Date à laquelle l'avocat a reçu la convocation pour
+              inspection</label
+            >
+            <input
+              type="text"
+              placeholder="Date à laquelle l'avocat a reçu la convocation pour inspection"
+              class="form-control"
+              id="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
+              formControlName="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
+            />
+          </div>
+
+          <!-- Date a laquelle le suiveur a ete informe -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_a_laquelle_le_suiveur_a_ete_informe"
+              >Date à laquelle le suiveur a été informé</label
+            >
+            <input
+              type="text"
+              placeholder="Date à laquelle le suiveur a été informé"
+              class="form-control"
+              id="date_a_laquelle_le_suiveur_a_ete_informe"
+              formControlName="date_a_laquelle_le_suiveur_a_ete_informe"
+            />
+          </div>
+
+          <!-- Date a laquelle avocat a ete informe -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_a_laquelle_avocat_a_ete_informe"
+              >Date à laquelle l'avocat a été informé</label
+            >
+            <input
+              type="text"
+              placeholder="Date à laquelle l'avocat a été informé"
+              class="form-control"
+              id="date_a_laquelle_avocat_a_ete_informe"
+              formControlName="date_a_laquelle_avocat_a_ete_informe"
+            />
+          </div>
+
+          <!-- Date a laquelle le dossier a ete renvoye par le bureau central de controle -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
+              >Date à laquelle le dossier a été renvoyé par le bureau central de
+              contrôle</label
+            >
+            <input
+              type="text"
+              placeholder="Date à laquelle le dossier a été renvoyé par le bureau central de contrôle"
+              class="form-control"
+              id="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
+              formControlName="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
+            />
+          </div>
+
+          <!-- Convoquer observateur et avocat pour assister à audience de determination de la peine -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
+              >Convoquer observateur et avocat pour assister à l'audience de
+              détermination de la peine</label
+            >
+            <input
+              type="text"
+              placeholder="Convoquer observateur et avocat pour assister à l'audience de détermination de la peine"
+              class="form-control"
+              id="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
+              formControlName="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
+            />
+          </div>
+
+          <!-- Date audience du jugement -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_audience_du_jugement"
+              >Date audience du jugement</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="date_audience_du_jugement"
+              formControlName="date_audience_du_jugement"
+            />
+          </div>
+
+          <!-- Date de audience de determination de la peine -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_de_audience_de_determination_de_la_peine"
+              >Date de l'audience de détermination de la peine</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="date_de_audience_de_determination_de_la_peine"
+              formControlName="date_de_audience_de_determination_de_la_peine"
+            />
+          </div>
+
+          <!-- Operateur de decision -->
+          <div class="col-md-4 form-group my-2">
+            <label for="operateur_de_decision">Opérateur de décision</label>
+            <input
+              type="text"
+              placeholder="Opérateur de décision"
+              class="form-control"
+              id="operateur_de_decision"
+              formControlName="operateur_de_decision"
+            />
+          </div>
+
+          <!-- Numero de resolution -->
+          <div class="col-md-4 form-group my-2">
+            <label for="numero_de_resolution">Numéro de résolution</label>
+            <input
+              type="text"
+              placeholder="Numéro de résolution"
+              class="form-control"
+              id="numero_de_resolution"
+              formControlName="numero_de_resolution"
+            />
+          </div>
+
+          <!-- La date a laquelle la decision a ete envoyee pour notification aux parties -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
+              >La date à laquelle la décision a été envoyée pour notification
+              aux parties</label
+            >
+            <input
+              type="text"
+              placeholder="La date à laquelle la décision a été envoyée pour notification aux parties"
+              class="form-control"
+              id="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
+              formControlName="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
+            />
+          </div>
+
+          <!-- Note de rappel -->
+          <div class="col-md-4 form-group my-2">
+            <label for="note_de_rappel">Note de rappel</label>
+            <input
+              type="text"
+              placeholder="Note de rappel"
+              class="form-control"
+              id="note_de_rappel"
+              formControlName="note_de_rappel"
+            />
+          </div>
+
+          <!-- Date -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date">Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              formControlName="date"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>

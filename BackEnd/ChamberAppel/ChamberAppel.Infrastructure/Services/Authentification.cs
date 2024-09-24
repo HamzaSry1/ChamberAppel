@@ -40,6 +40,7 @@ namespace ChamberAppel.Infrastructure.Services
             {
                 nbrDays = 1;
             }
+
             var expirationDate = DateTime.UtcNow.AddDays(nbrDays);
             var claims = new List<Claim>
             {
