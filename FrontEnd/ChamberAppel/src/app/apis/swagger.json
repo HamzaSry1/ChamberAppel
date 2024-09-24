@@ -1,1475 +1,56 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "Chamber d'appel",
-      "description": "Ceci est une documentation d'API Swagger pour la gestion de la Chambre d'Appel de la Cour des Comptes.",
-      "contact": {
-        "name": "Cour des comptes",
-        "url": "https://www.courdescomptes.ma"
-      },
-      "version": "v1"
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Chamber d'appel",
+    "description": "Ceci est une documentation d'API Swagger pour la gestion de la Chambre d'Appel de la Cour des Comptes.",
+    "contact": {
+      "name": "Cour des comptes",
+      "url": "https://www.courdescomptes.ma"
     },
-    "paths": {
-      "/api/ChamberAppelDisciplineBudgetaires/GetAllFiltredAsync": {
-        "post": {
-          "tags": [
-            "ChamberAppelDisciplineBudgetaires"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireDatatableResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireDatatableResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireDatatableResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/ChamberAppelDisciplineBudgetaires/GetByIdAsync/{id}": {
-        "get": {
-          "tags": [
-            "ChamberAppelDisciplineBudgetaires"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
+    "version": "v1"
+  },
+  "paths": {
+    "/api/DisciplineBudgetaires/GetAllFiltredAsync": {
+      "post": {
+        "tags": [
+          "DisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
               "schema": {
-                "type": "string",
-                "format": "uuid"
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
               }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/ChamberAppelDisciplineBudgetaires/CreateAsync": {
-        "post": {
-          "tags": [
-            "ChamberAppelDisciplineBudgetaires"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/ChamberAppelDisciplineBudgetaires/UpdateAsync": {
-        "put": {
-          "tags": [
-            "ChamberAppelDisciplineBudgetaires"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaireApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/ChamberAppelDisciplineBudgetaires/DeleteAsync/{id}": {
-        "delete": {
-          "tags": [
-            "ChamberAppelDisciplineBudgetaires"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
+            },
+            "text/json": {
               "schema": {
-                "type": "string",
-                "format": "uuid"
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
               }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/ChamberAppelDisciplineBudgetaires/ExporterAsync": {
-        "post": {
-          "tags": [
-            "ChamberAppelDisciplineBudgetaires"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }
-        }
-      },
-      "/api/Permissions/GetAllFiltredAsync": {
-        "post": {
-          "tags": [
-            "Permissions"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionDatatableResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionDatatableResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionDatatableResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Permissions/GetAllByGroupeAsync": {
-        "get": {
-          "tags": [
-            "Permissions"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoPermissionGroupeListApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoPermissionGroupeListApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoPermissionGroupeListApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Permissions/GetByIdAsync/{id}": {
-        "get": {
-          "tags": [
-            "Permissions"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
+            },
+            "application/*+json": {
               "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                }
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
               }
             }
           }
-        }
-      },
-      "/api/Permissions/CreateAsync": {
-        "post": {
-          "tags": [
-            "Permissions"
-          ],
-          "requestBody": {
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireDatatableResponse"
+                }
+              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/DisciplineBudgetaireDatatableResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Permission"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Permissions/UpdateAsync": {
-        "put": {
-          "tags": [
-            "Permissions"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Permission"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Permission"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Permission"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Permissions/DeleteAsync/{id}": {
-        "delete": {
-          "tags": [
-            "Permissions"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Permissions/ExporterAsync": {
-        "post": {
-          "tags": [
-            "Permissions"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }
-        }
-      },
-      "/api/Roles/GetAllFiltredAsync": {
-        "post": {
-          "tags": [
-            "Roles"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleDatatableResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleDatatableResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleDatatableResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/GetAllAsync": {
-        "get": {
-          "tags": [
-            "Roles"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleListApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleListApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleListApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/GetByIdAsync/{id}": {
-        "get": {
-          "tags": [
-            "Roles"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/CreateAsync": {
-        "post": {
-          "tags": [
-            "Roles"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Role"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Role"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Role"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/UpdateAsync": {
-        "put": {
-          "tags": [
-            "Roles"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Role"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Role"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Role"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/DeleteAsync/{id}": {
-        "delete": {
-          "tags": [
-            "Roles"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/ExporterAsync": {
-        "post": {
-          "tags": [
-            "Roles"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreMotsCle"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }
-        }
-      },
-      "/api/Roles/AddPermissionsAsync": {
-        "post": {
-          "tags": [
-            "Roles"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Roles/GetPermissionsAsync": {
-        "get": {
-          "tags": [
-            "Roles"
-          ],
-          "parameters": [
-            {
-              "name": "roldId",
-              "in": "query",
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/GetAllAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreUtilisateurDatatableRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreUtilisateurDatatableRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreUtilisateurDatatableRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurDatatableResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurDatatableResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurDatatableResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/GetByIdAsync/{id}": {
-        "get": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/CreateAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoUtilisateur"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoUtilisateur"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoUtilisateur"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/UpdateAsync": {
-        "put": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoUtilisateur"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoUtilisateur"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoUtilisateur"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/DeleteAsync/{id}": {
-        "delete": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/ExporterAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/GetPermissionsAsync/{id}": {
-        "get": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/GetRolesAsync/{id}": {
-        "get": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleListApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleListApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/RoleListApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/AddPermissionsAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/AddRolesAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoCheckedListRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/GetMyPermissionsAsync": {
-        "get": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PermissionListApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/LoginAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoLogin"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoLogin"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoLogin"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoLoginResultApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoLoginResultApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/DtoLoginResultApiResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/Utilisateurs/ResetPasswordAsync": {
-        "post": {
-          "tags": [
-            "Utilisateurs"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoChangePassword"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoChangePassword"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DtoChangePassword"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/BooleanApiResponse"
-                  }
+                  "$ref": "#/components/schemas/DisciplineBudgetaireDatatableResponse"
                 }
               }
             }
@@ -1477,828 +58,2247 @@
         }
       }
     },
-    "components": {
-      "schemas": {
-        "BooleanApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "boolean"
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "ChamberAppelDisciplineBudgetaire": {
-          "type": "object",
-          "properties": {
-            "id": {
+    "/api/DisciplineBudgetaires/GetByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "DisciplineBudgetaires"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "numero_de_dossier": {
-              "type": "string",
-              "nullable": true
-            },
-            "appelant": {
-              "type": "string",
-              "nullable": true
-            },
-            "numero_de_verdict_appelant": {
-              "type": "string",
-              "nullable": true
-            },
-            "publie_le": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "a_propos_du_CRC_de_la_region": {
-              "type": "string",
-              "nullable": true
-            },
-            "centre_comptable": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_enregistrement_de_la_requete_aupres_du_CRC": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_et_numero_de_la_requete_du_ministere_public": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_et_numero_de_ordre_de_nomination_du_conseiller_programme": {
-              "type": "string",
-              "nullable": true
-            },
-            "conseiller_rapporteur": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_et_numero_de_arrete_designant_le_rapporteur_successeur": {
-              "type": "string",
-              "nullable": true
-            },
-            "conseiller_rapporteur_successeur": {
-              "type": "string",
-              "nullable": true
-            },
-            "la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties": {
-              "type": "string",
-              "nullable": true
-            },
-            "parties": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_de_demande_de_documents_complementaires": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "la_date_a_laquelle_observateur_a_ete_convoque_a_audience": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_de_realisation_de_la_recherche_sur_le_terrain": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_a_laquelle_le_rapport_a_ete_prepare": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_et_numero_des_conclusions_du_ministere_public": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_et_numero_des_conclusions_du_parquet": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_a_laquelle_le_suiveur_a_ete_informe": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_a_laquelle_avocat_a_ete_informe": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_contrôle": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine": {
-              "type": "string",
-              "nullable": true
-            },
-            "date_audience_du_jugement": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "date_de_audience_de_determination_de_la_peine": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "operateur_de_decision": {
-              "type": "string",
-              "nullable": true
-            },
-            "numero_de_resolution": {
-              "type": "string",
-              "nullable": true
-            },
-            "la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
-            },
-            "la_date_a_laquelle_le_comptable_a_reçu_une_copie_de_la_decision": {
-              "type": "string",
-              "format": "date",
-              "nullable": true
             }
-          },
-          "additionalProperties": false
-        },
-        "ChamberAppelDisciplineBudgetaireApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
               },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "ChamberAppelDisciplineBudgetaireDatatableResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ChamberAppelDisciplineBudgetaire"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
               },
-              "nullable": true
-            },
-            "recordTotal": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "recordFiltred": {
-              "type": "integer",
-              "format": "int32"
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/DisciplineBudgetaires/CreateAsync": {
+      "post": {
+        "tags": [
+          "DisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisciplineBudgetaire"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisciplineBudgetaire"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisciplineBudgetaire"
+              }
+            }
+          }
         },
-        "DtoChangePassword": {
-          "type": "object",
-          "properties": {
-            "userId": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisciplineBudgetaires/UpdateAsync": {
+      "put": {
+        "tags": [
+          "DisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisciplineBudgetaire"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisciplineBudgetaire"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisciplineBudgetaire"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisciplineBudgetaireApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisciplineBudgetaires/DeleteAsync/{id}": {
+      "delete": {
+        "tags": [
+          "DisciplineBudgetaires"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "oldPassword": {
-              "type": "string",
-              "nullable": true
-            },
-            "newPassword": {
-              "type": "string",
-              "nullable": true
             }
-          },
-          "additionalProperties": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DisciplineBudgetaires/ExporterAsync": {
+      "post": {
+        "tags": [
+          "DisciplineBudgetaires"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            }
+          }
         },
-        "DtoCheckedListRequest": {
-          "type": "object",
-          "properties": {
-            "id": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Permissions/GetAllFiltredAsync": {
+      "post": {
+        "tags": [
+          "Permissions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Permissions/GetAllByGroupeAsync": {
+      "get": {
+        "tags": [
+          "Permissions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoPermissionGroupeListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoPermissionGroupeListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoPermissionGroupeListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Permissions/GetByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "listCheckedId": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
               },
-              "nullable": true
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
-        },
-        "DtoFiltreMotsCle": {
-          "type": "object",
-          "properties": {
-            "motsCle": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoFiltreMotsCleDatatableRequest": {
-          "type": "object",
-          "properties": {
-            "filtre": {
-              "$ref": "#/components/schemas/DtoFiltreMotsCle"
-            },
-            "pagination": {
-              "$ref": "#/components/schemas/DtoPagination"
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoFiltreUtilisateur": {
-          "type": "object",
-          "properties": {
-            "motsCle": {
-              "type": "string",
-              "nullable": true
-            },
-            "nomComplete": {
-              "type": "string",
-              "nullable": true
-            },
-            "email": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoFiltreUtilisateurDatatableRequest": {
-          "type": "object",
-          "properties": {
-            "filtre": {
-              "$ref": "#/components/schemas/DtoFiltreUtilisateur"
-            },
-            "pagination": {
-              "$ref": "#/components/schemas/DtoPagination"
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoLogin": {
-          "type": "object",
-          "properties": {
-            "login": {
-              "type": "string",
-              "nullable": true
-            },
-            "password": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoLoginResult": {
-          "type": "object",
-          "properties": {
-            "token": {
-              "type": "string",
-              "nullable": true
-            },
-            "permissions": {
-              "type": "array",
-              "items": {
+          }
+        }
+      }
+    },
+    "/api/Permissions/CreateAsync": {
+      "post": {
+        "tags": [
+          "Permissions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
                 "$ref": "#/components/schemas/Permission"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoLoginResultApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "$ref": "#/components/schemas/DtoLoginResult"
+              }
             },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoPagination": {
-          "type": "object",
-          "properties": {
-            "pageNumber": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "pageSize": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "orderByDirection": {
-              "type": "string",
-              "nullable": true
-            },
-            "orderBy": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "DtoPermissionGroupe": {
-          "type": "object",
-          "properties": {
-            "groupe": {
-              "type": "string",
-              "nullable": true
-            },
-            "permissions": {
-              "type": "array",
-              "items": {
+            "text/json": {
+              "schema": {
                 "$ref": "#/components/schemas/Permission"
-              },
-              "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permission"
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
-        "DtoPermissionGroupeListApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/DtoPermissionGroupe"
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
               },
-              "nullable": true
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
               },
-              "nullable": true
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/Permissions/UpdateAsync": {
+      "put": {
+        "tags": [
+          "Permissions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permission"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permission"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permission"
+              }
+            }
+          }
         },
-        "DtoUtilisateur": {
-          "type": "object",
-          "properties": {
-            "id": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Permissions/DeleteAsync/{id}": {
+      "delete": {
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "nom": {
-              "type": "string",
-              "nullable": true
-            },
-            "prenom": {
-              "type": "string",
-              "nullable": true
-            },
-            "nomArabe": {
-              "type": "string",
-              "nullable": true
-            },
-            "prenomArabe": {
-              "type": "string",
-              "nullable": true
-            },
-            "email": {
-              "type": "string",
-              "nullable": true
-            },
-            "login": {
-              "type": "string",
-              "nullable": true
-            },
-            "password": {
-              "type": "string",
-              "nullable": true
-            },
-            "updatedBy": {
-              "type": "string",
-              "nullable": true
-            },
-            "updateTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "isActive": {
-              "type": "integer",
-              "format": "int32"
             }
-          },
-          "additionalProperties": false
-        },
-        "DtoUtilisateurApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "$ref": "#/components/schemas/DtoUtilisateur"
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
               },
-              "nullable": true
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/Permissions/ExporterAsync": {
+      "post": {
+        "tags": [
+          "Permissions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            }
+          }
         },
-        "DtoUtilisateurDatatableResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Roles/GetAllFiltredAsync": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/GetAllAsync": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/GetByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/CreateAsync": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/UpdateAsync": {
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/DeleteAsync/{id}": {
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/ExporterAsync": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCle"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Roles/AddPermissionsAsync": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/GetPermissionsAsync": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "roldId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/GetAllAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateurDatatableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateurDatatableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateurDatatableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/GetByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/CreateAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
                 "$ref": "#/components/schemas/DtoUtilisateur"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoUtilisateur"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoUtilisateur"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
               },
-              "nullable": true
-            },
-            "recordTotal": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "recordFiltred": {
-              "type": "integer",
-              "format": "int32"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
-        },
-        "FluentValidationErrors": {
-          "type": "object",
-          "properties": {
-            "propertyName": {
-              "type": "string",
-              "nullable": true
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/UpdateAsync": {
+      "put": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoUtilisateur"
+              }
             },
-            "errorMessage": {
-              "type": "string",
-              "nullable": true
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoUtilisateur"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoUtilisateur"
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
-        "HttpStatusCode": {
-          "enum": [
-            100,
-            101,
-            102,
-            103,
-            200,
-            201,
-            202,
-            203,
-            204,
-            205,
-            206,
-            207,
-            208,
-            226,
-            300,
-            301,
-            302,
-            303,
-            304,
-            305,
-            306,
-            307,
-            308,
-            400,
-            401,
-            402,
-            403,
-            404,
-            405,
-            406,
-            407,
-            408,
-            409,
-            410,
-            411,
-            412,
-            413,
-            414,
-            415,
-            416,
-            417,
-            421,
-            422,
-            423,
-            424,
-            426,
-            428,
-            429,
-            431,
-            451,
-            500,
-            501,
-            502,
-            503,
-            504,
-            505,
-            506,
-            507,
-            508,
-            510,
-            511
-          ],
-          "type": "integer",
-          "format": "int32"
-        },
-        "Permission": {
-          "required": [
-            "groupe",
-            "label"
-          ],
-          "type": "object",
-          "properties": {
-            "id": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoUtilisateurApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/DeleteAsync/{id}": {
+      "delete": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "code": {
-              "maxLength": 80,
-              "type": "string",
-              "nullable": true
-            },
-            "label": {
-              "maxLength": 150,
-              "minLength": 1,
-              "type": "string"
-            },
-            "description": {
-              "maxLength": 255,
-              "type": "string",
-              "nullable": true
-            },
-            "isActive": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "groupe": {
-              "minLength": 1,
-              "type": "string"
             }
-          },
-          "additionalProperties": false
-        },
-        "PermissionApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "$ref": "#/components/schemas/Permission"
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
               },
-              "nullable": true
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
-        },
-        "PermissionDatatableResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Permission"
-              },
-              "nullable": true
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/ExporterAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+              }
             },
-            "recordTotal": {
-              "type": "integer",
-              "format": "int32"
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+              }
             },
-            "recordFiltred": {
-              "type": "integer",
-              "format": "int32"
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
-        "PermissionListApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Permission"
-              },
-              "nullable": true
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "Role": {
-          "required": [
-            "label"
-          ],
-          "type": "object",
-          "properties": {
-            "id": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/GetPermissionsAsync/{id}": {
+      "get": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "code": {
-              "maxLength": 80,
-              "type": "string",
-              "nullable": true
-            },
-            "label": {
-              "maxLength": 150,
-              "minLength": 1,
-              "type": "string"
-            },
-            "description": {
-              "maxLength": 255,
-              "type": "string",
-              "nullable": true
-            },
-            "isActive": {
-              "type": "integer",
-              "format": "int32"
             }
-          },
-          "additionalProperties": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/GetRolesAsync/{id}": {
+      "get": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/AddPermissionsAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            }
+          }
         },
-        "RoleApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "$ref": "#/components/schemas/Role"
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
               },
-              "nullable": true
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/AddRolesAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoCheckedListRequest"
+              }
+            }
+          }
         },
-        "RoleDatatableResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Role"
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
               },
-              "nullable": true
-            },
-            "recordTotal": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "recordFiltred": {
-              "type": "integer",
-              "format": "int32"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/GetMyPermissionsAsync": {
+      "get": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/LoginAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoLogin"
+              }
+            }
+          }
         },
-        "RoleListApiResponse": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Role"
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoLoginResultApiResponse"
+                }
               },
-              "nullable": true
-            },
-            "statusCode": {
-              "$ref": "#/components/schemas/HttpStatusCode"
-            },
-            "message": {
-              "type": "string",
-              "nullable": true
-            },
-            "validationErrors": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FluentValidationErrors"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoLoginResultApiResponse"
+                }
               },
-              "nullable": true
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DtoLoginResultApiResponse"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
+        }
+      }
+    },
+    "/api/Utilisateurs/ResetPasswordAsync": {
+      "post": {
+        "tags": [
+          "Utilisateurs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoChangePassword"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoChangePassword"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoChangePassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "BooleanApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisciplineBudgetaire": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "numero_de_dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_de_verdict_appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "publie_le": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "a_propos_du_CRC_de_la_region": {
+            "type": "string",
+            "nullable": true
+          },
+          "centre_comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_enregistrement_de_la_requete_aupres_du_CRC": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_et_numero_de_la_requete_du_ministere_public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_et_numero_de_ordre_de_nomination_du_conseiller_programme": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_et_numero_de_arrete_designant_le_rapporteur_successeur": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_rapporteur_successeur": {
+            "type": "string",
+            "nullable": true
+          },
+          "la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_demande_de_documents_complementaires": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "la_date_a_laquelle_observateur_a_ete_convoque_a_audience": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_de_realisation_de_la_recherche_sur_le_terrain": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_le_rapport_a_ete_prepare": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_et_numero_des_conclusions_du_ministere_public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_et_numero_des_conclusions_du_parquet": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_le_suiveur_a_ete_informe": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_avocat_a_ete_informe": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_contrôle": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_audience_du_jugement": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "date_de_audience_de_determination_de_la_peine": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "operateur_de_decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_de_resolution": {
+            "type": "string",
+            "nullable": true
+          },
+          "la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "la_date_a_laquelle_le_comptable_a_reçu_une_copie_de_la_decision": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisciplineBudgetaireApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DisciplineBudgetaire"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisciplineBudgetaireDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DisciplineBudgetaire"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoChangePassword": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "oldPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoCheckedListRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "listCheckedId": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreMotsCle": {
+        "type": "object",
+        "properties": {
+          "motsCle": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreMotsCleDatatableRequest": {
+        "type": "object",
+        "properties": {
+          "filtre": {
+            "$ref": "#/components/schemas/DtoFiltreMotsCle"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/DtoPagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreUtilisateur": {
+        "type": "object",
+        "properties": {
+          "motsCle": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomComplete": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreUtilisateurDatatableRequest": {
+        "type": "object",
+        "properties": {
+          "filtre": {
+            "$ref": "#/components/schemas/DtoFiltreUtilisateur"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/DtoPagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoLogin": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoLoginResult": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoLoginResultApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DtoLoginResult"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoPagination": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderByDirection": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoPermissionGroupe": {
+        "type": "object",
+        "properties": {
+          "groupe": {
+            "type": "string",
+            "nullable": true
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoPermissionGroupeListApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DtoPermissionGroupe"
+            },
+            "nullable": true
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoUtilisateur": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "prenom": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomArabe": {
+            "type": "string",
+            "nullable": true
+          },
+          "prenomArabe": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoUtilisateurApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DtoUtilisateur"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoUtilisateurDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DtoUtilisateur"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FluentValidationErrors": {
+        "type": "object",
+        "properties": {
+          "propertyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpStatusCode": {
+        "enum": [
+          100,
+          101,
+          102,
+          103,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          226,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          421,
+          422,
+          423,
+          424,
+          426,
+          428,
+          429,
+          431,
+          451,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          510,
+          511
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Permission": {
+        "required": [
+          "groupe",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "maxLength": 80,
+            "type": "string",
+            "nullable": true
+          },
+          "label": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "groupe": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PermissionApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Permission"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PermissionDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PermissionListApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "maxLength": 80,
+            "type": "string",
+            "nullable": true
+          },
+          "label": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleListApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "nullable": true
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   }
+}

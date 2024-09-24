@@ -6,13 +6,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCommit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ChamberAppelDisciplineBudgetaires",
+                name: "CRCs",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
+                    Code = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: true),
+                    Label = table.Column<string>(type: "NVARCHAR2(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
+                    IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CRCs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DisciplineBudgetaires",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
@@ -52,7 +67,7 @@ namespace ChamberAppel.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChamberAppelDisciplineBudgetaires", x => x.Id);
+                    table.PrimaryKey("PK_DisciplineBudgetaires", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,7 +102,37 @@ namespace ChamberAppel.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UtilisateurLogs",
+                name: "TypeGrades",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
+                    Code = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: true),
+                    Label = table.Column<string>(type: "NVARCHAR2(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
+                    IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TypeGrades", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TypeUtilisateurs",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
+                    Code = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: true),
+                    Label = table.Column<string>(type: "NVARCHAR2(150)", maxLength: 150, nullable: false),
+                    Description = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
+                    IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TypeUtilisateurs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UtilisateurLoggings",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
@@ -98,7 +143,7 @@ namespace ChamberAppel.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UtilisateurLogs", x => x.Id);
+                    table.PrimaryKey("PK_UtilisateurLoggings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,7 +158,9 @@ namespace ChamberAppel.Infrastructure.Migrations
                     Email = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: false),
                     Login = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: false),
                     Password = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: false),
-                    UpdatedBy = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    TypeUtilisateurId = table.Column<Guid>(type: "RAW(16)", nullable: false),
+                    TypeGradeId = table.Column<Guid>(type: "RAW(16)", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "NVARCHAR2(80)", maxLength: 80, nullable: true),
                     UpdateTime = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
                     IsActive = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
@@ -232,13 +279,22 @@ namespace ChamberAppel.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ChamberAppelDisciplineBudgetaires");
+                name: "CRCs");
+
+            migrationBuilder.DropTable(
+                name: "DisciplineBudgetaires");
 
             migrationBuilder.DropTable(
                 name: "RolePermissions");
 
             migrationBuilder.DropTable(
-                name: "UtilisateurLogs");
+                name: "TypeGrades");
+
+            migrationBuilder.DropTable(
+                name: "TypeUtilisateurs");
+
+            migrationBuilder.DropTable(
+                name: "UtilisateurLoggings");
 
             migrationBuilder.DropTable(
                 name: "UtilisateurPermissions");

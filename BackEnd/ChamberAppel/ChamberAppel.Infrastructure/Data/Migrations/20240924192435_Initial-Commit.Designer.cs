@@ -12,8 +12,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240920131233_Initial-Migration")]
-    partial class InitialMigration
+    [Migration("20240924192435_Initial-Commit")]
+    partial class InitialCommit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,34 @@ namespace ChamberAppel.Infrastructure.Migrations
 
             OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ChamberAppel.Domain.Models.ChamberAppelDisciplineBudgetaire", b =>
+            modelBuilder.Entity("ChamberAppel.Domain.Models.CRC", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<string>("Code")
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR2(255)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("NVARCHAR2(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CRCs");
+                });
+
+            modelBuilder.Entity("ChamberAppel.Domain.Models.DisciplineBudgetaire", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -132,7 +159,7 @@ namespace ChamberAppel.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ChamberAppelDisciplineBudgetaires");
+                    b.ToTable("DisciplineBudgetaires");
                 });
 
             modelBuilder.Entity("ChamberAppel.Domain.Models.Permission", b =>
@@ -214,6 +241,60 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.ToTable("RolePermissions");
                 });
 
+            modelBuilder.Entity("ChamberAppel.Domain.Models.TypeGrade", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<string>("Code")
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR2(255)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("NVARCHAR2(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TypeGrades");
+                });
+
+            modelBuilder.Entity("ChamberAppel.Domain.Models.TypeUtilisateur", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<string>("Code")
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR2(255)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("NVARCHAR2(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TypeUtilisateurs");
+                });
+
             modelBuilder.Entity("ChamberAppel.Domain.Models.Utilisateur", b =>
                 {
                     b.Property<Guid>("Id")
@@ -256,18 +337,25 @@ namespace ChamberAppel.Infrastructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("NVARCHAR2(20)");
 
+                    b.Property<Guid>("TypeGradeId")
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<Guid>("TypeUtilisateurId")
+                        .HasColumnType("RAW(16)");
+
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<string>("UpdatedBy")
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Utilisateurs");
                 });
 
-            modelBuilder.Entity("ChamberAppel.Domain.Models.UtilisateurLog", b =>
+            modelBuilder.Entity("ChamberAppel.Domain.Models.UtilisateurLogging", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -290,7 +378,7 @@ namespace ChamberAppel.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UtilisateurLogs");
+                    b.ToTable("UtilisateurLoggings");
                 });
 
             modelBuilder.Entity("ChamberAppel.Domain.Models.UtilisateurPermissions", b =>

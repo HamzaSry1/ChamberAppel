@@ -4,7 +4,7 @@ using ChamberAppel.Domain.Services;
 
 namespace ChamberAppel.Infrastructure.Services
 {
-    public class UtilisateurLogService : BaseService<UtilisateurLog>, IUtilisateurLogService
+    public class UtilisateurLogService : BaseService<UtilisateurLogging>, IUtilisateurLogService
     {
         public UtilisateurLogService(IUtilisateurLogRepository repository) : base(repository)
         {

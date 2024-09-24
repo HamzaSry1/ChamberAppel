@@ -2,7 +2,7 @@
 
 namespace ChamberAppel.Domain.Repository
 {
-    public interface IUtilisateurLogRepository : IBaseRepository<UtilisateurLog>
+    public interface IUtilisateurLogRepository : IBaseRepository<UtilisateurLogging>
     {
     }
 }

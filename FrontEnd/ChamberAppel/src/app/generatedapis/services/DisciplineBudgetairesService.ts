@@ -3,41 +3,41 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BooleanApiResponse } from '../models/BooleanApiResponse';
-import type { ChamberAppelDisciplineBudgetaire } from '../models/ChamberAppelDisciplineBudgetaire';
-import type { ChamberAppelDisciplineBudgetaireApiResponse } from '../models/ChamberAppelDisciplineBudgetaireApiResponse';
-import type { ChamberAppelDisciplineBudgetaireDatatableResponse } from '../models/ChamberAppelDisciplineBudgetaireDatatableResponse';
+import type { DisciplineBudgetaire } from '../models/DisciplineBudgetaire';
+import type { DisciplineBudgetaireApiResponse } from '../models/DisciplineBudgetaireApiResponse';
+import type { DisciplineBudgetaireDatatableResponse } from '../models/DisciplineBudgetaireDatatableResponse';
 import type { DtoFiltreMotsCle } from '../models/DtoFiltreMotsCle';
 import type { DtoFiltreMotsCleDatatableRequest } from '../models/DtoFiltreMotsCleDatatableRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-export class ChamberAppelDisciplineBudgetairesService {
+export class DisciplineBudgetairesService {
     /**
      * @param requestBody
-     * @returns ChamberAppelDisciplineBudgetaireDatatableResponse Success
+     * @returns DisciplineBudgetaireDatatableResponse Success
      * @throws ApiError
      */
-    public static postApiChamberAppelDisciplineBudgetairesGetAllFiltredAsync(
+    public static postApiDisciplineBudgetairesGetAllFiltredAsync(
         requestBody?: DtoFiltreMotsCleDatatableRequest,
-    ): CancelablePromise<ChamberAppelDisciplineBudgetaireDatatableResponse> {
+    ): CancelablePromise<DisciplineBudgetaireDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/ChamberAppelDisciplineBudgetaires/GetAllFiltredAsync',
+            url: '/api/DisciplineBudgetaires/GetAllFiltredAsync',
             body: requestBody,
             mediaType: 'application/json',
         });
     }
     /**
      * @param id
-     * @returns ChamberAppelDisciplineBudgetaireApiResponse Success
+     * @returns DisciplineBudgetaireApiResponse Success
      * @throws ApiError
      */
-    public static getApiChamberAppelDisciplineBudgetairesGetByIdAsync(
+    public static getApiDisciplineBudgetairesGetByIdAsync(
         id: string,
-    ): CancelablePromise<ChamberAppelDisciplineBudgetaireApiResponse> {
+    ): CancelablePromise<DisciplineBudgetaireApiResponse> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/ChamberAppelDisciplineBudgetaires/GetByIdAsync/{id}',
+            url: '/api/DisciplineBudgetaires/GetByIdAsync/{id}',
             path: {
                 'id': id,
             },
@@ -45,30 +45,30 @@ export class ChamberAppelDisciplineBudgetairesService {
     }
     /**
      * @param requestBody
-     * @returns ChamberAppelDisciplineBudgetaireApiResponse Success
+     * @returns DisciplineBudgetaireApiResponse Success
      * @throws ApiError
      */
-    public static postApiChamberAppelDisciplineBudgetairesCreateAsync(
-        requestBody?: ChamberAppelDisciplineBudgetaire,
-    ): CancelablePromise<ChamberAppelDisciplineBudgetaireApiResponse> {
+    public static postApiDisciplineBudgetairesCreateAsync(
+        requestBody?: DisciplineBudgetaire,
+    ): CancelablePromise<DisciplineBudgetaireApiResponse> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/ChamberAppelDisciplineBudgetaires/CreateAsync',
+            url: '/api/DisciplineBudgetaires/CreateAsync',
             body: requestBody,
             mediaType: 'application/json',
         });
     }
     /**
      * @param requestBody
-     * @returns ChamberAppelDisciplineBudgetaireApiResponse Success
+     * @returns DisciplineBudgetaireApiResponse Success
      * @throws ApiError
      */
-    public static putApiChamberAppelDisciplineBudgetairesUpdateAsync(
-        requestBody?: ChamberAppelDisciplineBudgetaire,
-    ): CancelablePromise<ChamberAppelDisciplineBudgetaireApiResponse> {
+    public static putApiDisciplineBudgetairesUpdateAsync(
+        requestBody?: DisciplineBudgetaire,
+    ): CancelablePromise<DisciplineBudgetaireApiResponse> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/api/ChamberAppelDisciplineBudgetaires/UpdateAsync',
+            url: '/api/DisciplineBudgetaires/UpdateAsync',
             body: requestBody,
             mediaType: 'application/json',
         });
@@ -78,12 +78,12 @@ export class ChamberAppelDisciplineBudgetairesService {
      * @returns BooleanApiResponse Success
      * @throws ApiError
      */
-    public static deleteApiChamberAppelDisciplineBudgetairesDeleteAsync(
+    public static deleteApiDisciplineBudgetairesDeleteAsync(
         id: string,
     ): CancelablePromise<BooleanApiResponse> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/api/ChamberAppelDisciplineBudgetaires/DeleteAsync/{id}',
+            url: '/api/DisciplineBudgetaires/DeleteAsync/{id}',
             path: {
                 'id': id,
             },
@@ -94,12 +94,12 @@ export class ChamberAppelDisciplineBudgetairesService {
      * @returns any Success
      * @throws ApiError
      */
-    public static postApiChamberAppelDisciplineBudgetairesExporterAsync(
+    public static postApiDisciplineBudgetairesExporterAsync(
         requestBody?: DtoFiltreMotsCle,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/ChamberAppelDisciplineBudgetaires/ExporterAsync',
+            url: '/api/DisciplineBudgetaires/ExporterAsync',
             body: requestBody,
             mediaType: 'application/json',
         });

@@ -13,7 +13,10 @@ namespace ChamberAppel.Infrastructure.Data
         public DbSet<UtilisateurPermissions> UtilisateurPermissions { get; set; }
         public DbSet<RolePermissions> RolePermissions { get; set; }
         public DbSet<UtilisateurRoles> UtilisateurRoles { get; set; }
-        public DbSet<UtilisateurLog> UtilisateurLogs { get; set; }
-        public DbSet<ChamberAppelDisciplineBudgetaire> ChamberAppelDisciplineBudgetaires { get; set; }
+        public DbSet<UtilisateurLogging> UtilisateurLoggings { get; set; }
+        public DbSet<DisciplineBudgetaire> DisciplineBudgetaires { get; set; }
+        public DbSet<TypeGrade> TypeGrades { get; set; }
+        public DbSet<TypeUtilisateur> TypeUtilisateurs { get; set; }
+        public DbSet<CRC> CRCs { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace ChamberAppel.Infrastructure.Repository
             // get the user id from the httpcontext
 
             // then save into the database
-            var userLog = new UtilisateurLog
+            var userLog = new UtilisateurLogging
             {
                 Id = Guid.NewGuid(),
                 UtilisateurId = id,
@@ -27,7 +27,7 @@ namespace ChamberAppel.Infrastructure.Repository
                 DateLog = DateTime.UtcNow,
             };
 
-            _database.UtilisateurLogs.Add(userLog);
+            _database.UtilisateurLoggings.Add(userLog);
             _database.SaveChangesAsync();
         }
     }

@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ChamberAppelDisciplineBudgetaire } from './ChamberAppelDisciplineBudgetaire';
+import type { DisciplineBudgetaire } from './DisciplineBudgetaire';
 import type { FluentValidationErrors } from './FluentValidationErrors';
 import type { HttpStatusCode } from './HttpStatusCode';
-export type ChamberAppelDisciplineBudgetaireApiResponse = {
-    data?: ChamberAppelDisciplineBudgetaire;
+export type DisciplineBudgetaireApiResponse = {
+    data?: DisciplineBudgetaire;
     statusCode?: HttpStatusCode;
     message?: string | null;
     validationErrors?: Array<FluentValidationErrors> | null;

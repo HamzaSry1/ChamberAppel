@@ -2,7 +2,7 @@
 
 namespace ChamberAppel.Domain.Models
 {
-    public class UtilisateurLog
+    public class UtilisateurLogging
     {
         [Key]
         public Guid Id { get; set; }

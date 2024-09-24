@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ChamberAppelDisciplineBudgetaire = {
+export type DisciplineBudgetaire = {
     id?: string;
     numero_de_dossier?: string | null;
     appelant?: string | null;

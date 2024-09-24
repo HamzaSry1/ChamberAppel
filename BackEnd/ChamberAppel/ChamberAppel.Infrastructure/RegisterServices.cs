@@ -22,7 +22,7 @@ namespace ChamberAppel.Infrastructure
             });
 
             // Register REPOSITORY: 
-            service.AddScoped<IChamberAppelDisciplineBudgetaireRepository, ChamberAppelDisciplineBudgetaireRepository>();
+            service.AddScoped<IDisciplineBudgetaireRepository, DisciplineBudgetaireRepository>();
             service.AddScoped<IPermissionRepository, PermissionRepository>();
             service.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
             service.AddScoped<IRoleRepository, RoleRepository>();
@@ -32,7 +32,7 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<ILoggingRepository, LoggingRepository>();
 
             // Register SERVICES:
-            service.AddScoped<IChamberAppelDisciplineBudgetaireService, ChamberAppelDisciplineBudgetaireService>();
+            service.AddScoped<IDisciplineBudgetaireService, DisciplineBudgetaireService>();
             service.AddScoped<IPermissionService, PermissionService>();
             service.AddScoped<IRolePermissionService, RolePermissionService>();
             service.AddScoped<IRoleService, RoleService>();

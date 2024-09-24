@@ -8,9 +8,9 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { BooleanApiResponse } from './models/BooleanApiResponse';
-export type { ChamberAppelDisciplineBudgetaire } from './models/ChamberAppelDisciplineBudgetaire';
-export type { ChamberAppelDisciplineBudgetaireApiResponse } from './models/ChamberAppelDisciplineBudgetaireApiResponse';
-export type { ChamberAppelDisciplineBudgetaireDatatableResponse } from './models/ChamberAppelDisciplineBudgetaireDatatableResponse';
+export type { DisciplineBudgetaire } from './models/DisciplineBudgetaire';
+export type { DisciplineBudgetaireApiResponse } from './models/DisciplineBudgetaireApiResponse';
+export type { DisciplineBudgetaireDatatableResponse } from './models/DisciplineBudgetaireDatatableResponse';
 export type { DtoChangePassword } from './models/DtoChangePassword';
 export type { DtoCheckedListRequest } from './models/DtoCheckedListRequest';
 export type { DtoFiltreMotsCle } from './models/DtoFiltreMotsCle';
@@ -37,7 +37,7 @@ export type { RoleApiResponse } from './models/RoleApiResponse';
 export type { RoleDatatableResponse } from './models/RoleDatatableResponse';
 export type { RoleListApiResponse } from './models/RoleListApiResponse';
 
-export { ChamberAppelDisciplineBudgetairesService } from './services/ChamberAppelDisciplineBudgetairesService';
+export { DisciplineBudgetairesService } from './services/DisciplineBudgetairesService';
 export { PermissionsService } from './services/PermissionsService';
 export { RolesService } from './services/RolesService';
 export { UtilisateursService } from './services/UtilisateursService';

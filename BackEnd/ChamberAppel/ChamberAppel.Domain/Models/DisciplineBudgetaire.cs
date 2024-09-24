@@ -2,7 +2,7 @@
 
 namespace ChamberAppel.Domain.Models
 {
-    public class ChamberAppelDisciplineBudgetaire
+    public class DisciplineBudgetaire
     {
         [Key]
         public Guid Id { get; set; }

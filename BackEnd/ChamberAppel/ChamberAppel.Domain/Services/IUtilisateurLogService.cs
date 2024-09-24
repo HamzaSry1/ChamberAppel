@@ -2,7 +2,7 @@
 
 namespace ChamberAppel.Domain.Services
 {
-    public interface IUtilisateurLogService : IBaseService<UtilisateurLog>
+    public interface IUtilisateurLogService : IBaseService<UtilisateurLogging>
     {
     }
 }

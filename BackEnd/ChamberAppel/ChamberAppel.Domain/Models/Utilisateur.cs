@@ -20,7 +20,13 @@ namespace ChamberAppel.Domain.Models
         public string Login { get; set; } = null!;
         [Required, MaxLength(255), MinLength(5)]
         public string Password { get; set; } = null!;
+        [Required]
+        public Guid TypeUtilisateurId { get; set; }
+        [Required]
+        public Guid TypeGradeId { get; set; }
+
         [MaxLength(80)]
+        [Length(3, 80)]
         public string? UpdatedBy { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime? UpdateTime { get; set; }

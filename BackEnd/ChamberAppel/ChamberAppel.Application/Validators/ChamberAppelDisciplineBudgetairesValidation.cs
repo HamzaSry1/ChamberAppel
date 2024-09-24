@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace ChamberAppel.Application.Validators
 {
-    public class ChamberAppelDisciplineBudgetairesValidation : AbstractValidator<ChamberAppelDisciplineBudgetaire>
+    public class ChamberAppelDisciplineBudgetairesValidation : AbstractValidator<DisciplineBudgetaire>
     {
         public ChamberAppelDisciplineBudgetairesValidation()
         {

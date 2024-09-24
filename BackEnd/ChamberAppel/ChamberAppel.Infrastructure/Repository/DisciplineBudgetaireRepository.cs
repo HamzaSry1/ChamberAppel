@@ -6,24 +6,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
-    public class ChamberAppelDisciplineBudgetaireRepository
-        : BaseRepository<ChamberAppelDisciplineBudgetaire>,
-        IChamberAppelDisciplineBudgetaireRepository
+    public class DisciplineBudgetaireRepository
+        : BaseRepository<DisciplineBudgetaire>,
+        IDisciplineBudgetaireRepository
     {
 
         private readonly ApplicationDbContext _dbContext;
-        public ChamberAppelDisciplineBudgetaireRepository
+        public DisciplineBudgetaireRepository
             (ApplicationDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<DatatableResponse<ChamberAppelDisciplineBudgetaire>> GetAllAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
+        public async Task<DatatableResponse<DisciplineBudgetaire>> GetAllAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
         {
-            var dbSet = _dbContext.ChamberAppelDisciplineBudgetaires;
+            var dbSet = _dbContext.DisciplineBudgetaires;
 
-            IQueryable<ChamberAppelDisciplineBudgetaire> query = dbSet;
-            var response = new DatatableResponse<ChamberAppelDisciplineBudgetaire>
+            IQueryable<DisciplineBudgetaire> query = dbSet;
+            var response = new DatatableResponse<DisciplineBudgetaire>
             {
                 RecordTotal = await query.CountAsync(),
             };
