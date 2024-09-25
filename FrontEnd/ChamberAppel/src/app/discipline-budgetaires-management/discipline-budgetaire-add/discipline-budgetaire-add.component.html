@@ -1,1 +1,8 @@
-<p>discipline-budgetaire-add works!</p>
+<app-discipline-budgetaire-form
+  [title]="'Ajouter une discipline budgetaire'"
+  [titleMobile]="'Ajt. une discipline budgetaire'"
+  [IsCreateOrUpdate]="true"
+  [formIsDisabled]="false"
+  [IsDelete]="false"
+  (Save)="OnSave($event)"
+></app-discipline-budgetaire-form>

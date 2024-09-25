@@ -1,1 +1,8 @@
-<p>discipline-budgetaire-delete works!</p>
+<app-discipline-budgetaire-form
+  [title]="'Supprimer une discipline budgetaire'"
+  [titleMobile]="'Spr. une discipline budgetaire'"
+  [IsCreateOrUpdate]="false"
+  [formIsDisabled]="true"
+  [IsDelete]="true"
+  (Delete)="ConfirmDelete($event)"
+></app-discipline-budgetaire-form>

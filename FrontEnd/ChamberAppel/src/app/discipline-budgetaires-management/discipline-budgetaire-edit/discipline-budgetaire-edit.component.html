@@ -1,1 +1,8 @@
-<p>discipline-budgetaire-edit works!</p>
+<app-discipline-budgetaire-form
+  [title]="'Modifier la discipline budgetaire'"
+  [titleMobile]="'Mdf. le discipline budgetaire'"
+  [IsCreateOrUpdate]="true"
+  [formIsDisabled]="false"
+  [IsDelete]="false"
+  (Save)="OnSave($event)"
+></app-discipline-budgetaire-form>
