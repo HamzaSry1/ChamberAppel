@@ -30,7 +30,7 @@ namespace ChamberAppel.Infrastructure.Repository
 
             if (!string.IsNullOrEmpty(filter.MotsCle))
             {
-                query = query.Where(x => x.Numero_de_dossier.Trim().Contains(filter.MotsCle.Trim())
+                query = query.Where(x => x.Numero_Dossier.Trim().Contains(filter.MotsCle.Trim())
                                          || x.Appelant.Trim().Contains(filter.MotsCle.Trim()));
             }
             response.RecordFiltred = query.Count();

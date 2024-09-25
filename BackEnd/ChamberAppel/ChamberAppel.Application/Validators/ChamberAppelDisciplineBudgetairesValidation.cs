@@ -9,7 +9,7 @@ namespace ChamberAppel.Application.Validators
         public ChamberAppelDisciplineBudgetairesValidation()
         {
 
-            RuleFor(chamber => chamber.Numero_de_dossier)
+            RuleFor(chamber => chamber.Numero_Dossier)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage(CustomMessages.Required);
@@ -19,7 +19,7 @@ namespace ChamberAppel.Application.Validators
                 .NotEmpty()
                 .WithMessage(CustomMessages.Required);
 
-            RuleFor(chamber => chamber.Centre_comptable)
+            RuleFor(chamber => chamber.Centre_Comptable)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage(CustomMessages.Required);

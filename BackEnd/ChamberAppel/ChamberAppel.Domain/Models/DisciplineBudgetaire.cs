@@ -1,92 +1,164 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChamberAppel.Domain.Models
 {
     public class DisciplineBudgetaire
     {
-        [Key]
         public Guid Id { get; set; }
-        public string? Numero_de_dossier { get; set; }
+
+        // رقم الملف
+        public string? Numero_Dossier { get; set; }
+
+        // طالب الإستئناف
         public string? Appelant { get; set; }
-        public string? Numero_de_verdict_appelant { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Publie_le { get; set; }
-        public Guid? IdCRC { get; set; }
-        public string? Centre_comptable { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_enregistrement_de_la_requete_aupres_du_CRC { get; set; }
 
-        public string? Date_de_la_requete_du_ministere_public { get; set; }
-        public string? Numero_de_la_requete_du_ministere_public { get; set; }
+        // الحكم المستأنف عدد
+        public string? Numero_Jugement_Faisant_Objet_De_Appel { get; set; }
 
-        public string? Date_de_ordre_de_nomination_du_conseiller_programme { get; set; }
-        public string? Numero_de_ordre_de_nomination_du_conseiller_programme { get; set; }
+        // الصادر بتاريخ
+        public string? Emis_En_Date_Du { get; set; }
 
-        public string? Conseiller_rapporteur { get; set; } = null!; 
+        // المجلس الجهوي للحسابات لجهة
+        public Guid IdCRC { get; set; }
 
-        public string? Date_de_arrete_designant_le_rapporteur_successeur { get; set; }
-        public string? Numero_de_arrete_designant_le_rapporteur_successeur { get; set; }
+        // المركز المحاسبي
+        public string? Centre_Comptable { get; set; }
 
-        public string? Conseiller_rapporteur_successeur { get; set; } = null!;
-        public string? La_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties { get; set; }
+        // تاريخ تسجيل العريضة بالمجلس الجهوي للحسابات
+        public string? Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes { get; set; }
 
+        // تاريخ ملتمس النيابة العامة
+        public string? Date_Requisition_Ministere_Public { get; set; }
+
+        // رقم ملتمس النيابة العامة
+        public string? Numero_Requisition_Ministere_Public { get; set; }
+
+        // تاريخ أمر تعيين المستشار المقرر
+        public string? Date_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
+
+        // رقم أمر تعيين المستشار المقرر
+        public string? Numero_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
+
+        // المستشار المقرر
+        public string? Conseiller_Rapporteur { get; set; }
+
+        // تاریخ أمر تعيين المستشار المقرر الخلف
+        public string? Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
+
+        // رقم أمر تعيين المستشار المقرر الخلف
+        public string? Numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
+
+        // المستشار المقرر الخلف
+        public string? Conseiller_Rapporteur_Remplacant { get; set; }
+
+        // تاريخ إرسال العريضة للأطراف
+        public string? Date_Envoi_Requete_Parties { get; set; }
 
         #region les parties
 
-        public string? Parties_Agent_du_Roi_au_CRC { get; set; } 
-        public string? Parties_Entrepot_Regional { get; set; } 
-        public string? Parties_Travailleur_du_territoire { get; set; } 
-        public string? Parties_President_de_la_Commune { get; set; } 
+        // الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
+        public string? Parties_Agent_du_Roi_au_CRC { get; set; }
 
-        public DateTime? Date_de_réception_par_les_parties_Agent_du_Roi_au_CRC { get; set; } 
-        public DateTime? Date_de_réception_par_les_parties_Entrepot_Regional { get; set; } 
-        public DateTime? Date_de_réception_par_les_parties_Travailleur_du_territoire { get; set; } 
-        public DateTime? Date_de_réception_par_les_parties_President_de_la_Commune { get; set; } 
+        // الأطراف - المستودع الإقليمي
+        public string? Parties_Entrepot_Regional { get; set; }
 
-        public string? Réponse_au_mémoire_d_appel_Agent_du_Roi_au_CRC { get; set; }
-        public string? Réponse_au_mémoire_d_appel_Entrepot_Regional { get; set; }
-        public string? Réponse_au_mémoire_d_appel_Travailleur_du_territoire { get; set; }
-        public string? Réponse_au_mémoire_d_appel_President_de_la_Commune { get; set; }
+        // الأطراف - عامل الإقليم
+        public string? Parties_Travailleur_du_territoire { get; set; }
+
+        // الأطراف - رئيس الجماعة
+        public string? Parties_President_de_la_Commune { get; set; }
+
+        // تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
+        public DateTime? Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC { get; set; }
+
+        // تاريخ توصل الأطراف - المستودع الإقليمي
+        public DateTime? Date_de_reception_par_les_parties_Entrepot_Regional { get; set; }
+
+        // تاريخ توصل الأطراف - عامل الإقليم
+        public DateTime? Date_de_reception_par_les_parties_Travailleur_du_territoire { get; set; }
+
+        // تاريخ توصل الأطراف - رئيس الجماعة
+        public DateTime? Date_de_reception_par_les_parties_President_de_la_Commune { get; set; }
+
+        // رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات
+        public string? Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC { get; set; }
+
+        // رد على مذكرة الاستئناف - المستودع الإقليمي
+        public string? Reponse_au_memoire_d_appel_Entrepot_Regional { get; set; }
+
+        // رد على مذكرة الاستئناف - عامل الإقليم
+        public string? Reponse_au_memoire_d_appel_Travailleur_du_territoire { get; set; }
+
+        // رد على مذكرة الاستئناف - رئيس الجماعة
+        public string? Reponse_au_memoire_d_appel_President_de_la_Commune { get; set; }
 
         #endregion les parties
 
+        // تاریخ طلب وثائق تكميلية
+        public string? Date_Demande_Documents_Supplementaires { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? Date_de_demande_de_documents_complementaires { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? La_date_a_laquelle_observateur_a_ete_convoque_a_audience { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_de_realisation_de_la_recherche_sur_le_terrain { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_a_laquelle_le_rapport_a_ete_prepare { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? La_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public { get; set; }
-        public string? Date_des_conclusions_du_ministere_public { get; set; }
-        public string? Numero_des_conclusions_du_ministere_public { get; set; }
-        public string? Date_des_conclusions_du_parquet { get; set; }
-        public string? Numero_des_conclusions_du_parquet { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_a_laquelle_le_suiveur_a_ete_informe { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_a_laquelle_avocat_a_ete_informe { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_contrôle { get; set; }
-        public string? Convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_audience_du_jugement { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? Date_de_audience_de_determination_de_la_peine { get; set; }
-        public string? Operateur_de_decision { get; set; }
-        public string? Numero_de_resolution { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? La_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? La_date_a_laquelle_le_comptable_a_reçu_une_copie_de_la_decision { get; set; }
+        // تاريخ استدعاء المتابع لحضور جلسة الاستماع
+        public string? Date_Convocation_Interesse_Audience { get; set; }
+
+        // تاريخ إجراء بحث ميداني
+        public string? Date_Enquete_Sur_Le_Terrain { get; set; }
+
+        // تاريخ اعداد التقرير
+        public string? Date_Preparation_Rapport { get; set; }
+
+        // تاريخ إحالة الملف على النيابة العامة
+        public string? Date_Transmission_Dossier_Ministere_Public { get; set; }
+
+        // تاریخ مستنتجات النيابة العامة
+        public string? Date_Conclusions_Ministere_Public { get; set; }
+
+        // رقم مستنتجات النيابة العامة
+        public string? Numero_Conclusions_Ministere_Public { get; set; }
+
+        // تاريخ توصل المتابع بالاستدعاء لأجل الإطلاع
+        public string? Date_Reception_Convocation_Interesse_Consultation { get; set; }
+
+        // تاريخ توصل المحامي بالاستدعاء لأجل الإطلاع
+        public string? Date_Reception_Convocation_Avocat_Consultation { get; set; }
+
+        // تاريخ إطلاع المتابع
+        public string? Date_Consultation_Interesse { get; set; }
+
+        // تاريخ إطلاع المحامي
+        public string? Date_Consultation_Avocat { get; set; }
+
+        // تاريخ رجوع الملف من كتابة الضبط المركزي
+        public string? Date_Retour_Dossier_Greffe_Central { get; set; }
+
+        // استدعاء المتابع لحضور جلسة الحكم
+        public string? Convocation_Interesse_Audience_Jugement { get; set; }
+
+        // استدعاء المحامي لحضور جلسة الحكم
+        public string? Convocation_Avocat_Audience_Jugement { get; set; }
+
+        // تاريخ جلسة الحكم
+        public string? Date_Audience_Jugement { get; set; }
+
+        // استدعاء المحامي لحضور جلسة النطق بالحكم
+        public string? Convocation_Avocat_Prononce_Jugement { get; set; }
+
+        // استدعاء المتابع لحضور جلسة النطق بالحكم
+        public string? Convocation_Interesse_Prononce_Jugement { get; set; }
+
+        // تاریخ جلسة النطق بالحكم
+        public string? Date_Audience_Prononce_Jugement { get; set; }
+
+        // منطوق القرار
+        public string? Dispositif_Decision { get; set; }
+
+        // القرار عدد
+        public string? Numero_Decision { get; set; }
+
+        // تاريخ إرسال القرار قصد التبليغ للأطراف
+        public string? Date_Envoi_Decision_Notification_Parties { get; set; }
+
+        // تاريخ توصل المحاسب بنسخة من القرار
+        public string? Date_Reception_Comptable_Copie_Decision { get; set; }
 
         [ForeignKey(nameof(IdCRC))]
         public CRC? CRC { get; set; }
