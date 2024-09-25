@@ -4,7 +4,7 @@ export const navItems: INavData[] = [
   {
     name: 'Accueil',
     url: '/accueil',
-    iconComponent: { name: 'cil-speedometer' },
+    iconComponent: { name: 'cil-apps' },
     // badge: {
     //   color: 'info',
     //   text: 'NEW',
@@ -28,12 +28,12 @@ export const navItems: INavData[] = [
         name: 'Roles',
         url: '/roles',
         iconComponent: { name: 'cil-lock-unlocked' },
-      }
-    ]
+      },
+    ],
   },
   {
-    name: "Discipline budgetaires",
+    name: 'Discipline budgetaires',
     url: 'discipline-budgetaires',
-    iconComponent: { name: 'cil-speedometer' },
-  }
+    iconComponent: { name: 'cil-balance-scale' },
+  },
 ];
