@@ -51,6 +51,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersManagementModule } from './users-management/users-management.module';
+import { DisciplineBudgetairesManagementModule } from './discipline-budgetaires-management/discipline-budgetaires-management.module';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -102,7 +103,8 @@ const APP_CONTAINERS = [
     NgbModule,
     NgbPaginationModule,
     HttpClientModule,
-    UsersManagementModule
+    UsersManagementModule,
+    DisciplineBudgetairesManagementModule,
   ],
   providers: [
     {

@@ -8,7 +8,23 @@ import { DisciplineBudgetaireDeleteComponent } from './discipline-budgetaire-del
 import { DisciplineBudgetaireDetailComponent } from './discipline-budgetaire-detail/discipline-budgetaire-detail.component';
 import { DisciplineBudgetaireListComponent } from './discipline-budgetaire-list/discipline-budgetaire-list.component';
 import { DisciplineBudgetaireFormComponent } from './discipline-budgetaire-form/discipline-budgetaire-form.component';
-
+import { IconModule } from '@coreui/icons-angular';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import { SharedTableCaseModule } from '../shared-table-case/shared-table-case.module';
+import { DesignSystemModule } from '../design-system/design-system.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  AlertModule,
+  ButtonModule,
+  CardModule,
+  GridModule,
+  NavModule,
+  TableModule,
+  TabsModule,
+} from '@coreui/angular';
 
 @NgModule({
   declarations: [
@@ -17,11 +33,27 @@ import { DisciplineBudgetaireFormComponent } from './discipline-budgetaire-form/
     DisciplineBudgetaireDeleteComponent,
     DisciplineBudgetaireDetailComponent,
     DisciplineBudgetaireListComponent,
-    DisciplineBudgetaireFormComponent
+    DisciplineBudgetaireFormComponent,
   ],
   imports: [
     CommonModule,
-    DisciplineBudgetairesManagementRoutingModule
-  ]
+    DisciplineBudgetairesManagementRoutingModule,
+    AlertModule,
+    ButtonModule,
+    TableModule,
+    CardModule,
+    GridModule,
+    IconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    NavModule,
+    TabsModule,
+    NgbModule,
+    MatIconModule,
+    MatSortModule,
+    SharedTableCaseModule,
+    DesignSystemModule,
+  ],
 })
-export class DisciplineBudgetairesManagementModule { }
+export class DisciplineBudgetairesManagementModule {}

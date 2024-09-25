@@ -72,9 +72,9 @@ const routes: Routes = [
       {
         path: 'discipline-budgetaires',
         loadChildren: () =>
-          import('./chamber-appel-discipline-budgetaires-management/chamber-appel-discipline-budgetaires-management.module').then(
-            (m) => m.ChamberAppelDisciplineBudgetairesManagementModule
-          ),
+          import(
+            './discipline-budgetaires-management/discipline-budgetaires-management.module'
+          ).then((m) => m.DisciplineBudgetairesManagementModule),
         canActivate: [AuthGuard],
       },
       {
@@ -112,4 +112,4 @@ const config: any = {
     },
   ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
