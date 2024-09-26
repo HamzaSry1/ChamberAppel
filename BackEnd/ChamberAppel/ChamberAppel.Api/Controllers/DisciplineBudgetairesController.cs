@@ -21,7 +21,7 @@ namespace ChamberAppel.Api.Controllers
         #region CRUD
 
         [HttpPost("GetAllFiltredAsync")]
-        public async Task<DatatableResponse<DisciplineBudgetaire>> GetAllFiltredAsync(DatatableRequest<DtoFiltreMotsCle> request)
+        public async Task<DatatableResponse<DisciplineBudgetaire>> GetAllFiltredAsync(DatatableRequest<DtoFiltreDisciplineBudgetaire> request)
         {
             return await _service.GetAllAsync(request.Filtre, request.Pagination);
         }
