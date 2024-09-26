@@ -14,6 +14,8 @@ export type { DisciplineBudgetaireApiResponse } from './models/DisciplineBudgeta
 export type { DisciplineBudgetaireDatatableResponse } from './models/DisciplineBudgetaireDatatableResponse';
 export type { DtoChangePassword } from './models/DtoChangePassword';
 export type { DtoCheckedListRequest } from './models/DtoCheckedListRequest';
+export type { DtoFiltreDisciplineBudgetaire } from './models/DtoFiltreDisciplineBudgetaire';
+export type { DtoFiltreDisciplineBudgetaireDatatableRequest } from './models/DtoFiltreDisciplineBudgetaireDatatableRequest';
 export type { DtoFiltreMotsCle } from './models/DtoFiltreMotsCle';
 export type { DtoFiltreMotsCleDatatableRequest } from './models/DtoFiltreMotsCleDatatableRequest';
 export type { DtoFiltreUtilisateur } from './models/DtoFiltreUtilisateur';

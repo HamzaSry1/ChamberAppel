@@ -19,17 +19,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+                "$ref": "#/components/schemas/DtoFiltreDisciplineBudgetaireDatatableRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+                "$ref": "#/components/schemas/DtoFiltreDisciplineBudgetaireDatatableRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+                "$ref": "#/components/schemas/DtoFiltreDisciplineBudgetaireDatatableRequest"
               }
             }
           }
@@ -1827,6 +1827,53 @@
               "format": "uuid"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreDisciplineBudgetaire": {
+        "type": "object",
+        "properties": {
+          "motsCle": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "emis_En_Date_Du": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCRC": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "centre_Comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_Rapporteur": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreDisciplineBudgetaireDatatableRequest": {
+        "type": "object",
+        "properties": {
+          "filtre": {
+            "$ref": "#/components/schemas/DtoFiltreDisciplineBudgetaire"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/DtoPagination"
           }
         },
         "additionalProperties": false

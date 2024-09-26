@@ -6,6 +6,7 @@ import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { DisciplineBudgetaire } from 'src/app/generatedapis/models/DisciplineBudgetaire';
 import { DisciplineBudgetaireDatatableResponse } from 'src/app/generatedapis/models/DisciplineBudgetaireDatatableResponse';
+import { DtoFiltreDisciplineBudgetaireDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreDisciplineBudgetaireDatatableRequest';
 import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
 import { DisciplineBudgetairesService } from 'src/app/generatedapis/services/DisciplineBudgetairesService';
 import { Const } from 'src/app/Helpers/Const';
@@ -20,7 +21,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./discipline-budgetaire-list.component.scss'],
 })
 export class DisciplineBudgetaireListComponent {
-
   public CreateButtonStyle = ButtonStyle.primary;
   public DetailButtonStyle = ButtonStyle.secondary;
   public DeleteButtonStyle = ButtonStyle.danger;
@@ -34,7 +34,7 @@ export class DisciplineBudgetaireListComponent {
   public orderByDirection = 'desc';
   public RecordTotal = 0;
   public RecordFiltred = 0;
-  public DataTableRequest!: DtoFiltreMotsCleDatatableRequest;
+  public DataTableRequest!: DtoFiltreDisciplineBudgetaireDatatableRequest;
   public filterSaver!: FilterSaver;
   public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   public pageSize = environment.pageSize;
@@ -78,6 +78,12 @@ export class DisciplineBudgetaireListComponent {
 
   FilterForm = new FormGroup({
     motsCle: new FormControl(),
+    appelant: new FormControl(),
+    centre_Comptable: new FormControl(),
+    conseiller_Rapporteur: new FormControl(),
+    emis_En_Date_Du: new FormControl(),
+    idCRC: new FormControl(),
+    numero_Dossier: new FormControl(),
   });
 
   LoadData() {
@@ -86,6 +92,13 @@ export class DisciplineBudgetaireListComponent {
     this.DataTableRequest = {
       filtre: {
         motsCle: this.FilterForm.getRawValue().motsCle,
+        appelant: this.FilterForm.getRawValue().appelant,
+        centre_Comptable: this.FilterForm.getRawValue().centre_Comptable,
+        conseiller_Rapporteur:
+          this.FilterForm.getRawValue().conseiller_Rapporteur,
+        emis_En_Date_Du: this.FilterForm.getRawValue().emis_En_Date_Du,
+        idCRC: this.FilterForm.getRawValue().idCRC,
+        numero_Dossier: this.FilterForm.getRawValue().numero_Dossier,
       },
       pagination: {
         pageNumber: this.pageNumber,
