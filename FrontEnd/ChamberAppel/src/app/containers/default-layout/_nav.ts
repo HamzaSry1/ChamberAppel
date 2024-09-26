@@ -4,7 +4,7 @@ export const navItems: INavData[] = [
   {
     name: 'Accueil',
     url: '/accueil',
-    iconComponent: { name: 'cil-apps' },
+    iconComponent: { name: 'cil-align-left' },
     // badge: {
     //   color: 'info',
     //   text: 'NEW',

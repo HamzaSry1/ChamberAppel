@@ -22,7 +22,7 @@ export class DisciplineBudgetaireDeleteComponent {
       .danger(
         'Supprimer',
         'Souhaitez-vous supprimer ' +
-          data.numero_de_dossier +
+          data.numero_Dossier +
           ' définitivement ?',
         'Supprimer',
         'Fermer'

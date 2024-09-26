@@ -1,6 +1,6 @@
 <!-- header -->
 <app-page-action-header
-  [icon]="'fa fa-lock'"
+  [icon]="'fa fa-balance-scale'"
   [title]="title"
   [titleMobile]="titleMobile"
 >
@@ -46,7 +46,7 @@
         aria-expanded="true"
         aria-controls="collapseCard1"
       >
-        <i class="fa fa-chevron-up"></i>
+        <i class="fa fa-angle-double-up"></i>
       </button>
     </div>
     <div id="collapseCard1" class="collapse show">
@@ -54,13 +54,13 @@
         <div class="row">
           <!-- رقم الملف -->
           <div class="col-md-4 form-group my-2">
-            <label for="numero_de_dossier">رقم الملف</label>
+            <label for="numero_Dossier">رقم الملف</label>
             <input
               type="text"
               placeholder="رقم الملف"
               class="form-control"
-              id="numero_de_dossier"
-              formControlName="numero_de_dossier"
+              id="numero_Dossier"
+              formControlName="numero_Dossier"
             />
           </div>
 
@@ -78,77 +78,91 @@
 
           <!-- الحكم المستأنف عدد -->
           <div class="col-md-4 form-group my-2">
-            <label for="numero_de_verdict_appelant">الحكم المستأنف عدد</label>
+            <label for="numero_Jugement_Faisant_Objet_De_Appel"
+              >الحكم المستأنف عدد</label
+            >
             <input
               type="text"
               placeholder="الحكم المستأنف عدد"
               class="form-control"
-              id="numero_de_verdict_appelant"
-              formControlName="numero_de_verdict_appelant"
+              id="numero_Jugement_Faisant_Objet_De_Appel"
+              formControlName="numero_Jugement_Faisant_Objet_De_Appel"
             />
           </div>
 
           <!-- الصادر بتاريخ -->
           <div class="col-md-4 form-group my-2">
-            <label for="publie_le">الصادر بتاريخ</label>
+            <label for="emis_En_Date_Du">الصادر بتاريخ</label>
             <input
               type="date"
               class="form-control"
-              id="publie_le"
-              formControlName="publie_le"
+              id="emis_En_Date_Du"
+              formControlName="emis_En_Date_Du"
             />
           </div>
 
           <!-- المجلس الجهوي للحسابات  -->
           <div class="col-md-4 form-group my-2">
-            <label for="a_propos_du_CRC_de_la_region"
-              >المجلس الجهوي للحسابات
-            </label>
+            <label for="idCRC">المجلس الجهوي للحسابات </label>
             <input
               type="text"
               placeholder="المجلس الجهوي للحسابات "
               class="form-control"
-              id="a_propos_du_CRC_de_la_region"
-              formControlName="a_propos_du_CRC_de_la_region"
+              id="idCRC"
+              formControlName="idCRC"
             />
           </div>
 
           <!-- المركز المحاسبي -->
           <div class="col-md-4 form-group my-2">
-            <label for="centre_comptable">المركز المحاسبي</label>
+            <label for="centre_Comptable">المركز المحاسبي</label>
             <input
               type="text"
               placeholder="المركز المحاسبي"
               class="form-control"
-              id="centre_comptable"
-              formControlName="centre_comptable"
+              id="centre_Comptable"
+              formControlName="centre_Comptable"
             />
           </div>
 
           <!-- تاريخ تسجيل العريضة بالمجلس الجهوي للحسابات -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_enregistrement_de_la_requete_aupres_du_CRC"
+            <label for="date_Enregistrement_Requete_Cour_Regionale_Des_Comptes"
               >تاريخ تسجيل العريضة بالمجلس الجهوي للحسابات</label
             >
             <input
               type="date"
               class="form-control"
-              id="date_enregistrement_de_la_requete_aupres_du_CRC"
-              formControlName="date_enregistrement_de_la_requete_aupres_du_CRC"
+              id="date_Enregistrement_Requete_Cour_Regionale_Des_Comptes"
+              formControlName="date_Enregistrement_Requete_Cour_Regionale_Des_Comptes"
             />
           </div>
 
-          <!-- تاريخ ورقم ملتمس النيابة العامة -->
+          <!-- تاريخ  ملتمس النيابة العامة -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_et_numero_de_la_requete_du_ministere_public"
-              >تاريخ ورقم ملتمس النيابة العامة</label
+            <label for="date_Requisition_Ministere_Public"
+              >تاريخ ملتمس النيابة العامة</label
             >
             <input
               type="text"
-              placeholder="تاريخ ورقم ملتمس النيابة العامة"
+              placeholder="تاريخ  ملتمس النيابة العامة"
               class="form-control"
-              id="date_et_numero_de_la_requete_du_ministere_public"
-              formControlName="date_et_numero_de_la_requete_du_ministere_public"
+              id="date_Requisition_Ministere_Public"
+              formControlName="date_Requisition_Ministere_Public"
+            />
+          </div>
+
+          <!-- رقم ملتمس النيابة العامة -->
+          <div class="col-md-4 form-group my-2">
+            <label for="numero_Requisition_Ministere_Public"
+              >رقم ملتمس النيابة العامة</label
+            >
+            <input
+              type="text"
+              placeholder="رقم ملتمس النيابة العامة"
+              class="form-control"
+              id="numero_Requisition_Ministere_Public"
+              formControlName="numero_Requisition_Ministere_Public"
             />
           </div>
         </div>
@@ -168,66 +182,94 @@
         aria-expanded="true"
         aria-controls="collapseCard2"
       >
-        <i class="fa fa-chevron-up"></i>
+        <i class="fa fa-angle-double-up"></i>
       </button>
     </div>
 
     <div id="collapseCard2" class="collapse show">
       <div class="card-body">
         <div class="row">
-          <!-- تاريخ ورقم أمر تعيين المستشار المقرر -->
+          <!-- تاريخ  أمر تعيين المستشار المقرر -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
-              >تاريخ ورقم أمر تعيين المستشار المقرر</label
+            <label for="date_Ordonnance_Designation_Conseiller_Rapporteur"
+              >تاريخ أمر تعيين المستشار المقرر</label
             >
             <input
               type="text"
-              placeholder="تاريخ ورقم أمر تعيين المستشار المقرر"
+              placeholder="تاريخ أمر تعيين المستشار المقرر"
               class="form-control"
-              id="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
-              formControlName="date_et_numero_de_ordre_de_nomination_du_conseiller_programme"
+              id="date_Ordonnance_Designation_Conseiller_Rapporteur"
+              formControlName="date_Ordonnance_Designation_Conseiller_Rapporteur"
+            />
+          </div>
+
+          <!-- رقم أمر تعيين المستشار المقرر -->
+          <div class="col-md-4 form-group my-2">
+            <label for="numero_Ordonnance_Designation_Conseiller_Rapporteur"
+              >رقم أمر تعيين المستشار المقرر</label
+            >
+            <input
+              type="text"
+              placeholder="رقم أمر تعيين المستشار المقرر"
+              class="form-control"
+              id="numero_Ordonnance_Designation_Conseiller_Rapporteur"
+              formControlName="numero_Ordonnance_Designation_Conseiller_Rapporteur"
             />
           </div>
 
           <!-- المستشار المقرر -->
           <div class="col-md-4 form-group my-2">
-            <label for="conseiller_rapporteur">المستشار المقرر</label>
+            <label for="conseiller_Rapporteur">المستشار المقرر</label>
             <input
               type="text"
               placeholder="المستشار المقرر"
               class="form-control"
-              id="conseiller_rapporteur"
-              formControlName="conseiller_rapporteur"
+              id="conseiller_Rapporteur"
+              formControlName="conseiller_Rapporteur"
             />
           </div>
 
-          <!-- تاریخ ورقم أمر تعيين المستشار المقرر الخلف -->
+          <!-- تاریخ  أمر تعيين المستشار المقرر الخلف -->
           <div class="col-md-4 form-group my-2">
             <label
-              for="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
-              >تاریخ ورقم أمر تعيين المستشار المقرر الخلف</label
+              for="date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant"
+              >تاریخ أمر تعيين المستشار المقرر الخلف</label
             >
             <input
               type="text"
-              placeholder="تاریخ ورقم أمر تعيين المستشار المقرر الخلف"
+              placeholder="تاریخ  أمر تعيين المستشار المقرر الخلف"
               class="form-control"
-              id="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
-              formControlName="date_et_numero_de_arrete_designant_le_rapporteur_successeur"
+              id="date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant"
+              formControlName="date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant"
+            />
+          </div>
+
+          <!-- رقم أمر تعيين المستشار المقرر الخلف -->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant"
+              >رقم أمر تعيين المستشار المقرر الخلف</label
+            >
+            <input
+              type="text"
+              placeholder="رقم أمر تعيين المستشار المقرر الخلف"
+              class="form-control"
+              id="numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant"
+              formControlName="numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant"
             />
           </div>
 
           <!-- المستشار المقرر الخلف -->
           <div class="col-md-4 form-group my-2">
-            <label for="conseiller_rapporteur_successeur"
+            <label for="conseiller_Rapporteur_Remplacant"
               >المستشار المقرر الخلف</label
             >
             <input
               type="text"
               placeholder="المستشار المقرر الخلف"
               class="form-control"
-              id="conseiller_rapporteur_successeur"
-              formControlName="conseiller_rapporteur_successeur"
+              id="conseiller_Rapporteur_Remplacant"
+              formControlName="conseiller_Rapporteur_Remplacant"
             />
           </div>
         </div>
@@ -247,7 +289,7 @@
         aria-expanded="true"
         aria-controls="collapseCard3"
       >
-        <i class="fa fa-chevron-up"></i>
+        <i class="fa fa-angle-double-up"></i>
       </button>
     </div>
 
@@ -256,28 +298,182 @@
         <div class="row">
           <!-- تاريخ إرسال العريضة للأطراف -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
+            <label for="date_Envoi_Requete_Parties"
               >تاريخ إرسال العريضة للأطراف</label
             >
             <input
               type="text"
               placeholder="تاريخ إرسال العريضة للأطراف"
               class="form-control"
-              id="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
-              formControlName="la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties"
+              id="date_Envoi_Requete_Parties"
+              formControlName="date_Envoi_Requete_Parties"
             />
           </div>
 
-          <!-- الاطراف -->
+          <!-- الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات-->
           <div class="col-md-4 form-group my-2">
-            <label for="parties">الاطراف</label>
+            <label for="parties_Agent_du_Roi_au_CRC"
+              >وكيل الملك لدى المجلس الجهوي للحسابات</label
+            >
             <input
               type="text"
-              placeholder="الاطراف"
+              placeholder="وكيل الملك لدى المجلس الجهوي للحسابات"
               class="form-control"
-              id="parties"
-              formControlName="parties"
+              id="parties_Agent_du_Roi_au_CRC"
+              formControlName="parties_Agent_du_Roi_au_CRC"
+            />
+          </div>
+
+          <!-- الأطراف - الخازن الإقليمي-->
+          <div class="col-md-4 form-group my-2">
+            <label for="parties_Entrepot_Regional">الخازن الإقليمي</label>
+            <input
+              type="text"
+              placeholder="الخازن الإقليمي"
+              class="form-control"
+              id="parties_Entrepot_Regional"
+              formControlName="parties_Entrepot_Regional"
+            />
+          </div>
+
+          <!-- الأطراف -  عامل الإقليم-->
+          <div class="col-md-4 form-group my-2">
+            <label for="parties_Travailleur_du_territoire"> عامل الإقليم</label>
+            <input
+              type="text"
+              placeholder=" عامل الإقليم"
+              class="form-control"
+              id="parties_Travailleur_du_territoire"
+              formControlName="parties_Travailleur_du_territoire"
+            />
+          </div>
+
+          <!-- الأطراف -  رئيس الجماعة-->
+          <div class="col-md-4 form-group my-2">
+            <label for="parties_President_de_la_Commune"> رئيس الجماعة</label>
+            <input
+              type="text"
+              placeholder=" رئيس الجماعة"
+              class="form-control"
+              id="parties_President_de_la_Commune"
+              formControlName="parties_President_de_la_Commune"
+            />
+          </div>
+
+          <!-- تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات-->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_de_reception_par_les_parties_Agent_du_Roi_au_CRC">
+              تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات</label
+            >
+            <input
+              type="text"
+              placeholder=" تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات"
+              class="form-control"
+              id="date_de_reception_par_les_parties_Agent_du_Roi_au_CRC"
+              formControlName="date_de_reception_par_les_parties_Agent_du_Roi_au_CRC"
+            />
+          </div>
+
+          <!-- تاريخ توصل الأطراف - الخازن الإقليمي-->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_de_reception_par_les_parties_Entrepot_Regional">
+              تاريخ توصل الأطراف - الخازن الإقليمي</label
+            >
+            <input
+              type="text"
+              placeholder="تاريخ توصل الأطراف - الخازن الإقليمي"
+              class="form-control"
+              id="date_de_reception_par_les_parties_Entrepot_Regional"
+              formControlName="date_de_reception_par_les_parties_Entrepot_Regional"
+            />
+          </div>
+
+          <!-- تاريخ توصل الأطراف - عامل الإقليمي-->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_de_reception_par_les_parties_Travailleur_du_territoire"
+            >
+              تاريخ توصل الأطراف - عامل الإقليمي</label
+            >
+            <input
+              type="text"
+              placeholder="تاريخ توصل الأطراف - عامل الإقليمي"
+              class="form-control"
+              id="date_de_reception_par_les_parties_Travailleur_du_territoire"
+              formControlName="date_de_reception_par_les_parties_Travailleur_du_territoire"
+            />
+          </div>
+
+          <!-- تاريخ توصل الأطراف - رئيس الجماعة-->
+          <div class="col-md-4 form-group my-2">
+            <label
+              for="date_de_reception_par_les_parties_President_de_la_Commune"
+            >
+              تاريخ توصل الأطراف - رئيس الجماعة</label
+            >
+            <input
+              type="text"
+              placeholder="تاريخ توصل الأطراف - رئيس الجماعة"
+              class="form-control"
+              id="date_de_reception_par_les_parties_President_de_la_Commune"
+              formControlName="date_de_reception_par_les_parties_President_de_la_Commune"
+            />
+          </div>
+
+          <!-- رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات -->
+          <div class="col-md-4 form-group my-2">
+            <label for="reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC">
+              رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي
+              للحسابات</label
+            >
+            <input
+              type="text"
+              placeholder="رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات"
+              class="form-control"
+              id="reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC"
+              formControlName="reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC"
+            />
+          </div>
+
+          <!-- رد على مذكرة الاستئناف - الخازن الإقليمي -->
+          <div class="col-md-4 form-group my-2">
+            <label for="reponse_au_memoire_d_appel_Entrepot_Regional">
+              رد على مذكرة الاستئناف - الخازن الإقليمي</label
+            >
+            <input
+              type="text"
+              placeholder="رد على مذكرة الاستئناف - الخازن الإقليمي"
+              class="form-control"
+              id="reponse_au_memoire_d_appel_Entrepot_Regional"
+              formControlName="reponse_au_memoire_d_appel_Entrepot_Regional"
+            />
+          </div>
+
+          <!-- رد على مذكرة الاستئناف - عامل الإقليم -->
+          <div class="col-md-4 form-group my-2">
+            <label for="reponse_au_memoire_d_appel_Travailleur_du_territoire">
+              رد على مذكرة الاستئناف - عامل الإقليم</label
+            >
+            <input
+              type="text"
+              placeholder="رد على مذكرة الاستئناف - عامل الإقليم"
+              class="form-control"
+              id="reponse_au_memoire_d_appel_Travailleur_du_territoire"
+              formControlName="reponse_au_memoire_d_appel_Travailleur_du_territoire"
+            />
+          </div>
+
+          <!-- رد على مذكرة الاستئناف - رئيس الجماعة -->
+          <div class="col-md-4 form-group my-2">
+            <label for="reponse_au_memoire_d_appel_President_de_la_Commune">
+              رد على مذكرة الاستئناف - رئيس الجماعة</label
+            >
+            <input
+              type="text"
+              placeholder="رد على مذكرة الاستئناف - رئيس الجماعة"
+              class="form-control"
+              id="reponse_au_memoire_d_appel_President_de_la_Commune"
+              formControlName="reponse_au_memoire_d_appel_President_de_la_Commune"
             />
           </div>
         </div>
@@ -297,7 +493,7 @@
         aria-expanded="true"
         aria-controls="collapseCard4"
       >
-        <i class="fa fa-chevron-up"></i>
+        <i class="fa fa-angle-double-up"></i>
       </button>
     </div>
 
@@ -306,267 +502,295 @@
         <div class="row">
           <!-- تاریخ طلب وثائق تكميلية -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_de_demande_de_documents_complementaires"
+            <label for="date_Demande_Documents_Supplementaires"
               >تاریخ طلب وثائق تكميلية</label
             >
             <input
               type="date"
               class="form-control"
-              id="date_de_demande_de_documents_complementaires"
-              formControlName="date_de_demande_de_documents_complementaires"
+              id="date_Demande_Documents_Supplementaires"
+              formControlName="date_Demande_Documents_Supplementaires"
             />
           </div>
 
-          <!-- تاريخ استدعاء المتابع لحضور جلسة الاستماع-->
+          <!--  تاريخ استدعاء المتابع لحضور جلسة الاستماع-->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
-              >تاريخ استدعاء المتابع لحضور جلسة الاستماع</label
+            <label for="date_Convocation_Interesse_Audience">
+              تاريخ استدعاء المتابع لحضور جلسة الاستماع</label
             >
             <input
               type="text"
-              placeholder="تاريخ استدعاء المتابع لحضور جلسة الاستماع"
+              placeholder=" تاريخ استدعاء المتابع لحضور جلسة الاستماع"
               class="form-control"
-              id="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
-              formControlName="la_date_a_laquelle_observateur_a_ete_convoque_a_audience"
+              id="date_Convocation_Interesse_Audience"
+              formControlName="date_Convocation_Interesse_Audience"
             />
           </div>
 
           <!-- تاريخ إجراء بحث ميداني -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_de_realisation_de_la_recherche_sur_le_terrain"
+            <label for="date_Enquete_Sur_Le_Terrain"
               >تاريخ إجراء بحث ميداني</label
             >
             <input
               type="date"
               class="form-control"
-              id="date_de_realisation_de_la_recherche_sur_le_terrain"
-              formControlName="date_de_realisation_de_la_recherche_sur_le_terrain"
+              id="date_Enquete_Sur_Le_Terrain"
+              formControlName="date_Enquete_Sur_Le_Terrain"
             />
           </div>
 
           <!-- تاريخ اعداد التقرير -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_a_laquelle_le_rapport_a_ete_prepare"
-              >تاريخ اعداد التقرير</label
-            >
+            <label for="date_Preparation_Rapport">تاريخ اعداد التقرير</label>
             <input
               type="date"
               class="form-control"
-              id="date_a_laquelle_le_rapport_a_ete_prepare"
-              formControlName="date_a_laquelle_le_rapport_a_ete_prepare"
+              id="date_Preparation_Rapport"
+              formControlName="date_Preparation_Rapport"
             />
           </div>
 
           <!--  تاريخ إحالة الملف على النيابة العامة -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
-            >
+            <label for="date_Transmission_Dossier_Ministere_Public">
               تاريخ إحالة الملف على النيابة العامة</label
             >
             <input
               type="text"
               placeholder=" تاريخ إحالة الملف على النيابة العامة"
               class="form-control"
-              id="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
-              formControlName="la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public"
+              id="date_Transmission_Dossier_Ministere_Public"
+              formControlName="date_Transmission_Dossier_Ministere_Public"
             />
           </div>
 
-          <!-- تاریخ و رقم مستنتجات النيابة العامة -->
+          <!--  رقم مستنتجات النيابة العامة -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_et_numero_des_conclusions_du_ministere_public"
-              >تاریخ و رقم مستنتجات النيابة العامة</label
+            <label for="numero_Conclusions_Ministere_Public">
+              رقم مستنتجات النيابة العامة</label
             >
             <input
               type="text"
-              placeholder="تاریخ و رقم مستنتجات النيابة العامة"
+              placeholder=" رقم مستنتجات النيابة العامة"
               class="form-control"
-              id="date_et_numero_des_conclusions_du_ministere_public"
-              formControlName="date_et_numero_des_conclusions_du_ministere_public"
+              id="numero_Conclusions_Ministere_Public"
+              formControlName="numero_Conclusions_Ministere_Public"
+            />
+          </div>
+
+          <!-- تاریخ  مستنتجات النيابة العامة -->
+          <div class="col-md-4 form-group my-2">
+            <label for="date_Conclusions_Ministere_Public"
+              >تاریخ مستنتجات النيابة العامة</label
+            >
+            <input
+              type="text"
+              placeholder="تاریخ  مستنتجات النيابة العامة"
+              class="form-control"
+              id="date_Conclusions_Ministere_Public"
+              formControlName="date_Conclusions_Ministere_Public"
             />
           </div>
 
           <!-- تاريخ توصل المتابع بالاستدعاء لأجل الإطلاع -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_et_numero_des_conclusions_du_parquet"
+            <label for="date_Reception_Convocation_Interesse_Consultation"
               >تاريخ توصل المتابع بالاستدعاء لأجل الإطلاع</label
             >
             <input
               type="text"
               placeholder="تاريخ توصل المتابع بالاستدعاء لأجل الإطلاع"
               class="form-control"
-              id="date_et_numero_des_conclusions_du_parquet"
-              formControlName="date_et_numero_des_conclusions_du_parquet"
+              id="date_Reception_Convocation_Interesse_Consultation"
+              formControlName="date_Reception_Convocation_Interesse_Consultation"
             />
           </div>
 
           <!-- تاريخ توصل المحامي بالاستدعاء لأجل الإطلاع -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
+            <label for="date_Reception_Convocation_Avocat_Consultation"
               >تاريخ توصل المحامي بالاستدعاء لأجل الإطلاع</label
             >
             <input
               type="text"
               placeholder="تاريخ توصل المحامي بالاستدعاء لأجل الإطلاع"
               class="form-control"
-              id="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
-              formControlName="date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection"
+              id="date_Reception_Convocation_Avocat_Consultation"
+              formControlName="date_Reception_Convocation_Avocat_Consultation"
             />
           </div>
 
           <!-- تاريخ إطلاع المتابع -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
-              >تاريخ إطلاع المتابع</label
-            >
+            <label for="date_Consultation_Interesse">تاريخ إطلاع المتابع</label>
             <input
               type="text"
               placeholder="تاريخ إطلاع المتابع"
               class="form-control"
-              id="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
-              formControlName="date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection"
+              id="date_Consultation_Interesse"
+              formControlName="date_Consultation_Interesse"
             />
           </div>
 
           <!-- تاريخ إطلاع المحامي -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_a_laquelle_le_suiveur_a_ete_informe"
-              >تاريخ إطلاع المحامي</label
-            >
+            <label for="date_Consultation_Avocat">تاريخ إطلاع المحامي</label>
             <input
               type="text"
               placeholder="تاريخ إطلاع المحامي"
               class="form-control"
-              id="date_a_laquelle_le_suiveur_a_ete_informe"
-              formControlName="date_a_laquelle_le_suiveur_a_ete_informe"
+              id="date_Consultation_Avocat"
+              formControlName="date_Consultation_Avocat"
             />
           </div>
 
           <!-- تاريخ رجوع الملف من كتابة الضبط المركزي -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_a_laquelle_avocat_a_ete_informe"
+            <label for="date_Retour_Dossier_Greffe_Central"
               >تاريخ رجوع الملف من كتابة الضبط المركزي</label
             >
             <input
               type="text"
               placeholder="تاريخ رجوع الملف من كتابة الضبط المركزي"
               class="form-control"
-              id="date_a_laquelle_avocat_a_ete_informe"
-              formControlName="date_a_laquelle_avocat_a_ete_informe"
+              id="date_Retour_Dossier_Greffe_Central"
+              formControlName="date_Retour_Dossier_Greffe_Central"
             />
           </div>
 
-          <!-- استدعاء المتابع والمحامي لحضور جلسة الحكم -->
+          <!-- استدعاء المتابع  لحضور جلسة الحكم -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
-              >استدعاء المتابع والمحامي لحضور جلسة الحكم</label
+            <label for="convocation_Interesse_Audience_Jugement"
+              >استدعاء المتابع لحضور جلسة الحكم</label
             >
             <input
               type="text"
-              placeholder="استدعاء المتابع والمحامي لحضور جلسة الحكم"
+              placeholder="استدعاء المتابع  لحضور جلسة الحكم"
               class="form-control"
-              id="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
-              formControlName="date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_controle"
+              id="convocation_Interesse_Audience_Jugement"
+              formControlName="convocation_Interesse_Audience_Jugement"
+            />
+          </div>
+
+          <!-- استدعاء المحامي لحضور جلسة الحكم -->
+          <div class="col-md-4 form-group my-2">
+            <label for="convocation_Avocat_Audience_Jugement"
+              >استدعاء المحامي لحضور جلسة الحكم</label
+            >
+            <input
+              type="text"
+              placeholder="استدعاء المحامي لحضور جلسة الحكم"
+              class="form-control"
+              id="convocation_Avocat_Audience_Jugement"
+              formControlName="convocation_Avocat_Audience_Jugement"
             />
           </div>
 
           <!-- تاريخ جلسة الحكم -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
-              >تاريخ جلسة الحكم</label
-            >
+            <label for="date_Audience_Jugement">تاريخ جلسة الحكم</label>
             <input
               type="text"
               placeholder="تاريخ جلسة الحكم"
               class="form-control"
-              id="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
-              formControlName="convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine"
+              id="date_Audience_Jugement"
+              formControlName="date_Audience_Jugement"
             />
           </div>
 
-          <!-- استدعاء المتابع والمحامي لحضور جلسة النطق بالحكم -->
+          <!-- استدعاء المحامي لحضور جلسة النطق بالحكم -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_audience_du_jugement"
-              >استدعاء المتابع والمحامي لحضور جلسة النطق بالحكم</label
+            <label for="convocation_Avocat_Prononce_Jugement"
+              >استدعاء المحامي لحضور جلسة النطق بالحكم</label
             >
             <input
-              type="date"
+              type="text"
+              placeholder="استدعاء المحامي لحضور جلسة النطق بالحكم"
               class="form-control"
-              id="date_audience_du_jugement"
-              formControlName="date_audience_du_jugement"
+              id="convocation_Avocat_Prononce_Jugement"
+              formControlName="convocation_Avocat_Prononce_Jugement"
+            />
+          </div>
+
+          <!-- استدعاء المتابع لحضور جلسة النطق بالحكم -->
+          <div class="col-md-4 form-group my-2">
+            <label for="convocation_Interesse_Prononce_Jugement"
+              >استدعاء المتابع لحضور جلسة النطق بالحكم</label
+            >
+            <input
+              type="text"
+              placeholder="استدعاء المتابع لحضور جلسة النطق بالحكم"
+              class="form-control"
+              id="convocation_Interesse_Prononce_Jugement"
+              formControlName="convocation_Interesse_Prononce_Jugement"
             />
           </div>
 
           <!-- تاریخ جلسة النطق بالحكم -->
           <div class="col-md-4 form-group my-2">
-            <label for="date_de_audience_de_determination_de_la_peine"
+            <label for="date_Audience_Prononce_Jugement"
               >تاریخ جلسة النطق بالحكم</label
             >
             <input
               type="date"
               class="form-control"
-              id="date_de_audience_de_determination_de_la_peine"
-              formControlName="date_de_audience_de_determination_de_la_peine"
+              id="date_Audience_Prononce_Jugement"
+              formControlName="date_Audience_Prononce_Jugement"
             />
           </div>
 
           <!-- منطوق القرار -->
           <div class="col-md-4 form-group my-2">
-            <label for="operateur_de_decision">منطوق القرار</label>
+            <label for="dispositif_Decision">منطوق القرار</label>
             <input
               type="text"
               placeholder="منطوق القرار"
               class="form-control"
-              id="operateur_de_decision"
-              formControlName="operateur_de_decision"
+              id="dispositif_Decision"
+              formControlName="dispositif_Decision"
             />
           </div>
 
           <!-- القرار عدد -->
           <div class="col-md-4 form-group my-2">
-            <label for="numero_de_resolution">القرار عدد</label>
+            <label for="numero_Decision">القرار عدد</label>
             <input
               type="text"
               placeholder="القرار عدد"
               class="form-control"
-              id="numero_de_resolution"
-              formControlName="numero_de_resolution"
+              id="numero_Decision"
+              formControlName="numero_Decision"
             />
           </div>
 
           <!-- تاريخ إرسال القرار قصد التبليغ للأطراف -->
           <div class="col-md-4 form-group my-2">
-            <label
-              for="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
+            <label for="date_Envoi_Decision_Notification_Parties"
               >تاريخ إرسال القرار قصد التبليغ للأطراف</label
             >
             <input
               type="text"
               placeholder="تاريخ إرسال القرار قصد التبليغ للأطراف"
               class="form-control"
-              id="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
-              formControlName="la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties"
+              id="date_Envoi_Decision_Notification_Parties"
+              formControlName="date_Envoi_Decision_Notification_Parties"
             />
           </div>
 
           <!-- تاريخ توصل المحاسب بنسخة من القرار -->
           <div class="col-md-4 form-group my-2">
-            <label for="note_de_rappel">تاريخ توصل المحاسب بنسخة من القرار</label>
+            <label for="date_Reception_Comptable_Copie_Decision"
+              >تاريخ توصل المحاسب بنسخة من القرار</label
+            >
             <input
               type="text"
               placeholder="تاريخ توصل المحاسب بنسخة من القرار"
               class="form-control"
-              id="note_de_rappel"
-              formControlName="note_de_rappel"
+              id="date_Reception_Comptable_Copie_Decision"
+              formControlName="date_Reception_Comptable_Copie_Decision"
             />
           </div>
-          
         </div>
       </div>
     </div>

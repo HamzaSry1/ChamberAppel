@@ -3,6 +3,7 @@ import { ValidationErrors } from '@angular/forms';
 export class Const {
   public static List_Utilisateurs = 'List des utilisateurs';
   public static List_permissions = 'List des permissions';
+  public static List_discipline_budgetaires = 'List des discipline budgetaires';
   public static List_roles = 'List des roles';
 
   public static ValidationMessages: ValidationErrors = {

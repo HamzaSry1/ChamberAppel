@@ -1502,6 +1502,38 @@
         },
         "additionalProperties": false
       },
+      "CRC": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "maxLength": 80,
+            "type": "string",
+            "nullable": true
+          },
+          "label": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "DisciplineBudgetaire": {
         "type": "object",
         "properties": {
@@ -1509,7 +1541,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "numero_de_dossier": {
+          "numero_Dossier": {
             "type": "string",
             "nullable": true
           },
@@ -1517,145 +1549,204 @@
             "type": "string",
             "nullable": true
           },
-          "numero_de_verdict_appelant": {
+          "numero_Jugement_Faisant_Objet_De_Appel": {
             "type": "string",
             "nullable": true
           },
-          "publie_le": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "a_propos_du_CRC_de_la_region": {
+          "emis_En_Date_Du": {
             "type": "string",
             "nullable": true
           },
-          "centre_comptable": {
+          "idCRC": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "centre_Comptable": {
             "type": "string",
             "nullable": true
           },
-          "date_enregistrement_de_la_requete_aupres_du_CRC": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_et_numero_de_la_requete_du_ministere_public": {
+          "date_Enregistrement_Requete_Cour_Regionale_Des_Comptes": {
             "type": "string",
             "nullable": true
           },
-          "date_et_numero_de_ordre_de_nomination_du_conseiller_programme": {
+          "date_Requisition_Ministere_Public": {
             "type": "string",
             "nullable": true
           },
-          "conseiller_rapporteur": {
+          "numero_Requisition_Ministere_Public": {
             "type": "string",
             "nullable": true
           },
-          "date_et_numero_de_arrete_designant_le_rapporteur_successeur": {
+          "date_Ordonnance_Designation_Conseiller_Rapporteur": {
             "type": "string",
             "nullable": true
           },
-          "conseiller_rapporteur_successeur": {
+          "numero_Ordonnance_Designation_Conseiller_Rapporteur": {
             "type": "string",
             "nullable": true
           },
-          "la_date_a_laquelle_la_petition_a_ete_envoyee_aux_parties": {
+          "conseiller_Rapporteur": {
             "type": "string",
             "nullable": true
           },
-          "parties": {
+          "date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
             "type": "string",
             "nullable": true
           },
-          "date_de_demande_de_documents_complementaires": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "la_date_a_laquelle_observateur_a_ete_convoque_a_audience": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_de_realisation_de_la_recherche_sur_le_terrain": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_a_laquelle_le_rapport_a_ete_prepare": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "la_date_a_laquelle_le_dossier_a_ete_transmis_au_ministere_public": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_et_numero_des_conclusions_du_ministere_public": {
+          "numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
             "type": "string",
             "nullable": true
           },
-          "date_et_numero_des_conclusions_du_parquet": {
+          "conseiller_Rapporteur_Remplacant": {
             "type": "string",
             "nullable": true
           },
-          "date_a_laquelle_le_suiveur_a_reçu_la_convocation_pour_inspection": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_a_laquelle_avocat_a_recu_la_convocation_pour_inspection": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_a_laquelle_le_suiveur_a_ete_informe": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_a_laquelle_avocat_a_ete_informe": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_a_laquelle_le_dossier_a_ete_renvoye_par_le_bureau_central_de_contrôle": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "convoquer_observateur_et_avocat_pour_assister_a_audience_de_determination_de_la_peine": {
+          "date_Envoi_Requete_Parties": {
             "type": "string",
             "nullable": true
           },
-          "date_audience_du_jugement": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "date_de_audience_de_determination_de_la_peine": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "operateur_de_decision": {
+          "parties_Agent_du_Roi_au_CRC": {
             "type": "string",
             "nullable": true
           },
-          "numero_de_resolution": {
+          "parties_Entrepot_Regional": {
             "type": "string",
             "nullable": true
           },
-          "la_date_a_laquelle_la_decision_a_ete_envoyee_pour_notification_aux_parties": {
+          "parties_Travailleur_du_territoire": {
             "type": "string",
-            "format": "date",
             "nullable": true
           },
-          "la_date_a_laquelle_le_comptable_a_reçu_une_copie_de_la_decision": {
+          "parties_President_de_la_Commune": {
             "type": "string",
-            "format": "date",
             "nullable": true
+          },
+          "date_de_reception_par_les_parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Entrepot_Regional": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Travailleur_du_territoire": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_President_de_la_Commune": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Demande_Documents_Supplementaires": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Convocation_Interesse_Audience": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Enquete_Sur_Le_Terrain": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Preparation_Rapport": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Transmission_Dossier_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Reception_Convocation_Interesse_Consultation": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Reception_Convocation_Avocat_Consultation": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Consultation_Interesse": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Consultation_Avocat": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Retour_Dossier_Greffe_Central": {
+            "type": "string",
+            "nullable": true
+          },
+          "convocation_Interesse_Audience_Jugement": {
+            "type": "string",
+            "nullable": true
+          },
+          "convocation_Avocat_Audience_Jugement": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Audience_Jugement": {
+            "type": "string",
+            "nullable": true
+          },
+          "convocation_Avocat_Prononce_Jugement": {
+            "type": "string",
+            "nullable": true
+          },
+          "convocation_Interesse_Prononce_Jugement": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Audience_Prononce_Jugement": {
+            "type": "string",
+            "nullable": true
+          },
+          "dispositif_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Envoi_Decision_Notification_Parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Reception_Comptable_Copie_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "crc": {
+            "$ref": "#/components/schemas/CRC"
           }
         },
         "additionalProperties": false

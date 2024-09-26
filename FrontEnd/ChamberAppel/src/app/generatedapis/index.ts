@@ -8,6 +8,7 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { BooleanApiResponse } from './models/BooleanApiResponse';
+export type { CRC } from './models/CRC';
 export type { DisciplineBudgetaire } from './models/DisciplineBudgetaire';
 export type { DisciplineBudgetaireApiResponse } from './models/DisciplineBudgetaireApiResponse';
 export type { DisciplineBudgetaireDatatableResponse } from './models/DisciplineBudgetaireDatatableResponse';

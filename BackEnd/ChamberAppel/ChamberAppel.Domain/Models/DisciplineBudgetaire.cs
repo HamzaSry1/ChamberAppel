@@ -54,12 +54,13 @@ namespace ChamberAppel.Domain.Models
         // تاريخ إرسال العريضة للأطراف
         public string? Date_Envoi_Requete_Parties { get; set; }
 
+
         #region les parties
 
         // الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
         public string? Parties_Agent_du_Roi_au_CRC { get; set; }
 
-        // الأطراف - المستودع الإقليمي
+        // الأطراف - الخازن الإقليمي
         public string? Parties_Entrepot_Regional { get; set; }
 
         // الأطراف - عامل الإقليم
@@ -68,10 +69,11 @@ namespace ChamberAppel.Domain.Models
         // الأطراف - رئيس الجماعة
         public string? Parties_President_de_la_Commune { get; set; }
 
+
         // تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
         public DateTime? Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC { get; set; }
 
-        // تاريخ توصل الأطراف - المستودع الإقليمي
+        // تاريخ توصل الأطراف - الخازن الإقليمي
         public DateTime? Date_de_reception_par_les_parties_Entrepot_Regional { get; set; }
 
         // تاريخ توصل الأطراف - عامل الإقليم
@@ -80,10 +82,11 @@ namespace ChamberAppel.Domain.Models
         // تاريخ توصل الأطراف - رئيس الجماعة
         public DateTime? Date_de_reception_par_les_parties_President_de_la_Commune { get; set; }
 
+
         // رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات
         public string? Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC { get; set; }
 
-        // رد على مذكرة الاستئناف - المستودع الإقليمي
+        // رد على مذكرة الاستئناف - الخازن الإقليمي
         public string? Reponse_au_memoire_d_appel_Entrepot_Regional { get; set; }
 
         // رد على مذكرة الاستئناف - عامل الإقليم
@@ -93,6 +96,7 @@ namespace ChamberAppel.Domain.Models
         public string? Reponse_au_memoire_d_appel_President_de_la_Commune { get; set; }
 
         #endregion les parties
+
 
         // تاریخ طلب وثائق تكميلية
         public string? Date_Demande_Documents_Supplementaires { get; set; }
