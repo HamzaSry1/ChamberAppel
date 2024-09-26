@@ -30,6 +30,7 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IUtilisateurPermissionRepository, UtilisateurPermissionRepository>();
             service.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
             service.AddScoped<ILoggingRepository, LoggingRepository>();
+            service.AddScoped<ICRCRepository, CRCRepository>();
 
             // Register SERVICES:
             service.AddScoped<IDisciplineBudgetaireService, DisciplineBudgetaireService>();
@@ -42,6 +43,7 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<ILoggingService, LoggingService>();
             service.AddScoped<IUserSessionService, UserSessionService>();
             service.AddScoped<IAuthentification, Authentification>();
+            service.AddScoped<ICRCService, CRCService>();
 
             return service;
         }

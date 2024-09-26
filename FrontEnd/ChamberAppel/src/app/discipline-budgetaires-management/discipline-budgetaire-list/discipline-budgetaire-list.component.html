@@ -1,24 +1,11 @@
 <!-- header -->
-<app-page-action-header
-  [icon]="'fa fa-lock'"
-  [title]="'Gestion des discipline budgetaires'"
-  [titleMobile]="'G. des discipline budgetaires'"
->
+<app-page-action-header [icon]="'fa fa-balance-scale'" [title]="'Gestion des discipline budgetaires'"
+  [titleMobile]="'G. des discipline budgetaires'">
   <ng-container>
-    <app-header-action-button
-      buttonClass="{{ ExporterButtonStyle }} me-2"
-      title="Exporter les discipline budgetaires"
-      iconClass="fa fa-file-excel-o"
-      label="Exporter"
-      (clicked)="Exporter()"
-    ></app-header-action-button>
-    <app-header-action-button
-      buttonClass="{{ CreateButtonStyle }}"
-      title="Ajouter un discipline budgetaire"
-      routerLink="/discipline-budgetaires/ajouter"
-      iconClass="fa fa-plus"
-      label="Ajouter"
-    ></app-header-action-button>
+    <app-header-action-button buttonClass="{{ ExporterButtonStyle }} me-2" title="Exporter les discipline budgetaires"
+      iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
+    <app-header-action-button buttonClass="{{ CreateButtonStyle }}" title="Ajouter un discipline budgetaire"
+      routerLink="/discipline-budgetaires/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
   </ng-container>
 </app-page-action-header>
 
@@ -29,41 +16,68 @@
       <div class="row">
         <div class="col form-group">
           <label for="motsCle">Mot clé</label>
-          <input
-            type="text"
-            class="form-control"
-            id="motsCle"
-            placeholder="mot clé"
-            formControlName="motsCle"
-            autofocus
-            tabindex="1"
-          />
+          <input type="text" class="form-control" id="motsCle" placeholder="mot clé" formControlName="motsCle" autofocus
+            tabindex="1" autocomplete="off" />
         </div>
         <div class="col mt-4">
           <div class="d-flex justify-content-between">
             <div class="flex-grow-1">
-              <button
-                tabindex="10"
-                type="submit"
-                class="{{ SearchButtonStyle }} btn-block w-100"
-              >
+              <button tabindex="2" type="submit" class="{{SearchButtonStyle}} w-100" title="Lancer la recherche">
                 <i class="fa fa-search"></i>
                 <span class="d-none d-sm-inline"> Rechercher</span>
               </button>
             </div>
-            <div class="d-flex mx-1">
-              <button
-                tabindex="11"
-                *ngIf="FilterForm.dirty"
-                type="button"
-                class="btn btn-warning col-xs-3"
-                (click)="resetForm()"
-              >
+            <div class="d-flex">
+              <button tabindex="3" type="button" class="btn btn-primary col-xs-3 mx-1" (click)="toggleShowDetails()"
+                title="Afficher ou masquer la recherche avancée">
+                <i *ngIf="!showDetails" class="btn-details-toggle fa fa-solid fa-chevron-down"></i>
+                <i *ngIf="showDetails" class="btn-details-toggle fa fa-solid fa-chevron-up"></i>
+              </button>
+              <button tabindex="4" *ngIf="FilterForm.dirty" type="button" class="btn btn-warning col-xs-3"
+                title="Réinitialiser les filtres" (click)="resetForm()">
                 x
               </button>
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf="showDetails" [@fadeInOnEnter] [@fadeOutOnLeave] class="row my-2">
+        <div class="col-md-4 form-group">
+          <label for="Numero_Dossier">Numéro de dossier</label>
+          <input type="text" class="form-control" id="Numero_Dossier" placeholder="Numéro de dossier"
+            formControlName="Numero_Dossier" tabindex="5" />
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="Appelant">Appelant</label>
+          <input type="Appelant" class="form-control" id="Appelant" placeholder="Appelant" formControlName="Appelant"
+            tabindex="6" />
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="IdCRC">CRC</label>
+          <input type="IdCRC" class="form-control" id="IdCRC" placeholder="IdCRC" formControlName="IdCRC"
+            tabindex="7" />
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="Centre_Comptable">Centre comptable</label>
+          <input type="Centre_Comptable" class="form-control" id="Centre_Comptable" placeholder="Centre comptable"
+            formControlName="Centre_Comptable" tabindex="8" />
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="Emis_En_Date_Du">Emis En Date Du</label>
+          <input type="Emis_En_Date_Du" class="form-control" id="Emis_En_Date_Du" placeholder="Emis_En_Date_Du"
+            formControlName="Emis_En_Date_Du" tabindex="9" />
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="Conseiller_Rapporteur">Conseiller rapporteur</label>
+          <input type="Conseiller_Rapporteur" class="form-control" id="Conseiller_Rapporteur"
+            placeholder="Conseiller_Rapporteur" formControlName="Conseiller_Rapporteur" tabindex="10" />
+        </div>
+
       </div>
     </form>
   </div>
@@ -73,75 +87,41 @@
 <div class="card my-3">
   <div class="card-body">
     <div class="row">
-      <div
-        class="d-flex align-items-center justify-content-center my-5"
-        *ngIf="pageStatus == 'noData'"
-      >
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'noData'">
         <app-table-no-data></app-table-no-data>
       </div>
-      <div
-        class="d-flex align-items-center justify-content-center my-5"
-        *ngIf="pageStatus == 'loading'"
-      >
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'loading'">
         <app-table-loading></app-table-loading>
       </div>
-      <div
-        class="d-flex align-items-center justify-content-center my-5"
-        *ngIf="pageStatus == 'error'"
-      >
-        <app-table-error
-          [retry]="true"
-          (errorEvent)="ApplyFilter()"
-        ></app-table-error>
+      <div class="d-flex align-items-center justify-content-center my-5" *ngIf="pageStatus == 'error'">
+        <app-table-error [retry]="true" (errorEvent)="ApplyFilter()"></app-table-error>
       </div>
     </div>
   </div>
-  <div
-    class="card-body"
-    [ngStyle]="{ display: pageStatus == 'loaded' ? 'block' : 'none' }"
-  >
+  <div class="card-body" [ngStyle]="{ display: pageStatus == 'loaded' ? 'block' : 'none' }">
     <div class="row">
       <div class="col-md-12 table-responsive">
-        <table
-          class="table table-striped table-bordered text-center"
-          width="100%"
-          matSort
-          (matSortChange)="OnSortChange($event)"
-        >
+        <table class="table table-striped table-bordered text-center" width="100%" matSort
+          (matSortChange)="OnSortChange($event)">
           <thead>
             <tr>
               <th class="text-start" mat-sort-header="Numero_Dossier">
                 Numero de dossier
               </th>
               <th class="text-start" mat-sort-header="Appelant">Appelant</th>
-              <th
-                class="text-start"
-                mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel"
-              >
+              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
                 Numero jugement faisant objet de Appel
               </th>
-              <th
-                class="text-start"
-                mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel"
-              >
+              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
                 Emis en date du
               </th>
-              <th
-                class="text-start"
-                mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel"
-              >
+              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
                 IdCRC
               </th>
-              <th
-                class="text-start"
-                mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel"
-              >
+              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
                 Centre comptable
               </th>
-              <th
-                class="text-end"
-                style="min-width: 160px; max-width: 160px"
-              ></th>
+              <th class="text-end" style="min-width: 160px; max-width: 160px"></th>
             </tr>
           </thead>
           <tbody class="table-responsive" *ngIf="RecordTotal != 0">
@@ -155,23 +135,12 @@
               <td class="text-start">{{ item.idCRC }}</td>
               <td class="text-start">{{ item.centre_Comptable }}</td>
               <td class="text-end">
-                <a
-                  routerLink="/discipline-budgetaires/detail/{{ item.id }}"
-                  class="{{ DetailButtonStyle }} me-1"
-                  title="Détail de discipline budgetaire"
-                  ><i class="fa fa-eye"> </i
-                ></a>
-                <a
-                  routerLink="/discipline-budgetaires/modifier/{{ item.id }}"
-                  class="{{ UpdateButtonStyle }} me-1"
-                  title="Modifier la discipline budgetaire"
-                  ><i class="fa fa-edit"> </i
-                ></a>
-                <a
-                  routerLink="/discipline-budgetaires/supprimer/{{ item.id }}"
-                  class="{{ DeleteButtonStyle }}"
-                  title="Supprimer la discipline budgetaire"
-                >
+                <a routerLink="/discipline-budgetaires/detail/{{ item.id }}" class="{{ DetailButtonStyle }} me-1"
+                  title="Détail de discipline budgetaire"><i class="fa fa-eye"> </i></a>
+                <a routerLink="/discipline-budgetaires/modifier/{{ item.id }}" class="{{ UpdateButtonStyle }} me-1"
+                  title="Modifier la discipline budgetaire"><i class="fa fa-edit"> </i></a>
+                <a routerLink="/discipline-budgetaires/supprimer/{{ item.id }}" class="{{ DeleteButtonStyle }}"
+                  title="Supprimer la discipline budgetaire">
                   <i class="fa fa-trash"></i>
                 </a>
               </td>
@@ -181,14 +150,8 @@
       </div>
     </div>
     <div class="row mt-2">
-      <ngb-pagination
-        class="col d-flex justify-content-center"
-        [collectionSize]="RecordFiltred"
-        [pageSize]="pageSize"
-        [page]="pageNumber"
-        [maxSize]="5"
-        (pageChange)="OnPageNumberChange($event)"
-      ></ngb-pagination>
+      <ngb-pagination class="col d-flex justify-content-center" [collectionSize]="RecordFiltred" [pageSize]="pageSize"
+        [page]="pageNumber" [maxSize]="5" (pageChange)="OnPageNumberChange($event)"></ngb-pagination>
     </div>
     <div class="row d-flex justify-content-center" *ngIf="!selectionPageSize">
       <div class="col-auto" *ngIf="RecordFiltred != RecordTotal">
@@ -201,21 +164,15 @@
     <div class="row d-flex justify-content-center" *ngIf="selectionPageSize">
       <div class="col-auto">Afficher</div>
       <div class="col-auto">
-        <select
-          class="form-select form-control-sm"
-          name="pageSize"
-          [(ngModel)]="pageSize"
-          (ngModelChange)="OnPageSizeChange($event)"
-        >
+        <select class="form-select form-control-sm" name="pageSize" [(ngModel)]="pageSize"
+          (ngModelChange)="OnPageSizeChange($event)">
           <option [ngValue]="5">5</option>
           <option [ngValue]="10">10</option>
           <option [ngValue]="15">15</option>
           <option [ngValue]="20">20</option>
         </select>
       </div>
-      <span class="col-auto"
-        >de <b> {{ RecordFiltred }} </b> elements</span
-      >
+      <span class="col-auto">de <b> {{ RecordFiltred }} </b> elements</span>
     </div>
   </div>
 </div>

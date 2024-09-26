@@ -39,21 +39,29 @@ export class DisciplineBudgetaireListComponent {
   public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   public pageSize = environment.pageSize;
   public selectionPageSize: boolean = false;
+  public showDetailsState: string = 'hidden';
+  public showDetails: boolean = false;
 
   constructor(
     private authService: AuthService,
     private _loader: NgxSpinnerService,
     private _notify: AppMessageService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.filterSaver = new FilterSaver(
       this.FilterForm,
       'DisciplineBudgetaires-list-filters'
     );
-    this.filterSaver.loadSavedFilters();
+    this.filterSaver.saveFilters();
     this.LoadData();
+    if (localStorage.getItem('DisciplineBudgetaires-list-details') == 'true') {
+      this.showDetails = true;
+    } else {
+      this.showDetails = false;
+    }
+    this.showDetailsState = this.showDetails ? 'visible' : 'hidden';
   }
 
   resetPagination() {
@@ -74,6 +82,15 @@ export class DisciplineBudgetaireListComponent {
     this.filterSaver.clearFilters();
     this.FilterForm.reset();
     this.LoadData();
+  }
+
+  toggleShowDetails() {
+    this.showDetails = !this.showDetails;
+    this.showDetailsState = this.showDetails ? 'visible' : 'hidden';
+    localStorage.setItem(
+      'DisciplineBudgetaires-list-details',
+      this.showDetails.toString()
+    );
   }
 
   FilterForm = new FormGroup({
