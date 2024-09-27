@@ -1,13 +1,16 @@
+import { CrCsService } from './../../generatedapis/services/CrCsService';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { CRC } from 'src/app/generatedapis/models/CRC';
+import { CRCListApiResponse } from 'src/app/generatedapis/models/CRCListApiResponse';
 import { DisciplineBudgetaire } from 'src/app/generatedapis/models/DisciplineBudgetaire';
 import { DisciplineBudgetaireDatatableResponse } from 'src/app/generatedapis/models/DisciplineBudgetaireDatatableResponse';
 import { DtoFiltreDisciplineBudgetaireDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreDisciplineBudgetaireDatatableRequest';
-import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
 import { DisciplineBudgetairesService } from 'src/app/generatedapis/services/DisciplineBudgetairesService';
 import { Const } from 'src/app/Helpers/Const';
 import { FilterSaver } from 'src/app/Helpers/FilterSaver';
@@ -19,6 +22,7 @@ import { environment } from 'src/environments/environment';
   selector: 'app-discipline-budgetaire-list',
   templateUrl: './discipline-budgetaire-list.component.html',
   styleUrls: ['./discipline-budgetaire-list.component.scss'],
+  animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
 })
 export class DisciplineBudgetaireListComponent {
   public CreateButtonStyle = ButtonStyle.primary;
@@ -41,6 +45,8 @@ export class DisciplineBudgetaireListComponent {
   public selectionPageSize: boolean = false;
   public showDetailsState: string = 'hidden';
   public showDetails: boolean = false;
+  public CRCs!: CRC[];
+  public DefaultSelectOption !: string;
 
   constructor(
     private authService: AuthService,
@@ -50,11 +56,14 @@ export class DisciplineBudgetaireListComponent {
   ) { }
 
   ngOnInit(): void {
+    this.DefaultSelectOption = this._notify.DefaultSelectOption;
+
     this.filterSaver = new FilterSaver(
       this.FilterForm,
       'DisciplineBudgetaires-list-filters'
     );
     this.filterSaver.saveFilters();
+    this.LoadCRC();
     this.LoadData();
     if (localStorage.getItem('DisciplineBudgetaires-list-details') == 'true') {
       this.showDetails = true;
@@ -63,6 +72,13 @@ export class DisciplineBudgetaireListComponent {
     }
     this.showDetailsState = this.showDetails ? 'visible' : 'hidden';
   }
+
+  LoadCRC() {
+    CrCsService.getApiCrCsGetAllAsync().then((res: CRCListApiResponse) => {
+      this.CRCs = res.data ?? [];
+    });
+  }
+
 
   resetPagination() {
     this.pageNumber = 1;

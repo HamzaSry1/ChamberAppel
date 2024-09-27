@@ -43,39 +43,41 @@
       </div>
       <div *ngIf="showDetails" [@fadeInOnEnter] [@fadeOutOnLeave] class="row my-2">
         <div class="col-md-4 form-group">
-          <label for="Numero_Dossier">Numéro de dossier</label>
-          <input type="text" class="form-control" id="Numero_Dossier" placeholder="Numéro de dossier"
-            formControlName="Numero_Dossier" tabindex="5" />
+          <label for="numero_Dossier">Numéro de dossier</label>
+          <input type="text" class="form-control" id="numero_Dossier" placeholder="Numéro de dossier"
+            formControlName="numero_Dossier" tabindex="5" />
         </div>
 
         <div class="col-md-4 form-group">
-          <label for="Appelant">Appelant</label>
-          <input type="Appelant" class="form-control" id="Appelant" placeholder="Appelant" formControlName="Appelant"
+          <label for="appelant">Appelant</label>
+          <input type="text" class="form-control" id="appelant" placeholder="Appelant" formControlName="appelant"
             tabindex="6" />
         </div>
 
         <div class="col-md-4 form-group">
-          <label for="IdCRC">CRC</label>
-          <input type="IdCRC" class="form-control" id="IdCRC" placeholder="IdCRC" formControlName="IdCRC"
-            tabindex="7" />
+          <label for="idCRC">CRCs</label>
+          <select class="form-control" id="idCRC" formControlName="idCRC" tabindex="7">
+            <option [value]="null" disabled>{{ DefaultSelectOption }}</option>
+            <option *ngFor="let crc of CRCs" [value]="crc.id">{{ crc.label }}</option>
+          </select>
         </div>
 
         <div class="col-md-4 form-group">
-          <label for="Centre_Comptable">Centre comptable</label>
-          <input type="Centre_Comptable" class="form-control" id="Centre_Comptable" placeholder="Centre comptable"
-            formControlName="Centre_Comptable" tabindex="8" />
+          <label for="centre_Comptable">Centre comptable</label>
+          <input type="text" class="form-control" id="centre_Comptable" placeholder="Centre comptable"
+            formControlName="centre_Comptable" tabindex="8" />
         </div>
 
         <div class="col-md-4 form-group">
-          <label for="Emis_En_Date_Du">Emis En Date Du</label>
-          <input type="Emis_En_Date_Du" class="form-control" id="Emis_En_Date_Du" placeholder="Emis_En_Date_Du"
-            formControlName="Emis_En_Date_Du" tabindex="9" />
+          <label for="emis_En_Date_Du">Emis En Date Du</label>
+          <input type="date" class="form-control" id="emis_En_Date_Du" placeholder="emis_En_Date_Du"
+            formControlName="emis_En_Date_Du" tabindex="9" />
         </div>
 
         <div class="col-md-4 form-group">
-          <label for="Conseiller_Rapporteur">Conseiller rapporteur</label>
-          <input type="Conseiller_Rapporteur" class="form-control" id="Conseiller_Rapporteur"
-            placeholder="Conseiller_Rapporteur" formControlName="Conseiller_Rapporteur" tabindex="10" />
+          <label for="conseiller_Rapporteur">Conseiller rapporteur</label>
+          <input type="text" class="form-control" id="conseiller_Rapporteur" placeholder="conseiller apporteur"
+            formControlName="conseiller_Rapporteur" tabindex="10" />
         </div>
 
       </div>
@@ -112,13 +114,13 @@
               <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
                 Numero jugement faisant objet de Appel
               </th>
-              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
+              <th class="text-start" mat-sort-header="Emis_en_date_du">
                 Emis en date du
               </th>
-              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
+              <th class="text-start" mat-sort-header="IdCRC">
                 IdCRC
               </th>
-              <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
+              <th class="text-start" mat-sort-header="Centre_comptable">
                 Centre comptable
               </th>
               <th class="text-end" style="min-width: 160px; max-width: 160px"></th>

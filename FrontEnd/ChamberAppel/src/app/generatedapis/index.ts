@@ -9,6 +9,8 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { BooleanApiResponse } from './models/BooleanApiResponse';
 export type { CRC } from './models/CRC';
+export type { CRCApiResponse } from './models/CRCApiResponse';
+export type { CRCListApiResponse } from './models/CRCListApiResponse';
 export type { DisciplineBudgetaire } from './models/DisciplineBudgetaire';
 export type { DisciplineBudgetaireApiResponse } from './models/DisciplineBudgetaireApiResponse';
 export type { DisciplineBudgetaireDatatableResponse } from './models/DisciplineBudgetaireDatatableResponse';
@@ -40,6 +42,7 @@ export type { RoleApiResponse } from './models/RoleApiResponse';
 export type { RoleDatatableResponse } from './models/RoleDatatableResponse';
 export type { RoleListApiResponse } from './models/RoleListApiResponse';
 
+export { CrCsService } from './services/CrCsService';
 export { DisciplineBudgetairesService } from './services/DisciplineBudgetairesService';
 export { PermissionsService } from './services/PermissionsService';
 export { RolesService } from './services/RolesService';
