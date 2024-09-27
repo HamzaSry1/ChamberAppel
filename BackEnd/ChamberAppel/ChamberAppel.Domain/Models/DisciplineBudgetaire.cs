@@ -134,6 +134,9 @@ namespace ChamberAppel.Domain.Models
         // تاريخ رجوع الملف من كتابة الضبط المركزي
         public string? Date_Retour_Dossier_Greffe_Central { get; set; }
 
+
+        #region جلسة الحكم
+
         // استدعاء المتابع لحضور جلسة الحكم
         public string? Convocation_Interesse_Audience_Jugement { get; set; }
 
@@ -152,6 +155,10 @@ namespace ChamberAppel.Domain.Models
         // تاریخ جلسة النطق بالحكم
         public string? Date_Audience_Prononce_Jugement { get; set; }
 
+        #endregion جلسة الحكم
+
+
+        #region القرار
         // منطوق القرار
         public string? Dispositif_Decision { get; set; }
 
@@ -163,6 +170,8 @@ namespace ChamberAppel.Domain.Models
 
         // تاريخ توصل المحاسب بنسخة من القرار
         public string? Date_Reception_Comptable_Copie_Decision { get; set; }
+
+        #endregion القرار
 
         [ForeignKey(nameof(IdCRC))]
         public CRC? CRC { get; set; }

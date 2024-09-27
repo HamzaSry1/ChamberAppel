@@ -3,7 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AppMessageService } from 'src/app/app-message.service';
+import { CRC } from 'src/app/generatedapis/models/CRC';
+import { CRCListApiResponse } from 'src/app/generatedapis/models/CRCListApiResponse';
 import { DisciplineBudgetaireApiResponse } from 'src/app/generatedapis/models/DisciplineBudgetaireApiResponse';
+import { CrCsService } from 'src/app/generatedapis/services/CrCsService';
 import { DisciplineBudgetairesService } from 'src/app/generatedapis/services/DisciplineBudgetairesService';
 import { Const } from 'src/app/Helpers/Const';
 import { ButtonStyle } from 'src/app/shared/button-style';
@@ -19,6 +22,10 @@ export class DisciplineBudgetaireFormComponent {
   public AddOrEditButtonStyle!: string;
   public DeleteButtonStyle = ButtonStyle.danger;
   public ReturnButtonStyle = ButtonStyle.secondary;
+
+  public CRCs!: CRC[];
+  public DefaultSelectOption !: string;
+
   @Input() title!: string;
   @Input() titleMobile!: string;
   @Input() formIsDisabled!: boolean;
@@ -50,8 +57,8 @@ export class DisciplineBudgetaireFormComponent {
     date_Ordonnance_Designation_Conseiller_Rapporteur: new FormControl(),
     numero_Ordonnance_Designation_Conseiller_Rapporteur: new FormControl(),
     conseiller_Rapporteur: new FormControl(),
-    date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:new FormControl(),
-    numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:new FormControl(),
+    date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant: new FormControl(),
+    numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant: new FormControl(),
     conseiller_Rapporteur_Remplacant: new FormControl(),
     date_Envoi_Requete_Parties: new FormControl(),
 
@@ -60,18 +67,18 @@ export class DisciplineBudgetaireFormComponent {
     parties_Entrepot_Regional: new FormControl(),
     parties_Travailleur_du_territoire: new FormControl(),
     parties_President_de_la_Commune: new FormControl(),
-    
+
     date_de_reception_par_les_parties_Agent_du_Roi_au_CRC: new FormControl(),
     date_de_reception_par_les_parties_Entrepot_Regional: new FormControl(),
     date_de_reception_par_les_parties_Travailleur_du_territoire: new FormControl(),
-    date_de_reception_par_les_parties_President_de_la_Commune:new FormControl(),
-   
+    date_de_reception_par_les_parties_President_de_la_Commune: new FormControl(),
+
     reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC: new FormControl(),
     reponse_au_memoire_d_appel_Entrepot_Regional: new FormControl(),
     reponse_au_memoire_d_appel_Travailleur_du_territoire: new FormControl(),
     reponse_au_memoire_d_appel_President_de_la_Commune: new FormControl(),
     //endregion Parties
-    
+
     date_Demande_Documents_Supplementaires: new FormControl(),
     date_Convocation_Interesse_Audience: new FormControl(),
     date_Enquete_Sur_Le_Terrain: new FormControl(),
@@ -97,6 +104,9 @@ export class DisciplineBudgetaireFormComponent {
   });
 
   ngOnInit(): void {
+    this.DefaultSelectOption = this._notify.DefaultSelectOption;
+    this.LoadCRC();
+
     if (this.Id != null && this.Id != undefined) {
       this.GetDataById(this.Id);
     }
@@ -109,6 +119,12 @@ export class DisciplineBudgetaireFormComponent {
     if (this.formIsDisabled) {
       this.ReactiveForm.disable();
     }
+  }
+
+  LoadCRC() {
+    CrCsService.getApiCrCsGetAllAsync().then((res: CRCListApiResponse) => {
+      this.CRCs = res.data ?? [];
+    });
   }
 
   GetDataById(Id: string) {

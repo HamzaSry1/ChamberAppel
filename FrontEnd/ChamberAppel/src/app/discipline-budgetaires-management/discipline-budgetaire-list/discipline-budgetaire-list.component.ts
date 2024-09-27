@@ -79,7 +79,6 @@ export class DisciplineBudgetaireListComponent {
     });
   }
 
-
   resetPagination() {
     this.pageNumber = 1;
     this.pageSize = environment.pageSize;
