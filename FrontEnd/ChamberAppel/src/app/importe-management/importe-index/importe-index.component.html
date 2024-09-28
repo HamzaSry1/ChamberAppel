@@ -12,9 +12,8 @@
 <!-- stepper -->
 <div class="card my-3">
     <div class="card-body">
-        <div class="bs-stepper">
+        <div id="stepper1" class="bs-stepper">
             <div class="bs-stepper-header" role="tablist">
-                <!-- your steps here -->
                 <div class="step" data-target="#Importation-part">
                     <button type="button" class="step-trigger" role="tab" aria-controls="Importation-part"
                         id="Importation-part-trigger">
@@ -24,36 +23,30 @@
                 </div>
                 <div class="line"></div>
                 <div class="step" data-target="#Validation-part">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="Validation-part"
-                        id="Validation-part-trigger">
+                    <button type="button" class="step-trigger" [disabled]="true" role="tab"
+                        aria-controls="Validation-part" id="Validation-part-trigger">
                         <span class="bs-stepper-circle"> <i class="fa fa-list-alt"></i> </span>
                         <span class="bs-stepper-label">Validation</span>
                     </button>
                 </div>
                 <div class="line"></div>
                 <div class="step" data-target="#Marge-part">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="Marge-part"
+                    <button type="button" class="step-trigger" [disabled]="true" role="tab" aria-controls="Marge-part"
                         id="Marge-part-trigger">
                         <span class="bs-stepper-circle"> <i class="fa fa-compress"></i></span>
-                        <span class="bs-stepper-label">Marge</span>
+                        <span class="bs-stepper-label">Fusionner</span>
                     </button>
                 </div>
             </div>
-            <div class="bs-stepper-content">
+            <div class="bs-stepper-content my-3">
                 <div id="Importation-part" class="content" role="tabpanel" aria-labelledby="Importation-part-trigger">
-
-                    Called the import component
-
+                    <app-importe-upload></app-importe-upload>
                 </div>
                 <div id="Validation-part" class="content" role="tabpanel" aria-labelledby="Validation-part-trigger">
-
-                    Called the Validation component
-
+                    <app-importe-validation></app-importe-validation>
                 </div>
                 <div id="Marge-part" class="content" role="tabpanel" aria-labelledby="Marge-part-trigger">
-
-                    Called the Marge component
-
+                    <app-importe-marge></app-importe-marge>
                 </div>
             </div>
         </div>
