@@ -30,6 +30,7 @@ export class DisciplineBudgetaireListComponent {
   public DeleteButtonStyle = ButtonStyle.danger;
   public UpdateButtonStyle = ButtonStyle.success;
   public ExporterButtonStyle = ButtonStyle.secondary;
+  public ImporterButtonStyle = ButtonStyle.success;
   public SearchButtonStyle = ButtonStyle.primary_block;
 
   public Data!: DisciplineBudgetaire[];

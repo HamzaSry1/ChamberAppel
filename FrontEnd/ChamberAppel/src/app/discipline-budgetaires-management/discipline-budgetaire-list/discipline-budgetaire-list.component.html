@@ -4,6 +4,9 @@
   <ng-container>
     <app-header-action-button buttonClass="{{ ExporterButtonStyle }} me-2" title="Exporter les discipline budgetaires"
       iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
+    <app-header-action-button buttonClass="{{ ImporterButtonStyle }} me-2" title="Importer les discipline budgetaires"
+      iconClass="fa fa-download" routerLink="/discipline-budgetaires/importer"
+      label="Importer"></app-header-action-button>
     <app-header-action-button buttonClass="{{ CreateButtonStyle }}" title="Ajouter un discipline budgetaire"
       routerLink="/discipline-budgetaires/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
   </ng-container>
