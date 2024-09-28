@@ -1,0 +1,61 @@
+<!-- header -->
+<app-page-action-header [icon]="'fa fa-download'" [title]="'Importer'" [titleMobile]="'Importer'">
+    <ng-container>
+        <app-header-action-button buttonClass="{{ReturnButtonStyle}} me-2" title="Return" iconClass="fa fa-file-excel-o"
+            label="Return"></app-header-action-button>
+
+        <app-header-action-button buttonClass="{{ExempleButtonStyle}}" title="Ficher d'exemple" iconClass="fa fa-plus"
+            label="Ficher d'exemple"></app-header-action-button>
+    </ng-container>
+</app-page-action-header>
+
+<!-- stepper -->
+<div class="card my-3">
+    <div class="card-body">
+        <div class="bs-stepper">
+            <div class="bs-stepper-header" role="tablist">
+                <!-- your steps here -->
+                <div class="step" data-target="#Importation-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="Importation-part"
+                        id="Importation-part-trigger">
+                        <span class="bs-stepper-circle"> <i class="fa fa-download"></i> </span>
+                        <span class="bs-stepper-label">Importation</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#Validation-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="Validation-part"
+                        id="Validation-part-trigger">
+                        <span class="bs-stepper-circle"> <i class="fa fa-list-alt"></i> </span>
+                        <span class="bs-stepper-label">Validation</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#Marge-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="Marge-part"
+                        id="Marge-part-trigger">
+                        <span class="bs-stepper-circle"> <i class="fa fa-compress"></i></span>
+                        <span class="bs-stepper-label">Marge</span>
+                    </button>
+                </div>
+            </div>
+            <div class="bs-stepper-content">
+                <div id="Importation-part" class="content" role="tabpanel" aria-labelledby="Importation-part-trigger">
+
+                    Called the import component
+
+                </div>
+                <div id="Validation-part" class="content" role="tabpanel" aria-labelledby="Validation-part-trigger">
+
+                    Called the Validation component
+
+                </div>
+                <div id="Marge-part" class="content" role="tabpanel" aria-labelledby="Marge-part-trigger">
+
+                    Called the Marge component
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

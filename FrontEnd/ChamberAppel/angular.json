@@ -42,11 +42,13 @@
               "./node_modules/fontawesome-4.7/css/font-awesome.min.css",
               "./node_modules/ngx-spinner/animations/line-spin-fade.css",
               "./node_modules/@costlydeveloper/ngx-awesome-popup/styles/theme.css",
+              "./node_modules/bs-stepper/dist/css/bs-stepper.min.css",
               "src/scss/styles.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./node_modules/bs-stepper/dist/js/bs-stepper.min.js"
             ],
             "allowedCommonJsDependencies": [
               "chart.js",

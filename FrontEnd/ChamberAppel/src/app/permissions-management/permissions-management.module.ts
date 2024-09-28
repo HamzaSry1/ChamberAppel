@@ -7,7 +7,7 @@ import { PermissionsEditComponent } from './permissions-edit/permissions-edit.co
 import { PermissionsDeleteComponent } from './permissions-delete/permissions-delete.component';
 import { PermissionsDetailComponent } from './permissions-detail/permissions-detail.component';
 import { PermissionsListComponent } from './permissions-list/permissions-list.component';
-import { AlertModule, ButtonModule, CardModule, GridModule, TableModule } from '@coreui/angular';
+// import { AlertModule, ButtonModule, CardModule, GridModule, TableModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -20,6 +20,6 @@ import { PermissionsFormComponent } from './permissions-form/permissions-form.co
 
 @NgModule({
   declarations: [PermissionsAddComponent, PermissionsEditComponent, PermissionsDeleteComponent, PermissionsDetailComponent, PermissionsListComponent, PermissionsFormComponent],
-  imports: [CommonModule, PermissionsManagementRoutingModule, AlertModule, ButtonModule, TableModule, NgxSpinnerModule, CardModule, GridModule, IconModule, FormsModule, NgbModule, MatIconModule, MatSortModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule],
+  imports: [CommonModule, PermissionsManagementRoutingModule, NgxSpinnerModule, IconModule, FormsModule, NgbModule, MatIconModule, MatSortModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule],
 })
 export class PermissionsManagementModule { }

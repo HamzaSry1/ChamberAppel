@@ -83,6 +83,12 @@ const routes: Routes = [
           import('./views/pages/pages.module').then((m) => m.PagesModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'importer',
+        loadChildren: () =>
+          import('./importe-management/importe-management.module').then((m) => m.ImporteManagementModule),
+        canActivate: [AuthGuard],
+      },
     ],
   },
   {
@@ -112,4 +118,4 @@ const config: any = {
     },
   ],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
