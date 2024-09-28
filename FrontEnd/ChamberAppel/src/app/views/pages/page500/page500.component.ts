@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ButtonStyle } from 'src/app/shared/button-style';
 
 @Component({
   selector: 'app-page500',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class Page500Component {
 
+  public ReturnButtonStyle = ButtonStyle.secondary;
   constructor() { }
-
 }
