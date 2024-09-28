@@ -47,7 +47,7 @@ namespace ChamberAppel.Infrastructure.Repository
                     query = query.Where(x => x.Emis_En_Date_Du == filter.Emis_En_Date_Du);
                 }
 
-                if (filter.IdCRC != Guid.Empty)
+                if (filter.IdCRC != null)
                 {
                     query = query.Where(x => x.IdCRC == filter.IdCRC);
                 }

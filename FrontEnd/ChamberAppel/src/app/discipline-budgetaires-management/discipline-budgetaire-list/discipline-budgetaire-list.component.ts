@@ -34,7 +34,7 @@ export class DisciplineBudgetaireListComponent {
 
   public Data!: DisciplineBudgetaire[];
   public pageNumber = 1;
-  public orderBy = 'label';
+  public orderBy = 'numero_Dossier';
   public orderByDirection = 'desc';
   public RecordTotal = 0;
   public RecordFiltred = 0;
@@ -82,7 +82,7 @@ export class DisciplineBudgetaireListComponent {
   resetPagination() {
     this.pageNumber = 1;
     this.pageSize = environment.pageSize;
-    this.orderBy = 'label';
+    this.orderBy = 'numero_Dossier';
     this.orderByDirection = 'desc';
   }
 

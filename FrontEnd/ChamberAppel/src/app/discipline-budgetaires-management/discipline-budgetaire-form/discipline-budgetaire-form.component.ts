@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Guid } from 'guid-typescript';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AppMessageService } from 'src/app/app-message.service';
 import { CRC } from 'src/app/generatedapis/models/CRC';
@@ -43,7 +44,7 @@ export class DisciplineBudgetaireFormComponent {
   }
 
   ReactiveForm = new FormGroup({
-    id: new FormControl({ value: '', disabled: true }),
+    id: new FormControl({ value: Guid.EMPTY, disabled: true }),
     numero_Dossier: new FormControl(),
     appelant: new FormControl(),
     numero_Jugement_Faisant_Objet_De_Appel: new FormControl(),
@@ -134,7 +135,7 @@ export class DisciplineBudgetaireFormComponent {
         if (res && res.data) {
           this.ReactiveForm.patchValue({
             id: res.data.id,
-            numero_Dossier: res.data.numero_Decision,
+            numero_Dossier: res.data.numero_Dossier,
             appelant: res.data.appelant,
             numero_Jugement_Faisant_Objet_De_Appel:
               res.data.numero_Jugement_Faisant_Objet_De_Appel,
