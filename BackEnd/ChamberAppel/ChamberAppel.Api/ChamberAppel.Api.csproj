@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\MyFHSI\Backend\Helpers.Api\Helpers.Api.csproj" />
 		<ProjectReference Include="..\ChamberAppel.Application\ChamberAppel.Application.csproj" />
 		<ProjectReference Include="..\ChamberAppel.Infrastructure\ChamberAppel.Infrastructure.csproj" />
 	</ItemGroup>

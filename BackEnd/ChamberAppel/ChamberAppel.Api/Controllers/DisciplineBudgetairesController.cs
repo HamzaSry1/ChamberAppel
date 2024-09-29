@@ -1,7 +1,9 @@
-﻿using ChamberAppel.Application.Validators;
+﻿using ChamberAppel.Application.Messages;
+using ChamberAppel.Application.Validators;
 using ChamberAppel.Domain.DTOs;
 using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Services;
+using Helpers.Api;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -81,9 +83,10 @@ namespace ChamberAppel.Api.Controllers
         }
 
         [HttpPost("ExporterAsync")]
-        public async Task<IActionResult> ExporterAsync(DtoFiltreMotsCle request)
+        public async Task<IActionResult> ExporterAsync(DtoFiltreDisciplineBudgetaire request)
         {
-            return null;
+            var res = await _service.GetAllAsync(request, null);
+            return this.DownloadAsExcelFile(res.Data, Const.List_Discipline_Budgeitaires);
         }
 
         #endregion CRUD

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Net;
 using ChamberAppel.Application.Validators;
+using Helpers.Api;
+using ChamberAppel.Application.Messages;
 
 namespace ChamberAppel.Api.Controllers
 {
@@ -81,7 +83,8 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreUtilisateur request)
         {
-            return null;
+            var res = await _service.GetAllAsync(request, null);
+            return this.DownloadAsExcelFile(res.Data, Const.List_Utilisateurs);
         }
 
         #endregion CRUD

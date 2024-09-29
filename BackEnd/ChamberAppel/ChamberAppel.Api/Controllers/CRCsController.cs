@@ -1,7 +1,9 @@
-﻿using ChamberAppel.Application.Validators;
+﻿using ChamberAppel.Application.Messages;
+using ChamberAppel.Application.Validators;
 using ChamberAppel.Domain.DTOs;
 using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Services;
+using Helpers.Api;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;
@@ -86,7 +88,11 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreMotsCle request)
         {
-            return null;
+
+            //TODO : add filtred data 
+
+            var data = await _service.GetAllAsync();
+            return this.DownloadAsExcelFile(data, Const.List_Permissions);
         }
 
         #endregion CRUD
