@@ -7,9 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Enums\**" />
-	  <EmbeddedResource Remove="Enums\**" />
-	  <None Remove="Enums\**" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
 	</ItemGroup>
 
 </Project>

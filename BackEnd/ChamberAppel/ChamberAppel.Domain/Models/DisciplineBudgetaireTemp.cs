@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChamberAppel.Domain.Models
 {
-    public class DisciplineBudgetaire
+    public class DisciplineBudgetaireTemp
     {
         public Guid Id { get; set; }
+        public Guid DisciplineBudgetaireId { get; set; }
 
         // رقم الملف
         public string? Numero_Dossier { get; set; }
@@ -20,7 +20,7 @@ namespace ChamberAppel.Domain.Models
         public string? Emis_En_Date_Du { get; set; }
 
         // المجلس الجهوي للحسابات لجهة
-        public Guid IdCRC { get; set; }
+        public string? CRC { get; set; }
 
         // المركز المحاسبي
         public string? Centre_Comptable { get; set; }
@@ -55,9 +55,6 @@ namespace ChamberAppel.Domain.Models
         // تاريخ إرسال العريضة للأطراف
         public string? Date_Envoi_Requete_Parties { get; set; }
 
-
-        #region les parties
-
         // الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
         public string? Parties_Agent_du_Roi_au_CRC { get; set; }
 
@@ -69,7 +66,6 @@ namespace ChamberAppel.Domain.Models
 
         // الأطراف - رئيس الجماعة
         public string? Parties_President_de_la_Commune { get; set; }
-
 
         // تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
         public DateTime? Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC { get; set; }
@@ -83,7 +79,6 @@ namespace ChamberAppel.Domain.Models
         // تاريخ توصل الأطراف - رئيس الجماعة
         public DateTime? Date_de_reception_par_les_parties_President_de_la_Commune { get; set; }
 
-
         // رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات
         public string? Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC { get; set; }
 
@@ -95,9 +90,6 @@ namespace ChamberAppel.Domain.Models
 
         // رد على مذكرة الاستئناف - رئيس الجماعة
         public string? Reponse_au_memoire_d_appel_President_de_la_Commune { get; set; }
-
-        #endregion les parties
-
 
         // تاریخ طلب وثائق تكميلية
         public string? Date_Demande_Documents_Supplementaires { get; set; }
@@ -135,9 +127,6 @@ namespace ChamberAppel.Domain.Models
         // تاريخ رجوع الملف من كتابة الضبط المركزي
         public string? Date_Retour_Dossier_Greffe_Central { get; set; }
 
-
-        #region جلسة الحكم
-
         // استدعاء المتابع لحضور جلسة الحكم
         public string? Convocation_Interesse_Audience_Jugement { get; set; }
 
@@ -156,10 +145,6 @@ namespace ChamberAppel.Domain.Models
         // تاریخ جلسة النطق بالحكم
         public string? Date_Audience_Prononce_Jugement { get; set; }
 
-        #endregion جلسة الحكم
-
-
-        #region القرار
         // منطوق القرار
         public string? Dispositif_Decision { get; set; }
 
@@ -172,16 +157,10 @@ namespace ChamberAppel.Domain.Models
         // تاريخ توصل المحاسب بنسخة من القرار
         public string? Date_Reception_Comptable_Copie_Decision { get; set; }
 
-        #endregion القرار
-
-        [MaxLength(80)]
-        [Length(3, 80)]
         public string? UpdatedBy { get; set; }
-        [DataType(DataType.DateTime)]
         public DateTime? UpdateTime { get; set; }
-        public int IsActive { get; set; }
+        public int RowNumber { get; set; }
 
-        [ForeignKey(nameof(IdCRC))]
-        public CRC? CRC { get; set; }
+        public string? RowError { get; set; }
     }
 }

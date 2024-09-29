@@ -15,6 +15,7 @@ namespace ChamberAppel.Infrastructure.Data
         public DbSet<UtilisateurRoles> UtilisateurRoles { get; set; }
         public DbSet<UtilisateurLogging> UtilisateurLoggings { get; set; }
         public DbSet<DisciplineBudgetaire> DisciplineBudgetaires { get; set; }
+        public DbSet<DisciplineBudgetaireTemp> DisciplineBudgetaireTemp { get; set; }
         public DbSet<TypeGrade> TypeGrades { get; set; }
         public DbSet<TypeUtilisateur> TypeUtilisateurs { get; set; }
         public DbSet<CRC> CRCs { get; set; }
