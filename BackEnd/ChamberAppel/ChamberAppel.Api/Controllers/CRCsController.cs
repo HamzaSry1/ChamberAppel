@@ -5,7 +5,6 @@ using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Services;
 using Helpers.Api;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Net;
 
 namespace ChamberAppel.Api.Controllers
