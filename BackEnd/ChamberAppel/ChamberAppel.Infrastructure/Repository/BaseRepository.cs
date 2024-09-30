@@ -21,12 +21,6 @@ namespace ChamberAppel.Infrastructure.Repository
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            //var idProperty = typeof(T).GetProperty("Id");
-            //if (idProperty != null && idProperty.PropertyType == typeof(Guid))
-            //{
-            //    idProperty.SetValue(entity, Guid.NewGuid());
-            //}
-
             await _database.Set<T>().AddAsync(entity);
             await _database.SaveChangesAsync();
             return entity;
@@ -82,11 +76,6 @@ namespace ChamberAppel.Infrastructure.Repository
         public virtual async Task<T?> GetByIdAsync(Guid id)
         {
             return await _database.Set<T>().FindAsync(id);
-        }
-
-        public virtual Task<List<T>> GetAllFiltredAsync(T filter, DtoPagination pagination)
-        {
-            throw new NotImplementedException();
         }
     }
 }

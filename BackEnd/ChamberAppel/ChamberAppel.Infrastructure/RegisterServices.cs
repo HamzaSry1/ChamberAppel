@@ -21,7 +21,7 @@ namespace ChamberAppel.Infrastructure
                     ?? throw new Exception(CustomMessages.InvalidConnexionString));
             });
 
-            // Register REPOSITORY: 
+            // Register REPOSITORY
             service.AddScoped<IDisciplineBudgetaireRepository, DisciplineBudgetaireRepository>();
             service.AddScoped<IPermissionRepository, PermissionRepository>();
             service.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
@@ -31,8 +31,9 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
             service.AddScoped<ILoggingRepository, LoggingRepository>();
             service.AddScoped<ICRCRepository, CRCRepository>();
+            service.AddScoped<IDisciplineBudgetaireImportRepository, DisciplineBudgetaireImportRepository>();
 
-            // Register SERVICES:
+            // Register SERVICES
             service.AddScoped<IDisciplineBudgetaireService, DisciplineBudgetaireService>();
             service.AddScoped<IPermissionService, PermissionService>();
             service.AddScoped<IRolePermissionService, RolePermissionService>();
@@ -44,6 +45,7 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IUserSessionService, UserSessionService>();
             service.AddScoped<IAuthentification, Authentification>();
             service.AddScoped<ICRCService, CRCService>();
+            service.AddScoped<IDisciplineBudgetaireImportService, DisciplineBudgetaireImportService>();
 
             return service;
         }

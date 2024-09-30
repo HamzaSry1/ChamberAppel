@@ -159,8 +159,8 @@ namespace ChamberAppel.Domain.Models
 
         public string? UpdatedBy { get; set; }
         public DateTime? UpdateTime { get; set; }
-        public int RowNumber { get; set; }
 
+        public int RowNumber { get; set; }
         public string? RowError { get; set; }
     }
 }

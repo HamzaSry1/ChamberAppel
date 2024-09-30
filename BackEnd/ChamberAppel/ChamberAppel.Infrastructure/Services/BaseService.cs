@@ -22,8 +22,6 @@ namespace ChamberAppel.Infrastructure.Services
 
         public virtual async Task<List<T>> GetAllAsync() => await _repository.GetAllAsync();
 
-        public virtual Task<List<T>> GetAllFiltredAsync(T filter, DtoPagination pagination) => _repository.GetAllFiltredAsync(filter, pagination);
-
         public virtual Task<T> GetByIdAsync(Guid id) => _repository.GetByIdAsync(id);
 
         public virtual async Task<T> UpdateAsync(T entity)
