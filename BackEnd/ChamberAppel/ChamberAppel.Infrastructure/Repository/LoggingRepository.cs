@@ -24,7 +24,7 @@ namespace ChamberAppel.Infrastructure.Repository
                 UtilisateurId = id,
                 Action = action,
                 Description = description,
-                DateLog = DateTime.UtcNow,
+                DateLogging = DateTime.UtcNow,
             };
 
             _database.UtilisateurLoggings.Add(userLog);

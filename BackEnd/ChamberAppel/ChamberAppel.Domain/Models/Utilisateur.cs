@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChamberAppel.Domain.Models
 {
@@ -31,5 +32,11 @@ namespace ChamberAppel.Domain.Models
         [DataType(DataType.DateTime)]
         public DateTime? UpdateTime { get; set; }
         public int IsActive { get; set; }
+
+        [ForeignKey(nameof(TypeGradeId))]
+        public TypeGrade? TypeGrade { get; set; }
+
+        [ForeignKey(nameof(TypeUtilisateurId))]
+        public TypeUtilisateur? TypeUtilisateur { get; set; }
     }
 }
