@@ -189,7 +189,7 @@ export const iconSubset = {
   cilGroup,
   cilLockUnlocked,
   cilBalanceScale,
-  cilApps
+  cilApps,
 };
 
 export enum IconSubset {

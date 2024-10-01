@@ -36,4 +36,9 @@ export const navItems: INavData[] = [
     url: 'discipline-budgetaires',
     iconComponent: { name: 'cil-balance-scale' },
   },
+  {
+    name: 'Importer',
+    url: 'importer',
+    iconComponent: { name: 'cil-cloud-download' },
+  },
 ];

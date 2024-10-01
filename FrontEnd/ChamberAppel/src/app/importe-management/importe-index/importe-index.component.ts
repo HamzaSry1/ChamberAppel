@@ -8,6 +8,12 @@ import Stepper from 'bs-stepper';
 })
 export class ImporteIndexComponent implements OnInit {
 
+  public ReturnButtonStyle = ButtonStyle.secondary;
+  public ExempleButtonStyle = ButtonStyle.success;
+  public stepper!: Stepper;
+  public ValidationPartIsDisabled = true;
+  public MargePartIsDisabled = true;
+
   ngOnInit(): void {
     const stepperElement = document.querySelector('#stepper1');
     if (stepperElement !== null) {
@@ -18,12 +24,6 @@ export class ImporteIndexComponent implements OnInit {
     }
   }
 
-  public ReturnButtonStyle = ButtonStyle.secondary;
-  public ExempleButtonStyle = ButtonStyle.success;
-  public stepper!: Stepper;
-  public ValidationPartIsDisabled = true;
-  public MargePartIsDisabled = true;
-
   Next() {
     this.stepper.next();
   }
@@ -33,10 +33,11 @@ export class ImporteIndexComponent implements OnInit {
   }
 
   GoToValidation(event: any) {
-    console.log(event);
-
-    // this.ValidationPartIsDisabled = false;
-    // this.Next();
+    // the file upload successfully 
+    if (event == true) {
+      this.ValidationPartIsDisabled = false;
+      this.Next();
+    }
   }
 
   GoToMarge() {

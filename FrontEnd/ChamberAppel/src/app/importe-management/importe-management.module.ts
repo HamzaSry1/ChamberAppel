@@ -25,7 +25,7 @@ import { ImporteUploadComponent } from './importe-upload/importe-upload.componen
   imports: [
     CommonModule,
     ImporteManagementRoutingModule,
-    NgxSpinnerModule, IconModule, FormsModule, NgbModule, MatIconModule, MatSortModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule
+    NgxSpinnerModule, IconModule, MatSortModule, FormsModule, NgbModule, MatIconModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule
   ]
 })
 export class ImporteManagementModule { }
