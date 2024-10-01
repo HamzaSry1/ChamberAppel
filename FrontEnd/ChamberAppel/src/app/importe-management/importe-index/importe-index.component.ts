@@ -21,7 +21,8 @@ export class ImporteIndexComponent implements OnInit {
   public ReturnButtonStyle = ButtonStyle.secondary;
   public ExempleButtonStyle = ButtonStyle.success;
   public stepper!: Stepper;
-
+  public ValidationPartIsDisabled = true;
+  public MargePartIsDisabled = true;
 
   Next() {
     this.stepper.next();
@@ -29,5 +30,17 @@ export class ImporteIndexComponent implements OnInit {
 
   Previous() {
     this.stepper.previous();
+  }
+
+  GoToValidation(event: any) {
+    console.log(event);
+
+    // this.ValidationPartIsDisabled = false;
+    // this.Next();
+  }
+
+  GoToMarge() {
+    this.MargePartIsDisabled = false;
+    // redirect to list of the discipline budgetaire
   }
 }

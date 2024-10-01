@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ChamberAppel.Domain.Models
+﻿namespace ChamberAppel.Domain.Models
 {
     public class DisciplineBudgetaireTemp
     {
@@ -68,16 +66,16 @@ namespace ChamberAppel.Domain.Models
         public string? Parties_President_de_la_Commune { get; set; }
 
         // تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
-        public DateTime? Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC { get; set; }
+        public string? Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC { get; set; }
 
         // تاريخ توصل الأطراف - الخازن الإقليمي
-        public DateTime? Date_de_reception_par_les_parties_Entrepot_Regional { get; set; }
+        public string? Date_de_reception_par_les_parties_Entrepot_Regional { get; set; }
 
         // تاريخ توصل الأطراف - عامل الإقليم
-        public DateTime? Date_de_reception_par_les_parties_Travailleur_du_territoire { get; set; }
+        public string? Date_de_reception_par_les_parties_Travailleur_du_territoire { get; set; }
 
         // تاريخ توصل الأطراف - رئيس الجماعة
-        public DateTime? Date_de_reception_par_les_parties_President_de_la_Commune { get; set; }
+        public string? Date_de_reception_par_les_parties_President_de_la_Commune { get; set; }
 
         // رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات
         public string? Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC { get; set; }
@@ -158,7 +156,7 @@ namespace ChamberAppel.Domain.Models
         public string? Date_Reception_Comptable_Copie_Decision { get; set; }
 
         public string? UpdatedBy { get; set; }
-        public DateTime? UpdateTime { get; set; }
+        public string? UpdateTime { get; set; }
 
         public int RowNumber { get; set; }
         public string? RowError { get; set; }

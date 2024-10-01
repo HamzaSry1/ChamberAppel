@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class initialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,10 +52,10 @@ namespace ChamberAppel.Infrastructure.Migrations
                     Parties_Entrepot_Regional = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Parties_Travailleur_du_territoire = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Parties_President_de_la_Commune = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
-                    Date_de_reception_par_les_parties_Entrepot_Regional = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
-                    Date_de_reception_par_les_parties_Travailleur_du_territoire = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
-                    Date_de_reception_par_les_parties_President_de_la_Commune = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
+                    Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    Date_de_reception_par_les_parties_Entrepot_Regional = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    Date_de_reception_par_les_parties_Travailleur_du_territoire = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
+                    Date_de_reception_par_les_parties_President_de_la_Commune = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Reponse_au_memoire_d_appel_Entrepot_Regional = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Reponse_au_memoire_d_appel_Travailleur_du_territoire = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
@@ -83,7 +83,7 @@ namespace ChamberAppel.Infrastructure.Migrations
                     Date_Envoi_Decision_Notification_Parties = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Date_Reception_Comptable_Copie_Decision = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     UpdatedBy = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    UpdateTime = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
+                    UpdateTime = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     RowNumber = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     RowError = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true)
                 },

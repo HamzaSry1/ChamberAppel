@@ -2,9 +2,8 @@
 {
     public static class CROSService
     {
-        public static IServiceCollection RegisterCROS(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection RegisterCROS(this IServiceCollection services)
         {
-            //TODO : add CROS policy
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowOnlyChamberAppel",

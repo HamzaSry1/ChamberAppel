@@ -15,7 +15,7 @@ import { request as __request } from '../core/request';
 export class PermissionsService {
     /**
      * @param requestBody
-     * @returns PermissionDatatableResponse Success
+     * @returns PermissionDatatableResponse OK
      * @throws ApiError
      */
     public static postApiPermissionsGetAllFiltredAsync(
@@ -29,7 +29,7 @@ export class PermissionsService {
         });
     }
     /**
-     * @returns DtoPermissionGroupeListApiResponse Success
+     * @returns DtoPermissionGroupeListApiResponse OK
      * @throws ApiError
      */
     public static getApiPermissionsGetAllByGroupeAsync(): CancelablePromise<DtoPermissionGroupeListApiResponse> {
@@ -40,7 +40,7 @@ export class PermissionsService {
     }
     /**
      * @param id
-     * @returns PermissionApiResponse Success
+     * @returns PermissionApiResponse OK
      * @throws ApiError
      */
     public static getApiPermissionsGetByIdAsync(
@@ -56,7 +56,7 @@ export class PermissionsService {
     }
     /**
      * @param requestBody
-     * @returns PermissionApiResponse Success
+     * @returns PermissionApiResponse OK
      * @throws ApiError
      */
     public static postApiPermissionsCreateAsync(
@@ -71,7 +71,7 @@ export class PermissionsService {
     }
     /**
      * @param requestBody
-     * @returns PermissionApiResponse Success
+     * @returns PermissionApiResponse OK
      * @throws ApiError
      */
     public static putApiPermissionsUpdateAsync(
@@ -86,7 +86,7 @@ export class PermissionsService {
     }
     /**
      * @param id
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static deleteApiPermissionsDeleteAsync(
@@ -102,7 +102,7 @@ export class PermissionsService {
     }
     /**
      * @param requestBody
-     * @returns any Success
+     * @returns any OK
      * @throws ApiError
      */
     public static postApiPermissionsExporterAsync(

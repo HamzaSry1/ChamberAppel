@@ -11,5 +11,8 @@
         public static string Created = "Ajouté avec succès";
         public static string Updated = "Modifier avec succès";
         public static string Deleted = "Supprimer avec succès";
+
+        public static string InvalidConnexionString = "Chaîne de connexion invalide";
+        public static string Required = "Ce champ est requis";
     }
 }

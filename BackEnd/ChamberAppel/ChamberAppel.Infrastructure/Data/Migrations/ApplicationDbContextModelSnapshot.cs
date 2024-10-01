@@ -315,17 +315,17 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.Property<string>("Date_Transmission_Dossier_Ministere_Public")
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<DateTime?>("Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC")
-                        .HasColumnType("TIMESTAMP(7)");
+                    b.Property<string>("Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<DateTime?>("Date_de_reception_par_les_parties_Entrepot_Regional")
-                        .HasColumnType("TIMESTAMP(7)");
+                    b.Property<string>("Date_de_reception_par_les_parties_Entrepot_Regional")
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<DateTime?>("Date_de_reception_par_les_parties_President_de_la_Commune")
-                        .HasColumnType("TIMESTAMP(7)");
+                    b.Property<string>("Date_de_reception_par_les_parties_President_de_la_Commune")
+                        .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<DateTime?>("Date_de_reception_par_les_parties_Travailleur_du_territoire")
-                        .HasColumnType("TIMESTAMP(7)");
+                    b.Property<string>("Date_de_reception_par_les_parties_Travailleur_du_territoire")
+                        .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<Guid>("DisciplineBudgetaireId")
                         .HasColumnType("RAW(16)");
@@ -387,8 +387,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.Property<int>("RowNumber")
                         .HasColumnType("NUMBER(10)");
 
-                    b.Property<DateTime?>("UpdateTime")
-                        .HasColumnType("TIMESTAMP(7)");
+                    b.Property<string>("UpdateTime")
+                        .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("NVARCHAR2(2000)");

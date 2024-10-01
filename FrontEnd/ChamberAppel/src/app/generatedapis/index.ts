@@ -14,6 +14,8 @@ export type { CRCListApiResponse } from './models/CRCListApiResponse';
 export type { DisciplineBudgetaire } from './models/DisciplineBudgetaire';
 export type { DisciplineBudgetaireApiResponse } from './models/DisciplineBudgetaireApiResponse';
 export type { DisciplineBudgetaireDatatableResponse } from './models/DisciplineBudgetaireDatatableResponse';
+export type { DisciplineBudgetaireTemp } from './models/DisciplineBudgetaireTemp';
+export type { DisciplineBudgetaireTempDatatableResponse } from './models/DisciplineBudgetaireTempDatatableResponse';
 export type { DtoChangePassword } from './models/DtoChangePassword';
 export type { DtoCheckedListRequest } from './models/DtoCheckedListRequest';
 export type { DtoFiltreDisciplineBudgetaire } from './models/DtoFiltreDisciplineBudgetaire';
@@ -44,6 +46,7 @@ export type { RoleListApiResponse } from './models/RoleListApiResponse';
 
 export { CrCsService } from './services/CrCsService';
 export { DisciplineBudgetairesService } from './services/DisciplineBudgetairesService';
+export { DisciplineBudgetairesImportService } from './services/DisciplineBudgetairesImportService';
 export { PermissionsService } from './services/PermissionsService';
 export { RolesService } from './services/RolesService';
 export { UtilisateursService } from './services/UtilisateursService';

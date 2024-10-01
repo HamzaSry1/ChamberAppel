@@ -36,16 +36,16 @@ namespace Helpers.Excel
 
                 foreach (PropertyInfo prop in typeof(T).GetProperties())
                 {
-                    if (table.Columns.Contains(prop.Name) && row[prop.Name] != DBNull.Value)
+                    if (table.Columns.Contains(prop.Name.Trim()) && row[prop.Name.Trim()] != DBNull.Value)
                     {
                         if (prop.PropertyType == typeof(Guid))
                         {
-                            Guid.TryParse(row[prop.Name].ToString(), out Guid guidValue);
+                            Guid.TryParse(row[prop.Name.Trim()].ToString(), out Guid guidValue);
                             prop.SetValue(obj, guidValue);
                         }
                         else
                         {
-                            prop.SetValue(obj, Convert.ChangeType(row[prop.Name], prop.PropertyType), null);
+                            prop.SetValue(obj, Convert.ChangeType(row[prop.Name.Trim()], prop.PropertyType), null);
                         }
                     }
                 }

@@ -6,15 +6,15 @@ import type { BooleanApiResponse } from '../models/BooleanApiResponse';
 import type { DisciplineBudgetaire } from '../models/DisciplineBudgetaire';
 import type { DisciplineBudgetaireApiResponse } from '../models/DisciplineBudgetaireApiResponse';
 import type { DisciplineBudgetaireDatatableResponse } from '../models/DisciplineBudgetaireDatatableResponse';
+import type { DtoFiltreDisciplineBudgetaire } from '../models/DtoFiltreDisciplineBudgetaire';
 import type { DtoFiltreDisciplineBudgetaireDatatableRequest } from '../models/DtoFiltreDisciplineBudgetaireDatatableRequest';
-import type { DtoFiltreMotsCle } from '../models/DtoFiltreMotsCle';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class DisciplineBudgetairesService {
     /**
      * @param requestBody
-     * @returns DisciplineBudgetaireDatatableResponse Success
+     * @returns DisciplineBudgetaireDatatableResponse OK
      * @throws ApiError
      */
     public static postApiDisciplineBudgetairesGetAllFiltredAsync(
@@ -29,7 +29,7 @@ export class DisciplineBudgetairesService {
     }
     /**
      * @param id
-     * @returns DisciplineBudgetaireApiResponse Success
+     * @returns DisciplineBudgetaireApiResponse OK
      * @throws ApiError
      */
     public static getApiDisciplineBudgetairesGetByIdAsync(
@@ -45,7 +45,7 @@ export class DisciplineBudgetairesService {
     }
     /**
      * @param requestBody
-     * @returns DisciplineBudgetaireApiResponse Success
+     * @returns DisciplineBudgetaireApiResponse OK
      * @throws ApiError
      */
     public static postApiDisciplineBudgetairesCreateAsync(
@@ -60,7 +60,7 @@ export class DisciplineBudgetairesService {
     }
     /**
      * @param requestBody
-     * @returns DisciplineBudgetaireApiResponse Success
+     * @returns DisciplineBudgetaireApiResponse OK
      * @throws ApiError
      */
     public static putApiDisciplineBudgetairesUpdateAsync(
@@ -75,7 +75,7 @@ export class DisciplineBudgetairesService {
     }
     /**
      * @param id
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static deleteApiDisciplineBudgetairesDeleteAsync(
@@ -91,11 +91,11 @@ export class DisciplineBudgetairesService {
     }
     /**
      * @param requestBody
-     * @returns any Success
+     * @returns any OK
      * @throws ApiError
      */
     public static postApiDisciplineBudgetairesExporterAsync(
-        requestBody?: DtoFiltreMotsCle,
+        requestBody?: DtoFiltreDisciplineBudgetaire,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',

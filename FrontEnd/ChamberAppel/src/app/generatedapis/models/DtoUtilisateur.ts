@@ -11,6 +11,8 @@ export type DtoUtilisateur = {
     email?: string | null;
     login?: string | null;
     password?: string | null;
+    typeUtilisateurId?: string;
+    typeGradeId?: string;
     updatedBy?: string | null;
     updateTime?: string | null;
     isActive?: number;

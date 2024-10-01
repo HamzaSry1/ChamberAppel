@@ -3,13 +3,16 @@ using ChamberAppel.Api.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Excel parser encoding
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.RegisterSwagger();
-builder.Services.RegisterCROS(builder.Configuration);
-builder.Services.RegisterRateLimit();
+builder.Services.RegisterCROS();
+//builder.Services.RegisterRateLimit();
 //builder.Services.RegisterCSRF();
 builder.Services.RegisterApi(builder.Configuration);
 builder.Services.AddHttpContextAccessor();

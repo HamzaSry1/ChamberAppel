@@ -20,7 +20,7 @@ import { request as __request } from '../core/request';
 export class UtilisateursService {
     /**
      * @param requestBody
-     * @returns DtoUtilisateurDatatableResponse Success
+     * @returns DtoUtilisateurDatatableResponse OK
      * @throws ApiError
      */
     public static postApiUtilisateursGetAllAsync(
@@ -35,7 +35,7 @@ export class UtilisateursService {
     }
     /**
      * @param id
-     * @returns DtoUtilisateurApiResponse Success
+     * @returns DtoUtilisateurApiResponse OK
      * @throws ApiError
      */
     public static getApiUtilisateursGetByIdAsync(
@@ -51,7 +51,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns DtoUtilisateurApiResponse Success
+     * @returns DtoUtilisateurApiResponse OK
      * @throws ApiError
      */
     public static postApiUtilisateursCreateAsync(
@@ -66,7 +66,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns DtoUtilisateurApiResponse Success
+     * @returns DtoUtilisateurApiResponse OK
      * @throws ApiError
      */
     public static putApiUtilisateursUpdateAsync(
@@ -81,7 +81,7 @@ export class UtilisateursService {
     }
     /**
      * @param id
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static deleteApiUtilisateursDeleteAsync(
@@ -97,7 +97,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns any Success
+     * @returns any OK
      * @throws ApiError
      */
     public static postApiUtilisateursExporterAsync(
@@ -112,7 +112,7 @@ export class UtilisateursService {
     }
     /**
      * @param id
-     * @returns PermissionListApiResponse Success
+     * @returns PermissionListApiResponse OK
      * @throws ApiError
      */
     public static getApiUtilisateursGetPermissionsAsync(
@@ -128,7 +128,7 @@ export class UtilisateursService {
     }
     /**
      * @param id
-     * @returns RoleListApiResponse Success
+     * @returns RoleListApiResponse OK
      * @throws ApiError
      */
     public static getApiUtilisateursGetRolesAsync(
@@ -144,7 +144,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static postApiUtilisateursAddPermissionsAsync(
@@ -159,7 +159,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static postApiUtilisateursAddRolesAsync(
@@ -173,7 +173,7 @@ export class UtilisateursService {
         });
     }
     /**
-     * @returns PermissionListApiResponse Success
+     * @returns PermissionListApiResponse OK
      * @throws ApiError
      */
     public static getApiUtilisateursGetMyPermissionsAsync(): CancelablePromise<PermissionListApiResponse> {
@@ -184,7 +184,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns DtoLoginResultApiResponse Success
+     * @returns DtoLoginResultApiResponse OK
      * @throws ApiError
      */
     public static postApiUtilisateursLoginAsync(
@@ -199,7 +199,7 @@ export class UtilisateursService {
     }
     /**
      * @param requestBody
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static postApiUtilisateursResetPasswordAsync(

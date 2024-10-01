@@ -2,14 +2,14 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CRC } from './CRC';
-export type DisciplineBudgetaire = {
+export type DisciplineBudgetaireTemp = {
     id?: string;
+    disciplineBudgetaireId?: string;
     numero_Dossier?: string | null;
     appelant?: string | null;
     numero_Jugement_Faisant_Objet_De_Appel?: string | null;
     emis_En_Date_Du?: string | null;
-    idCRC?: string;
+    crc?: string | null;
     centre_Comptable?: string | null;
     date_Enregistrement_Requete_Cour_Regionale_Des_Comptes?: string | null;
     date_Requisition_Ministere_Public?: string | null;
@@ -57,7 +57,7 @@ export type DisciplineBudgetaire = {
     date_Reception_Comptable_Copie_Decision?: string | null;
     updatedBy?: string | null;
     updateTime?: string | null;
-    isActive?: number;
-    crc?: CRC;
+    rowNumber?: number;
+    rowError?: string | null;
 };
 

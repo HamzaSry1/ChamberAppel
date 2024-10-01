@@ -12,7 +12,7 @@ import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class CrCsService {
     /**
-     * @returns CRCListApiResponse Success
+     * @returns CRCListApiResponse OK
      * @throws ApiError
      */
     public static getApiCrCsGetAllAsync(): CancelablePromise<CRCListApiResponse> {
@@ -23,7 +23,7 @@ export class CrCsService {
     }
     /**
      * @param id
-     * @returns CRCApiResponse Success
+     * @returns CRCApiResponse OK
      * @throws ApiError
      */
     public static getApiCrCsGetByIdAsync(
@@ -39,7 +39,7 @@ export class CrCsService {
     }
     /**
      * @param requestBody
-     * @returns CRCApiResponse Success
+     * @returns CRCApiResponse OK
      * @throws ApiError
      */
     public static postApiCrCsCreateAsync(
@@ -54,7 +54,7 @@ export class CrCsService {
     }
     /**
      * @param requestBody
-     * @returns CRCApiResponse Success
+     * @returns CRCApiResponse OK
      * @throws ApiError
      */
     public static putApiCrCsUpdateAsync(
@@ -69,7 +69,7 @@ export class CrCsService {
     }
     /**
      * @param id
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static deleteApiCrCsDeleteAsync(
@@ -85,7 +85,7 @@ export class CrCsService {
     }
     /**
      * @param requestBody
-     * @returns any Success
+     * @returns any OK
      * @throws ApiError
      */
     public static postApiCrCsExporterAsync(

@@ -14,7 +14,6 @@ namespace ChamberAppel.Api.Controllers
     public class DisciplineBudgetairesController : ControllerBase
     {
         private readonly IDisciplineBudgetaireService _service;
-
         public DisciplineBudgetairesController(IDisciplineBudgetaireService service)
         {
             _service = service;
@@ -90,7 +89,6 @@ namespace ChamberAppel.Api.Controllers
         }
 
         #endregion CRUD
-
         #region validation
         private List<FluentValidationErrors> Validation(DisciplineBudgetaire model)
         {

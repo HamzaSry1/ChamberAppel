@@ -5,12 +5,11 @@ namespace ChamberAppel.Domain.Repository
 {
     public interface IDisciplineBudgetaireImportRepository
     {
-        Task<bool> Insert(List<DisciplineBudgetaireTemp> data);
-        Task<bool> Valider(Guid id);
-        Task Confirmer(Guid id);
-        Task<bool> Fusionner(Guid id, Guid updatedBy);
-        Task<bool> Delete(Guid id);
-        Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(Guid id, DtoPagination pagination);
-        Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(Guid id, DtoPagination pagination);
+        Task<bool> Insert(List<DisciplineBudgetaireTemp> list);
+        Task<bool> Fusionner(string updatedBy);
+        Task<bool> Valider();
+        Task<bool> Delete();
+        Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination);
+        Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(DtoPagination pagination);
     }
 }

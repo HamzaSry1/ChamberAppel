@@ -2,6 +2,7 @@
 using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
+using Helpers.Excel;
 using Microsoft.AspNetCore.Http;
 
 namespace ChamberAppel.Infrastructure.Services
@@ -15,38 +16,39 @@ namespace ChamberAppel.Infrastructure.Services
             _repository = repository;
         }
 
-        public Task<bool> Analyse(Guid id)
+        public async Task<bool> Analyse()
         {
-            throw new NotImplementedException();
+            var data = await GetAllErrorsData(null);
+            return data.RecordTotal > 0;
         }
 
-        public Task<bool> Confirmer(Guid id)
+        public async Task<bool> Fusionner(string updatedBy) => await _repository.Fusionner(updatedBy);
+
+        public async Task<bool> Upload(IFormFile file, string updatedBy)
         {
-            throw new NotImplementedException();
+            // Read uploaded file data
+            var dataTable = ImportHelpers.ReadUploadFileData(file);
+
+            // Convert DataTable to List of ImportationAdherentTemp
+            var list = ImportHelpers.DataTableToList<DisciplineBudgetaireTemp>(dataTable);
+
+            foreach (var item in list)
+            {
+                item.UpdatedBy = updatedBy;
+            }
+            // Save uploaded Data
+            await _repository.Insert(list);
+
+            // validate Imporatation formats
+            await _repository.Valider();
+
+            // Verify if data valid or not 
+            return await Analyse();
         }
 
-        public Task<bool> Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Fusionner(Guid id, Guid updatedBy)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<bool> Upload(IFormFile file, Guid id, Guid updatedBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(Guid id, DtoPagination pagination)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(Guid id, DtoPagination pagination)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(DtoPagination pagination)
+            => await _repository.GetAllErrorsData(pagination);
+        public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination)
+            => await _repository.GetAllValideData(pagination);
     }
 }

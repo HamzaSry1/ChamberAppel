@@ -23,7 +23,7 @@
                 </div>
                 <div class="line"></div>
                 <div class="step" data-target="#Validation-part">
-                    <button type="button" class="step-trigger" [disabled]="true" role="tab"
+                    <button type="button" class="step-trigger" [disabled]="ValidationPartIsDisabled" role="tab"
                         aria-controls="Validation-part" id="Validation-part-trigger">
                         <span class="bs-stepper-circle"> <i class="fa fa-list-alt"></i> </span>
                         <span class="bs-stepper-label">Validation</span>
@@ -31,8 +31,8 @@
                 </div>
                 <div class="line"></div>
                 <div class="step" data-target="#Marge-part">
-                    <button type="button" class="step-trigger" [disabled]="true" role="tab" aria-controls="Marge-part"
-                        id="Marge-part-trigger">
+                    <button type="button" class="step-trigger" [disabled]="MargePartIsDisabled" role="tab"
+                        aria-controls="Marge-part" id="Marge-part-trigger">
                         <span class="bs-stepper-circle"> <i class="fa fa-compress"></i></span>
                         <span class="bs-stepper-label">Fusionner</span>
                     </button>
@@ -40,7 +40,7 @@
             </div>
             <div class="bs-stepper-content my-3">
                 <div id="Importation-part" class="content" role="tabpanel" aria-labelledby="Importation-part-trigger">
-                    <app-importe-upload></app-importe-upload>
+                    <app-importe-upload (FormIsPassed)="GoToValidation($event)"></app-importe-upload>
                 </div>
                 <div id="Validation-part" class="content" role="tabpanel" aria-labelledby="Validation-part-trigger">
                     <app-importe-validation></app-importe-validation>

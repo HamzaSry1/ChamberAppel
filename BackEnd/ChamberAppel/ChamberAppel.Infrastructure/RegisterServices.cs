@@ -1,4 +1,4 @@
-﻿using ChamberAppel.Application.ErrorsMessages;
+﻿using ChamberAppel.Application.Messages;
 using ChamberAppel.Application.Services;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
@@ -18,7 +18,7 @@ namespace ChamberAppel.Infrastructure
             service.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseOracle(configuration.GetConnectionString("OracleDatabaseCnx")
-                    ?? throw new Exception(CustomMessages.InvalidConnexionString));
+                    ?? throw new Exception(Const.InvalidConnexionString));
             });
 
             // Register REPOSITORY

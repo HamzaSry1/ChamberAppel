@@ -17,7 +17,7 @@ import { request as __request } from '../core/request';
 export class RolesService {
     /**
      * @param requestBody
-     * @returns RoleDatatableResponse Success
+     * @returns RoleDatatableResponse OK
      * @throws ApiError
      */
     public static postApiRolesGetAllFiltredAsync(
@@ -31,7 +31,7 @@ export class RolesService {
         });
     }
     /**
-     * @returns RoleListApiResponse Success
+     * @returns RoleListApiResponse OK
      * @throws ApiError
      */
     public static getApiRolesGetAllAsync(): CancelablePromise<RoleListApiResponse> {
@@ -42,7 +42,7 @@ export class RolesService {
     }
     /**
      * @param id
-     * @returns RoleApiResponse Success
+     * @returns RoleApiResponse OK
      * @throws ApiError
      */
     public static getApiRolesGetByIdAsync(
@@ -58,7 +58,7 @@ export class RolesService {
     }
     /**
      * @param requestBody
-     * @returns RoleApiResponse Success
+     * @returns RoleApiResponse OK
      * @throws ApiError
      */
     public static postApiRolesCreateAsync(
@@ -73,7 +73,7 @@ export class RolesService {
     }
     /**
      * @param requestBody
-     * @returns RoleApiResponse Success
+     * @returns RoleApiResponse OK
      * @throws ApiError
      */
     public static putApiRolesUpdateAsync(
@@ -88,7 +88,7 @@ export class RolesService {
     }
     /**
      * @param id
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static deleteApiRolesDeleteAsync(
@@ -104,7 +104,7 @@ export class RolesService {
     }
     /**
      * @param requestBody
-     * @returns any Success
+     * @returns any OK
      * @throws ApiError
      */
     public static postApiRolesExporterAsync(
@@ -119,7 +119,7 @@ export class RolesService {
     }
     /**
      * @param requestBody
-     * @returns BooleanApiResponse Success
+     * @returns BooleanApiResponse OK
      * @throws ApiError
      */
     public static postApiRolesAddPermissionsAsync(
@@ -134,7 +134,7 @@ export class RolesService {
     }
     /**
      * @param roldId
-     * @returns PermissionListApiResponse Success
+     * @returns PermissionListApiResponse OK
      * @throws ApiError
      */
     public static getApiRolesGetPermissionsAsync(
