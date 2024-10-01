@@ -17,6 +17,8 @@ namespace ChamberAppel.Application.Mappers
             target.Email = request.Email ?? "";
             target.Login = request.Login ?? "";
             target.Password = request.Password ?? "";
+            target.TypeGradeId = request.TypeGradeId;
+            target.TypeUtilisateurId = request.TypeUtilisateurId;
             target.UpdatedBy = request.UpdatedBy ?? "";
             target.UpdateTime = DateTime.Now;
             target.IsActive = request.IsActive;

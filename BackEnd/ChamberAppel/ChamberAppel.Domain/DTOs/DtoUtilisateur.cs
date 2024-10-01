@@ -10,6 +10,8 @@
         public string Email { get; set; } = null!;
         public string Login { get; set; } = null!;
         public string? Password { get; set; }
+        public Guid TypeUtilisateurId { get; set; }
+        public Guid TypeGradeId { get; set; }
         public string UpdatedBy { get; set; } = null!;
         public DateTime? UpdateTime { get; set; }
         public int IsActive { get; set; }
