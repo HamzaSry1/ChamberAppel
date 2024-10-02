@@ -98,7 +98,7 @@ namespace ChamberAppel.Infrastructure.Repository
 
             try
             {
-                await _context.Database.ExecuteSqlRawAsync("BEGIN SP_DisciplineBudgetaireTemp_Validate; END;");
+                await _context.Database.ExecuteSqlRawAsync("BEGIN SP_DISCIPLINEBUDGETAIRETEMP_VALIDATE; END;");
             }
             catch (Exception ex)
             {

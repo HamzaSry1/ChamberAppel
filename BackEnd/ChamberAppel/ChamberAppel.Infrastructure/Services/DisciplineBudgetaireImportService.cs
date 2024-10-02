@@ -35,7 +35,7 @@ namespace ChamberAppel.Infrastructure.Services
             int number = 1;
             foreach (var item in list)
             {
-                item.RowNumber += number;
+                item.RowNumber = number ++;
                 item.UpdatedBy = updatedBy;
             }
 
