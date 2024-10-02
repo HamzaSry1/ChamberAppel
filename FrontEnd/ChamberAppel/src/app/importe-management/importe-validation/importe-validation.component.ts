@@ -30,7 +30,7 @@ export class ImporteValidationComponent implements OnInit {
     private _notify: AppMessageService) { }
 
   ngOnInit(): void {
-    this.Analyse();
+    // this.Analyse();
   }
 
   Analyse() {

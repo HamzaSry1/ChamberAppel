@@ -3,6 +3,7 @@ using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
@@ -86,6 +87,25 @@ namespace ChamberAppel.Infrastructure.Repository
                 else return the list contains the rowNumber / rowError
              
              */
+
+            //var list = await _context.DisciplineBudgetaireTemp
+            //    .ToListAsync();
+
+            //foreach (var item in list)
+            //{
+            //call stored procedure
+            //}
+
+            try
+            {
+                await _context.Database.ExecuteSqlRawAsync("BEGIN SP_DisciplineBudgetaireTemp_Validate; END;");
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+                return false;
+                throw;
+            }
 
             return true;
         }

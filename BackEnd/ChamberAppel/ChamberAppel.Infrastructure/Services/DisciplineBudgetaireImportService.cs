@@ -32,10 +32,13 @@ namespace ChamberAppel.Infrastructure.Services
             // Convert DataTable to List of ImportationAdherentTemp
             var list = ImportHelpers.DataTableToList<DisciplineBudgetaireTemp>(dataTable);
 
+            int number = 1;
             foreach (var item in list)
             {
+                item.RowNumber += number;
                 item.UpdatedBy = updatedBy;
             }
+
             // Save uploaded Data
             await _repository.Insert(list);
 
