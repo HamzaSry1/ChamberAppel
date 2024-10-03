@@ -3,8 +3,6 @@
     public class DisciplineBudgetaireTemp
     {
         public Guid Id { get; set; }
-        public Guid DisciplineBudgetaireId { get; set; }
-
         // رقم الملف
         public string? Numero_Dossier { get; set; }
 

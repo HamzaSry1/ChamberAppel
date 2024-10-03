@@ -11,10 +11,9 @@ import { DtoPagination } from 'src/app/generatedapis/models/DtoPagination';
 @Component({
   selector: 'app-importe-validation',
   templateUrl: './importe-validation.component.html',
-  styleUrls: ['./importe-validation.component.scss']
+  styleUrls: ['./importe-validation.component.scss'],
 })
 export class ImporteValidationComponent implements OnInit {
-
   public Data!: DisciplineBudgetaireTemp[];
   public pagination!: DtoPagination;
   public pageNumber = 1;
@@ -24,27 +23,30 @@ export class ImporteValidationComponent implements OnInit {
   public RecordFiltred = 0;
   public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   public pageSize = environment.pageSize;
-  public ListHasError = false;
+  // public ListHasError = false;
 
-  constructor(private _loader: NgxSpinnerService,
-    private _notify: AppMessageService) { }
+  constructor(
+    private _loader: NgxSpinnerService,
+    private _notify: AppMessageService
+  ) {}
 
   ngOnInit(): void {
-    // this.Analyse();
+    this.Analyse();
   }
 
   Analyse() {
-    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportAnalyse()
-      .then((res: BooleanApiResponse) => {
+    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportAnalyse().then(
+      (res: BooleanApiResponse) => {
         // that mean list temp contains errors
         if (res.data == true) {
-          this.ListHasError = true;
+          // this.ListHasError = true;
           this.GetAllErrorsData();
         } else {
-          this.ListHasError = false;
+          // this.ListHasError = false;
           this.GetAllValideData();
         }
-      })
+      }
+    );
   }
 
   GetAllValideData() {
@@ -58,7 +60,9 @@ export class ImporteValidationComponent implements OnInit {
       orderByDirection: this.orderByDirection,
     };
 
-    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportGetAllValideData(this.pagination)
+    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportGetAllValideData(
+      this.pagination
+    )
       .then((res: DisciplineBudgetaireTempDatatableResponse) => {
         this.Data = res.data ?? [];
         this.RecordTotal = res.recordTotal ?? 0;
@@ -84,7 +88,9 @@ export class ImporteValidationComponent implements OnInit {
       orderByDirection: this.orderByDirection,
     };
 
-    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportGetAllErrorsData(this.pagination)
+    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportGetAllErrorsData(
+      this.pagination
+    )
       .then((res: DisciplineBudgetaireTempDatatableResponse) => {
         this.Data = res.data ?? [];
         this.RecordTotal = res.recordTotal ?? 0;

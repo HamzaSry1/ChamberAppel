@@ -36,7 +36,6 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return true;
         }
-
         public async Task<bool> Insert(List<DisciplineBudgetaireTemp> list)
         {
             try
@@ -77,25 +76,8 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return true;
         }
-
         public async Task<bool> Valider()
         {
-            // TODO : this function used to validate the list existe in DisciplineBudgetaireTemp by some rule 
-
-            /*
-                if the fileds respect the rule then return the list 
-                else return the list contains the rowNumber / rowError
-             
-             */
-
-            //var list = await _context.DisciplineBudgetaireTemp
-            //    .ToListAsync();
-
-            //foreach (var item in list)
-            //{
-            //call stored procedure
-            //}
-
             try
             {
                 await _context.Database.ExecuteSqlRawAsync("BEGIN SP_DISCIPLINEBUDGETAIRETEMP_VALIDATE; END;");
@@ -104,12 +86,10 @@ namespace ChamberAppel.Infrastructure.Repository
             {
                 Debug.Write(ex.Message);
                 return false;
-                throw;
             }
 
             return true;
         }
-
         public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(DtoPagination pagination)
         {
             var dbSet = _context.DisciplineBudgetaireTemp
@@ -129,16 +109,10 @@ namespace ChamberAppel.Infrastructure.Repository
                 //query = ApplyPagination(query, pagination);
             }
 
-            /*
-              TODO : 
-                display only rowNumber , rowError
-             */
-
-            response.Data = query.ToList();
+            response.Data = query.OrderBy(x => x.RowNumber).ToList();
 
             return response;
         }
-
         public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination)
         {
             var dbSet = _context.DisciplineBudgetaireTemp

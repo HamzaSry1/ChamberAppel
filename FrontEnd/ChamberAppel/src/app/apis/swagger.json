@@ -2324,10 +2324,6 @@
             "type": "string",
             "format": "uuid"
           },
-          "disciplineBudgetaireId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "numero_Dossier": {
             "type": "string",
             "nullable": true

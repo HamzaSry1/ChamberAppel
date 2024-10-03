@@ -4,7 +4,6 @@
 /* eslint-disable */
 export type DisciplineBudgetaireTemp = {
     id?: string;
-    disciplineBudgetaireId?: string;
     numero_Dossier?: string | null;
     appelant?: string | null;
     numero_Jugement_Faisant_Objet_De_Appel?: string | null;

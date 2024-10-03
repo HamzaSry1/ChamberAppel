@@ -26,17 +26,21 @@ namespace ChamberAppel.Infrastructure.Services
 
         public async Task<bool> Upload(IFormFile file, string updatedBy)
         {
-            // Read uploaded file data
+            // Convert Execl to datatable
             var dataTable = ImportHelpers.ReadUploadFileData(file);
 
-            // Convert DataTable to List of ImportationAdherentTemp
+            // Convert DataTable to List 
             var list = ImportHelpers.DataTableToList<DisciplineBudgetaireTemp>(dataTable);
+
+            // Initialize DateTime once instead of per item
+            var currentTime = DateTime.Now.ToString("dd/MM/yyyy H:m:s");
 
             int number = 1;
             foreach (var item in list)
             {
-                item.RowNumber = number ++;
+                item.RowNumber = number++;
                 item.UpdatedBy = updatedBy;
+                item.UpdateTime = currentTime;
             }
 
             // Save uploaded Data
