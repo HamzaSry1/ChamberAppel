@@ -23,7 +23,7 @@ export class ImporteValidationComponent implements OnInit {
   public RecordFiltred = 0;
   public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   public pageSize = environment.pageSize;
-  // public ListHasError = false;
+  public ListHasError = false;
 
   constructor(
     private _loader: NgxSpinnerService,
@@ -37,12 +37,15 @@ export class ImporteValidationComponent implements OnInit {
   Analyse() {
     DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportAnalyse().then(
       (res: BooleanApiResponse) => {
-        // that mean list temp contains errors
+        console.log('List has error ? : ', res.data);
+        // the list has error
         if (res.data == true) {
-          // this.ListHasError = true;
+          this.ListHasError = true;
           this.GetAllErrorsData();
-        } else {
-          // this.ListHasError = false;
+        }
+        // there is no error
+        if (res.data == false) {
+          this.ListHasError = false;
           this.GetAllValideData();
         }
       }

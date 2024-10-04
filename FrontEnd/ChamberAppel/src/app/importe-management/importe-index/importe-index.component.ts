@@ -4,10 +4,9 @@ import Stepper from 'bs-stepper';
 @Component({
   selector: 'app-importe-index',
   templateUrl: './importe-index.component.html',
-  styleUrls: ['./importe-index.component.scss']
+  styleUrls: ['./importe-index.component.scss'],
 })
 export class ImporteIndexComponent implements OnInit {
-
   public ReturnButtonStyle = ButtonStyle.secondary;
   public ExempleButtonStyle = ButtonStyle.success;
   public stepper!: Stepper;
@@ -33,7 +32,9 @@ export class ImporteIndexComponent implements OnInit {
   }
 
   GoToValidation(event: any) {
-    // the file upload successfully 
+    console.log('GoToValidation : ', event);
+
+    // the file upload successfully
     if (event == true) {
       this.ValidationPartIsDisabled = false;
       this.Next();

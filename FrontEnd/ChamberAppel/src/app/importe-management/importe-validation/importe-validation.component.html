@@ -1,5 +1,5 @@
-<!--cas when the list is valid  -->
-<div class="row">
+<!--cas when list is valid  -->
+<div class="row" *ngIf="!ListHasError">
   <!-- alert -->
   <div class="col-md-12">
     <div class="alert alert-success" role="alert">
@@ -391,9 +391,9 @@
     </button>
   </div>
 </div>
-<!-- list has error cas -->
-<!-- *ngIf="ListHasError" -->
-<div class="row">
+
+<!-- cas when list has error -->
+<div class="row" *ngIf="ListHasError">
   <!-- alert -->
   <div class="col-md-12">
     <div class="alert alert-danger" role="alert">

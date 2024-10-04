@@ -20,11 +20,7 @@ namespace ChamberAppel.Api.Controllers
         public async Task<ApiResponse<bool>> Importe(DtoUploadFile request)
         {
             var res = await _service.Upload(request.file, request.UpdatedBy);
-
-            if (res == true)
-                return new ApiResponse<bool> { Data = true, StatusCode = HttpStatusCode.OK };
-
-            return new ApiResponse<bool> { StatusCode = HttpStatusCode.BadRequest };
+            return new ApiResponse<bool> { Data = res, StatusCode = HttpStatusCode.OK };
         }
 
         [HttpPost("GetAllValideData")]

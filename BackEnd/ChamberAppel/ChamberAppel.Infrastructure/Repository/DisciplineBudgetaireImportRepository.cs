@@ -93,7 +93,7 @@ namespace ChamberAppel.Infrastructure.Repository
         public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(DtoPagination pagination)
         {
             var dbSet = _context.DisciplineBudgetaireTemp
-                .Where(x => x.RowError != string.Empty);
+                .Where(x => x.RowError != null);
 
             IQueryable<DisciplineBudgetaireTemp> query = dbSet;
 
@@ -116,7 +116,7 @@ namespace ChamberAppel.Infrastructure.Repository
         public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination)
         {
             var dbSet = _context.DisciplineBudgetaireTemp
-                .Where(x => x.RowError == string.Empty);
+                .Where(x => x.RowError == null);
 
             IQueryable<DisciplineBudgetaireTemp> query = dbSet;
 
