@@ -1,12 +1,13 @@
 import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiResponse';
 import { DisciplineBudgetairesImportService } from './../../generatedapis/services/DisciplineBudgetairesImportService';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { DisciplineBudgetaireTempDatatableResponse } from 'src/app/generatedapis/models/DisciplineBudgetaireTempDatatableResponse';
 import { environment } from 'src/environments/environment';
 import { DisciplineBudgetaireTemp } from 'src/app/generatedapis/models/DisciplineBudgetaireTemp';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AppMessageService } from 'src/app/app-message.service';
 import { DtoPagination } from 'src/app/generatedapis/models/DtoPagination';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-importe-validation',
@@ -14,6 +15,11 @@ import { DtoPagination } from 'src/app/generatedapis/models/DtoPagination';
   styleUrls: ['./importe-validation.component.scss'],
 })
 export class ImporteValidationComponent implements OnInit {
+
+  @Output() BtnNext: EventEmitter<any> = new EventEmitter();
+  @Output() BtnPrevious: EventEmitter<any> = new EventEmitter();
+  @Output() BtnDownloadListWithErrors: EventEmitter<any> = new EventEmitter();
+
   public Data!: DisciplineBudgetaireTemp[];
   public pagination!: DtoPagination;
   public pageNumber = 1;
@@ -27,8 +33,9 @@ export class ImporteValidationComponent implements OnInit {
 
   constructor(
     private _loader: NgxSpinnerService,
+    private http: HttpClient,
     private _notify: AppMessageService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.Analyse();
@@ -37,7 +44,6 @@ export class ImporteValidationComponent implements OnInit {
   Analyse() {
     DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportAnalyse().then(
       (res: BooleanApiResponse) => {
-        console.log('List has error ? : ', res.data);
         // the list has error
         if (res.data == true) {
           this.ListHasError = true;
@@ -106,5 +112,17 @@ export class ImporteValidationComponent implements OnInit {
         this.pageStatus = 'error';
       })
       .finally(() => this._loader.hide());
+  }
+
+  DownLoadFileWithErrors() {
+    this.BtnDownloadListWithErrors.emit();
+  }
+
+  Previous() {
+    this.BtnPrevious.emit();
+  }
+
+  Next() {
+    this.BtnNext.emit();
   }
 }

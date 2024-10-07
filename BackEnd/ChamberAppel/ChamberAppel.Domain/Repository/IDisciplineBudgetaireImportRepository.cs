@@ -6,7 +6,7 @@ namespace ChamberAppel.Domain.Repository
     public interface IDisciplineBudgetaireImportRepository
     {
         Task<bool> Insert(List<DisciplineBudgetaireTemp> list);
-        Task<bool> Fusionner(string updatedBy);
+        Task<bool> Fusionner();
         Task<bool> Valider();
         Task<bool> Delete();
         Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination);

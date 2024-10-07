@@ -177,7 +177,7 @@ export class DisciplineBudgetaireListComponent {
         .subscribe((result: any) => {
           GenerateExcelFileService.GenerateExcel(
             result,
-            Const.List_discipline_budgetaires
+            Const.List_Discipline_Budgeitaires
           );
         });
     }

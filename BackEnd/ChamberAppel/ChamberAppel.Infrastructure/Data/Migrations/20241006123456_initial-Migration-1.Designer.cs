@@ -12,8 +12,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241002115016_Generate-Migration")]
-    partial class GenerateMigration
+    [Migration("20241006123456_initial-Migration-1")]
+    partial class initialMigration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,65 +82,65 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.Property<string>("Convocation_Interesse_Prononce_Jugement")
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("Date_Audience_Jugement")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Audience_Jugement")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Audience_Prononce_Jugement")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Audience_Prononce_Jugement")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Conclusions_Ministere_Public")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Conclusions_Ministere_Public")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Consultation_Avocat")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Consultation_Avocat")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Consultation_Interesse")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Consultation_Interesse")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Convocation_Interesse_Audience")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Convocation_Interesse_Audience")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Demande_Documents_Supplementaires")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Demande_Documents_Supplementaires")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Enquete_Sur_Le_Terrain")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Enquete_Sur_Le_Terrain")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Envoi_Decision_Notification_Parties")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Envoi_Decision_Notification_Parties")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Envoi_Requete_Parties")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Envoi_Requete_Parties")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Ordonnance_Designation_Conseiller_Rapporteur")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Ordonnance_Designation_Conseiller_Rapporteur")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Preparation_Rapport")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Preparation_Rapport")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Reception_Comptable_Copie_Decision")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Reception_Comptable_Copie_Decision")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Reception_Convocation_Avocat_Consultation")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Reception_Convocation_Avocat_Consultation")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Reception_Convocation_Interesse_Consultation")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Reception_Convocation_Interesse_Consultation")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Requisition_Ministere_Public")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Requisition_Ministere_Public")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Retour_Dossier_Greffe_Central")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Retour_Dossier_Greffe_Central")
+                        .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("Date_Transmission_Dossier_Ministere_Public")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Date_Transmission_Dossier_Ministere_Public")
+                        .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<DateTime?>("Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC")
                         .HasColumnType("TIMESTAMP(7)");
@@ -157,8 +157,8 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.Property<string>("Dispositif_Decision")
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("Emis_En_Date_Du")
-                        .HasColumnType("NVARCHAR2(2000)");
+                    b.Property<DateTime?>("Emis_En_Date_Du")
+                        .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<Guid>("IdCRC")
                         .HasColumnType("RAW(16)");
@@ -329,9 +329,6 @@ namespace ChamberAppel.Infrastructure.Migrations
 
                     b.Property<string>("Date_de_reception_par_les_parties_Travailleur_du_territoire")
                         .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<Guid>("DisciplineBudgetaireId")
-                        .HasColumnType("RAW(16)");
 
                     b.Property<string>("Dispositif_Decision")
                         .HasColumnType("NVARCHAR2(2000)");

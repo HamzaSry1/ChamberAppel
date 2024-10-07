@@ -72,19 +72,13 @@ export class DisciplineBudgetairesImportService {
         });
     }
     /**
-     * @param updatedBy
      * @returns BooleanApiResponse OK
      * @throws ApiError
      */
-    public static postApiDisciplineBudgetairesImportFusionner(
-        updatedBy?: string,
-    ): CancelablePromise<BooleanApiResponse> {
+    public static postApiDisciplineBudgetairesImportFusionner(): CancelablePromise<BooleanApiResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/DisciplineBudgetairesImport/Fusionner',
-            query: {
-                'updatedBy': updatedBy,
-            },
         });
     }
 }

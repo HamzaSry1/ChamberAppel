@@ -152,10 +152,8 @@
 
         // تاريخ توصل المحاسب بنسخة من القرار
         public string? Date_Reception_Comptable_Copie_Decision { get; set; }
-
         public string? UpdatedBy { get; set; }
         public string? UpdateTime { get; set; }
-
         public int RowNumber { get; set; }
         public string? RowError { get; set; }
     }

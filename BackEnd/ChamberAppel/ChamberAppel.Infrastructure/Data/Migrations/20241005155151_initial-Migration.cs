@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class GenerateMigration : Migration
+    public partial class initialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,7 +31,6 @@ namespace ChamberAppel.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
-                    DisciplineBudgetaireId = table.Column<Guid>(type: "RAW(16)", nullable: false),
                     Numero_Dossier = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Appelant = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Numero_Jugement_Faisant_Objet_De_Appel = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),

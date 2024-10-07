@@ -8,7 +8,7 @@ namespace ChamberAppel.Domain.Services
     {
         Task<bool> Upload(IFormFile file, string updatedBy);
         Task<bool> Analyse();
-        Task<bool> Fusionner(string updatedBy);
+        Task<bool> Fusionner();
         Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination);
         Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(DtoPagination pagination);
     }

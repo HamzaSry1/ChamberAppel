@@ -3,7 +3,6 @@ using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace ChamberAppel.Infrastructure.Repository
 {
@@ -42,7 +41,7 @@ namespace ChamberAppel.Infrastructure.Repository
                     query = query.Where(x => x.Appelant == filter.Appelant);
                 }
 
-                if (!string.IsNullOrEmpty(filter.Emis_En_Date_Du))
+                if (filter.Emis_En_Date_Du != null)
                 {
                     query = query.Where(x => x.Emis_En_Date_Du == filter.Emis_En_Date_Du);
                 }
@@ -67,7 +66,6 @@ namespace ChamberAppel.Infrastructure.Repository
                     query = query.Where(x =>
                         x.Numero_Dossier.Trim().Contains(filter.MotsCle.Trim())
                         || x.Appelant.Trim().Contains(filter.MotsCle.Trim())
-                        || x.Emis_En_Date_Du.Trim().Contains(filter.MotsCle.Trim())
                         || x.Centre_Comptable.Trim().Contains(filter.MotsCle.Trim())
                         || x.Conseiller_Rapporteur.Trim().Contains(filter.MotsCle.Trim())
                        );

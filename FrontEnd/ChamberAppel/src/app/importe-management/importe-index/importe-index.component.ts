@@ -1,6 +1,16 @@
+import { DisciplineBudgetairesImportService } from './../../generatedapis/services/DisciplineBudgetairesImportService';
 import { Component, OnInit } from '@angular/core';
 import { ButtonStyle } from 'src/app/shared/button-style';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Stepper from 'bs-stepper';
+import { environment } from 'src/environments/environment';
+import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.service';
+import { Const } from 'src/app/Helpers/Const';
+import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiResponse';
+import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
+import { Router } from '@angular/router';
+import { AppMessageService } from 'src/app/app-message.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-importe-index',
   templateUrl: './importe-index.component.html',
@@ -13,6 +23,11 @@ export class ImporteIndexComponent implements OnInit {
   public ValidationPartIsDisabled = true;
   public MargePartIsDisabled = true;
 
+  constructor(private http: HttpClient,
+    private _notify: AppMessageService,
+    private _loader: NgxSpinnerService,
+    private _router: Router) { }
+
   ngOnInit(): void {
     const stepperElement = document.querySelector('#stepper1');
     if (stepperElement !== null) {
@@ -23,26 +38,52 @@ export class ImporteIndexComponent implements OnInit {
     }
   }
 
-  Next() {
-    this.stepper.next();
-  }
-
   Previous() {
     this.stepper.previous();
   }
 
   GoToValidation(event: any) {
-    console.log('GoToValidation : ', event);
-
-    // the file upload successfully
     if (event == true) {
       this.ValidationPartIsDisabled = false;
-      this.Next();
+      this.stepper.next();
     }
   }
 
   GoToMarge() {
     this.MargePartIsDisabled = false;
-    // redirect to list of the discipline budgetaire
+    this.stepper.next();
+  }
+
+  DownloadListWithErrors() {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + localStorage.getItem('token')
+    );
+    this.http
+      .post(
+        environment.apiUrl + '/api/DisciplineBudgetairesImport/Exporter',
+        {
+          headers: headers,
+          responseType: 'blob' as 'json',
+        }
+      )
+      .subscribe((result: any) => {
+        GenerateExcelFileService.GenerateExcel(
+          result,
+          Const.List_Discipline_Budgeitaires_With_Errors
+        );
+      });
+  }
+
+  Confirmer() {
+    this._loader.show();
+    DisciplineBudgetairesImportService.postApiDisciplineBudgetairesImportFusionner().then((res: BooleanApiResponse) => {
+      if (res.statusCode == HttpStatusCode._200) {
+        this._notify.Success(AppMessageService.MergeFileSuccess);
+        this._router.navigate(['/discipline-budgetaires'])
+      }
+    })
+      .catch(() => this._notify.Success(AppMessageService.MergeFileError))
+      .finally(() => this._loader.hide())
   }
 }

@@ -689,15 +689,6 @@
         "tags": [
           "DisciplineBudgetairesImport"
         ],
-        "parameters": [
-          {
-            "name": "updatedBy",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2062,6 +2053,7 @@
           },
           "emis_En_Date_Du": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "idCRC": {
@@ -2074,10 +2066,12 @@
           },
           "date_Enregistrement_Requete_Cour_Regionale_Des_Comptes": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Requisition_Ministere_Public": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "numero_Requisition_Ministere_Public": {
@@ -2086,6 +2080,7 @@
           },
           "date_Ordonnance_Designation_Conseiller_Rapporteur": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "numero_Ordonnance_Designation_Conseiller_Rapporteur": {
@@ -2098,6 +2093,7 @@
           },
           "date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
@@ -2110,6 +2106,7 @@
           },
           "date_Envoi_Requete_Parties": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "parties_Agent_du_Roi_au_CRC": {
@@ -2166,26 +2163,32 @@
           },
           "date_Demande_Documents_Supplementaires": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Convocation_Interesse_Audience": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Enquete_Sur_Le_Terrain": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Preparation_Rapport": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Transmission_Dossier_Ministere_Public": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Conclusions_Ministere_Public": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "numero_Conclusions_Ministere_Public": {
@@ -2194,22 +2197,27 @@
           },
           "date_Reception_Convocation_Interesse_Consultation": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Reception_Convocation_Avocat_Consultation": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Consultation_Interesse": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Consultation_Avocat": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Retour_Dossier_Greffe_Central": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "convocation_Interesse_Audience_Jugement": {
@@ -2222,6 +2230,7 @@
           },
           "date_Audience_Jugement": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "convocation_Avocat_Prononce_Jugement": {
@@ -2234,6 +2243,7 @@
           },
           "date_Audience_Prononce_Jugement": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "dispositif_Decision": {
@@ -2246,10 +2256,12 @@
           },
           "date_Envoi_Decision_Notification_Parties": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "date_Reception_Comptable_Copie_Decision": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "updatedBy": {
@@ -2617,6 +2629,7 @@
           },
           "emis_En_Date_Du": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "idCRC": {

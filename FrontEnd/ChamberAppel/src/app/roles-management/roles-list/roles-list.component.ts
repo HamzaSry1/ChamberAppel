@@ -131,7 +131,7 @@ export class RolesListComponent {
           },
         )
         .subscribe((result: any) => {
-          GenerateExcelFileService.GenerateExcel(result, Const.List_roles);
+          GenerateExcelFileService.GenerateExcel(result, Const.List_Roles);
         });
     }
   }

@@ -57,23 +57,18 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return true;
         }
-        public async Task<bool> Fusionner(string updatedBy)
+        public async Task<bool> Fusionner()
         {
-            // TODO : this function used to marge between
-            // the valide list data in DisciplineBudgetaireTemp and the DisciplineBudgetaire
-
-            /*
-                - first : 
-
-                    get all valide data in DisciplineBudgetaireTemp where the error message null or empty 
-
-                - second : 
-                
-                    *** Create model or mapper to get only the filed used in DisciplineBudgetaire
-
-                    add this list into the DisciplineBudgetaire using AddRange 
-             */
-
+            try
+            {
+                await _context.Database.ExecuteSqlRawAsync("BEGIN SP_DISCIPLINEBUDGETAIRETEMP_CONFIRME; END;");
+                //Delete the temporary table after the insert
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+                return false;
+            }
             return true;
         }
         public async Task<bool> Valider()

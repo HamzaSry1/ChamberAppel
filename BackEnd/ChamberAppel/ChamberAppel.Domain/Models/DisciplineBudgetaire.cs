@@ -17,7 +17,7 @@ namespace ChamberAppel.Domain.Models
         public string? Numero_Jugement_Faisant_Objet_De_Appel { get; set; }
 
         // الصادر بتاريخ
-        public string? Emis_En_Date_Du { get; set; }
+        public DateTime? Emis_En_Date_Du { get; set; }
 
         // المجلس الجهوي للحسابات لجهة
         public Guid IdCRC { get; set; }
@@ -26,16 +26,16 @@ namespace ChamberAppel.Domain.Models
         public string? Centre_Comptable { get; set; }
 
         // تاريخ تسجيل العريضة بالمجلس الجهوي للحسابات
-        public string? Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes { get; set; }
+        public DateTime? Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes { get; set; }
 
         // تاريخ ملتمس النيابة العامة
-        public string? Date_Requisition_Ministere_Public { get; set; }
+        public DateTime? Date_Requisition_Ministere_Public { get; set; }
 
         // رقم ملتمس النيابة العامة
         public string? Numero_Requisition_Ministere_Public { get; set; }
 
         // تاريخ أمر تعيين المستشار المقرر
-        public string? Date_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
+        public DateTime? Date_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
 
         // رقم أمر تعيين المستشار المقرر
         public string? Numero_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
@@ -44,7 +44,7 @@ namespace ChamberAppel.Domain.Models
         public string? Conseiller_Rapporteur { get; set; }
 
         // تاریخ أمر تعيين المستشار المقرر الخلف
-        public string? Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
+        public DateTime? Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
 
         // رقم أمر تعيين المستشار المقرر الخلف
         public string? Numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
@@ -53,7 +53,7 @@ namespace ChamberAppel.Domain.Models
         public string? Conseiller_Rapporteur_Remplacant { get; set; }
 
         // تاريخ إرسال العريضة للأطراف
-        public string? Date_Envoi_Requete_Parties { get; set; }
+        public DateTime? Date_Envoi_Requete_Parties { get; set; }
 
 
         #region les parties
@@ -100,40 +100,40 @@ namespace ChamberAppel.Domain.Models
 
 
         // تاریخ طلب وثائق تكميلية
-        public string? Date_Demande_Documents_Supplementaires { get; set; }
+        public DateTime? Date_Demande_Documents_Supplementaires { get; set; }
 
         // تاريخ استدعاء المتابع لحضور جلسة الاستماع
-        public string? Date_Convocation_Interesse_Audience { get; set; }
+        public DateTime? Date_Convocation_Interesse_Audience { get; set; }
 
         // تاريخ إجراء بحث ميداني
-        public string? Date_Enquete_Sur_Le_Terrain { get; set; }
+        public DateTime? Date_Enquete_Sur_Le_Terrain { get; set; }
 
         // تاريخ اعداد التقرير
-        public string? Date_Preparation_Rapport { get; set; }
+        public DateTime? Date_Preparation_Rapport { get; set; }
 
         // تاريخ إحالة الملف على النيابة العامة
-        public string? Date_Transmission_Dossier_Ministere_Public { get; set; }
+        public DateTime? Date_Transmission_Dossier_Ministere_Public { get; set; }
 
         // تاریخ مستنتجات النيابة العامة
-        public string? Date_Conclusions_Ministere_Public { get; set; }
+        public DateTime? Date_Conclusions_Ministere_Public { get; set; }
 
         // رقم مستنتجات النيابة العامة
         public string? Numero_Conclusions_Ministere_Public { get; set; }
 
         // تاريخ توصل المتابع بالاستدعاء لأجل الإطلاع
-        public string? Date_Reception_Convocation_Interesse_Consultation { get; set; }
+        public DateTime? Date_Reception_Convocation_Interesse_Consultation { get; set; }
 
         // تاريخ توصل المحامي بالاستدعاء لأجل الإطلاع
-        public string? Date_Reception_Convocation_Avocat_Consultation { get; set; }
+        public DateTime? Date_Reception_Convocation_Avocat_Consultation { get; set; }
 
         // تاريخ إطلاع المتابع
-        public string? Date_Consultation_Interesse { get; set; }
+        public DateTime? Date_Consultation_Interesse { get; set; }
 
         // تاريخ إطلاع المحامي
-        public string? Date_Consultation_Avocat { get; set; }
+        public DateTime? Date_Consultation_Avocat { get; set; }
 
         // تاريخ رجوع الملف من كتابة الضبط المركزي
-        public string? Date_Retour_Dossier_Greffe_Central { get; set; }
+        public DateTime? Date_Retour_Dossier_Greffe_Central { get; set; }
 
 
         #region جلسة الحكم
@@ -145,7 +145,7 @@ namespace ChamberAppel.Domain.Models
         public string? Convocation_Avocat_Audience_Jugement { get; set; }
 
         // تاريخ جلسة الحكم
-        public string? Date_Audience_Jugement { get; set; }
+        public DateTime? Date_Audience_Jugement { get; set; }
 
         // استدعاء المحامي لحضور جلسة النطق بالحكم
         public string? Convocation_Avocat_Prononce_Jugement { get; set; }
@@ -154,7 +154,7 @@ namespace ChamberAppel.Domain.Models
         public string? Convocation_Interesse_Prononce_Jugement { get; set; }
 
         // تاریخ جلسة النطق بالحكم
-        public string? Date_Audience_Prononce_Jugement { get; set; }
+        public DateTime? Date_Audience_Prononce_Jugement { get; set; }
 
         #endregion جلسة الحكم
 
@@ -167,10 +167,10 @@ namespace ChamberAppel.Domain.Models
         public string? Numero_Decision { get; set; }
 
         // تاريخ إرسال القرار قصد التبليغ للأطراف
-        public string? Date_Envoi_Decision_Notification_Parties { get; set; }
+        public DateTime? Date_Envoi_Decision_Notification_Parties { get; set; }
 
         // تاريخ توصل المحاسب بنسخة من القرار
-        public string? Date_Reception_Comptable_Copie_Decision { get; set; }
+        public DateTime? Date_Reception_Comptable_Copie_Decision { get; set; }
 
         #endregion القرار
 

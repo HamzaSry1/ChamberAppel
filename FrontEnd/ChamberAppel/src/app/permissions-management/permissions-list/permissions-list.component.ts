@@ -139,7 +139,7 @@ export class PermissionsListComponent {
         .subscribe((result: any) => {
           GenerateExcelFileService.GenerateExcel(
             result,
-            Const.List_permissions
+            Const.List_Permissions
           );
         });
     }
