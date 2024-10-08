@@ -2,9 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { DisciplineBudgetaire } from './DisciplineBudgetaire';
-export type DisciplineBudgetaireDatatableResponse = {
-    data?: Array<DisciplineBudgetaire> | null;
+import type { DtoDisciplineBudgetaire } from './DtoDisciplineBudgetaire';
+export type DtoDisciplineBudgetaireDatatableResponse = {
+    data?: Array<DtoDisciplineBudgetaire> | null;
     recordTotal?: number;
     recordFiltred?: number;
 };

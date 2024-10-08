@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 import { DisciplineBudgetairesManagementRoutingModule } from './discipline-budgetaires-management-routing.module';
 import { DisciplineBudgetaireAddComponent } from './discipline-budgetaire-add/discipline-budgetaire-add.component';
@@ -55,5 +56,6 @@ import {
     SharedTableCaseModule,
     DesignSystemModule,
   ],
+  providers: [DatePipe],
 })
 export class DisciplineBudgetairesManagementModule {}

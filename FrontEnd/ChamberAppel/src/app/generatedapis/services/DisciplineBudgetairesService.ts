@@ -5,7 +5,7 @@
 import type { BooleanApiResponse } from '../models/BooleanApiResponse';
 import type { DisciplineBudgetaire } from '../models/DisciplineBudgetaire';
 import type { DisciplineBudgetaireApiResponse } from '../models/DisciplineBudgetaireApiResponse';
-import type { DisciplineBudgetaireDatatableResponse } from '../models/DisciplineBudgetaireDatatableResponse';
+import type { DtoDisciplineBudgetaireDatatableResponse } from '../models/DtoDisciplineBudgetaireDatatableResponse';
 import type { DtoFiltreDisciplineBudgetaire } from '../models/DtoFiltreDisciplineBudgetaire';
 import type { DtoFiltreDisciplineBudgetaireDatatableRequest } from '../models/DtoFiltreDisciplineBudgetaireDatatableRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -14,12 +14,12 @@ import { request as __request } from '../core/request';
 export class DisciplineBudgetairesService {
     /**
      * @param requestBody
-     * @returns DisciplineBudgetaireDatatableResponse OK
+     * @returns DtoDisciplineBudgetaireDatatableResponse OK
      * @throws ApiError
      */
     public static postApiDisciplineBudgetairesGetAllFiltredAsync(
         requestBody?: DtoFiltreDisciplineBudgetaireDatatableRequest,
-    ): CancelablePromise<DisciplineBudgetaireDatatableResponse> {
+    ): CancelablePromise<DtoDisciplineBudgetaireDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/DisciplineBudgetaires/GetAllFiltredAsync',

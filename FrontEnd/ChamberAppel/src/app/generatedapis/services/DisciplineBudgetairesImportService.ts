@@ -81,4 +81,14 @@ export class DisciplineBudgetairesImportService {
             url: '/api/DisciplineBudgetairesImport/Fusionner',
         });
     }
+    /**
+     * @returns any OK
+     * @throws ApiError
+     */
+    public static postApiDisciplineBudgetairesImportExporter(): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/DisciplineBudgetairesImport/Exporter',
+        });
+    }
 }

@@ -13,7 +13,7 @@ namespace ChamberAppel.Infrastructure.Services
             _repository = repository;
         }
 
-        public async Task<DatatableResponse<DisciplineBudgetaire>> GetAllAsync(DtoFiltreDisciplineBudgetaire? filter, DtoPagination? pagination)
+        public async Task<DatatableResponse<DtoDisciplineBudgetaire>> GetAllAsync(DtoFiltreDisciplineBudgetaire? filter, DtoPagination? pagination)
         {
             return await _repository.GetAllAsync(filter, pagination);
         }

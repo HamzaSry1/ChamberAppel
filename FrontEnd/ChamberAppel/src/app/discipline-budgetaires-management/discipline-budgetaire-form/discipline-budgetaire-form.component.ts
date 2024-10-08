@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -25,7 +26,7 @@ export class DisciplineBudgetaireFormComponent {
   public ReturnButtonStyle = ButtonStyle.secondary;
 
   public CRCs!: CRC[];
-  public DefaultSelectOption !: string;
+  public DefaultSelectOption!: string;
 
   @Input() title!: string;
   @Input() titleMobile!: string;
@@ -38,6 +39,7 @@ export class DisciplineBudgetaireFormComponent {
   constructor(
     private _notify: AppMessageService,
     private _loader: NgxSpinnerService,
+    private _datePipe: DatePipe,
     private _activatedRouter: ActivatedRoute
   ) {
     this.Id = this._activatedRouter.snapshot.params['id'];
@@ -58,8 +60,10 @@ export class DisciplineBudgetaireFormComponent {
     date_Ordonnance_Designation_Conseiller_Rapporteur: new FormControl(),
     numero_Ordonnance_Designation_Conseiller_Rapporteur: new FormControl(),
     conseiller_Rapporteur: new FormControl(),
-    date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant: new FormControl(),
-    numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant: new FormControl(),
+    date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
+      new FormControl(),
+    numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
+      new FormControl(),
     conseiller_Rapporteur_Remplacant: new FormControl(),
     date_Envoi_Requete_Parties: new FormControl(),
 
@@ -71,8 +75,10 @@ export class DisciplineBudgetaireFormComponent {
 
     date_de_reception_par_les_parties_Agent_du_Roi_au_CRC: new FormControl(),
     date_de_reception_par_les_parties_Entrepot_Regional: new FormControl(),
-    date_de_reception_par_les_parties_Travailleur_du_territoire: new FormControl(),
-    date_de_reception_par_les_parties_President_de_la_Commune: new FormControl(),
+    date_de_reception_par_les_parties_Travailleur_du_territoire:
+      new FormControl(),
+    date_de_reception_par_les_parties_President_de_la_Commune:
+      new FormControl(),
 
     reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC: new FormControl(),
     reponse_au_memoire_d_appel_Entrepot_Regional: new FormControl(),
@@ -139,29 +145,46 @@ export class DisciplineBudgetaireFormComponent {
             appelant: res.data.appelant,
             numero_Jugement_Faisant_Objet_De_Appel:
               res.data.numero_Jugement_Faisant_Objet_De_Appel,
-            emis_En_Date_Du: res.data.emis_En_Date_Du,
+            emis_En_Date_Du: this._datePipe.transform(
+              res.data.emis_En_Date_Du,
+              'yyyy-MM-dd'
+            ),
             idCRC: res.data.idCRC,
             centre_Comptable: res.data.centre_Comptable,
             date_Enregistrement_Requete_Cour_Regionale_Des_Comptes:
-              res.data.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes,
-            date_Requisition_Ministere_Public:
+              this._datePipe.transform(
+                res.data.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes,
+                'yyyy-MM-dd'
+              ),
+            date_Requisition_Ministere_Public: this._datePipe.transform(
               res.data.date_Requisition_Ministere_Public,
+              'yyyy-MM-dd'
+            ),
             numero_Requisition_Ministere_Public:
               res.data.numero_Requisition_Ministere_Public,
             date_Ordonnance_Designation_Conseiller_Rapporteur:
-              res.data.date_Ordonnance_Designation_Conseiller_Rapporteur,
+              this._datePipe.transform(
+                res.data.date_Ordonnance_Designation_Conseiller_Rapporteur,
+                'yyyy-MM-dd'
+              ),
             numero_Ordonnance_Designation_Conseiller_Rapporteur:
               res.data.numero_Ordonnance_Designation_Conseiller_Rapporteur,
             conseiller_Rapporteur: res.data.conseiller_Rapporteur,
             date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
-              res.data
-                .date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant,
+              this._datePipe.transform(
+                res.data
+                  .date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant,
+                'yyyy-MM-dd'
+              ),
             numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
               res.data
                 .numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant,
             conseiller_Rapporteur_Remplacant:
               res.data.conseiller_Rapporteur_Remplacant,
-            date_Envoi_Requete_Parties: res.data.date_Envoi_Requete_Parties,
+            date_Envoi_Requete_Parties: this._datePipe.transform(
+              res.data.date_Envoi_Requete_Parties,
+              'yyyy-MM-dd'
+            ),
 
             // Parties
             parties_Agent_du_Roi_au_CRC: res.data.parties_Agent_du_Roi_au_CRC,
@@ -173,15 +196,27 @@ export class DisciplineBudgetaireFormComponent {
 
             // Reception dates for parties
             date_de_reception_par_les_parties_Agent_du_Roi_au_CRC:
-              res.data.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC,
+              this._datePipe.transform(
+                res.data.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC,
+                'yyyy-MM-dd'
+              ),
             date_de_reception_par_les_parties_Entrepot_Regional:
-              res.data.date_de_reception_par_les_parties_Entrepot_Regional,
+              this._datePipe.transform(
+                res.data.date_de_reception_par_les_parties_Entrepot_Regional,
+                'yyyy-MM-dd'
+              ),
             date_de_reception_par_les_parties_Travailleur_du_territoire:
-              res.data
-                .date_de_reception_par_les_parties_Travailleur_du_territoire,
+              this._datePipe.transform(
+                res.data
+                  .date_de_reception_par_les_parties_Travailleur_du_territoire,
+                'yyyy-MM-dd'
+              ),
             date_de_reception_par_les_parties_President_de_la_Commune:
-              res.data
-                .date_de_reception_par_les_parties_President_de_la_Commune,
+              this._datePipe.transform(
+                res.data
+                  .date_de_reception_par_les_parties_President_de_la_Commune,
+                'yyyy-MM-dd'
+              ),
 
             // Response to memo
             reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC:
@@ -194,43 +229,81 @@ export class DisciplineBudgetaireFormComponent {
               res.data.reponse_au_memoire_d_appel_President_de_la_Commune,
 
             // Other fields
-            date_Demande_Documents_Supplementaires:
+            date_Demande_Documents_Supplementaires: this._datePipe.transform(
               res.data.date_Demande_Documents_Supplementaires,
-            date_Convocation_Interesse_Audience:
+              'yyyy-MM-dd'
+            ),
+            date_Convocation_Interesse_Audience: this._datePipe.transform(
               res.data.date_Convocation_Interesse_Audience,
-            date_Enquete_Sur_Le_Terrain: res.data.date_Enquete_Sur_Le_Terrain,
-            date_Preparation_Rapport: res.data.date_Preparation_Rapport,
+              'yyyy-MM-dd'
+            ),
+            date_Enquete_Sur_Le_Terrain: this._datePipe.transform(
+              res.data.date_Enquete_Sur_Le_Terrain,
+              'yyyy-MM-dd'
+            ),
+            date_Preparation_Rapport: this._datePipe.transform(
+              res.data.date_Preparation_Rapport,
+              'yyyy-MM-dd'
+            ),
             date_Transmission_Dossier_Ministere_Public:
-              res.data.date_Transmission_Dossier_Ministere_Public,
-            date_Conclusions_Ministere_Public:
+              this._datePipe.transform(
+                res.data.date_Transmission_Dossier_Ministere_Public,
+                'yyyy-MM-dd'
+              ),
+            date_Conclusions_Ministere_Public: this._datePipe.transform(
               res.data.date_Conclusions_Ministere_Public,
+              'yyyy-MM-dd'
+            ),
             numero_Conclusions_Ministere_Public:
               res.data.numero_Conclusions_Ministere_Public,
             date_Reception_Convocation_Interesse_Consultation:
-              res.data.date_Reception_Convocation_Interesse_Consultation,
+              this._datePipe.transform(
+                res.data.date_Reception_Convocation_Interesse_Consultation,
+                'yyyy-MM-dd'
+              ),
             date_Reception_Convocation_Avocat_Consultation:
-              res.data.date_Reception_Convocation_Avocat_Consultation,
-            date_Consultation_Interesse: res.data.date_Consultation_Interesse,
-            date_Consultation_Avocat: res.data.date_Consultation_Avocat,
-            date_Retour_Dossier_Greffe_Central:
+              this._datePipe.transform(
+                res.data.date_Reception_Convocation_Avocat_Consultation,
+                'yyyy-MM-dd'
+              ),
+            date_Consultation_Interesse: this._datePipe.transform(
+              res.data.date_Consultation_Interesse,
+              'yyyy-MM-dd'
+            ),
+            date_Consultation_Avocat: this._datePipe.transform(
+              res.data.date_Consultation_Avocat,
+              'yyyy-MM-dd'
+            ),
+            date_Retour_Dossier_Greffe_Central: this._datePipe.transform(
               res.data.date_Retour_Dossier_Greffe_Central,
+              'yyyy-MM-dd'
+            ),
             convocation_Interesse_Audience_Jugement:
               res.data.convocation_Interesse_Audience_Jugement,
             convocation_Avocat_Audience_Jugement:
               res.data.convocation_Avocat_Audience_Jugement,
-            date_Audience_Jugement: res.data.date_Audience_Jugement,
+            date_Audience_Jugement: this._datePipe.transform(
+              res.data.date_Audience_Jugement,
+              'yyyy-MM-dd'
+            ),
             convocation_Avocat_Prononce_Jugement:
               res.data.convocation_Avocat_Prononce_Jugement,
             convocation_Interesse_Prononce_Jugement:
               res.data.convocation_Interesse_Prononce_Jugement,
-            date_Audience_Prononce_Jugement:
+            date_Audience_Prononce_Jugement: this._datePipe.transform(
               res.data.date_Audience_Prononce_Jugement,
+              'yyyy-MM-dd'
+            ),
             dispositif_Decision: res.data.dispositif_Decision,
             numero_Decision: res.data.numero_Decision,
-            date_Envoi_Decision_Notification_Parties:
+            date_Envoi_Decision_Notification_Parties: this._datePipe.transform(
               res.data.date_Envoi_Decision_Notification_Parties,
-            date_Reception_Comptable_Copie_Decision:
+              'yyyy-MM-dd'
+            ),
+            date_Reception_Comptable_Copie_Decision: this._datePipe.transform(
               res.data.date_Reception_Comptable_Copie_Decision,
+              'yyyy-MM-dd'
+            ),
           });
         }
       })

@@ -8,8 +8,8 @@ import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { CRC } from 'src/app/generatedapis/models/CRC';
 import { CRCListApiResponse } from 'src/app/generatedapis/models/CRCListApiResponse';
-import { DisciplineBudgetaire } from 'src/app/generatedapis/models/DisciplineBudgetaire';
-import { DisciplineBudgetaireDatatableResponse } from 'src/app/generatedapis/models/DisciplineBudgetaireDatatableResponse';
+import { DtoDisciplineBudgetaire } from 'src/app/generatedapis/models/DtoDisciplineBudgetaire';
+import { DtoDisciplineBudgetaireDatatableResponse } from 'src/app/generatedapis/models/DtoDisciplineBudgetaireDatatableResponse';
 import { DtoFiltreDisciplineBudgetaireDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreDisciplineBudgetaireDatatableRequest';
 import { DisciplineBudgetairesService } from 'src/app/generatedapis/services/DisciplineBudgetairesService';
 import { Const } from 'src/app/Helpers/Const';
@@ -33,7 +33,7 @@ export class DisciplineBudgetaireListComponent {
   public ImporterButtonStyle = ButtonStyle.success;
   public SearchButtonStyle = ButtonStyle.primary_block;
 
-  public Data!: DisciplineBudgetaire[];
+  public Data!: DtoDisciplineBudgetaire[];
   public pageNumber = 1;
   public orderBy = 'numero_Dossier';
   public orderByDirection = 'desc';
@@ -143,7 +143,7 @@ export class DisciplineBudgetaireListComponent {
     DisciplineBudgetairesService.postApiDisciplineBudgetairesGetAllFiltredAsync(
       this.DataTableRequest
     )
-      .then((result: DisciplineBudgetaireDatatableResponse) => {
+      .then((result: DtoDisciplineBudgetaireDatatableResponse) => {
         this.Data = result.data ?? [];
         this.RecordFiltred = result.recordFiltred ?? 0;
         this.RecordTotal = result.recordTotal ?? 0;
