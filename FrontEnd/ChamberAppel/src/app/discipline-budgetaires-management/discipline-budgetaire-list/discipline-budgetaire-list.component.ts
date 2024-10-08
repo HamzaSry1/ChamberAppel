@@ -35,7 +35,7 @@ export class DisciplineBudgetaireListComponent {
 
   public Data!: DtoDisciplineBudgetaire[];
   public pageNumber = 1;
-  public orderBy = 'numero_Dossier';
+  public orderBy = 'Numero_Dossier';
   public orderByDirection = 'desc';
   public RecordTotal = 0;
   public RecordFiltred = 0;
@@ -83,7 +83,7 @@ export class DisciplineBudgetaireListComponent {
   resetPagination() {
     this.pageNumber = 1;
     this.pageSize = environment.pageSize;
-    this.orderBy = 'numero_Dossier';
+    this.orderBy = 'Numero_Dossier';
     this.orderByDirection = 'desc';
   }
 
@@ -158,16 +158,23 @@ export class DisciplineBudgetaireListComponent {
   }
 
   Exporter() {
-    if (this.Data.length !== 0) {
+    if (this.Data.length != 0) {
+      this._loader.show();
       const headers = new HttpHeaders().set(
         'Authorization',
         'Bearer ' + localStorage.getItem('token')
       );
       this.http
         .post(
-          environment.apiUrl + '/api/DisciplineBudgetaires/Exporter',
+          environment.apiUrl + '/api/DisciplineBudgetaires/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
+            appelant: this.FilterForm.getRawValue().appelant,
+            centre_Comptable: this.FilterForm.getRawValue().centre_Comptable,
+            conseiller_Rapporteur: this.FilterForm.getRawValue().conseiller_Rapporteur,
+            emis_En_Date_Du: this.FilterForm.getRawValue().emis_En_Date_Du,
+            idCRC: this.FilterForm.getRawValue().idCRC,
+            numero_Dossier: this.FilterForm.getRawValue().numero_Dossier,
           }),
           {
             headers: headers,
@@ -179,6 +186,7 @@ export class DisciplineBudgetaireListComponent {
             result,
             Const.List_Discipline_Budgeitaires
           );
+          this._loader.hide();
         });
     }
   }

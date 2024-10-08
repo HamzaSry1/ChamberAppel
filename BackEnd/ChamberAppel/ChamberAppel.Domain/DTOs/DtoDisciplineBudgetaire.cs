@@ -1,178 +1,165 @@
-﻿namespace ChamberAppel.Domain.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ChamberAppel.Domain.DTOs
 {
     public class DtoDisciplineBudgetaire
     {
         public Guid Id { get; set; }
 
-        // رقم الملف
+        [Display(Name = "Numero Dossier")]
         public string? Numero_Dossier { get; set; }
 
-        // طالب الإستئناف
+        [Display(Name = "Appelant")]
         public string? Appelant { get; set; }
 
-        // الحكم المستأنف عدد
+        [Display(Name = "Numero Jugement Faisant Objet De Appel")]
         public string? Numero_Jugement_Faisant_Objet_De_Appel { get; set; }
 
-        // الصادر بتاريخ
+        [Display(Name = "Emis En Date Du")]
         public string? Emis_En_Date_Du { get; set; }
 
-        // المجلس الجهوي للحسابات لجهة
+        [Display(Name = "CRC")]
         public string? CRC { get; set; }
 
-        // المركز المحاسبي
+        [Display(Name = "Centre Comptable")]
         public string? Centre_Comptable { get; set; }
 
-        // تاريخ تسجيل العريضة بالمجلس الجهوي للحسابات
+        [Display(Name = "Date Enregistrement Requete Cour Regionale Des Comptes")]
         public string? Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes { get; set; }
 
-        // تاريخ ملتمس النيابة العامة
+        [Display(Name = "Date Requisition Ministere Public")]
         public string? Date_Requisition_Ministere_Public { get; set; }
 
-        // رقم ملتمس النيابة العامة
+        [Display(Name = "Numero Requisition Ministere Public")]
         public string? Numero_Requisition_Ministere_Public { get; set; }
 
-        // تاريخ أمر تعيين المستشار المقرر
+        [Display(Name = "Date Ordonnance Designation Conseiller Rapporteur")]
         public string? Date_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
 
-        // رقم أمر تعيين المستشار المقرر
+        [Display(Name = "Numero Ordonnance Designation Conseiller Rapporteur")]
         public string? Numero_Ordonnance_Designation_Conseiller_Rapporteur { get; set; }
 
-        // المستشار المقرر
+        [Display(Name = "Conseiller Rapporteur")]
         public string? Conseiller_Rapporteur { get; set; }
 
-        // تاریخ أمر تعيين المستشار المقرر الخلف
+        [Display(Name = "Date Ordonnance Designation Conseiller Rapporteur Remplacant")]
         public string? Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
 
-        // رقم أمر تعيين المستشار المقرر الخلف
+        [Display(Name = "Numero Ordonnance Designation Conseiller Rapporteur Remplacant")]
         public string? Numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant { get; set; }
 
-        // المستشار المقرر الخلف
+        [Display(Name = "Conseiller Rapporteur Remplacant")]
         public string? Conseiller_Rapporteur_Remplacant { get; set; }
 
-        // تاريخ إرسال العريضة للأطراف
+        [Display(Name = "Date Envoi Requete Parties")]
         public string? Date_Envoi_Requete_Parties { get; set; }
 
-
-        #region les parties
-
-        // الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
+        [Display(Name = "Parties Agent du Roi au CRC")]
         public string? Parties_Agent_du_Roi_au_CRC { get; set; }
 
-        // الأطراف - الخازن الإقليمي
+        [Display(Name = "Parties Entrepot Regional")]
         public string? Parties_Entrepot_Regional { get; set; }
 
-        // الأطراف - عامل الإقليم
+        [Display(Name = "Parties Travailleur du Territoire")]
         public string? Parties_Travailleur_du_territoire { get; set; }
 
-        // الأطراف - رئيس الجماعة
+        [Display(Name = "Parties President de la Commune")]
         public string? Parties_President_de_la_Commune { get; set; }
 
-
-        // تاريخ توصل الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
+        [Display(Name = "Date de Reception par les Parties Agent du Roi au CRC")]
         public string? Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC { get; set; }
 
-        // تاريخ توصل الأطراف - الخازن الإقليمي
+        [Display(Name = "Date de Reception par les Parties Entrepot Regional")]
         public string? Date_de_reception_par_les_parties_Entrepot_Regional { get; set; }
 
-        // تاريخ توصل الأطراف - عامل الإقليم
+        [Display(Name = "Date de Reception par les Parties Travailleur du Territoire")]
         public string? Date_de_reception_par_les_parties_Travailleur_du_territoire { get; set; }
 
-        // تاريخ توصل الأطراف - رئيس الجماعة
+        [Display(Name = "Date de Reception par les Parties President de la Commune")]
         public string? Date_de_reception_par_les_parties_President_de_la_Commune { get; set; }
 
-
-        // رد على مذكرة الاستئناف - وكيل الملك لدى المجلس الجهوي للحسابات
+        [Display(Name = "Reponse au Memoire d'Appel Agent du Roi au CRC")]
         public string? Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC { get; set; }
 
-        // رد على مذكرة الاستئناف - الخازن الإقليمي
+        [Display(Name = "Reponse au Memoire d'Appel Entrepot Regional")]
         public string? Reponse_au_memoire_d_appel_Entrepot_Regional { get; set; }
 
-        // رد على مذكرة الاستئناف - عامل الإقليم
+        [Display(Name = "Reponse au Memoire d'Appel Travailleur du Territoire")]
         public string? Reponse_au_memoire_d_appel_Travailleur_du_territoire { get; set; }
 
-        // رد على مذكرة الاستئناف - رئيس الجماعة
+        [Display(Name = "Reponse au Memoire d'Appel President de la Commune")]
         public string? Reponse_au_memoire_d_appel_President_de_la_Commune { get; set; }
 
-        #endregion les parties
-
-
-        // تاریخ طلب وثائق تكميلية
+        [Display(Name = "Date Demande Documents Supplementaires")]
         public string? Date_Demande_Documents_Supplementaires { get; set; }
 
-        // تاريخ استدعاء المتابع لحضور جلسة الاستماع
+        [Display(Name = "Date Convocation Interesse Audience")]
         public string? Date_Convocation_Interesse_Audience { get; set; }
 
-        // تاريخ إجراء بحث ميداني
+        [Display(Name = "Date Enquete Sur Le Terrain")]
         public string? Date_Enquete_Sur_Le_Terrain { get; set; }
 
-        // تاريخ اعداد التقرير
+        [Display(Name = "Date Preparation Rapport")]
         public string? Date_Preparation_Rapport { get; set; }
 
-        // تاريخ إحالة الملف على النيابة العامة
+        [Display(Name = "Date Transmission Dossier Ministere Public")]
         public string? Date_Transmission_Dossier_Ministere_Public { get; set; }
 
-        // تاریخ مستنتجات النيابة العامة
+        [Display(Name = "Date Conclusions Ministere Public")]
         public string? Date_Conclusions_Ministere_Public { get; set; }
 
-        // رقم مستنتجات النيابة العامة
+        [Display(Name = "Numero Conclusions Ministere Public")]
         public string? Numero_Conclusions_Ministere_Public { get; set; }
 
-        // تاريخ توصل المتابع بالاستدعاء لأجل الإطلاع
+        [Display(Name = "Date Reception Convocation Interesse Consultation")]
         public string? Date_Reception_Convocation_Interesse_Consultation { get; set; }
 
-        // تاريخ توصل المحامي بالاستدعاء لأجل الإطلاع
+        [Display(Name = "Date Reception Convocation Avocat Consultation")]
         public string? Date_Reception_Convocation_Avocat_Consultation { get; set; }
 
-        // تاريخ إطلاع المتابع
+        [Display(Name = "Date Consultation Interesse")]
         public string? Date_Consultation_Interesse { get; set; }
 
-        // تاريخ إطلاع المحامي
+        [Display(Name = "Date Consultation Avocat")]
         public string? Date_Consultation_Avocat { get; set; }
 
-        // تاريخ رجوع الملف من كتابة الضبط المركزي
+        [Display(Name = "Date Retour Dossier Greffe Central")]
         public string? Date_Retour_Dossier_Greffe_Central { get; set; }
 
-
-        #region جلسة الحكم
-
-        // استدعاء المتابع لحضور جلسة الحكم
+        [Display(Name = "Convocation Interesse Audience Jugement")]
         public string? Convocation_Interesse_Audience_Jugement { get; set; }
 
-        // استدعاء المحامي لحضور جلسة الحكم
+        [Display(Name = "Convocation Avocat Audience Jugement")]
         public string? Convocation_Avocat_Audience_Jugement { get; set; }
 
-        // تاريخ جلسة الحكم
+        [Display(Name = "Date Audience Jugement")]
         public string? Date_Audience_Jugement { get; set; }
 
-        // استدعاء المحامي لحضور جلسة النطق بالحكم
+        [Display(Name = "Convocation Avocat Prononce Jugement")]
         public string? Convocation_Avocat_Prononce_Jugement { get; set; }
 
-        // استدعاء المتابع لحضور جلسة النطق بالحكم
+        [Display(Name = "Convocation Interesse Prononce Jugement")]
         public string? Convocation_Interesse_Prononce_Jugement { get; set; }
 
-        // تاریخ جلسة النطق بالحكم
+        [Display(Name = "Date Audience Prononce Jugement")]
         public string? Date_Audience_Prononce_Jugement { get; set; }
 
-        #endregion جلسة الحكم
-
-
-        #region القرار
-        // منطوق القرار
+        [Display(Name = "Dispositif Decision")]
         public string? Dispositif_Decision { get; set; }
 
-        // القرار عدد
+        [Display(Name = "Numero Decision")]
         public string? Numero_Decision { get; set; }
 
-        // تاريخ إرسال القرار قصد التبليغ للأطراف
+        [Display(Name = "Date Envoi Decision Notification Parties")]
         public string? Date_Envoi_Decision_Notification_Parties { get; set; }
 
-        // تاريخ توصل المحاسب بنسخة من القرار
+        [Display(Name = "Date Reception Comptable Copie Decision")]
         public string? Date_Reception_Comptable_Copie_Decision { get; set; }
 
-        #endregion القرار
-
         public string? UpdatedBy { get; set; }
+
         public string? UpdateTime { get; set; }
+
         public int IsActive { get; set; }
     }
 }
