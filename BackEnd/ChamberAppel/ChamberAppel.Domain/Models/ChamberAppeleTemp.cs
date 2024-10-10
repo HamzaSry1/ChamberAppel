@@ -17,10 +17,10 @@ namespace ChamberAppel.Domain.Models
         public string? Numero_Jugement_Faisant_Objet_De_Appel { get; set; }
 
         // الصادر بتاريخ
-        public DateTime? Emis_En_Date_Du { get; set; }
+        public string? Emis_En_Date_Du { get; set; }
 
         // المجلس الجهوي للحسابات لجهة
-        public Guid IdCRC { get; set; }
+        public string? CRC { get; set; }
 
         // المركز المحاسبي
         public string? Centre_Comptable { get; set; }
@@ -92,12 +92,12 @@ namespace ChamberAppel.Domain.Models
         #endregion les parties
 
         // تاريخ اعداد التقرير
-        public DateTime? Date_Preparation_Rapport { get; set; }
+        public string? Date_Preparation_Rapport { get; set; }
         //  تعيين المستشار المراجع
         public string? Designation_du_Conseiller_Reviseur { get; set; }
 
         // تاريخ تعيين المستشار المراجع
-        public DateTime? Date_Designation_du_Conseiller_Reviseur { get; set; }
+        public string? Date_Designation_du_Conseiller_Reviseur { get; set; }
 
         //  تعيين المستشار المراجع الخلف
         public string? Designation_du_Conseiller_Reviseur_Remplacant { get; set; }
@@ -137,6 +137,7 @@ namespace ChamberAppel.Domain.Models
 
         public string? UpdatedBy { get; set; }
         public string? UpdateTime { get; set; }
-        public int IsActive { get; set; }
+        public int RowNumber { get; set; }
+        public string? RowError { get; set; }
     }
 }

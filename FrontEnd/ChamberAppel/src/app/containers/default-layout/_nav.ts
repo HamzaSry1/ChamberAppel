@@ -47,12 +47,12 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Discipline budgetaires',
-        url: '/importer?type=discipline-budgetaires', 
+        url: 'discipline-budgetaires-importer',
         iconComponent: { name: 'cil-cloud-download' },
       },
       {
         name: 'Chamber appel',
-        url: '/importer?type=chamber-appel', 
+        url: 'chamber-appel-importer',
         iconComponent: { name: 'cil-cloud-download' },
       },
     ],

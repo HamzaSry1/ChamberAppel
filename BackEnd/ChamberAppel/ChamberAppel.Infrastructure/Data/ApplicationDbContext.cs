@@ -8,6 +8,7 @@ namespace ChamberAppel.Infrastructure.Data
     {
 
         public DbSet<ChamberAppele> ChamberAppeles { get; set; }
+        public DbSet<ChamberAppeleTemp> ChamberAppeleTemp { get; set; }
         public DbSet<Utilisateur> Utilisateurs { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Role> Roles { get; set; }

@@ -246,6 +246,261 @@
         }
       }
     },
+    "/api/ChamberAppel/GetAllFiltredAsync": {
+      "post": {
+        "tags": [
+          "ChamberAppel"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreChamberAppeleDatatableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreChamberAppeleDatatableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreChamberAppeleDatatableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppel/GetByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "ChamberAppel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppel/CreateAsync": {
+      "post": {
+        "tags": [
+          "ChamberAppel"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppele"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppele"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppele"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppel/UpdateAsync": {
+      "put": {
+        "tags": [
+          "ChamberAppel"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppele"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppele"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChamberAppele"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppel/DeleteAsync/{id}": {
+      "delete": {
+        "tags": [
+          "ChamberAppel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BooleanApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChamberAppel/ExporterAsync": {
+      "post": {
+        "tags": [
+          "ChamberAppel"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreChamberAppele"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreChamberAppele"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreChamberAppele"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/DisciplineBudgetaires/GetAllFiltredAsync": {
       "post": {
         "tags": [
@@ -501,10 +756,10 @@
         }
       }
     },
-    "/api/DisciplineBudgetairesImport/Importe": {
+    "/api/Import/Importe": {
       "post": {
         "tags": [
-          "DisciplineBudgetairesImport"
+          "Import"
         ],
         "parameters": [
           {
@@ -512,6 +767,13 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "FileType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EnumFileType"
             }
           }
         ],
@@ -559,10 +821,10 @@
         }
       }
     },
-    "/api/DisciplineBudgetairesImport/GetAllValideData": {
+    "/api/Import/GetAllDisciplineBudgetaireValide": {
       "post": {
         "tags": [
-          "DisciplineBudgetairesImport"
+          "Import"
         ],
         "requestBody": {
           "content": {
@@ -607,10 +869,10 @@
         }
       }
     },
-    "/api/DisciplineBudgetairesImport/GetAllErrorsData": {
+    "/api/Import/GetAllDisciplineBudgetaireErrors": {
       "post": {
         "tags": [
-          "DisciplineBudgetairesImport"
+          "Import"
         ],
         "requestBody": {
           "content": {
@@ -655,10 +917,115 @@
         }
       }
     },
-    "/api/DisciplineBudgetairesImport/Analyse": {
+    "/api/Import/GetAllChamberAppeleValide": {
       "post": {
         "tags": [
-          "DisciplineBudgetairesImport"
+          "Import"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoPagination"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoPagination"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoPagination"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleTempDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleTempDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleTempDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Import/GetAllChamberAppeleErrors": {
+      "post": {
+        "tags": [
+          "Import"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoPagination"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoPagination"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoPagination"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleTempDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleTempDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChamberAppeleTempDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Import/Analyse": {
+      "post": {
+        "tags": [
+          "Import"
+        ],
+        "parameters": [
+          {
+            "name": "fileType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EnumFileType"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -684,10 +1051,19 @@
         }
       }
     },
-    "/api/DisciplineBudgetairesImport/Fusionner": {
+    "/api/Import/Fusionner": {
       "post": {
         "tags": [
-          "DisciplineBudgetairesImport"
+          "Import"
+        ],
+        "parameters": [
+          {
+            "name": "fileType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EnumFileType"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -713,10 +1089,19 @@
         }
       }
     },
-    "/api/DisciplineBudgetairesImport/Exporter": {
+    "/api/Import/Exporter": {
       "post": {
         "tags": [
-          "DisciplineBudgetairesImport"
+          "Import"
+        ],
+        "parameters": [
+          {
+            "name": "fileType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EnumFileType"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2044,6 +2429,473 @@
         },
         "additionalProperties": false
       },
+      "ChamberAppele": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "numero_Dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Jugement_Faisant_Objet_De_Appel": {
+            "type": "string",
+            "nullable": true
+          },
+          "emis_En_Date_Du": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idCRC": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "centre_Comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "exercice_fiscal": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "date_Enregistrement_Requete_Cour_Regionale_Des_Comptes": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "conseiller_Rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Ordonnance_Designation_Conseiller_Rapporteur": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "conseiller_Rapporteur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_Demande_Documents_Supplementaires": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_Envoi_Requete_Parties": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Entrepot_Regional": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Travailleur_du_territoire": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_President_de_la_Commune": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Preparation_Rapport": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "designation_du_Conseiller_Reviseur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Designation_du_Conseiller_Reviseur": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "designation_du_Conseiller_Reviseur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Designation_du_Conseiller_Reviseur_Remplacant": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_preparation_de_l_avis_de_l_examinateur": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_Transmission_Dossier_Ministere_Public": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_Retour_Dossier_Ministere_Public": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_Conclusions_Ministere_Public": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "numero_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_la_session": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dispositif_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_d_envoi_de_la_decision_pour_notifier_les_parties": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_de_reception_par_le_comptable_d_une_copie_de_la_decision": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedBy": {
+            "maxLength": 80,
+            "minLength": 3,
+            "type": "string",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "crc": {
+            "$ref": "#/components/schemas/CRC"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppeleApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ChamberAppele"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FluentValidationErrors"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppeleDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChamberAppele"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppeleTemp": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "numero_Dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Jugement_Faisant_Objet_De_Appel": {
+            "type": "string",
+            "nullable": true
+          },
+          "emis_En_Date_Du": {
+            "type": "string",
+            "nullable": true
+          },
+          "crc": {
+            "type": "string",
+            "nullable": true
+          },
+          "centre_Comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "exercice_fiscal": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Enregistrement_Requete_Cour_Regionale_Des_Comptes": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_Rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Ordonnance_Designation_Conseiller_Rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_Rapporteur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Demande_Documents_Supplementaires": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Envoi_Requete_Parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Preparation_Rapport": {
+            "type": "string",
+            "nullable": true
+          },
+          "designation_du_Conseiller_Reviseur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Designation_du_Conseiller_Reviseur": {
+            "type": "string",
+            "nullable": true
+          },
+          "designation_du_Conseiller_Reviseur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Designation_du_Conseiller_Reviseur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_preparation_de_l_avis_de_l_examinateur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Transmission_Dossier_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Retour_Dossier_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_la_session": {
+            "type": "string",
+            "nullable": true
+          },
+          "dispositif_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_d_envoi_de_la_decision_pour_notifier_les_parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_le_comptable_d_une_copie_de_la_decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rowError": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChamberAppeleTempDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChamberAppeleTemp"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "DisciplineBudgetaire": {
         "type": "object",
         "properties": {
@@ -2846,6 +3698,59 @@
         },
         "additionalProperties": false
       },
+      "DtoFiltreChamberAppele": {
+        "type": "object",
+        "properties": {
+          "motsCle": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Jugement_Faisant_Objet_De_Appel": {
+            "type": "string",
+            "nullable": true
+          },
+          "emis_En_Date_Du": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idCRC": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "centre_Comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "exercice_fiscal": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoFiltreChamberAppeleDatatableRequest": {
+        "type": "object",
+        "properties": {
+          "filtre": {
+            "$ref": "#/components/schemas/DtoFiltreChamberAppele"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/DtoPagination"
+          }
+        },
+        "additionalProperties": false
+      },
       "DtoFiltreDisciplineBudgetaire": {
         "type": "object",
         "properties": {
@@ -3168,6 +4073,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "EnumFileType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "FluentValidationErrors": {
         "type": "object",

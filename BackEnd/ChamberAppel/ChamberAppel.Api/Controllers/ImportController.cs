@@ -15,66 +15,82 @@ namespace ChamberAppel.Api.Controllers
     {
         private readonly IDisciplineBudgetaireImportService _serviceDisciplineBudgetaire;
         private readonly IChamberAppelImportService _serviceChamberAppel;
-        public ImportController(IDisciplineBudgetaireImportService serviceDisciplineBudgetaire
-            , IChamberAppelImportService serviceChamberAppel)
+
+        public ImportController(
+            IDisciplineBudgetaireImportService serviceDisciplineBudgetaire,
+            IChamberAppelImportService serviceChamberAppel)
         {
-            _serviceDisciplineBudgetaire = _serviceDisciplineBudgetaire;
+            _serviceDisciplineBudgetaire = serviceDisciplineBudgetaire;
             _serviceChamberAppel = serviceChamberAppel;
         }
 
         [HttpPost("Importe")]
         public async Task<ApiResponse<bool>> Importe(DtoUploadFile request)
         {
-            if (request.FileType == EnumFileType.ChamberAppel)
+            var result = request.FileType == EnumFileType.ChamberAppel
+                ? await _serviceChamberAppel.Upload(request.file, request.UpdatedBy)
+                : await _serviceDisciplineBudgetaire.Upload(request.file, request.UpdatedBy);
+
+            return new ApiResponse<bool>
             {
-                var res = await _serviceDisciplineBudgetaire.Upload(request.file, request.UpdatedBy);
-            }
-            else
-                return new ApiResponse<bool> { StatusCode = HttpStatusCode.BadRequest };
-
-
-
-                return new ApiResponse<bool> { StatusCode = HttpStatusCode.OK };
-            else
-                return new ApiResponse<bool> { StatusCode = HttpStatusCode.BadRequest };
+                StatusCode = result ? HttpStatusCode.OK : HttpStatusCode.BadRequest
+            };
         }
 
-        [HttpPost("GetAllValideData")]
-        public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllValideData(DtoPagination pagination)
+        [HttpPost("GetAllDisciplineBudgetaireValide")]
+        public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllDisciplineBudgetaireValide(DtoPagination pagination)
             => await _serviceDisciplineBudgetaire.GetAllValideData(pagination);
 
-        [HttpPost("GetAllErrorsData")]
-        public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllErrorsData(DtoPagination pagination)
+        [HttpPost("GetAllDisciplineBudgetaireErrors")]
+        public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllDisciplineBudgetaireErrors(DtoPagination pagination)
             => await _serviceDisciplineBudgetaire.GetAllErrorsData(pagination);
+
+        [HttpPost("GetAllChamberAppeleValide")]
+        public async Task<DatatableResponse<ChamberAppeleTemp>> GetAllChamberAppeleValide(DtoPagination pagination)
+            => await _serviceChamberAppel.GetAllValideData(pagination);
+
+        [HttpPost("GetAllChamberAppeleErrors")]
+        public async Task<DatatableResponse<ChamberAppeleTemp>> GetAllChamberAppeleErrors(DtoPagination pagination)
+            => await _serviceChamberAppel.GetAllErrorsData(pagination);
 
         [HttpPost("Analyse")]
         public async Task<ApiResponse<bool>> Analyse(EnumFileType fileType)
         {
+            bool result;
             if (fileType == EnumFileType.ChamberAppel)
             {
-                var res = await _serviceChamberAppel.Fusionner();
-                return new ApiResponse<bool> { Data = res, StatusCode = HttpStatusCode.OK };
+                result = await _serviceChamberAppel.Fusionner();
             }
             else
             {
-                var res = await _serviceDisciplineBudgetaire.Analyse();
-                return new ApiResponse<bool> { Data = res, StatusCode = HttpStatusCode.OK };
+                result = await _serviceDisciplineBudgetaire.Analyse();
             }
+
+            return new ApiResponse<bool>
+            {
+                Data = result,
+                StatusCode = HttpStatusCode.OK
+            };
         }
 
         [HttpPost("Fusionner")]
         public async Task<ApiResponse<bool>> Fusionner(EnumFileType fileType)
         {
+            bool result;
             if (fileType == EnumFileType.ChamberAppel)
             {
-                var res = await _serviceChamberAppel.Fusionner();
-                return new ApiResponse<bool> { Data = res, StatusCode = HttpStatusCode.OK };
+                result = await _serviceChamberAppel.Fusionner();
             }
             else
             {
-                var res = await _serviceDisciplineBudgetaire.Fusionner();
-                return new ApiResponse<bool> { Data = res, StatusCode = HttpStatusCode.OK };
+                result = await _serviceDisciplineBudgetaire.Fusionner();
             }
+
+            return new ApiResponse<bool>
+            {
+                Data = result,
+                StatusCode = HttpStatusCode.OK
+            };
         }
 
         [HttpPost("Exporter")]
@@ -82,13 +98,13 @@ namespace ChamberAppel.Api.Controllers
         {
             if (fileType == EnumFileType.ChamberAppel)
             {
-                var res = await _serviceChamberAppel.GetAllErrorsData(null);
-                return this.DownloadAsExcelFile(res.Data, Const.List_Chamber_Appel_With_Errors);
+                var response = await _serviceChamberAppel.GetAllErrorsData(null);
+                return this.DownloadAsExcelFile(response.Data, Const.List_Chamber_Appel_With_Errors);
             }
             else
             {
-                var res = await _serviceDisciplineBudgetaire.GetAllErrorsData(null);
-                return this.DownloadAsExcelFile(res.Data, Const.List_Discipline_Budgeitaires_With_Errors);
+                var response = await _serviceDisciplineBudgetaire.GetAllErrorsData(null);
+                return this.DownloadAsExcelFile(response.Data, Const.List_Discipline_Budgeitaires_With_Errors);
             }
         }
     }

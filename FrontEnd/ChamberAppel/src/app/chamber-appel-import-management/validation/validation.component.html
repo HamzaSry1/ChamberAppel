@@ -1,0 +1,107 @@
+<!--cas when list is valid  -->
+<div class="row" *ngIf="!ListHasError">
+  <!-- alert -->
+  <div class="col-md-12">
+    <div class="alert alert-success" role="alert">
+      <i class="fa fa-check-circle"></i> le fichier importé avec success
+    </div>
+  </div>
+  <!-- table -->
+  <div class="col-md-12 my-3 table-responsive">
+    <table class="table table-striped table-bordered text-center" matSort>
+      <thead>
+        <tr>
+          <th class="text-start" mat-sort-header="numeroDossier">
+            Numéro Dossier
+          </th>
+          <th class="text-start" mat-sort-header="appelant">Appelant</th>
+          <th
+            class="text-start"
+            mat-sort-header="numeroJugementFaisantObjetDeAppel"
+          >
+            Numéro Jugement Faisant Objet De Appel
+          </th>
+          <th class="text-start" mat-sort-header="emisEnDateDu">
+            Émis En Date Du
+          </th>
+          <th class="text-start" mat-sort-header="crc">CRC</th>
+          <th class="text-start" mat-sort-header="centreComptable">
+            Centre Comptable
+          </th>
+          <th
+            class="text-start"
+            mat-sort-header="dateEnregistrementRequeteCourRegionaleDesComptes"
+          >
+            Date Enregistrement Requête Cour Régionale Des Comptes
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="RecordTotal != 0">
+        <tr *ngFor="let item of Data">
+          <td class="text-start">{{ item.numero_Dossier }}</td>
+          <td class="text-start">{{ item.appelant }}</td>
+          <td class="text-start">
+            {{ item.numero_Jugement_Faisant_Objet_De_Appel }}
+          </td>
+          <td class="text-start">{{ item.emis_En_Date_Du }}</td>
+          <td class="text-start">{{ item.crc }}</td>
+          <td class="text-start">{{ item.centre_Comptable }}</td>
+          <td class="text-start">
+            {{ item.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- button -->
+  <div class="col-md-12 text-end">
+    <button class="btn btn-sm btn-primary me-1" (click)="Previous()">
+      <i class="fa fa-arrow-left"></i> Précédent
+    </button>
+    <button class="btn btn-sm btn-success" (click)="Next()">
+      <i class="fa fa-arrow-right"></i> Suivant
+    </button>
+  </div>
+</div>
+
+<!-- cas when list has error -->
+<div class="row" *ngIf="ListHasError">
+  <!-- alert -->
+  <div class="col-md-12">
+    <div class="alert alert-danger" role="alert">
+      <i class="fa fa-exclamation-triangle"></i> Des erreurs ont été détectées
+      dans le fichier importé. Veuillez consulter les détails ci-dessous.
+    </div>
+  </div>
+  <!-- table -->
+  <div class="col-md-12 my-3 table-responsive">
+    <table class="table table-striped table-bordered text-center" matSort>
+      <thead>
+        <tr>
+          <th class="text-start" mat-sort-header="rowNumber" style="width: 20%">
+            Numéro de colonne
+          </th>
+          <th class="text-start" mat-sort-header="rowError" style="width: 80%">
+            Message d'erreur
+          </th>
+        </tr>
+      </thead>
+      <tbody class="table-responsive" *ngIf="RecordTotal != 0">
+        <tr *ngFor="let item of Data">
+          <td class="text-start">{{ item.rowNumber }}</td>
+          <td class="text-start">{{ item.rowError }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- button -->
+  <div class="col-md-12 text-end">
+    <button class="btn btn-sm btn-primary me-1" (click)="Previous()">
+      <i class="fa fa-arrow-left"></i> Précédent
+    </button>
+    <button class="btn btn-sm btn-danger" (click)="DownLoadFileWithErrors()">
+      <i class="fa fa-file-excel-o"></i> Télécharger le fichier contenant les
+      erreurs
+    </button>
+  </div>
+</div>

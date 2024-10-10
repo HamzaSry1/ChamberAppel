@@ -52,7 +52,8 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersManagementModule } from './users-management/users-management.module';
 import { DisciplineBudgetairesManagementModule } from './discipline-budgetaires-management/discipline-budgetaires-management.module';
-import { ImporteManagementModule } from './importe-management/importe-management.module'
+import { ChamberAppelImportManagementModule } from './chamber-appel-import-management/chamber-appel-import-management.module';
+import { DisciplineBudgetairesImportManagementModule } from './discipline-budgetaires-import-management/discipline-budgetaires-import-management.module';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -106,7 +107,8 @@ const APP_CONTAINERS = [
     HttpClientModule,
     UsersManagementModule,
     DisciplineBudgetairesManagementModule,
-    ImporteManagementModule
+    ChamberAppelImportManagementModule,
+    DisciplineBudgetairesImportManagementModule,
   ],
   providers: [
     {
@@ -118,4 +120,4 @@ const APP_CONTAINERS = [
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
