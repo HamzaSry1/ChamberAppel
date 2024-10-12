@@ -8,6 +8,7 @@ System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Inst
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.RegisterJsonStringFormatter();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.RegisterSwagger();

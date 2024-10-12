@@ -37,8 +37,8 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
-    name: 'chamber-appel',
-    url: 'chamber-appel',
+    name: 'chambers appel',
+    url: 'chambers-appel',
     iconComponent: { name: 'cil-balance-scale' },
   },
   {

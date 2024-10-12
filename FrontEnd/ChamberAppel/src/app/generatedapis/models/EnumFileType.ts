@@ -3,6 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum EnumFileType {
-    '_0' = 0,
-    '_1' = 1,
+    DISCIPLINE_BUDGETAIRE = 'DisciplineBudgetaire',
+    CHAMBER_APPEL = 'ChamberAppel',
 }

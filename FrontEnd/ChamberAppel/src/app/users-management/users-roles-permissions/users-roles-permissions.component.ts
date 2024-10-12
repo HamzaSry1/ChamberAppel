@@ -231,7 +231,7 @@ export class UsersRolesPermissionsComponent implements OnInit {
     };
     UtilisateursService.postApiUtilisateursAddRolesAsync(this.RolesModel)
       .then((result: BooleanApiResponse) => {
-        if (result.statusCode == HttpStatusCode._200) {
+        if (result.statusCode == HttpStatusCode.OK) {
           this._notify.Success(AppMessageService.Add);
         }
       })

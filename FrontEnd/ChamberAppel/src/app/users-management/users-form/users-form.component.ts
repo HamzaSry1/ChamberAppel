@@ -88,7 +88,7 @@ export class UsersFormComponent implements OnInit {
   GetDataById(Id: string) {
     this._loader.show();
     UtilisateursService.getApiUtilisateursGetByIdAsync(Id).then((res: DtoUtilisateurApiResponse) => {
-      if (res.statusCode == HttpStatusCode._200) {
+      if (res.statusCode == HttpStatusCode.OK) {
         this.ReactiveForm.patchValue({
           id: res.data?.id,
           nom: res.data?.nom ?? "",

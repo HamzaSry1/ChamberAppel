@@ -4,10 +4,6 @@ import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   {
-    path: 'discipline-budgetaires-importer',
-    component: IndexComponent,
-  },
-  {
     path: '',
     component: IndexComponent,
   },

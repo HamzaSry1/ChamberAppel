@@ -1,6 +1,6 @@
 import { CrCsService } from './../../generatedapis/services/CrCsService';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -24,7 +24,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./discipline-budgetaire-list.component.scss'],
   animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
 })
-export class DisciplineBudgetaireListComponent {
+export class DisciplineBudgetaireListComponent implements OnInit {
   public CreateButtonStyle = ButtonStyle.primary;
   public DetailButtonStyle = ButtonStyle.secondary;
   public DeleteButtonStyle = ButtonStyle.danger;

@@ -4,10 +4,6 @@ import { IndexComponent } from '../accueil-management/index/index.component';
 
 const routes: Routes = [
   {
-    path: 'chamber-appel-importer',
-    component: IndexComponent,
-  },
-  {
     path: '',
     component: IndexComponent,
   },

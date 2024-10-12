@@ -64,7 +64,7 @@ export class PermissionsFormComponent implements OnInit {
   GetDataById(Id: string) {
     this._loader.show();
     PermissionsService.getApiPermissionsGetByIdAsync(this.Id).then((res: PermissionApiResponse) => {
-      if (res.statusCode == HttpStatusCode._200) {
+      if (res.statusCode == HttpStatusCode.OK) {
         this.ReactiveForm.patchValue({
           id: res.data?.id,
           label: res.data?.label ?? "",

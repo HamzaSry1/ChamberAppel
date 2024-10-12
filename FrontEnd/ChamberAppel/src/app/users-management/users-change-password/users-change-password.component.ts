@@ -59,7 +59,7 @@ export class UsersChangePasswordComponent {
       UtilisateursService.postApiUtilisateursResetPasswordAsync(
         this.ChangePasswordModel
       ).then((result: BooleanApiResponse) => {
-        if (result.statusCode == HttpStatusCode._200) {
+        if (result.statusCode == HttpStatusCode.OK) {
           this._notify.Success(AppMessageService.ChangePasswordSuccess);
           this._router.navigate(['/utilisateurs/monprofil']);
         } else this._notify.Error(AppMessageService.ChangePasswordError);

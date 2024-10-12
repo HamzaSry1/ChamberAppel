@@ -70,6 +70,22 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'chambers-appel',
+        loadChildren: () =>
+          import(
+            './chamber-appel-management/chamber-appel-management.module'
+          ).then((m) => m.ChamberAppelManagementModule),
+        canActivate: [AuthGuard],
+      },
+      // {
+      //   path: 'chamber-appel-importer',
+      //   loadChildren: () =>
+      //     import(
+      //       './chamber-appel-import-management/chamber-appel-import-management.module'
+      //     ).then((m) => m.ChamberAppelImportManagementModule),
+      //   canActivate: [AuthGuard],
+      // },
+      {
         path: 'discipline-budgetaires',
         loadChildren: () =>
           import(
@@ -77,30 +93,14 @@ const routes: Routes = [
           ).then((m) => m.DisciplineBudgetairesManagementModule),
         canActivate: [AuthGuard],
       },
-      {
-        path: 'chamber-appel',
-        loadChildren: () =>
-          import(
-            './chamber-appel-management/chamber-appel-management.module'
-          ).then((m) => m.ChamberAppelManagementModule),
-        canActivate: [AuthGuard],
-      },
-      {
-        path: 'chamber-appel-importer',
-        loadChildren: () =>
-          import(
-            './chamber-appel-import-management/chamber-appel-import-management.module'
-          ).then((m) => m.ChamberAppelImportManagementModule),
-        canActivate: [AuthGuard],
-      },
-      {
-        path: 'discipline-budgetaires-importer',
-        loadChildren: () =>
-          import(
-            './discipline-budgetaires-import-management/discipline-budgetaires-import-management.module'
-          ).then((m) => m.DisciplineBudgetairesImportManagementModule),
-        canActivate: [AuthGuard],
-      },
+      // {
+      //   path: 'discipline-budgetaires-importer',
+      //   loadChildren: () =>
+      //     import(
+      //       './discipline-budgetaires-import-management/discipline-budgetaires-import-management.module'
+      //     ).then((m) => m.DisciplineBudgetairesImportManagementModule),
+      //   canActivate: [AuthGuard],
+      // },
       {
         path: 'pages',
         loadChildren: () =>
@@ -136,4 +136,4 @@ const config: any = {
     },
   ],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

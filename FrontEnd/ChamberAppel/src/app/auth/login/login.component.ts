@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       this._loader.show();
       UtilisateursService.postApiUtilisateursLoginAsync(loginDto)
         .then((result: DtoLoginResultApiResponse) => {
-          if (result.statusCode != HttpStatusCode._200) {
+          if (result.statusCode != HttpStatusCode.OK) {
             this._notify.Warning(AppMessageService.LoginError);
           } else {
             const data = result?.data ?? {};
