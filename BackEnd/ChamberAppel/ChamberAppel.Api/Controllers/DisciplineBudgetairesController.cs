@@ -92,7 +92,7 @@ namespace ChamberAppel.Api.Controllers
         #region validation
         private List<FluentValidationErrors> Validation(DisciplineBudgetaire model)
         {
-            ChamberAppelDisciplineBudgetairesValidation validationRules = new ChamberAppelDisciplineBudgetairesValidation();
+            DisciplineBudgetairesValidation validationRules = new DisciplineBudgetairesValidation();
             var resultValidationRules = validationRules.Validate(model);
 
             List<FluentValidationErrors> listErrors = new();

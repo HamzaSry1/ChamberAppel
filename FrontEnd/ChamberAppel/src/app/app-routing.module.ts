@@ -78,15 +78,33 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'pages',
+        path: 'chamber-appel',
         loadChildren: () =>
-          import('./views/pages/pages.module').then((m) => m.PagesModule),
+          import(
+            './chamber-appel-management/chamber-appel-management.module'
+          ).then((m) => m.ChamberAppelManagementModule),
         canActivate: [AuthGuard],
       },
       {
-        path: 'importer',
+        path: 'chamber-appel-importer',
         loadChildren: () =>
-          import('./importe-management/importe-management.module').then((m) => m.ImporteManagementModule),
+          import(
+            './chamber-appel-import-management/chamber-appel-import-management.module'
+          ).then((m) => m.ChamberAppelImportManagementModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'discipline-budgetaires-importer',
+        loadChildren: () =>
+          import(
+            './discipline-budgetaires-import-management/discipline-budgetaires-import-management.module'
+          ).then((m) => m.DisciplineBudgetairesImportManagementModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'pages',
+        loadChildren: () =>
+          import('./views/pages/pages.module').then((m) => m.PagesModule),
         canActivate: [AuthGuard],
       },
     ],
@@ -118,4 +136,4 @@ const config: any = {
     },
   ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

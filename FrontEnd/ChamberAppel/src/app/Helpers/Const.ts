@@ -6,6 +6,7 @@ export class Const {
   public static List_Permissions = "List des permissions";
   public static List_Discipline_Budgeitaires = "List des discipline budgeitaires";
   public static List_Discipline_Budgeitaires_With_Errors = "List des discipline budgeitaires avec des errors";
+  public static List_Chamber_appel_With_Errors = "List des discipline budgeitaires avec des errors";
   public static List_Crcs = "List des cour regionales des comptes";
 
   public static ValidationMessages: ValidationErrors = {
