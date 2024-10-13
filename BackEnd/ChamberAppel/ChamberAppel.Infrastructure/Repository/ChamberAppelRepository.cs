@@ -61,13 +61,21 @@ namespace ChamberAppel.Infrastructure.Repository
                     query = query.Where(x => x.Exercice_fiscal == filter.Exercice_fiscal.Value.Date);
                 }
 
+                if (!string.IsNullOrEmpty(filter.Numero_Jugement_Faisant_Objet_De_Appel))
+                {
+                    query = query.Where(x => x.Numero_Jugement_Faisant_Objet_De_Appel == filter.Numero_Jugement_Faisant_Objet_De_Appel);
+                }
+
                 if (!string.IsNullOrEmpty(filter.MotsCle))
                 {
                     query = query.Where(x =>
-                        x.Numero_Dossier.Trim().Contains(filter.MotsCle.Trim())
+                           x.Numero_Dossier.Trim().Contains(filter.MotsCle.Trim())
                         || x.Appelant.Trim().Contains(filter.MotsCle.Trim())
                         || x.Centre_Comptable.Trim().Contains(filter.MotsCle.Trim())
                         || x.CRC.Label.Trim().Contains(filter.MotsCle.Trim())
+                        || x.Numero_Jugement_Faisant_Objet_De_Appel.Trim().Contains(filter.Numero_Jugement_Faisant_Objet_De_Appel.Trim())
+                        || x.Exercice_fiscal == filter.Exercice_fiscal
+                        || x.Emis_En_Date_Du == filter.Emis_En_Date_Du
                         || x.Conseiller_Rapporteur.Trim().Contains(filter.MotsCle.Trim())
                        );
                 }

@@ -70,7 +70,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'chambers-appel',
+        path: 'requêtes-appel',
         loadChildren: () =>
           import(
             './chamber-appel-management/chamber-appel-management.module'

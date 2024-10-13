@@ -1,13 +1,13 @@
 <!-- header -->
-<app-page-action-header [icon]="'fa fa-balance-scale'" [title]="'Gestion des chambers appel'"
-  [titleMobile]="'G. des chambers appel'">
+<app-page-action-header [icon]="'fa fa-balance-scale'" [title]="'Gestion des requêtes appel'"
+  [titleMobile]="'G. des requêtes appel'">
   <ng-container>
-    <app-header-action-button buttonClass="{{ ExporterButtonStyle }} me-2" title="Exporter les chambers appel"
+    <app-header-action-button buttonClass="{{ ExporterButtonStyle }} me-2" title="Exporter les requêtes d'appel"
       iconClass="fa fa-file-excel-o" label="Exporter" (clicked)="Exporter()"></app-header-action-button>
-    <app-header-action-button buttonClass="{{ ImporterButtonStyle }} me-2" title="Importer les chambers appel"
-      iconClass="fa fa-download" routerLink="/chambers-appel/importer" label="Importer"></app-header-action-button>
-    <app-header-action-button buttonClass="{{ CreateButtonStyle }}" title="Ajouter un chambers appel"
-      routerLink="/chambers-appel/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
+    <app-header-action-button buttonClass="{{ ImporterButtonStyle }} me-2" title="Importer les requêtes d'appel"
+      iconClass="fa fa-download" routerLink="/requêtes-appel/importer" label="Importer"></app-header-action-button>
+    <app-header-action-button buttonClass="{{ CreateButtonStyle }}" title="Ajouter un requête d'appel"
+      routerLink="/requêtes-appel/ajouter" iconClass="fa fa-plus" label="Ajouter"></app-header-action-button>
   </ng-container>
 </app-page-action-header>
 
@@ -145,12 +145,12 @@
               <td class="text-start">{{ item.crc }}</td>
               <td class="text-start">{{ item.centre_Comptable }}</td>
               <td class="text-end">
-                <a routerLink="/chambers-appel/detail/{{ item.id }}" class="{{ DetailButtonStyle }} me-1"
-                  title="Détail de discipline budgetaire"><i class="fa fa-eye"> </i></a>
-                <a routerLink="/chambers-appel/modifier/{{ item.id }}" class="{{ UpdateButtonStyle }} me-1"
-                  title="Modifier la discipline budgetaire"><i class="fa fa-edit"> </i></a>
-                <a routerLink="/chambers-appel/supprimer/{{ item.id }}" class="{{ DeleteButtonStyle }}"
-                  title="Supprimer la discipline budgetaire">
+                <a routerLink="/requêtes-appel/detail/{{ item.id }}" class="{{ DetailButtonStyle }} me-1"
+                  title="Détail de requête d'appel"><i class="fa fa-eye"> </i></a>
+                <a routerLink="/requêtes-appel/modifier/{{ item.id }}" class="{{ UpdateButtonStyle }} me-1"
+                  title="Modifier la requête d'appel"><i class="fa fa-edit"> </i></a>
+                <a routerLink="/requêtes-appel/supprimer/{{ item.id }}" class="{{ DeleteButtonStyle }}"
+                  title="Supprimer la requête d'appel">
                   <i class="fa fa-trash"></i>
                 </a>
               </td>

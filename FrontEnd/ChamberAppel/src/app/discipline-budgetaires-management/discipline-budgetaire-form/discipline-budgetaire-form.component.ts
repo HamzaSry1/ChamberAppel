@@ -47,13 +47,13 @@ export class DisciplineBudgetaireFormComponent implements OnInit {
 
   ReactiveForm = new FormGroup({
     id: new FormControl({ value: Guid.EMPTY, disabled: true }),
-    numero_Dossier: new FormControl(),
-    appelant: new FormControl(),
-    numero_Jugement_Faisant_Objet_De_Appel: new FormControl(),
-    emis_En_Date_Du: new FormControl(),
-    idCRC: new FormControl(),
-    centre_Comptable: new FormControl(),
-    date_Enregistrement_Requete_Cour_Regionale_Des_Comptes: new FormControl(),
+    numero_Dossier: new FormControl('', [Validators.required]),
+    appelant: new FormControl('', [Validators.required]),
+    numero_Jugement_Faisant_Objet_De_Appel: new FormControl('', [Validators.required]),
+    emis_En_Date_Du: new FormControl('', [Validators.required]),
+    idCRC: new FormControl('', [Validators.required]),
+    centre_Comptable: new FormControl('', [Validators.required]),
+    date_Enregistrement_Requete_Cour_Regionale_Des_Comptes: new FormControl('', [Validators.required]),
     date_Requisition_Ministere_Public: new FormControl(),
     numero_Requisition_Ministere_Public: new FormControl(),
 

@@ -37,22 +37,22 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
-    name: 'chambers appel',
-    url: 'chambers-appel',
+    name: "Requêtes d'appel",
+    url: 'requêtes-appel',
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
-    name: 'Importer',
+    name: 'Importe',
     iconComponent: { name: 'cil-cloud-download' },
     children: [
       {
         name: 'Discipline budgetaires',
-        url: 'discipline-budgetaires-importer',
+        url: 'discipline-budgetaires-import',
         iconComponent: { name: 'cil-cloud-download' },
       },
       {
-        name: 'Chamber appel',
-        url: 'chamber-appel-importer',
+        name: "Requêtes d'appel",
+        url: 'requêtes-appel-import',
         iconComponent: { name: 'cil-cloud-download' },
       },
     ],

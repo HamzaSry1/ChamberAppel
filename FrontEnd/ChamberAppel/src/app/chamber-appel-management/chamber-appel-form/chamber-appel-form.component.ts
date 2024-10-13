@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -47,24 +47,19 @@ export class ChamberAppelFormComponent implements OnInit {
 
   ReactiveForm = new FormGroup({
     id: new FormControl({ value: Guid.EMPTY, disabled: true }),
-    numero_Dossier: new FormControl(),
-    appelant: new FormControl(),
-    numero_Jugement_Faisant_Objet_De_Appel: new FormControl(),
-    emis_En_Date_Du: new FormControl(),
-    idCRC: new FormControl(),
-    centre_Comptable: new FormControl(),
-    date_Enregistrement_Requete_Cour_Regionale_Des_Comptes: new FormControl(),
-    date_Requisition_Ministere_Public: new FormControl(),
-    numero_Requisition_Ministere_Public: new FormControl(),
-
+    numero_Dossier: new FormControl('', [Validators.required]),
+    appelant: new FormControl('', [Validators.required]),
+    numero_Jugement_Faisant_Objet_De_Appel: new FormControl('', [Validators.required]),
+    emis_En_Date_Du: new FormControl('', [Validators.required]),
+    idCRC: new FormControl('', [Validators.required]),
+    centre_Comptable: new FormControl('', [Validators.required]),
+    exercice_fiscal: new FormControl('', [Validators.required]),
+    date_Enregistrement_Requete_Cour_Regionale_Des_Comptes: new FormControl('', [Validators.required]),
     date_Ordonnance_Designation_Conseiller_Rapporteur: new FormControl(),
-    numero_Ordonnance_Designation_Conseiller_Rapporteur: new FormControl(),
     conseiller_Rapporteur: new FormControl(),
-    date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
-      new FormControl(),
-    numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
-      new FormControl(),
+    date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant: new FormControl(),
     conseiller_Rapporteur_Remplacant: new FormControl(),
+    date_Demande_Documents_Supplementaires: new FormControl(),
     date_Envoi_Requete_Parties: new FormControl(),
 
     //region Parties
@@ -75,10 +70,8 @@ export class ChamberAppelFormComponent implements OnInit {
 
     date_de_reception_par_les_parties_Agent_du_Roi_au_CRC: new FormControl(),
     date_de_reception_par_les_parties_Entrepot_Regional: new FormControl(),
-    date_de_reception_par_les_parties_Travailleur_du_territoire:
-      new FormControl(),
-    date_de_reception_par_les_parties_President_de_la_Commune:
-      new FormControl(),
+    date_de_reception_par_les_parties_Travailleur_du_territoire: new FormControl(),
+    date_de_reception_par_les_parties_President_de_la_Commune: new FormControl(),
 
     reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC: new FormControl(),
     reponse_au_memoire_d_appel_Entrepot_Regional: new FormControl(),
@@ -86,28 +79,24 @@ export class ChamberAppelFormComponent implements OnInit {
     reponse_au_memoire_d_appel_President_de_la_Commune: new FormControl(),
     //endregion Parties
 
-    date_Demande_Documents_Supplementaires: new FormControl(),
-    date_Convocation_Interesse_Audience: new FormControl(),
-    date_Enquete_Sur_Le_Terrain: new FormControl(),
     date_Preparation_Rapport: new FormControl(),
+    designation_du_Conseiller_Reviseur: new FormControl(),
+    date_Designation_du_Conseiller_Reviseur: new FormControl(),
+    designation_du_Conseiller_Reviseur_Remplacant: new FormControl(),
+    date_Designation_du_Conseiller_Reviseur_Remplacant: new FormControl(),
+    date_de_preparation_de_l_avis_de_l_examinateur: new FormControl(),
     date_Transmission_Dossier_Ministere_Public: new FormControl(),
+    date_Retour_Dossier_Ministere_Public: new FormControl(),
     date_Conclusions_Ministere_Public: new FormControl(),
     numero_Conclusions_Ministere_Public: new FormControl(),
-    date_Reception_Convocation_Interesse_Consultation: new FormControl(),
-    date_Reception_Convocation_Avocat_Consultation: new FormControl(),
-    date_Consultation_Interesse: new FormControl(),
-    date_Consultation_Avocat: new FormControl(),
-    date_Retour_Dossier_Greffe_Central: new FormControl(),
-    convocation_Interesse_Audience_Jugement: new FormControl(),
-    convocation_Avocat_Audience_Jugement: new FormControl(),
-    date_Audience_Jugement: new FormControl(),
-    convocation_Avocat_Prononce_Jugement: new FormControl(),
-    convocation_Interesse_Prononce_Jugement: new FormControl(),
-    date_Audience_Prononce_Jugement: new FormControl(),
+    date_de_la_session: new FormControl(),
     dispositif_Decision: new FormControl(),
     numero_Decision: new FormControl(),
-    date_Envoi_Decision_Notification_Parties: new FormControl(),
-    date_Reception_Comptable_Copie_Decision: new FormControl(),
+    date_d_envoi_de_la_decision_pour_notifier_les_parties: new FormControl(),
+    date_de_reception_par_le_comptable_d_une_copie_de_la_decision: new FormControl(),
+    updatedBy: new FormControl(),
+    updateTime: new FormControl(),
+    isActive: new FormControl(),
   });
 
   ngOnInit(): void {
