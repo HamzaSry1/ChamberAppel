@@ -39,7 +39,7 @@ export class DisciplineBudgetaireDeleteComponent {
     DisciplineBudgetairesService.deleteApiDisciplineBudgetairesDeleteAsync(id)
       .then(() => {
         this._notify.Success(AppMessageService.Delete);
-        this._router.navigate(['/roles']);
+        this._router.navigate(['/discipline-budgetaires']);
       })
       .catch(() => this._notify.Error(AppMessageService.ErrorDelete));
   }

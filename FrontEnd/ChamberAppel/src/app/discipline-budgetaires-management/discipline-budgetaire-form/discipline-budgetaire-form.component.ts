@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Guid } from 'guid-typescript';
@@ -18,7 +18,7 @@ import { ButtonStyle } from 'src/app/shared/button-style';
   templateUrl: './discipline-budgetaire-form.component.html',
   styleUrls: ['./discipline-budgetaire-form.component.scss'],
 })
-export class DisciplineBudgetaireFormComponent {
+export class DisciplineBudgetaireFormComponent implements OnInit {
   public Id!: string;
   public validationMessages = Const.ValidationMessages;
   public AddOrEditButtonStyle!: string;
