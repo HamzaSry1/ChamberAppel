@@ -3,6 +3,6 @@
     public enum EnumFileType
     {
         DisciplineBudgetaire,
-        ChamberAppel
+        RequeteAppele
     }
 }

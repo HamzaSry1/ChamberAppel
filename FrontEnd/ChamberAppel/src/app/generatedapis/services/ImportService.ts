@@ -3,10 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BooleanApiResponse } from '../models/BooleanApiResponse';
-import type { ChamberAppeleTempDatatableResponse } from '../models/ChamberAppeleTempDatatableResponse';
 import type { DisciplineBudgetaireTempDatatableResponse } from '../models/DisciplineBudgetaireTempDatatableResponse';
 import type { DtoPagination } from '../models/DtoPagination';
 import type { EnumFileType } from '../models/EnumFileType';
+import type { RequeteAppelTempDatatableResponse } from '../models/RequeteAppelTempDatatableResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -68,12 +68,12 @@ export class ImportService {
     }
     /**
      * @param requestBody
-     * @returns ChamberAppeleTempDatatableResponse OK
+     * @returns RequeteAppelTempDatatableResponse OK
      * @throws ApiError
      */
     public static postApiImportGetAllChamberAppeleValide(
         requestBody?: DtoPagination,
-    ): CancelablePromise<ChamberAppeleTempDatatableResponse> {
+    ): CancelablePromise<RequeteAppelTempDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Import/GetAllChamberAppeleValide',
@@ -83,12 +83,12 @@ export class ImportService {
     }
     /**
      * @param requestBody
-     * @returns ChamberAppeleTempDatatableResponse OK
+     * @returns RequeteAppelTempDatatableResponse OK
      * @throws ApiError
      */
     public static postApiImportGetAllChamberAppeleErrors(
         requestBody?: DtoPagination,
-    ): CancelablePromise<ChamberAppeleTempDatatableResponse> {
+    ): CancelablePromise<RequeteAppelTempDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Import/GetAllChamberAppeleErrors',

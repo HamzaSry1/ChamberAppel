@@ -14,11 +14,11 @@ namespace ChamberAppel.Api.Controllers
     public class ImportController : ControllerBase
     {
         private readonly IDisciplineBudgetaireImportService _serviceDisciplineBudgetaire;
-        private readonly IChamberAppelImportService _serviceChamberAppel;
+        private readonly IRequeteAppelImportService _serviceChamberAppel;
 
         public ImportController(
             IDisciplineBudgetaireImportService serviceDisciplineBudgetaire,
-            IChamberAppelImportService serviceChamberAppel)
+            IRequeteAppelImportService serviceChamberAppel)
         {
             _serviceDisciplineBudgetaire = serviceDisciplineBudgetaire;
             _serviceChamberAppel = serviceChamberAppel;
@@ -27,7 +27,7 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("Importe")]
         public async Task<ApiResponse<bool>> Importe(DtoUploadFile request)
         {
-            var result = request.FileType == EnumFileType.ChamberAppel
+            var result = request.FileType == EnumFileType.RequeteAppele
                 ? await _serviceChamberAppel.Upload(request.file, request.UpdatedBy)
                 : await _serviceDisciplineBudgetaire.Upload(request.file, request.UpdatedBy);
 
@@ -46,18 +46,18 @@ namespace ChamberAppel.Api.Controllers
             => await _serviceDisciplineBudgetaire.GetAllErrorsData(pagination);
 
         [HttpPost("GetAllChamberAppeleValide")]
-        public async Task<DatatableResponse<ChamberAppeleTemp>> GetAllChamberAppeleValide(DtoPagination pagination)
+        public async Task<DatatableResponse<RequeteAppelTemp>> GetAllChamberAppeleValide(DtoPagination pagination)
             => await _serviceChamberAppel.GetAllValideData(pagination);
 
         [HttpPost("GetAllChamberAppeleErrors")]
-        public async Task<DatatableResponse<ChamberAppeleTemp>> GetAllChamberAppeleErrors(DtoPagination pagination)
+        public async Task<DatatableResponse<RequeteAppelTemp>> GetAllChamberAppeleErrors(DtoPagination pagination)
             => await _serviceChamberAppel.GetAllErrorsData(pagination);
 
         [HttpPost("Analyse")]
         public async Task<ApiResponse<bool>> Analyse(EnumFileType fileType)
         {
             bool result;
-            if (fileType == EnumFileType.ChamberAppel)
+            if (fileType == EnumFileType.RequeteAppele)
             {
                 result = await _serviceChamberAppel.Fusionner();
             }
@@ -77,7 +77,7 @@ namespace ChamberAppel.Api.Controllers
         public async Task<ApiResponse<bool>> Fusionner(EnumFileType fileType)
         {
             bool result;
-            if (fileType == EnumFileType.ChamberAppel)
+            if (fileType == EnumFileType.RequeteAppele)
             {
                 result = await _serviceChamberAppel.Fusionner();
             }
@@ -96,7 +96,7 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("Exporter")]
         public async Task<IActionResult> Exporter(EnumFileType fileType)
         {
-            if (fileType == EnumFileType.ChamberAppel)
+            if (fileType == EnumFileType.RequeteAppele)
             {
                 var response = await _serviceChamberAppel.GetAllErrorsData(null);
                 return this.DownloadAsExcelFile(response.Data, Const.List_Chamber_Appel_With_Errors);

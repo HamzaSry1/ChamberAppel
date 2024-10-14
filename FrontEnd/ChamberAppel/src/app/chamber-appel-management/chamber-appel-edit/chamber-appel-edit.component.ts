@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppMessageService } from 'src/app/app-message.service';
-import { ChamberAppele } from 'src/app/generatedapis/models/ChamberAppele';
-import { ChamberAppelService } from 'src/app/generatedapis/services/ChamberAppelService';
+import { RequeteAppel } from 'src/app/generatedapis/models/RequeteAppel';
+import { RequetesAppelService } from 'src/app/generatedapis/services/RequetesAppelService';
 
 @Component({
   selector: 'app-chamber-appel-edit',
@@ -15,11 +15,11 @@ export class ChamberAppelEditComponent {
     private _router: Router,
   ) { }
 
-  OnSave(data: ChamberAppele) {
-    ChamberAppelService.putApiChamberAppelUpdateAsync(data)
+  OnSave(data: RequeteAppel) {
+    RequetesAppelService.putApiRequetesAppelUpdateAsync(data)
       .then(() => {
         this._notify.Success(AppMessageService.Edit);
-        this._router.navigate(['/chambers-appel']);
+        this._router.navigate(['/requêtes-appel']);
       })
       .catch(() => {
         this._notify.Error(AppMessageService.ErrorAddEdit);

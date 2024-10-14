@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmBoxEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { AppMessageService } from 'src/app/app-message.service';
-import { ChamberAppele } from 'src/app/generatedapis/models/ChamberAppele';
-import { ChamberAppelService } from 'src/app/generatedapis/services/ChamberAppelService';
+import { RequeteAppel } from 'src/app/generatedapis/models/RequeteAppel';
+import { RequetesAppelService } from 'src/app/generatedapis/services/RequetesAppelService';
 
 @Component({
   selector: 'app-chamber-appel-delete',
@@ -17,7 +17,7 @@ export class ChamberAppelDeleteComponent {
     private _router: Router
   ) { }
 
-  ConfirmDelete(data: ChamberAppele) {
+  ConfirmDelete(data: RequeteAppel) {
     this._notifyConfirm
       .danger(
         'Supprimer',
@@ -36,10 +36,10 @@ export class ChamberAppelDeleteComponent {
   }
 
   Delete(id: string) {
-    ChamberAppelService.deleteApiChamberAppelDeleteAsync(id)
+    RequetesAppelService.deleteApiRequetesAppelDeleteAsync(id)
       .then(() => {
         this._notify.Success(AppMessageService.Delete);
-        this._router.navigate(['/chambers-appel']);
+        this._router.navigate(['/requêtes-appel']);
       })
       .catch(() => this._notify.Error(AppMessageService.ErrorDelete));
   }

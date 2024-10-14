@@ -70,21 +70,21 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'requêtes-appel',
+        path: 'requetes-appel',
         loadChildren: () =>
           import(
             './chamber-appel-management/chamber-appel-management.module'
           ).then((m) => m.ChamberAppelManagementModule),
         canActivate: [AuthGuard],
       },
-      // {
-      //   path: 'chamber-appel-importer',
-      //   loadChildren: () =>
-      //     import(
-      //       './chamber-appel-import-management/chamber-appel-import-management.module'
-      //     ).then((m) => m.ChamberAppelImportManagementModule),
-      //   canActivate: [AuthGuard],
-      // },
+      {
+        path: 'requêtes-appel-importe',
+        loadChildren: () =>
+          import(
+            './requete-appel-importe-management/requete-appel-importe-management.module'
+          ).then((m) => m.RequeteAppelImporteManagementModule),
+        canActivate: [AuthGuard],
+      },
       {
         path: 'discipline-budgetaires',
         loadChildren: () =>
@@ -93,14 +93,14 @@ const routes: Routes = [
           ).then((m) => m.DisciplineBudgetairesManagementModule),
         canActivate: [AuthGuard],
       },
-      // {
-      //   path: 'discipline-budgetaires-importer',
-      //   loadChildren: () =>
-      //     import(
-      //       './discipline-budgetaires-import-management/discipline-budgetaires-import-management.module'
-      //     ).then((m) => m.DisciplineBudgetairesImportManagementModule),
-      //   canActivate: [AuthGuard],
-      // },
+      {
+        path: 'discipline-budgetaires-importe',
+        loadChildren: () =>
+          import(
+            './discipline-budgetaires-importe-management/discipline-budgetaires-importe-management.module'
+          ).then((m) => m.DisciplineBudgetairesImporteManagementModule),
+        canActivate: [AuthGuard],
+      },
       {
         path: 'pages',
         loadChildren: () =>

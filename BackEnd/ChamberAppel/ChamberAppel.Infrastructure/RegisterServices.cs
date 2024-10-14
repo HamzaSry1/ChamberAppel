@@ -32,8 +32,8 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<ILoggingRepository, LoggingRepository>();
             service.AddScoped<ICRCRepository, CRCRepository>();
             service.AddScoped<IDisciplineBudgetaireImportRepository, DisciplineBudgetaireImportRepository>();
-            service.AddScoped<IChamberAppelRepository, ChamberAppelRepository>();
-            service.AddScoped<IChamberAppelImportRepository, ChamberAppelImportRepository>();
+            service.AddScoped<IRequeteAppelRepository, RequeteAppelRepository>();
+            service.AddScoped<IRequeteAppelImportRepository, RequeteAppelImportRepository>();
 
             // Register Services
             service.AddScoped<IDisciplineBudgetaireService, DisciplineBudgetaireService>();
@@ -48,8 +48,8 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IAuthentification, Authentification>();
             service.AddScoped<ICRCService, CRCService>();
             service.AddScoped<IDisciplineBudgetaireImportService, DisciplineBudgetaireImportService>();
-            service.AddScoped<IChamberAppelImportService, ChamberAppelImportService>();
-            service.AddScoped<IChamberAppelService, ChamberAppelService>();
+            service.AddScoped<IRequeteAppelImportService, RequeteAppelImportService>();
+            service.AddScoped<IRequeteAppelService, RequeteAppelService>();
 
             return service;
         }

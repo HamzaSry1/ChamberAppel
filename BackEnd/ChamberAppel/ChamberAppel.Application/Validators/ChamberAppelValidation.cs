@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace ChamberAppel.Application.Validators
 {
-    public class ChamberAppelValidation : AbstractValidator<ChamberAppele>
+    public class ChamberAppelValidation : AbstractValidator<RequeteAppel>
     {
         public ChamberAppelValidation()
         {

@@ -5,10 +5,6 @@ export const navItems: INavData[] = [
     name: 'Accueil',
     url: '/accueil',
     iconComponent: { name: 'cil-align-left' },
-    // badge: {
-    //   color: 'info',
-    //   text: 'NEW',
-    // },
   },
   {
     name: "Gestion d'accès",
@@ -37,8 +33,8 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
-    name: "Requêtes d'appel",
-    url: 'requêtes-appel',
+    name: "Requetes d'appel",
+    url: 'requetes-appel',
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
@@ -47,12 +43,12 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Discipline budgetaires',
-        url: 'discipline-budgetaires-import',
+        url: 'discipline-budgetaires-importe',
         iconComponent: { name: 'cil-cloud-download' },
       },
       {
-        name: "Requêtes d'appel",
-        url: 'requêtes-appel-import',
+        name: "Requetes d'appel",
+        url: 'requetes-appel-importe',
         iconComponent: { name: 'cil-cloud-download' },
       },
     ],

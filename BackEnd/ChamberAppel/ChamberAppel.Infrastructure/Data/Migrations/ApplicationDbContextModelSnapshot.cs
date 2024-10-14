@@ -426,6 +426,299 @@ namespace ChamberAppel.Infrastructure.Migrations
                     b.ToTable("Permissions");
                 });
 
+            modelBuilder.Entity("ChamberAppel.Domain.Models.RequeteAppel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<string>("Appelant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Centre_Comptable")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Conseiller_Rapporteur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Conseiller_Rapporteur_Remplacant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<DateTime?>("Date_Conclusions_Ministere_Public")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Demande_Documents_Supplementaires")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Designation_du_Conseiller_Reviseur")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Designation_du_Conseiller_Reviseur_Remplacant")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Envoi_Requete_Parties")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Ordonnance_Designation_Conseiller_Rapporteur")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Preparation_Rapport")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Retour_Dossier_Ministere_Public")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_Transmission_Dossier_Ministere_Public")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_d_envoi_de_la_decision_pour_notifier_les_parties")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_la_session")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_preparation_de_l_avis_de_l_examinateur")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_reception_par_le_comptable_d_une_copie_de_la_decision")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_reception_par_les_parties_Entrepot_Regional")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_reception_par_les_parties_President_de_la_Commune")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime?>("Date_de_reception_par_les_parties_Travailleur_du_territoire")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<string>("Designation_du_Conseiller_Reviseur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Designation_du_Conseiller_Reviseur_Remplacant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Dispositif_Decision")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<DateTime?>("Emis_En_Date_Du")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime>("Exercice_fiscal")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<Guid>("IdCRC")
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("Numero_Conclusions_Ministere_Public")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Decision")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Dossier")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Jugement_Faisant_Objet_De_Appel")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_Agent_du_Roi_au_CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_Entrepot_Regional")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_President_de_la_Commune")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_Travailleur_du_territoire")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_Entrepot_Regional")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_President_de_la_Commune")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_Travailleur_du_territoire")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(80)
+                        .HasColumnType("NVARCHAR2(80)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdCRC");
+
+                    b.ToTable("RequetesAppel");
+                });
+
+            modelBuilder.Entity("ChamberAppel.Domain.Models.RequeteAppelTemp", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<string>("Appelant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Centre_Comptable")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Conseiller_Rapporteur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Conseiller_Rapporteur_Remplacant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Conclusions_Ministere_Public")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Demande_Documents_Supplementaires")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Designation_du_Conseiller_Reviseur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Designation_du_Conseiller_Reviseur_Remplacant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Envoi_Requete_Parties")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Ordonnance_Designation_Conseiller_Rapporteur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Preparation_Rapport")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Retour_Dossier_Ministere_Public")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_Transmission_Dossier_Ministere_Public")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_d_envoi_de_la_decision_pour_notifier_les_parties")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_la_session")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_preparation_de_l_avis_de_l_examinateur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_reception_par_le_comptable_d_une_copie_de_la_decision")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_reception_par_les_parties_Entrepot_Regional")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_reception_par_les_parties_President_de_la_Commune")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Date_de_reception_par_les_parties_Travailleur_du_territoire")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Designation_du_Conseiller_Reviseur")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Designation_du_Conseiller_Reviseur_Remplacant")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Dispositif_Decision")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Emis_En_Date_Du")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Exercice_fiscal")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Conclusions_Ministere_Public")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Decision")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Dossier")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Numero_Jugement_Faisant_Objet_De_Appel")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_Agent_du_Roi_au_CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_Entrepot_Regional")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_President_de_la_Commune")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Parties_Travailleur_du_territoire")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_Entrepot_Regional")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_President_de_la_Commune")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Reponse_au_memoire_d_appel_Travailleur_du_territoire")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("RowError")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<int>("RowNumber")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("UpdateTime")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RequetesAppelTemp");
+                });
+
             modelBuilder.Entity("ChamberAppel.Domain.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -681,6 +974,17 @@ namespace ChamberAppel.Infrastructure.Migrations
                 });
 
             modelBuilder.Entity("ChamberAppel.Domain.Models.DisciplineBudgetaire", b =>
+                {
+                    b.HasOne("ChamberAppel.Domain.Models.CRC", "CRC")
+                        .WithMany()
+                        .HasForeignKey("IdCRC")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CRC");
+                });
+
+            modelBuilder.Entity("ChamberAppel.Domain.Models.RequeteAppel", b =>
                 {
                     b.HasOne("ChamberAppel.Domain.Models.CRC", "CRC")
                         .WithMany()

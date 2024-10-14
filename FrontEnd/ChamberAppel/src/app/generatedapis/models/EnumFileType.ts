@@ -4,5 +4,5 @@
 /* eslint-disable */
 export enum EnumFileType {
     DISCIPLINE_BUDGETAIRE = 'DisciplineBudgetaire',
-    CHAMBER_APPEL = 'ChamberAppel',
+    REQUETE_APPELE = 'RequeteAppele',
 }

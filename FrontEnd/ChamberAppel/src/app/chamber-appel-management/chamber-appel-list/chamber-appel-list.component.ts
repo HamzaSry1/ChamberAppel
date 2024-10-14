@@ -1,6 +1,3 @@
-import { ChamberAppelService } from './../../generatedapis/services/ChamberAppelService';
-import { DtoFiltreChamberAppeleDatatableRequest } from './../../generatedapis/models/DtoFiltreChamberAppeleDatatableRequest';
-import { ChamberAppele } from './../../generatedapis/models/ChamberAppele';
 import { Component, OnInit } from '@angular/core';
 import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 import { ButtonStyle } from 'src/app/shared/button-style';
@@ -14,9 +11,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CRCListApiResponse } from 'src/app/generatedapis/models/CRCListApiResponse';
 import { CrCsService } from 'src/app/generatedapis/services/CrCsService';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ChamberAppeleDatatableResponse } from 'src/app/generatedapis/models/ChamberAppeleDatatableResponse';
 import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.service';
 import { Const } from 'src/app/Helpers/Const';
+import { DtoFiltreRequeteAppeleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreRequeteAppeleDatatableRequest';
+import { RequetesAppelService } from 'src/app/generatedapis/services/RequetesAppelService';
+import { RequeteAppelDatatableResponse } from 'src/app/generatedapis/models/RequeteAppelDatatableResponse';
+import { RequeteAppel } from 'src/app/generatedapis/models/RequeteAppel';
 
 @Component({
   selector: 'app-chamber-appel-list',
@@ -33,13 +33,13 @@ export class ChamberAppelListComponent implements OnInit {
   public ImporterButtonStyle = ButtonStyle.success;
   public SearchButtonStyle = ButtonStyle.primary_block;
 
-  public Data!: ChamberAppele[];
+  public Data!: RequeteAppel[];
   public pageNumber = 1;
   public orderBy = 'Numero_Dossier';
   public orderByDirection = 'desc';
   public RecordTotal = 0;
   public RecordFiltred = 0;
-  public DataTableRequest!: DtoFiltreChamberAppeleDatatableRequest;
+  public DataTableRequest!: DtoFiltreRequeteAppeleDatatableRequest;
   public filterSaver!: FilterSaver;
   public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
   public pageSize = environment.pageSize;
@@ -61,12 +61,12 @@ export class ChamberAppelListComponent implements OnInit {
 
     this.filterSaver = new FilterSaver(
       this.FilterForm,
-      'ChamberAppele-list-filters'
+      'RequeteAppel-list-filters'
     );
     this.filterSaver.saveFilters();
     this.LoadCRC();
     this.LoadData();
-    if (localStorage.getItem('ChamberAppele-list-details') == 'true') {
+    if (localStorage.getItem('RequeteAppel-list-details') == 'true') {
       this.showDetails = true;
     } else {
       this.showDetails = false;
@@ -104,7 +104,7 @@ export class ChamberAppelListComponent implements OnInit {
     this.showDetails = !this.showDetails;
     this.showDetailsState = this.showDetails ? 'visible' : 'hidden';
     localStorage.setItem(
-      'DisciplineBudgetaires-list-details',
+      'RequeteAppel-list-details',
       this.showDetails.toString()
     );
   }
@@ -131,8 +131,8 @@ export class ChamberAppelListComponent implements OnInit {
         emis_En_Date_Du: this.FilterForm.getRawValue().emis_En_Date_Du,
         idCRC: this.FilterForm.getRawValue().idCRC,
         numero_Dossier: this.FilterForm.getRawValue().numero_Dossier,
-        exercice_fiscal : this.FilterForm.getRawValue().exercice_fiscal,
-        numero_Jugement_Faisant_Objet_De_Appel : this.FilterForm.getRawValue().numero_Jugement_Faisant_Objet_De_Appel,
+        exercice_fiscal: this.FilterForm.getRawValue().exercice_fiscal,
+        numero_Jugement_Faisant_Objet_De_Appel: this.FilterForm.getRawValue().numero_Jugement_Faisant_Objet_De_Appel,
 
       },
       pagination: {
@@ -142,10 +142,10 @@ export class ChamberAppelListComponent implements OnInit {
         orderByDirection: this.orderByDirection,
       },
     };
-    ChamberAppelService.postApiChamberAppelGetAllFiltredAsync(
+    RequetesAppelService.postApiRequetesAppelGetAllFiltredAsync(
       this.DataTableRequest
     )
-      .then((result: ChamberAppeleDatatableResponse) => {
+      .then((result: RequeteAppelDatatableResponse) => {
         this.Data = result.data ?? [];
         this.RecordFiltred = result.recordFiltred ?? 0;
         this.RecordTotal = result.recordTotal ?? 0;
@@ -168,7 +168,7 @@ export class ChamberAppelListComponent implements OnInit {
       );
       this.http
         .post(
-          environment.apiUrl + '/api/ChamberAppel/ExporterAsync',
+          environment.apiUrl + '/api/RequetesAppel/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
             appelant: this.FilterForm.getRawValue().appelant,
@@ -176,7 +176,7 @@ export class ChamberAppelListComponent implements OnInit {
             emis_En_Date_Du: this.FilterForm.getRawValue().emis_En_Date_Du,
             idCRC: this.FilterForm.getRawValue().idCRC,
             numero_Dossier: this.FilterForm.getRawValue().numero_Dossier,
-            exercice_fiscal : this.FilterForm.getRawValue().exercice_fiscal,
+            exercice_fiscal: this.FilterForm.getRawValue().exercice_fiscal,
             numero_Jugement_Faisant_Objet_De_Appel: this.FilterForm.getRawValue().numero_Jugement_Faisant_Objet_De_Appel,
           }),
           {

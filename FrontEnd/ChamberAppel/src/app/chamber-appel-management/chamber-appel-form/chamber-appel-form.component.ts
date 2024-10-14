@@ -5,11 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Guid } from 'guid-typescript';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AppMessageService } from 'src/app/app-message.service';
-import { ChamberAppeleApiResponse } from 'src/app/generatedapis/models/ChamberAppeleApiResponse';
 import { CRC } from 'src/app/generatedapis/models/CRC';
 import { CRCListApiResponse } from 'src/app/generatedapis/models/CRCListApiResponse';
-import { ChamberAppelService } from 'src/app/generatedapis/services/ChamberAppelService';
+import { RequeteAppelApiResponse } from 'src/app/generatedapis/models/RequeteAppelApiResponse';
 import { CrCsService } from 'src/app/generatedapis/services/CrCsService';
+import { RequetesAppelService } from 'src/app/generatedapis/services/RequetesAppelService';
 import { Const } from 'src/app/Helpers/Const';
 import { ButtonStyle } from 'src/app/shared/button-style';
 
@@ -125,8 +125,8 @@ export class ChamberAppelFormComponent implements OnInit {
 
   GetDataById(Id: string) {
     this._loader.show();
-    ChamberAppelService.getApiChamberAppelGetByIdAsync(Id)
-      .then((res: ChamberAppeleApiResponse) => {
+    RequetesAppelService.getApiRequetesAppelGetByIdAsync(Id)
+      .then((res: RequeteAppelApiResponse) => {
         if (res && res.data) {
           this.ReactiveForm.patchValue({
             id: res.data.id,
