@@ -1,4 +1,5 @@
-﻿using ChamberAppel.Domain.Models;
+﻿using ChamberAppel.Application.Messages;
+using ChamberAppel.Domain.Models;
 using FluentValidation;
 
 namespace ChamberAppel.Application.Validators
@@ -10,12 +11,12 @@ namespace ChamberAppel.Application.Validators
             RuleFor(user => user.Code)
                 .NotEmpty()
                 .NotNull()
-                .WithMessage("the Code is required");
+                .WithMessage(Const.Required);
 
             RuleFor(user => user.Label)
                 .NotEmpty()
                 .NotNull()
-                .WithMessage("the Label is required");
+                .WithMessage(Const.Required);
         }
     }
 }

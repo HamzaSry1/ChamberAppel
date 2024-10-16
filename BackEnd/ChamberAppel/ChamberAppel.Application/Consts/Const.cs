@@ -5,6 +5,8 @@
         public static string List_Utilisateurs = "List des utilisateurs";
         public static string List_Roles = "List des roles";
         public static string List_Permissions = "List des permissions";
+        public static string List_Grades = "List des grades";
+        public static string List_Type_Utilisateurs = "List des type utilisateurs";
         public static string List_Discipline_Budgeitaires = "List des discipline budgeitaires";
         public static string List_Chamber_Appel = "List des chamber appeles";
         public static string List_Discipline_Budgeitaires_With_Errors = "List des discipline budgeitaires avec des errors";

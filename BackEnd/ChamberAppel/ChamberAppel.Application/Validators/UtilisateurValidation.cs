@@ -1,4 +1,5 @@
-﻿using ChamberAppel.Domain.DTOs;
+﻿using ChamberAppel.Application.Messages;
+using ChamberAppel.Domain.DTOs;
 using FluentValidation;
 
 namespace ChamberAppel.Application.Validators
@@ -10,22 +11,22 @@ namespace ChamberAppel.Application.Validators
             RuleFor(user => user.Nom)
                 .NotEmpty()
                 .NotNull()
-                .WithMessage("the name is required");
+                .WithMessage(Const.Required);
 
             RuleFor(user => user.Prenom)
                 .NotEmpty()
                 .NotNull()
-                .WithMessage("the Prenom is required");
+                .WithMessage(Const.Required);
 
             RuleFor(user => user.Password)
                .NotEmpty()
                .NotNull()
-               .WithMessage("the Password is required");
+               .WithMessage(Const.Required);
 
             RuleFor(user => user.Login)
               .NotEmpty()
               .NotNull()
-              .WithMessage("the Login is required");
+              .WithMessage(Const.Required);
         }
     }
 }

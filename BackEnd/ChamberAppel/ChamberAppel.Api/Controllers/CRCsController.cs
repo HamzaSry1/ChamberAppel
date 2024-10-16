@@ -85,11 +85,8 @@ namespace ChamberAppel.Api.Controllers
         }
 
         [HttpPost("ExporterAsync")]
-        public async Task<IActionResult> ExporterAsync(DtoFiltreMotsCle request)
+        public async Task<IActionResult> ExporterAsync()
         {
-
-            //TODO : add filtred data 
-
             var data = await _service.GetAllAsync();
             return this.DownloadAsExcelFile(data, Const.List_Permissions);
         }

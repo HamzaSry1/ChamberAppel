@@ -6,7 +6,6 @@ import type { BooleanApiResponse } from '../models/BooleanApiResponse';
 import type { CRC } from '../models/CRC';
 import type { CRCApiResponse } from '../models/CRCApiResponse';
 import type { CRCListApiResponse } from '../models/CRCListApiResponse';
-import type { DtoFiltreMotsCle } from '../models/DtoFiltreMotsCle';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -84,18 +83,13 @@ export class CrCsService {
         });
     }
     /**
-     * @param requestBody
      * @returns any OK
      * @throws ApiError
      */
-    public static postApiCrCsExporterAsync(
-        requestBody?: DtoFiltreMotsCle,
-    ): CancelablePromise<any> {
+    public static postApiCrCsExporterAsync(): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/CRCs/ExporterAsync',
-            body: requestBody,
-            mediaType: 'application/json',
         });
     }
 }
