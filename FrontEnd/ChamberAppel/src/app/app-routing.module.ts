@@ -78,7 +78,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'requêtes-appel-importe',
+        path: 'requetes-appel-importe',
         loadChildren: () =>
           import(
             './requete-appel-importe-management/requete-appel-importe-management.module'

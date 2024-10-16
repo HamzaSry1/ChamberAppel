@@ -2,7 +2,7 @@
 <app-page-action-header [icon]="'fa fa-download'" [title]="'Importer les requetes appel'"
   [titleMobile]="'Imp. les requetes appel'">
   <ng-container>
-    <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2" title="Retour" iconClass="fa fa-arrow-left"
+    <app-header-action-button (clicked)="Retour()" buttonClass="{{ ReturnButtonStyle }} me-2" title="Retour" iconClass="fa fa-arrow-left"
       label="Retour"></app-header-action-button>
 
     <app-header-action-button buttonClass="{{ ExempleButtonStyle }}" title="Ficher d'exemple" iconClass="fa fa-eye"

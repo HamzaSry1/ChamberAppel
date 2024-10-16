@@ -12,7 +12,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace ChamberAppel.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241013234924_generate-migration")]
+    [Migration("20241016090045_generate-migration")]
     partial class generatemigration
     {
         /// <inheritdoc />
