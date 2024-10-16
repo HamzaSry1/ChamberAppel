@@ -1,1 +1,14 @@
-<p>requete-upload works!</p>
+<form enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-12-lg my-2">
+            <label for="formFile" class="my-2">Importer un fichier</label>
+            <input class="form-control" (change)="OnFileSelected($event)" type="file" id="formFile">
+        </div>
+
+        <div class="col-12-lg text-end">
+            <button type="button" (click)="Upload()" class="btn btn-sm btn-outline-primary"> <i
+                    class="fa fa-arrow-right"></i> Suivant
+            </button>
+        </div>
+    </div>
+</form>

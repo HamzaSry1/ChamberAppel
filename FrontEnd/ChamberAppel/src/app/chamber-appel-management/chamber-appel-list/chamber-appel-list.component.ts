@@ -187,7 +187,7 @@ export class ChamberAppelListComponent implements OnInit {
         .subscribe((result: any) => {
           GenerateExcelFileService.GenerateExcel(
             result,
-            Const.List_Chambers_Appel
+            Const.List_Requetes_Appel
           );
           this._loader.hide();
         });
