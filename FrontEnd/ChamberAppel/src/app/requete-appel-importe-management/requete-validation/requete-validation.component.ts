@@ -13,10 +13,9 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-requete-validation',
   templateUrl: './requete-validation.component.html',
-  styleUrls: ['./requete-validation.component.scss']
+  styleUrls: ['./requete-validation.component.scss'],
 })
 export class RequeteValidationComponent implements OnInit {
-
   @Output() BtnNext: EventEmitter<any> = new EventEmitter();
   @Output() BtnPrevious: EventEmitter<any> = new EventEmitter();
   @Output() BtnConfirmer: EventEmitter<any> = new EventEmitter();
@@ -38,7 +37,7 @@ export class RequeteValidationComponent implements OnInit {
     private _loader: NgxSpinnerService,
     private http: HttpClient,
     private _notify: AppMessageService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.Analyse();
@@ -72,9 +71,7 @@ export class RequeteValidationComponent implements OnInit {
       orderByDirection: this.orderByDirection,
     };
 
-    ImportService.postApiImportGetAllChamberAppeleValide(
-      this.pagination
-    )
+    ImportService.postApiImportGetAllRequeteAppelValide(this.pagination)
       .then((res: RequeteAppelTempDatatableResponse) => {
         this.Data = res.data ?? [];
         this.RecordTotal = res.recordTotal ?? 0;
@@ -100,9 +97,7 @@ export class RequeteValidationComponent implements OnInit {
       orderByDirection: this.orderByDirection,
     };
 
-    ImportService.postApiImportGetAllChamberAppeleErrors(
-      this.pagination
-    )
+    ImportService.postApiImportGetAllRequeteAppelErrors(this.pagination)
       .then((res: RequeteAppelTempDatatableResponse) => {
         this.Data = res.data ?? [];
         this.RecordTotal = res.recordTotal ?? 0;
@@ -124,7 +119,7 @@ export class RequeteValidationComponent implements OnInit {
   Previous() {
     this.BtnPrevious.emit();
   }
-  
+
   Confirmer() {
     this.BtnConfirmer.emit();
   }

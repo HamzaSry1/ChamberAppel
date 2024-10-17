@@ -71,12 +71,12 @@ export class ImportService {
      * @returns RequeteAppelTempDatatableResponse OK
      * @throws ApiError
      */
-    public static postApiImportGetAllChamberAppeleValide(
+    public static postApiImportGetAllRequeteAppelValide(
         requestBody?: DtoPagination,
     ): CancelablePromise<RequeteAppelTempDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/Import/GetAllChamberAppeleValide',
+            url: '/api/Import/GetAllRequeteAppelValide',
             body: requestBody,
             mediaType: 'application/json',
         });
@@ -86,12 +86,12 @@ export class ImportService {
      * @returns RequeteAppelTempDatatableResponse OK
      * @throws ApiError
      */
-    public static postApiImportGetAllChamberAppeleErrors(
+    public static postApiImportGetAllRequeteAppelErrors(
         requestBody?: DtoPagination,
     ): CancelablePromise<RequeteAppelTempDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/Import/GetAllChamberAppeleErrors',
+            url: '/api/Import/GetAllRequeteAppelErrors',
             body: requestBody,
             mediaType: 'application/json',
         });
