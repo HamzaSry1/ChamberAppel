@@ -46,6 +46,8 @@
         // تاريخ إرسال العريضة للأطراف
         public string? Date_Envoi_Requete_Parties { get; set; }
 
+
+
         #region les parties
 
         // الأطراف - وكيل الملك لدى المجلس الجهوي للحسابات
@@ -87,6 +89,8 @@
         public string? Reponse_au_memoire_d_appel_President_de_la_Commune { get; set; }
 
         #endregion les parties
+
+
 
         // تاريخ اعداد التقرير
         public string? Date_Preparation_Rapport { get; set; }
