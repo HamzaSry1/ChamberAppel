@@ -23,8 +23,8 @@
 
   <!-- <c-sidebar-brand /> -->
 
-  <ng-scrollbar pointerEventsMethod="scrollbar">
-    <c-sidebar-nav [navItems]="navItems" dropdownMode="close" />
+  <ng-scrollbar pointerEventsMethod="scrollbar" class="my-4">
+    <c-sidebar-nav [navItems]="navItems" dropdownMode="close" class="fw-semibold" />
   </ng-scrollbar>
   <c-sidebar-toggler
     *ngIf="!sidebar.narrow"

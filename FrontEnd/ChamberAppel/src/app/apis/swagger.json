@@ -643,7 +643,7 @@
         }
       }
     },
-    "/api/Import/GetAllChamberAppeleValide": {
+    "/api/Import/GetAllRequeteAppelValide": {
       "post": {
         "tags": [
           "Import"
@@ -691,7 +691,7 @@
         }
       }
     },
-    "/api/Import/GetAllChamberAppeleErrors": {
+    "/api/Import/GetAllRequeteAppelErrors": {
       "post": {
         "tags": [
           "Import"

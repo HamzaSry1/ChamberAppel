@@ -102,6 +102,30 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'crcs',
+        loadChildren: () =>
+          import(
+            './crcs-management/crcs-management.module'
+          ).then((m) => m.CrcsManagementModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'type-grades',
+        loadChildren: () =>
+          import(
+            './type-grades-management/type-grades-management.module'
+          ).then((m) => m.TypeGradesManagementModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'type-utilisatures',
+        loadChildren: () =>
+          import(
+            './type-utilisateurs-management/type-utilisateurs-management.module'
+          ).then((m) => m.TypeUtilisateursManagementModule),
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'pages',
         loadChildren: () =>
           import('./views/pages/pages.module').then((m) => m.PagesModule),

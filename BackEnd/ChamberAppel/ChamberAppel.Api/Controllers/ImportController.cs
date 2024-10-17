@@ -45,12 +45,12 @@ namespace ChamberAppel.Api.Controllers
         public async Task<DatatableResponse<DisciplineBudgetaireTemp>> GetAllDisciplineBudgetaireErrors(DtoPagination pagination)
             => await _serviceDisciplineBudgetaire.GetAllErrorsData(pagination);
 
-        [HttpPost("GetAllChamberAppeleValide")]
-        public async Task<DatatableResponse<RequeteAppelTemp>> GetAllChamberAppeleValide(DtoPagination pagination)
+        [HttpPost("GetAllRequeteAppelValide")]
+        public async Task<DatatableResponse<RequeteAppelTemp>> GetAllRequeteAppelValide(DtoPagination pagination)
             => await _serviceChamberAppel.GetAllValideData(pagination);
 
-        [HttpPost("GetAllChamberAppeleErrors")]
-        public async Task<DatatableResponse<RequeteAppelTemp>> GetAllChamberAppeleErrors(DtoPagination pagination)
+        [HttpPost("GetAllRequeteAppelErrors")]
+        public async Task<DatatableResponse<RequeteAppelTemp>> GetAllRequeteAppelErrors(DtoPagination pagination)
             => await _serviceChamberAppel.GetAllErrorsData(pagination);
 
         [HttpPost("Analyse")]

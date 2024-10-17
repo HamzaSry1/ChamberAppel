@@ -19,6 +19,8 @@ export class RequeteValidationComponent implements OnInit {
 
   @Output() BtnNext: EventEmitter<any> = new EventEmitter();
   @Output() BtnPrevious: EventEmitter<any> = new EventEmitter();
+  @Output() BtnConfirmer: EventEmitter<any> = new EventEmitter();
+
   @Output() BtnDownloadListWithErrors: EventEmitter<any> = new EventEmitter();
 
   public Data!: RequeteAppelTemp[];
@@ -121,6 +123,10 @@ export class RequeteValidationComponent implements OnInit {
 
   Previous() {
     this.BtnPrevious.emit();
+  }
+  
+  Confirmer() {
+    this.BtnConfirmer.emit();
   }
 
   Next() {

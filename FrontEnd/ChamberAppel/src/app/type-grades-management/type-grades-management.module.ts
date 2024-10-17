@@ -8,7 +8,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedTableCaseModule } from '../shared-table-case/shared-table-case.module';
 import { DesignSystemModule } from '../design-system/design-system.module';
-import { PermissionsFormComponent } from './permissions-form/permissions-form.component';
 
 import { TypeGradesManagementRoutingModule } from './type-grades-management-routing.module';
 import { GradeListComponent } from './grade-list/grade-list.component';
@@ -18,7 +17,6 @@ import { GradeDetailComponent } from './grade-detail/grade-detail.component';
 import { GradeDeleteComponent } from './grade-delete/grade-delete.component';
 import { GradeFormComponent } from './grade-form/grade-form.component';
 
-
 @NgModule({
   declarations: [
     GradeListComponent,
@@ -26,12 +24,20 @@ import { GradeFormComponent } from './grade-form/grade-form.component';
     GradeEditComponent,
     GradeDetailComponent,
     GradeDeleteComponent,
-    GradeFormComponent
+    GradeFormComponent,
   ],
   imports: [
     CommonModule,
     TypeGradesManagementRoutingModule,
-    , NgxSpinnerModule, IconModule, FormsModule, NgbModule, MatIconModule, MatSortModule, ReactiveFormsModule, SharedTableCaseModule, DesignSystemModule
-  ]
+    NgxSpinnerModule,
+    IconModule,
+    FormsModule,
+    NgbModule,
+    MatIconModule,
+    MatSortModule,
+    ReactiveFormsModule,
+    SharedTableCaseModule,
+    DesignSystemModule,
+  ],
 })
-export class TypeGradesManagementModule { }
+export class TypeGradesManagementModule {}

@@ -1,4 +1,4 @@
-<!--cas when list is valid  -->
+<!-- cas when list is valid  -->
 <div class="row" *ngIf="!ListHasError">
   <!-- alert -->
   <div class="col-md-12">
@@ -211,36 +211,103 @@
         <tr *ngFor="let item of Data">
           <td class="text-start">{{ item.numero_Dossier }}</td>
           <td class="text-start">{{ item.appelant }}</td>
-          <td class="text-start">{{ item.numero_Jugement_Faisant_Objet_De_Appel }} </td>
+          <td class="text-start">
+            {{ item.numero_Jugement_Faisant_Objet_De_Appel }}
+          </td>
           <td class="text-start">{{ item.emis_En_Date_Du }}</td>
           <td class="text-start">{{ item.crc }}</td>
           <td class="text-start">{{ item.centre_Comptable }}</td>
           <td class="text-start">{{ item.exercice_fiscal }}</td>
-          <td class="text-start">{{ item.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes }}</td>
+          <td class="text-start">
+            {{ item.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes }}
+          </td>
           <td class="text-start">{{ item.conseiller_Rapporteur }}</td>
-          <td class="text-start">{{ item.date_Ordonnance_Designation_Conseiller_Rapporteur }}</td>
-          <td class="text-start">{{ item.conseiller_Rapporteur_Remplacant }}</td>
-          <td class="text-start">{{ item.date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant}}</td>
-          <td class="text-start">{{ item.date_Demande_Documents_Supplementaires }}</td>
+          <td class="text-start">
+            {{ item.date_Ordonnance_Designation_Conseiller_Rapporteur }}
+          </td>
+          <td class="text-start">
+            {{ item.conseiller_Rapporteur_Remplacant }}
+          </td>
+          <td class="text-start">
+            {{
+              item.date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant
+            }}
+          </td>
+          <td class="text-start">
+            {{ item.date_Demande_Documents_Supplementaires }}
+          </td>
           <td class="text-start">{{ item.date_Envoi_Requete_Parties }}</td>
           <td class="text-start">{{ item.parties_Agent_du_Roi_au_CRC }}</td>
           <td class="text-start">{{ item.parties_Entrepot_Regional }}</td>
-          <td class="text-start">{{ item.parties_Travailleur_du_territoire }} </td>
+          <td class="text-start">
+            {{ item.parties_Travailleur_du_territoire }}
+          </td>
           <td class="text-start">{{ item.parties_President_de_la_Commune }}</td>
-          <td class="text-start">{{ item.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC }}</td>
-          <td class="text-start">{{ item.date_de_reception_par_les_parties_Entrepot_Regional }}</td>
-          <td class="text-start">{{ item.date_de_reception_par_les_parties_Travailleur_du_territoire}}</td>
-          <td class="text-start">{{ item.date_de_reception_par_les_parties_President_de_la_Commune }}</td>
-          <td class="text-start">{{ item.reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC }} </td>
-          <td class="text-start">{{ item.reponse_au_memoire_d_appel_Entrepot_Regional }}</td>
-          <td class="text-start">{{ item.reponse_au_memoire_d_appel_Travailleur_du_territoire }}</td>
-          <td class="text-start">{{ item.reponse_au_memoire_d_appel_President_de_la_Commune }} </td>
+          <td class="text-start">
+            {{ item.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC }}
+          </td>
+          <td class="text-start">
+            {{ item.date_de_reception_par_les_parties_Entrepot_Regional }}
+          </td>
+          <td class="text-start">
+            {{
+              item.date_de_reception_par_les_parties_Travailleur_du_territoire
+            }}
+          </td>
+          <td class="text-start">
+            {{ item.date_de_reception_par_les_parties_President_de_la_Commune }}
+          </td>
+          <td class="text-start">
+            {{ item.reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC }}
+          </td>
+          <td class="text-start">
+            {{ item.reponse_au_memoire_d_appel_Entrepot_Regional }}
+          </td>
+          <td class="text-start">
+            {{ item.reponse_au_memoire_d_appel_Travailleur_du_territoire }}
+          </td>
+          <td class="text-start">
+            {{ item.reponse_au_memoire_d_appel_President_de_la_Commune }}
+          </td>
           <td class="text-start">{{ item.date_Preparation_Rapport }}</td>
-          <td class="text-start">{{ item.date_Transmission_Dossier_Ministere_Public }}</td>
-          <td class="text-start">{{ item.date_Conclusions_Ministere_Public }} </td>
-          <td class="text-start">{{ item.numero_Conclusions_Ministere_Public }} </td>
+          <td class="text-start">
+            {{ item.designation_du_Conseiller_Reviseur }}
+          </td>
+          <td class="text-start">
+            {{ item.date_Designation_du_Conseiller_Reviseur }}
+          </td>
+          <td class="text-start">
+            {{ item.designation_du_Conseiller_Reviseur_Remplacant }}
+          </td>
+          <td class="text-start">
+            {{ item.date_Designation_du_Conseiller_Reviseur_Remplacant }}
+          </td>
+          <td class="text-start">
+            {{ item.date_de_preparation_de_l_avis_de_l_examinateur }}
+          </td>
+          <td class="text-start">
+            {{ item.date_Transmission_Dossier_Ministere_Public }}
+          </td>
+          <td class="text-start">
+            {{ item.date_Retour_Dossier_Ministere_Public }}
+          </td>
+          <td class="text-start">
+            {{ item.date_Conclusions_Ministere_Public }}
+          </td>
+          <td class="text-start">
+            {{ item.numero_Conclusions_Ministere_Public }}
+          </td>
+          <td class="text-start">{{ item.date_de_la_session }}</td>
           <td class="text-start">{{ item.dispositif_Decision }}</td>
           <td class="text-start">{{ item.numero_Decision }}</td>
+          <td class="text-start">
+            {{ item.date_d_envoi_de_la_decision_pour_notifier_les_parties }}
+          </td>
+          <td class="text-start">
+            {{
+              item.date_de_reception_par_le_comptable_d_une_copie_de_la_decision
+            }}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -250,8 +317,8 @@
     <button class="btn btn-sm btn-primary me-1" (click)="Previous()">
       <i class="fa fa-arrow-left"></i> Précédent
     </button>
-    <button class="btn btn-sm btn-success" (click)="Next()">
-      <i class="fa fa-arrow-right"></i> Suivant
+    <button class="btn btn-sm btn-success" (click)="Confirmer()">
+      <i class="fa fa-check-circle"></i> Confirmer
     </button>
   </div>
 </div>

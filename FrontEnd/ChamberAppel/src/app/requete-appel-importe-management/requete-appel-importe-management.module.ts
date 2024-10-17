@@ -11,17 +11,14 @@ import { DesignSystemModule } from '../design-system/design-system.module';
 
 import { RequeteAppelImporteManagementRoutingModule } from './requete-appel-importe-management-routing.module';
 import { RequeteIndexComponent } from './requete-index/requete-index.component';
-import { RequeteFusionnerComponent } from './requete-fusionner/requete-fusionner.component';
 import { RequeteValidationComponent } from './requete-validation/requete-validation.component';
 import { RequeteUploadComponent } from './requete-upload/requete-upload.component';
-
 
 @NgModule({
   declarations: [
     RequeteIndexComponent,
-    RequeteFusionnerComponent,
     RequeteValidationComponent,
-    RequeteUploadComponent
+    RequeteUploadComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +32,6 @@ import { RequeteUploadComponent } from './requete-upload/requete-upload.componen
     ReactiveFormsModule,
     SharedTableCaseModule,
     DesignSystemModule,
-  ]
+  ],
 })
-export class RequeteAppelImporteManagementModule { }
+export class RequeteAppelImporteManagementModule {}

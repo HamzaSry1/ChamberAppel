@@ -28,26 +28,26 @@ export const navItems: INavData[] = [
     ],
   },
   {
-    name: 'Discipline budgetaires',
+    name: 'Discipline budgétaires',
     url: 'discipline-budgetaires',
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
-    name: "Requetes d'appel",
+    name: "Requêtes d'appel",
     url: 'requetes-appel',
     iconComponent: { name: 'cil-balance-scale' },
   },
   {
-    name: 'Importe',
+    name: 'Importation',
     iconComponent: { name: 'cil-cloud-download' },
     children: [
       {
-        name: 'Discipline budgetaires',
+        name: 'Disciplines budgétaires',
         url: 'discipline-budgetaires-importe',
         iconComponent: { name: 'cil-cloud-download' },
       },
       {
-        name: "Requetes d'appel",
+        name: "Requêtes d'appel",
         url: 'requetes-appel-importe',
         iconComponent: { name: 'cil-cloud-download' },
       },
