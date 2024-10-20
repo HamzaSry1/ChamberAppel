@@ -9,10 +9,10 @@ import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiRespo
 import { EnumFileType } from 'src/app/generatedapis/models/EnumFileType';
 import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
 import { ImportService } from 'src/app/generatedapis/services/ImportService';
-import { Const } from 'src/app/Helpers/Const';
 import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.service';
 import { ButtonStyle } from 'src/app/shared/button-style';
 import { environment } from 'src/environments/environment';
+import { Const } from 'src/app/Helpers/Const';
 
 @Component({
   selector: 'app-requete-index',
@@ -24,7 +24,6 @@ export class RequeteIndexComponent implements OnInit {
   public ExempleButtonStyle = ButtonStyle.success;
   public stepper!: Stepper;
   public ValidationPartIsDisabled = true;
-  public MargePartIsDisabled = true;
   public FileType!: string;
 
   constructor(
@@ -33,10 +32,10 @@ export class RequeteIndexComponent implements OnInit {
     private _loader: NgxSpinnerService,
     private location: Location,
     private _router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    const stepperElement = document.querySelector('#stepper1');
+    const stepperElement = document.querySelector('#stepperRequete');
     if (stepperElement !== null) {
       this.stepper = new Stepper(stepperElement, {
         linear: false,
@@ -54,11 +53,6 @@ export class RequeteIndexComponent implements OnInit {
       this.ValidationPartIsDisabled = false;
       this.stepper.next();
     }
-  }
-
-  GoToMarge() {
-    this.MargePartIsDisabled = false;
-    this.stepper.next();
   }
 
   Retour() {

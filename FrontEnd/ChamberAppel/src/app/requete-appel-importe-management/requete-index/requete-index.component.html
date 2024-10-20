@@ -25,7 +25,7 @@
 <!-- stepper -->
 <div class="card my-3">
   <div class="card-body">
-    <div id="stepper1" class="bs-stepper">
+    <div id="stepperRequete" class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
         <div class="step" data-target="#Importation-part">
           <button
@@ -79,7 +79,6 @@
             *ngIf="!ValidationPartIsDisabled"
             (BtnDownloadListWithErrors)="DownloadListWithErrors()"
             (BtnPrevious)="Previous()"
-            (BtnNext)="GoToMarge()"
             (BtnConfirmer)="Confirmer()"
           ></app-requete-validation>
         </div>

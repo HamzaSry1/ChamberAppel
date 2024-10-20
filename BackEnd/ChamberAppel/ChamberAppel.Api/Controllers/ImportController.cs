@@ -59,7 +59,7 @@ namespace ChamberAppel.Api.Controllers
             bool result;
             if (fileType == EnumFileType.RequeteAppele)
             {
-                result = await _serviceChamberAppel.Fusionner();
+                result = await _serviceChamberAppel.Analyse();
             }
             else
             {

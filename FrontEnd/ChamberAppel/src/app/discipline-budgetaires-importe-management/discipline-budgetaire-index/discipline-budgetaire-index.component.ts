@@ -24,7 +24,6 @@ export class DisciplineBudgetaireIndexComponent implements OnInit {
   public ExempleButtonStyle = ButtonStyle.success;
   public stepper!: Stepper;
   public ValidationPartIsDisabled = true;
-  public MargePartIsDisabled = true;
   public FileType!: string;
 
   constructor(
@@ -33,10 +32,10 @@ export class DisciplineBudgetaireIndexComponent implements OnInit {
     private _loader: NgxSpinnerService,
     private location: Location,
     private _router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    const stepperElement = document.querySelector('#stepper1');
+    const stepperElement = document.querySelector('#stepperDiscipline');
     if (stepperElement !== null) {
       this.stepper = new Stepper(stepperElement, {
         linear: false,
@@ -54,11 +53,6 @@ export class DisciplineBudgetaireIndexComponent implements OnInit {
       this.ValidationPartIsDisabled = false;
       this.stepper.next();
     }
-  }
-
-  GoToMarge() {
-    this.MargePartIsDisabled = false;
-    this.stepper.next();
   }
 
   Retour() {
