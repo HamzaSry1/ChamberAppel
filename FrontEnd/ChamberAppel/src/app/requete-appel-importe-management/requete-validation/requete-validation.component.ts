@@ -23,7 +23,7 @@ export class RequeteValidationComponent implements OnInit {
   public Data!: RequeteAppelTemp[];
   public pagination!: DtoPagination;
   public pageNumber = 1;
-  public orderBy = 'numero_Dossier';
+  public orderBy = 'Numero_Dossier';
   public orderByDirection = 'desc';
   public RecordTotal = 0;
   public RecordFiltred = 0;

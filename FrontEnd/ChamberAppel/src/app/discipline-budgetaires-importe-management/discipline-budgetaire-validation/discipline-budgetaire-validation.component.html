@@ -9,153 +9,153 @@
   <!-- table -->
   <div class="col-md-12 my-3 table-responsive">
     <div class="row">
-      <table class="table table-striped table-bordered tableValide" matSort>
+      <table class="table table-striped table-bordered tableValide" matSort (matSortChange)="OnSortChange($event)">
         <thead>
           <tr>
-            <th class="text-start" mat-sort-header="numeroDossier">
+            <th class="text-start" mat-sort-header="Numero_Dossier">
               Numéro Dossier
             </th>
-            <th class="text-start" mat-sort-header="appelant">Appelant</th>
-            <th class="text-start" mat-sort-header="numeroJugementFaisantObjetDeAppel">
+            <th class="text-start" mat-sort-header="Appelant">Appelant</th>
+            <th class="text-start" mat-sort-header="Numero_Jugement_Faisant_Objet_De_Appel">
               Numéro Jugement Faisant Objet De Appel
             </th>
-            <th class="text-start" mat-sort-header="emisEnDateDu">
+            <th class="text-start" mat-sort-header="Emis_En_Date_Du">
               Émis En Date Du
             </th>
-            <th class="text-start" mat-sort-header="crc">CRC</th>
-            <th class="text-start" mat-sort-header="centreComptable">
+            <th class="text-start" mat-sort-header="CRC">CRC</th>
+            <th class="text-start" mat-sort-header="Centre_Comptable">
               Centre Comptable
             </th>
-            <th class="text-start" mat-sort-header="dateEnregistrementRequeteCourRegionaleDesComptes">
+            <th class="text-start" mat-sort-header="Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes">
               Date Enregistrement Requête Cour Régionale Des Comptes
             </th>
-            <th class="text-start" mat-sort-header="dateRequisitionMinisterePublic">
+            <th class="text-start" mat-sort-header="Date_Requisition_Ministere_Public">
               Date Réquisition Ministère Public
             </th>
-            <th class="text-start" mat-sort-header="numeroRequisitionMinisterePublic">
+            <th class="text-start" mat-sort-header="Numero_Requisition_Ministere_Public">
               Numéro Réquisition Ministère Public
             </th>
-            <th class="text-start" mat-sort-header="dateOrdonnanceDesignationConseillerRapporteur">
+            <th class="text-start" mat-sort-header="Date_Ordonnance_Designation_Conseiller_Rapporteur">
               Date Ordonnance Désignation Conseiller Rapporteur
             </th>
-            <th class="text-start" mat-sort-header="numeroOrdonnanceDesignationConseillerRapporteur">
+            <th class="text-start" mat-sort-header="Numero_Ordonnance_Designation_Conseiller_Rapporteur">
               Numéro Ordonnance Désignation Conseiller Rapporteur
             </th>
-            <th class="text-start" mat-sort-header="conseillerRapporteur">
+            <th class="text-start" mat-sort-header="Conseiller_Rapporteur">
               Conseiller Rapporteur
             </th>
-            <th class="text-start" mat-sort-header="dateOrdonnanceDesignationConseillerRapporteurRemplacant">
+            <th class="text-start" mat-sort-header="Date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant">
               Date Ordonnance Désignation Conseiller Rapporteur Remplaçant
             </th>
-            <th class="text-start" mat-sort-header="numeroOrdonnanceDesignationConseillerRapporteurRemplacant">
+            <th class="text-start" mat-sort-header="Numero_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant">
               Numéro Ordonnance Désignation Conseiller Rapporteur Remplaçant
             </th>
-            <th class="text-start" mat-sort-header="conseillerRapporteurRemplacant">
+            <th class="text-start" mat-sort-header="Conseiller_Rapporteur_Remplacant">
               Conseiller Rapporteur Remplaçant
             </th>
-            <th class="text-start" mat-sort-header="dateEnvoiRequeteParties">
+            <th class="text-start" mat-sort-header="Date_Envoi_Requete_Parties">
               Date Envoi Requête Parties
             </th>
-            <th class="text-start" mat-sort-header="partiesAgentDuRoiAuCRC">
+            <th class="text-start" mat-sort-header="Parties_Agent_du_Roi_au_CRC">
               Parties Agent du Roi au CRC
             </th>
-            <th class="text-start" mat-sort-header="partiesEntrepotRegional">
+            <th class="text-start" mat-sort-header="Parties_Entrepot_Regional">
               Parties Entrepôt Régional
             </th>
-            <th class="text-start" mat-sort-header="partiesTravailleurDuTerritoire">
+            <th class="text-start" mat-sort-header="Parties_Travailleur_du_territoire">
               Parties Travailleur du Territoire
             </th>
-            <th class="text-start" mat-sort-header="partiesPresidentDeLaCommune">
+            <th class="text-start" mat-sort-header="Parties_President_de_la_Commune">
               Parties Président de la Commune
             </th>
-            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesAgentDuRoiAuCRC">
+            <th class="text-start" mat-sort-header="Date_de_reception_par_les_parties_Agent_du_Roi_au_CRC">
               Date de Réception par les Parties Agent du Roi au CRC
             </th>
-            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesEntrepotRegional">
+            <th class="text-start" mat-sort-header="Date_de_reception_par_les_parties_Entrepot_Regional">
               Date de Réception par les Parties Entrepôt Régional
             </th>
-            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesTravailleurDuTerritoire">
+            <th class="text-start" mat-sort-header="Date_de_reception_par_les_parties_Travailleur_du_territoire">
               Date de Réception par les Parties Travailleur du Territoire
             </th>
-            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesPresidentDeLaCommune">
+            <th class="text-start" mat-sort-header="Date_de_reception_par_les_parties_President_de_la_Commune">
               Date de Réception par les Parties Président de la Commune
             </th>
-            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelAgentDuRoiAuCRC">
+            <th class="text-start" mat-sort-header="Reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC">
               Réponse au Mémoire d'Appel Agent du Roi au CRC
             </th>
-            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelEntrepotRegional">
+            <th class="text-start" mat-sort-header="Reponse_au_memoire_d_appel_Entrepot_Regional">
               Réponse au Mémoire d'Appel Entrepôt Régional
             </th>
-            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelTravailleurDuTerritoire">
+            <th class="text-start" mat-sort-header="Reponse_au_memoire_d_appel_Travailleur_du_territoire">
               Réponse au Mémoire d'Appel Travailleur du Territoire
             </th>
-            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelPresidentDeLaCommune">
+            <th class="text-start" mat-sort-header="Reponse_au_memoire_d_appel_President_de_la_Commune">
               Réponse au Mémoire d'Appel Président de la Commune
             </th>
-            <th class="text-start" mat-sort-header="dateDemandeDocumentsSupplementaires">
+            <th class="text-start" mat-sort-header="Date_Demande_Documents_Supplementaires">
               Date Demande Documents Supplémentaires
             </th>
-            <th class="text-start" mat-sort-header="dateConvocationInteresseAudience">
+            <th class="text-start" mat-sort-header="Date_Convocation_Interesse_Audience">
               Date Convocation Intéressé Audience
             </th>
-            <th class="text-start" mat-sort-header="dateEnqueteSurLeTerrain">
+            <th class="text-start" mat-sort-header="Date_Enquete_Sur_Le_Terrain">
               Date Enquête sur le Terrain
             </th>
-            <th class="text-start" mat-sort-header="datePreparationRapport">
+            <th class="text-start" mat-sort-header="Date_Preparation_Rapport">
               Date Préparation Rapport
             </th>
-            <th class="text-start" mat-sort-header="dateTransmissionDossierMinisterePublic">
+            <th class="text-start" mat-sort-header="Date_Transmission_Dossier_Ministere_Public">
               Date Transmission Dossier Ministère Public
             </th>
-            <th class="text-start" mat-sort-header="dateConclusionsMinisterePublic">
+            <th class="text-start" mat-sort-header="Date_Conclusions_Ministere_Public">
               Date Conclusions Ministère Public
             </th>
-            <th class="text-start" mat-sort-header="numeroConclusionsMinisterePublic">
+            <th class="text-start" mat-sort-header="Numero_Conclusions_Ministere_Public">
               Numéro Conclusions Ministère Public
             </th>
-            <th class="text-start" mat-sort-header="dateReceptionConvocationInteresseConsultation">
+            <th class="text-start" mat-sort-header="Date_Reception_Convocation_Interesse_Consultation">
               Date Réception Convocation Intéressé Consultation
             </th>
-            <th class="text-start" mat-sort-header="dateReceptionConvocationAvocatConsultation">
+            <th class="text-start" mat-sort-header="Date_Reception_Convocation_Avocat_Consultation">
               Date Réception Convocation Avocat Consultation
             </th>
-            <th class="text-start" mat-sort-header="dateConsultationInteresse">
+            <th class="text-start" mat-sort-header="Date_Consultation_Interesse">
               Date Consultation Intéressé
             </th>
-            <th class="text-start" mat-sort-header="dateConsultationAvocat">
+            <th class="text-start" mat-sort-header="Date_Consultation_Avocat">
               Date Consultation Avocat
             </th>
-            <th class="text-start" mat-sort-header="dateRetourDossierGreffeCentral">
+            <th class="text-start" mat-sort-header="Date_Retour_Dossier_Greffe_Central">
               Date Retour Dossier Greffe Central
             </th>
-            <th class="text-start" mat-sort-header="convocationInteresseAudienceJugement">
+            <th class="text-start" mat-sort-header="Convocation_Interesse_Audience_Jugement">
               Convocation Intéressé Audience Jugement
             </th>
-            <th class="text-start" mat-sort-header="convocationAvocatAudienceJugement">
+            <th class="text-start" mat-sort-header="Convocation_Avocat_Audience_Jugement">
               Convocation Avocat Audience Jugement
             </th>
-            <th class="text-start" mat-sort-header="dateAudienceJugement">
+            <th class="text-start" mat-sort-header="Date_Audience_Jugement">
               Date Audience Jugement
             </th>
-            <th class="text-start" mat-sort-header="convocationAvocatPrononceJugement">
+            <th class="text-start" mat-sort-header="Convocation_Avocat_Prononce_Jugement">
               Convocation Avocat Prononcé Jugement
             </th>
-            <th class="text-start" mat-sort-header="convocationInteressePrononceJugement">
+            <th class="text-start" mat-sort-header="Convocation_Interesse_Prononce_Jugement">
               Convocation Intéressé Prononcé Jugement
             </th>
-            <th class="text-start" mat-sort-header="dateAudiencePrononceJugement">
+            <th class="text-start" mat-sort-header="Date_Audience_Prononce_Jugement">
               Date Audience Prononcé Jugement
             </th>
-            <th class="text-start" mat-sort-header="dispositifDecision">
+            <th class="text-start" mat-sort-header="Dispositif_Decision">
               Dispositif Décision
             </th>
-            <th class="text-start" mat-sort-header="numeroDecision">
+            <th class="text-start" mat-sort-header="Numero_Decision">
               Numéro Décision
             </th>
-            <th class="text-start" mat-sort-header="dateEnvoiDecisionNotificationParties">
+            <th class="text-start" mat-sort-header="Date_Envoi_Decision_Notification_Parties">
               Date Envoi Décision Notification Parties
             </th>
-            <th class="text-start" mat-sort-header="dateReceptionComptableCopieDecision">
+            <th class="text-start" mat-sort-header="Date_Reception_Comptable_Copie_Decision">
               Date Réception Comptable Copie Décision
             </th>
           </tr>
