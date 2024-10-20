@@ -18,7 +18,7 @@ export class Const {
     max: 'La valeur est supérieur au maximum requis.',
     email: 'Veuillez fournir une adresse email valide.',
     pattern: 'Le format du champ est invalide.',
-    invalidFileType: "Nous n'acceptons que les fichiers avec les extensions suivantes : 'pdf', 'png', 'jpg' et 'jpeg'.",
+    invalidFileType: "Nous n'acceptons que les fichiers avec les extensions suivantes : '.xlsx', '.xls'",
     cdcinvalidEmail: "L'email doit se terminer par @courdescomptes.ma",
   };
 }

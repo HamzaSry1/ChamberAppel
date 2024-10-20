@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
 export class Validator {
 
   static emailIsCdc(control: AbstractControl): ValidationErrors | null {
@@ -25,8 +25,8 @@ export class Validator {
 
     return null;
   }
-  static fileValidator(control: AbstractControl): { [key: string]: any } | null {
-    const allowedExtensions = ['pdf', 'png', 'jpg', 'jpeg'];
+  static excelFileValidator(control: FormControl): { [key: string]: boolean } | null {
+    const allowedExtensions = ['.xlsx', '.xls'];
     const file = control.value;
 
     if (file && file.name) {

@@ -34,9 +34,9 @@
                     <label for="Code">Code</label>
                     <input type="text" placeholder="Code" class="form-control" id="Code" formControlName="code" />
                     <div class="text-danger" *ngIf="
-                ReactiveForm.get('code')?.touched &&
-                ReactiveForm.get('code')?.errors
-              ">
+                                ReactiveForm.get('code')?.touched &&
+                                ReactiveForm.get('code')?.errors
+                            ">
                         <div *ngFor="let error of ReactiveForm.get('code')?.errors | keyvalue">
                             {{ validationMessages[error.key] }}
                         </div>

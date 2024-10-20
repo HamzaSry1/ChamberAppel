@@ -1,13 +1,25 @@
-<form enctype="multipart/form-data">
+<form enctype="multipart/form-data" [formGroup]="ReactiveForm">
     <div class="row">
         <div class="col-12-lg my-2">
             <label for="formFile" class="my-2">Importer un fichier</label>
-            <input class="form-control" (change)="OnFileSelected($event)" type="file" id="formFile">
+            <input class="form-control" (change)="OnFileSelected($event)" formControlName="fileUpload" type="file"
+                id="formFile" accept=".xlsx, .xls">
+
+            <div class="text-danger" *ngIf="
+                ReactiveForm.get('fileUpload')?.touched &&
+                ReactiveForm.get('fileUpload')?.errors
+            ">
+                <div *ngFor="let error of ReactiveForm.get('fileUpload')?.errors | keyvalue">
+                    {{ validationMessages[error.key] }}
+                </div>
+            </div>
+
         </div>
 
         <div class="col-12-lg text-end">
-            <button type="button" (click)="Upload()" class="btn btn-sm btn-outline-primary"> <i
-                    class="fa fa-arrow-right"></i> Suivant
+            <button type="button" [disabled]="!ReactiveForm.valid" (click)="Upload()"
+                class="btn btn-sm btn-outline-primary">
+                <i class="fa fa-arrow-right"></i> Suivant
             </button>
         </div>
     </div>
