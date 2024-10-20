@@ -8,309 +8,261 @@
   </div>
   <!-- table -->
   <div class="col-md-12 my-3 table-responsive">
-    <table class="table table-striped table-bordered tableValide" matSort>
-      <thead>
-        <tr>
-          <th class="text-start" mat-sort-header="numeroDossier">
-            Numéro Dossier
-          </th>
-          <th class="text-start" mat-sort-header="appelant">Appelant</th>
-          <th
-            class="text-start"
-            mat-sort-header="numeroJugementFaisantObjetDeAppel"
-          >
-            Numéro Jugement Faisant Objet De Appel
-          </th>
-          <th class="text-start" mat-sort-header="emisEnDateDu">
-            Émis En Date Du
-          </th>
-          <th class="text-start" mat-sort-header="crc">CRC</th>
-          <th class="text-start" mat-sort-header="centreComptable">
-            Centre Comptable
-          </th>
-          <th class="text-start" mat-sort-header="exerciceFiscal">
-            Exercice Fiscal
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateEnregistrementRequeteCourRegionaleDesComptes"
-          >
-            Date Enregistrement Requête Cour Régionale Des Comptes
-          </th>
-          <th class="text-start" mat-sort-header="conseillerRapporteur">
-            Conseiller Rapporteur
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateOrdonnanceDesignationConseillerRapporteur"
-          >
-            Date Ordonnance Désignation Conseiller Rapporteur
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="conseillerRapporteurRemplacant"
-          >
-            Conseiller Rapporteur Remplaçant
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateOrdonnanceDesignationConseillerRapporteurRemplacant"
-          >
-            Date Ordonnance Désignation Conseiller Rapporteur Remplaçant
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDemandeDocumentsSupplementaires"
-          >
-            Date Demande Documents Supplémentaires
-          </th>
-          <th class="text-start" mat-sort-header="dateEnvoiRequeteParties">
-            Date Envoi Requête Parties
-          </th>
-          <th class="text-start" mat-sort-header="partiesAgentDuRoiAuCRC">
-            Parties Agent du Roi au CRC
-          </th>
-          <th class="text-start" mat-sort-header="partiesEntrepotRegional">
-            Parties Entrepôt Régional
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="partiesTravailleurDuTerritoire"
-          >
-            Parties Travailleur du Territoire
-          </th>
-          <th class="text-start" mat-sort-header="partiesPresidentDeLaCommune">
-            Parties Président de la Commune
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDeReceptionParLesPartiesAgentDuRoiAuCRC"
-          >
-            Date de Réception par les Parties Agent du Roi au CRC
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDeReceptionParLesPartiesEntrepotRegional"
-          >
-            Date de Réception par les Parties Entrepôt Régional
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDeReceptionParLesPartiesTravailleurDuTerritoire"
-          >
-            Date de Réception par les Parties Travailleur du Territoire
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDeReceptionParLesPartiesPresidentDeLaCommune"
-          >
-            Date de Réception par les Parties Président de la Commune
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="reponseAuMemoireDAppelAgentDuRoiAuCRC"
-          >
-            Réponse au Mémoire d'Appel Agent du Roi au CRC
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="reponseAuMemoireDAppelEntrepotRegional"
-          >
-            Réponse au Mémoire d'Appel Entrepôt Régional
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="reponseAuMemoireDAppelTravailleurDuTerritoire"
-          >
-            Réponse au Mémoire d'Appel Travailleur du Territoire
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="reponseAuMemoireDAppelPresidentDeLaCommune"
-          >
-            Réponse au Mémoire d'Appel Président de la Commune
-          </th>
-          <th class="text-start" mat-sort-header="datePreparationRapport">
-            Date Préparation Rapport
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="designationConseillerReviseur"
-          >
-            Désignation du Conseiller Réviseur
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDesignationConseillerReviseur"
-          >
-            Date Désignation du Conseiller Réviseur
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="designationConseillerReviseurRemplacant"
-          >
-            Désignation du Conseiller Réviseur Remplaçant
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateDesignationConseillerReviseurRemplacant"
-          >
-            Date Désignation du Conseiller Réviseur Remplaçant
-          </th>
-          <th class="text-start" mat-sort-header="datePreparationAvisExamineur">
-            Date Préparation Avis de l'Examinateur
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateTransmissionDossierMinisterePublic"
-          >
-            Date Transmission Dossier Ministère Public
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateRetourDossierMinisterePublic"
-          >
-            Date Retour Dossier Ministère Public
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateConclusionsMinisterePublic"
-          >
-            Date Conclusions Ministère Public
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="numeroConclusionsMinisterePublic"
-          >
-            Numéro Conclusions Ministère Public
-          </th>
-          <th class="text-start" mat-sort-header="dateSession">
-            Date de la Session
-          </th>
-          <th class="text-start" mat-sort-header="dispositifDecision">
-            Dispositif Décision
-          </th>
-          <th class="text-start" mat-sort-header="numeroDecision">
-            Numéro Décision
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateEnvoiDecisionNotifierParties"
-          >
-            Date d'Envoi de la Décision pour Notifier les Parties
-          </th>
-          <th
-            class="text-start"
-            mat-sort-header="dateReceptionComptableCopieDecision"
-          >
-            Date Réception Comptable Copie Décision
-          </th>
-        </tr>
-      </thead>
-      <tbody *ngIf="RecordTotal != 0">
-        <tr *ngFor="let item of Data">
-          <td class="text-start">{{ item.numero_Dossier }}</td>
-          <td class="text-start">{{ item.appelant }}</td>
-          <td class="text-start">
-            {{ item.numero_Jugement_Faisant_Objet_De_Appel }}
-          </td>
-          <td class="text-start">{{ item.emis_En_Date_Du }}</td>
-          <td class="text-start">{{ item.crc }}</td>
-          <td class="text-start">{{ item.centre_Comptable }}</td>
-          <td class="text-start">{{ item.exercice_fiscal }}</td>
-          <td class="text-start">
-            {{ item.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes }}
-          </td>
-          <td class="text-start">{{ item.conseiller_Rapporteur }}</td>
-          <td class="text-start">
-            {{ item.date_Ordonnance_Designation_Conseiller_Rapporteur }}
-          </td>
-          <td class="text-start">
-            {{ item.conseiller_Rapporteur_Remplacant }}
-          </td>
-          <td class="text-start">
-            {{
+    <div class="row">
+      <table class="table table-striped table-bordered tableValide" matSort>
+        <thead>
+          <tr>
+            <th class="text-start" mat-sort-header="numeroDossier">
+              Numéro Dossier
+            </th>
+            <th class="text-start" mat-sort-header="appelant">Appelant</th>
+            <th class="text-start" mat-sort-header="numeroJugementFaisantObjetDeAppel">
+              Numéro Jugement Faisant Objet De Appel
+            </th>
+            <th class="text-start" mat-sort-header="emisEnDateDu">
+              Émis En Date Du
+            </th>
+            <th class="text-start" mat-sort-header="crc">CRC</th>
+            <th class="text-start" mat-sort-header="centreComptable">
+              Centre Comptable
+            </th>
+            <th class="text-start" mat-sort-header="exerciceFiscal">
+              Exercice Fiscal
+            </th>
+            <th class="text-start" mat-sort-header="dateEnregistrementRequeteCourRegionaleDesComptes">
+              Date Enregistrement Requête Cour Régionale Des Comptes
+            </th>
+            <th class="text-start" mat-sort-header="conseillerRapporteur">
+              Conseiller Rapporteur
+            </th>
+            <th class="text-start" mat-sort-header="dateOrdonnanceDesignationConseillerRapporteur">
+              Date Ordonnance Désignation Conseiller Rapporteur
+            </th>
+            <th class="text-start" mat-sort-header="conseillerRapporteurRemplacant">
+              Conseiller Rapporteur Remplaçant
+            </th>
+            <th class="text-start" mat-sort-header="dateOrdonnanceDesignationConseillerRapporteurRemplacant">
+              Date Ordonnance Désignation Conseiller Rapporteur Remplaçant
+            </th>
+            <th class="text-start" mat-sort-header="dateDemandeDocumentsSupplementaires">
+              Date Demande Documents Supplémentaires
+            </th>
+            <th class="text-start" mat-sort-header="dateEnvoiRequeteParties">
+              Date Envoi Requête Parties
+            </th>
+            <th class="text-start" mat-sort-header="partiesAgentDuRoiAuCRC">
+              Parties Agent du Roi au CRC
+            </th>
+            <th class="text-start" mat-sort-header="partiesEntrepotRegional">
+              Parties Entrepôt Régional
+            </th>
+            <th class="text-start" mat-sort-header="partiesTravailleurDuTerritoire">
+              Parties Travailleur du Territoire
+            </th>
+            <th class="text-start" mat-sort-header="partiesPresidentDeLaCommune">
+              Parties Président de la Commune
+            </th>
+            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesAgentDuRoiAuCRC">
+              Date de Réception par les Parties Agent du Roi au CRC
+            </th>
+            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesEntrepotRegional">
+              Date de Réception par les Parties Entrepôt Régional
+            </th>
+            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesTravailleurDuTerritoire">
+              Date de Réception par les Parties Travailleur du Territoire
+            </th>
+            <th class="text-start" mat-sort-header="dateDeReceptionParLesPartiesPresidentDeLaCommune">
+              Date de Réception par les Parties Président de la Commune
+            </th>
+            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelAgentDuRoiAuCRC">
+              Réponse au Mémoire d'Appel Agent du Roi au CRC
+            </th>
+            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelEntrepotRegional">
+              Réponse au Mémoire d'Appel Entrepôt Régional
+            </th>
+            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelTravailleurDuTerritoire">
+              Réponse au Mémoire d'Appel Travailleur du Territoire
+            </th>
+            <th class="text-start" mat-sort-header="reponseAuMemoireDAppelPresidentDeLaCommune">
+              Réponse au Mémoire d'Appel Président de la Commune
+            </th>
+            <th class="text-start" mat-sort-header="datePreparationRapport">
+              Date Préparation Rapport
+            </th>
+            <th class="text-start" mat-sort-header="designationConseillerReviseur">
+              Désignation du Conseiller Réviseur
+            </th>
+            <th class="text-start" mat-sort-header="dateDesignationConseillerReviseur">
+              Date Désignation du Conseiller Réviseur
+            </th>
+            <th class="text-start" mat-sort-header="designationConseillerReviseurRemplacant">
+              Désignation du Conseiller Réviseur Remplaçant
+            </th>
+            <th class="text-start" mat-sort-header="dateDesignationConseillerReviseurRemplacant">
+              Date Désignation du Conseiller Réviseur Remplaçant
+            </th>
+            <th class="text-start" mat-sort-header="datePreparationAvisExamineur">
+              Date Préparation Avis de l'Examinateur
+            </th>
+            <th class="text-start" mat-sort-header="dateTransmissionDossierMinisterePublic">
+              Date Transmission Dossier Ministère Public
+            </th>
+            <th class="text-start" mat-sort-header="dateRetourDossierMinisterePublic">
+              Date Retour Dossier Ministère Public
+            </th>
+            <th class="text-start" mat-sort-header="dateConclusionsMinisterePublic">
+              Date Conclusions Ministère Public
+            </th>
+            <th class="text-start" mat-sort-header="numeroConclusionsMinisterePublic">
+              Numéro Conclusions Ministère Public
+            </th>
+            <th class="text-start" mat-sort-header="dateSession">
+              Date de la Session
+            </th>
+            <th class="text-start" mat-sort-header="dispositifDecision">
+              Dispositif Décision
+            </th>
+            <th class="text-start" mat-sort-header="numeroDecision">
+              Numéro Décision
+            </th>
+            <th class="text-start" mat-sort-header="dateEnvoiDecisionNotifierParties">
+              Date d'Envoi de la Décision pour Notifier les Parties
+            </th>
+            <th class="text-start" mat-sort-header="dateReceptionComptableCopieDecision">
+              Date Réception Comptable Copie Décision
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="RecordTotal != 0">
+          <tr *ngFor="let item of Data">
+            <td class="text-start">{{ item.numero_Dossier }}</td>
+            <td class="text-start">{{ item.appelant }}</td>
+            <td class="text-start">
+              {{ item.numero_Jugement_Faisant_Objet_De_Appel }}
+            </td>
+            <td class="text-start">{{ item.emis_En_Date_Du }}</td>
+            <td class="text-start">{{ item.crc }}</td>
+            <td class="text-start">{{ item.centre_Comptable }}</td>
+            <td class="text-start">{{ item.exercice_fiscal }}</td>
+            <td class="text-start">
+              {{ item.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes }}
+            </td>
+            <td class="text-start">{{ item.conseiller_Rapporteur }}</td>
+            <td class="text-start">
+              {{ item.date_Ordonnance_Designation_Conseiller_Rapporteur }}
+            </td>
+            <td class="text-start">
+              {{ item.conseiller_Rapporteur_Remplacant }}
+            </td>
+            <td class="text-start">
+              {{
               item.date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant
-            }}
-          </td>
-          <td class="text-start">
-            {{ item.date_Demande_Documents_Supplementaires }}
-          </td>
-          <td class="text-start">{{ item.date_Envoi_Requete_Parties }}</td>
-          <td class="text-start">{{ item.parties_Agent_du_Roi_au_CRC }}</td>
-          <td class="text-start">{{ item.parties_Entrepot_Regional }}</td>
-          <td class="text-start">
-            {{ item.parties_Travailleur_du_territoire }}
-          </td>
-          <td class="text-start">{{ item.parties_President_de_la_Commune }}</td>
-          <td class="text-start">
-            {{ item.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC }}
-          </td>
-          <td class="text-start">
-            {{ item.date_de_reception_par_les_parties_Entrepot_Regional }}
-          </td>
-          <td class="text-start">
-            {{
+              }}
+            </td>
+            <td class="text-start">
+              {{ item.date_Demande_Documents_Supplementaires }}
+            </td>
+            <td class="text-start">{{ item.date_Envoi_Requete_Parties }}</td>
+            <td class="text-start">{{ item.parties_Agent_du_Roi_au_CRC }}</td>
+            <td class="text-start">{{ item.parties_Entrepot_Regional }}</td>
+            <td class="text-start">
+              {{ item.parties_Travailleur_du_territoire }}
+            </td>
+            <td class="text-start">{{ item.parties_President_de_la_Commune }}</td>
+            <td class="text-start">
+              {{ item.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC }}
+            </td>
+            <td class="text-start">
+              {{ item.date_de_reception_par_les_parties_Entrepot_Regional }}
+            </td>
+            <td class="text-start">
+              {{
               item.date_de_reception_par_les_parties_Travailleur_du_territoire
-            }}
-          </td>
-          <td class="text-start">
-            {{ item.date_de_reception_par_les_parties_President_de_la_Commune }}
-          </td>
-          <td class="text-start">
-            {{ item.reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC }}
-          </td>
-          <td class="text-start">
-            {{ item.reponse_au_memoire_d_appel_Entrepot_Regional }}
-          </td>
-          <td class="text-start">
-            {{ item.reponse_au_memoire_d_appel_Travailleur_du_territoire }}
-          </td>
-          <td class="text-start">
-            {{ item.reponse_au_memoire_d_appel_President_de_la_Commune }}
-          </td>
-          <td class="text-start">{{ item.date_Preparation_Rapport }}</td>
-          <td class="text-start">
-            {{ item.designation_du_Conseiller_Reviseur }}
-          </td>
-          <td class="text-start">
-            {{ item.date_Designation_du_Conseiller_Reviseur }}
-          </td>
-          <td class="text-start">
-            {{ item.designation_du_Conseiller_Reviseur_Remplacant }}
-          </td>
-          <td class="text-start">
-            {{ item.date_Designation_du_Conseiller_Reviseur_Remplacant }}
-          </td>
-          <td class="text-start">
-            {{ item.date_de_preparation_de_l_avis_de_l_examinateur }}
-          </td>
-          <td class="text-start">
-            {{ item.date_Transmission_Dossier_Ministere_Public }}
-          </td>
-          <td class="text-start">
-            {{ item.date_Retour_Dossier_Ministere_Public }}
-          </td>
-          <td class="text-start">
-            {{ item.date_Conclusions_Ministere_Public }}
-          </td>
-          <td class="text-start">
-            {{ item.numero_Conclusions_Ministere_Public }}
-          </td>
-          <td class="text-start">{{ item.date_de_la_session }}</td>
-          <td class="text-start">{{ item.dispositif_Decision }}</td>
-          <td class="text-start">{{ item.numero_Decision }}</td>
-          <td class="text-start">
-            {{ item.date_d_envoi_de_la_decision_pour_notifier_les_parties }}
-          </td>
-          <td class="text-start">
-            {{
+              }}
+            </td>
+            <td class="text-start">
+              {{ item.date_de_reception_par_les_parties_President_de_la_Commune }}
+            </td>
+            <td class="text-start">
+              {{ item.reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC }}
+            </td>
+            <td class="text-start">
+              {{ item.reponse_au_memoire_d_appel_Entrepot_Regional }}
+            </td>
+            <td class="text-start">
+              {{ item.reponse_au_memoire_d_appel_Travailleur_du_territoire }}
+            </td>
+            <td class="text-start">
+              {{ item.reponse_au_memoire_d_appel_President_de_la_Commune }}
+            </td>
+            <td class="text-start">{{ item.date_Preparation_Rapport }}</td>
+            <td class="text-start">
+              {{ item.designation_du_Conseiller_Reviseur }}
+            </td>
+            <td class="text-start">
+              {{ item.date_Designation_du_Conseiller_Reviseur }}
+            </td>
+            <td class="text-start">
+              {{ item.designation_du_Conseiller_Reviseur_Remplacant }}
+            </td>
+            <td class="text-start">
+              {{ item.date_Designation_du_Conseiller_Reviseur_Remplacant }}
+            </td>
+            <td class="text-start">
+              {{ item.date_de_preparation_de_l_avis_de_l_examinateur }}
+            </td>
+            <td class="text-start">
+              {{ item.date_Transmission_Dossier_Ministere_Public }}
+            </td>
+            <td class="text-start">
+              {{ item.date_Retour_Dossier_Ministere_Public }}
+            </td>
+            <td class="text-start">
+              {{ item.date_Conclusions_Ministere_Public }}
+            </td>
+            <td class="text-start">
+              {{ item.numero_Conclusions_Ministere_Public }}
+            </td>
+            <td class="text-start">{{ item.date_de_la_session }}</td>
+            <td class="text-start">{{ item.dispositif_Decision }}</td>
+            <td class="text-start">{{ item.numero_Decision }}</td>
+            <td class="text-start">
+              {{ item.date_d_envoi_de_la_decision_pour_notifier_les_parties }}
+            </td>
+            <td class="text-start">
+              {{
               item.date_de_reception_par_le_comptable_d_une_copie_de_la_decision
-            }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row mt-2">
+      <ngb-pagination class="col d-flex justify-content-center" [collectionSize]="RecordFiltred" [pageSize]="pageSize"
+        [page]="pageNumber" [maxSize]="5" (pageChange)="OnPageNumberChange($event)"></ngb-pagination>
+    </div>
+    <div class="row d-flex justify-content-center" *ngIf="!selectionPageSize">
+      <div class="col-auto" *ngIf="RecordFiltred != RecordTotal">
+        {{ RecordFiltred }} / <b> {{ RecordTotal }} </b> éléments
+      </div>
+      <div class="col-auto" *ngIf="RecordFiltred == RecordTotal">
+        <b> {{ RecordTotal }} </b> éléments
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center" *ngIf="selectionPageSize">
+      <div class="col-auto">Afficher</div>
+      <div class="col-auto">
+        <select class="form-select form-control-sm" name="pageSize" [(ngModel)]="pageSize"
+          (ngModelChange)="OnPageSizeChange($event)">
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="15">15</option>
+          <option [ngValue]="20">20</option>
+        </select>
+      </div>
+      <span class="col-auto">de <b> {{ RecordFiltred }} </b> elements</span>
+    </div>
   </div>
   <!-- button -->
   <div class="col-md-12 text-end">

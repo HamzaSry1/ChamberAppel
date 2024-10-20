@@ -27,8 +27,8 @@ export class DisciplineBudgetaireValidationComponent implements OnInit {
   public orderByDirection = 'desc';
   public RecordTotal = 0;
   public RecordFiltred = 0;
-  public pageStatus: 'loading' | 'loaded' | 'error' | 'noData' = 'loading';
-  public pageSize = environment.pageSize;
+  public pageSize = 5;
+  public selectionPageSize: boolean = false;
   public ListHasError = false;
 
   constructor(
@@ -59,7 +59,6 @@ export class DisciplineBudgetaireValidationComponent implements OnInit {
   }
 
   GetAllValideData() {
-    this.pageStatus = 'loading';
     this._loader.show();
 
     this.pagination = {
@@ -76,18 +75,14 @@ export class DisciplineBudgetaireValidationComponent implements OnInit {
         this.Data = res.data ?? [];
         this.RecordTotal = res.recordTotal ?? 0;
         this.RecordFiltred = res.recordFiltred ?? 0;
-        /* set page status */
-        this.pageStatus = this.Data.length > 0 ? 'loaded' : 'noData';
       })
       .catch(() => {
         this._notify.Error(AppMessageService.ErrorLoadingListe);
-        this.pageStatus = 'error';
       })
       .finally(() => this._loader.hide());
   }
 
   GetAllErrorsData() {
-    this.pageStatus = 'loading';
     this._loader.show();
 
     this.pagination = {
@@ -104,12 +99,9 @@ export class DisciplineBudgetaireValidationComponent implements OnInit {
         this.Data = res.data ?? [];
         this.RecordTotal = res.recordTotal ?? 0;
         this.RecordFiltred = res.recordFiltred ?? 0;
-        /* set page status */
-        this.pageStatus = this.Data.length > 0 ? 'loaded' : 'noData';
       })
       .catch(() => {
         this._notify.Error(AppMessageService.ErrorLoadingListe);
-        this.pageStatus = 'error';
       })
       .finally(() => this._loader.hide());
   }
@@ -124,5 +116,23 @@ export class DisciplineBudgetaireValidationComponent implements OnInit {
 
   Confirmer() {
     this.BtnConfirmer.emit();
+  }
+
+  OnPageNumberChange(event: number) {
+    this.pageNumber = event;
+    this.GetAllValideData();
+  }
+
+  OnPageSizeChange(event: number) {
+    if (this.selectionPageSize) {
+      this.pageSize = event;
+      this.GetAllValideData();
+    }
+  }
+
+  OnSortChange(event: any) {
+    this.orderBy = event.active;
+    this.orderByDirection = event.direction;
+    this.GetAllValideData();
   }
 }

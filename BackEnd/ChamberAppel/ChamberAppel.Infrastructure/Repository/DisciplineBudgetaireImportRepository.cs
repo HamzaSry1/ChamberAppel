@@ -124,17 +124,29 @@ namespace ChamberAppel.Infrastructure.Repository
 
             if (pagination != null)
             {
-                //query = ApplyPagination(query, pagination);
+                query = ApplyPagination(query, pagination);
             }
-
-            /*
-              TODO : 
-                display the neccessry without rowNumber , rowError
-             */
 
             response.Data = query.ToList();
 
             return response;
+        }
+
+        private IQueryable<DisciplineBudgetaireTemp> ApplyPagination(IQueryable<DisciplineBudgetaireTemp> query, DtoPagination pagination)
+        {
+            // Apply pagination
+            query = query.Skip(((pagination?.PageNumber ?? 1) - 1) * (pagination?.PageSize ?? 5)).Take(pagination?.PageSize ?? 5);
+
+            // Apply ordering
+            if (!string.IsNullOrEmpty(pagination?.OrderBy))
+            {
+                string orderByProperty = pagination.OrderBy.ToLower();
+                if ("numero_dossier" == orderByProperty)
+                {
+                    query = pagination.OrderByDirection == "desc" ? query.OrderByDescending(e => e.Numero_Dossier) : query.OrderBy(e => e.Numero_Dossier);
+                }
+            }
+            return query;
         }
     }
 }
