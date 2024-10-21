@@ -34,7 +34,6 @@ namespace ChamberAppel.Infrastructure.Repository
 
             if (filter != null)
             {
-
                 if (!string.IsNullOrEmpty(filter.Numero_Dossier))
                 {
                     query = query.Where(x => x.Numero_Dossier == filter.Numero_Dossier);

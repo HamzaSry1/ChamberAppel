@@ -108,6 +108,9 @@ export class DisciplineBudgetaireFormComponent implements OnInit {
     numero_Decision: new FormControl(),
     date_Envoi_Decision_Notification_Parties: new FormControl(),
     date_Reception_Comptable_Copie_Decision: new FormControl(),
+    updatedBy: new FormControl(),
+    updateTime: new FormControl(),
+    isActive: new FormControl(),
   });
 
   ngOnInit(): void {
@@ -304,6 +307,9 @@ export class DisciplineBudgetaireFormComponent implements OnInit {
               res.data.date_Reception_Comptable_Copie_Decision,
               'yyyy-MM-dd'
             ),
+            updatedBy: res.data.updatedBy,
+            updateTime: this._datePipe.transform(res.data.updateTime, 'yyyy-MM-dd'),
+            isActive: res.data.isActive
           });
         }
       })

@@ -70,12 +70,9 @@ namespace ChamberAppel.Infrastructure.Repository
                     query = query.Where(x =>
                            x.Numero_Dossier.Trim().Contains(filter.MotsCle.Trim())
                         || x.Appelant.Trim().Contains(filter.MotsCle.Trim())
+                        || x.Numero_Jugement_Faisant_Objet_De_Appel.Trim().Contains(filter.MotsCle.Trim())
                         || x.Centre_Comptable.Trim().Contains(filter.MotsCle.Trim())
                         || x.CRC.Label.Trim().Contains(filter.MotsCle.Trim())
-                        || x.Numero_Jugement_Faisant_Objet_De_Appel.Trim().Contains(filter.Numero_Jugement_Faisant_Objet_De_Appel.Trim())
-                        || x.Exercice_fiscal == filter.Exercice_fiscal
-                        || x.Emis_En_Date_Du == filter.Emis_En_Date_Du
-                        || x.Conseiller_Rapporteur.Trim().Contains(filter.MotsCle.Trim())
                        );
                 }
             }
