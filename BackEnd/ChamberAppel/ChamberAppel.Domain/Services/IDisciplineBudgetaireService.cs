@@ -6,5 +6,6 @@ namespace ChamberAppel.Domain.Services
     public interface IDisciplineBudgetaireService : IBaseService<DisciplineBudgetaire>
     {
         Task<DatatableResponse<DtoDisciplineBudgetaire>> GetAllAsync(DtoFiltreDisciplineBudgetaire? filter, DtoPagination? pagination);
+        Task<List<DtoExportDisciplineBudgetaire>> ExporterAsync(DtoFiltreDisciplineBudgetaire? filter, DtoPagination? pagination);
     }
 }

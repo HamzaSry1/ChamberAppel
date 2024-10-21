@@ -110,7 +110,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'type-grades',
+        path: 'grades',
         loadChildren: () =>
           import(
             './type-grades-management/type-grades-management.module'

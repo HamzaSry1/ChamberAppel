@@ -6,4 +6,6 @@
         public int RecordTotal { get; set; }
         public int RecordFiltred { get; set; }
     }
+
+
 }

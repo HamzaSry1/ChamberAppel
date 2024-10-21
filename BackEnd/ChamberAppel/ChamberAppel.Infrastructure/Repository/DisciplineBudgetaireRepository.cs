@@ -143,7 +143,6 @@ namespace ChamberAppel.Infrastructure.Repository
                     Numero_Decision = data.Numero_Decision,
                     Date_Envoi_Decision_Notification_Parties = data.Date_Envoi_Decision_Notification_Parties.Value.ToString("yyyy/MM/dd"),
                     Date_Reception_Comptable_Copie_Decision = data.Date_Reception_Comptable_Copie_Decision.Value.ToString("yyyy/MM/dd"),
-
                     UpdatedBy = data.UpdatedBy,
                     UpdateTime = data.UpdateTime.Value.ToString("yyyy/MM/dd"),
                     IsActive = data.IsActive
@@ -159,7 +158,6 @@ namespace ChamberAppel.Infrastructure.Repository
 
             return response;
         }
-
         private IQueryable<DisciplineBudgetaire> ApplyPagination(IQueryable<DisciplineBudgetaire> query, DtoPagination pagination)
         {
             // Apply pagination

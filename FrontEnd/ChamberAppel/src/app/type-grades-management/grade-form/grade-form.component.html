@@ -1,1 +1,54 @@
-<p>grade-form works!</p>
+<!-- header -->
+<app-page-action-header [icon]="'fa fa-list'" [title]="title" [titleMobile]="titleMobile">
+    <ng-container>
+        <app-header-action-button buttonClass="{{ ReturnButtonStyle }} me-2" title="Revenir à la liste des grades"
+            routerLink="/grades" iconClass="fa fa-arrow-left" label="Retour"></app-header-action-button>
+
+        <app-header-action-button *ngIf="IsCreateOrUpdate" buttonClass="{{AddOrEditButtonStyle}}"
+            title="Enregistrer les données" iconClass="fa fa-save" label="Enregistrer"
+            (clicked)="OnSave()"></app-header-action-button>
+
+        <app-header-action-button *ngIf="IsDelete" buttonClass="{{DeleteButtonStyle}}" title="Supprimer les données"
+            iconClass="fa fa-trash" label="Supprimer" (clicked)="OnDelete()"></app-header-action-button>
+    </ng-container>
+</app-page-action-header>
+
+<form [formGroup]="ReactiveForm">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 form-group my-2">
+                    <label for="Label">Label</label>
+                    <input type="text" placeholder="Label" class="form-control" id="Label" formControlName="label" />
+                    <div class="text-danger" *ngIf="
+                                ReactiveForm.get('label')?.touched &&
+                                ReactiveForm.get('label')?.errors
+                            ">
+                        <div *ngFor="let error of ReactiveForm.get('label')?.errors | keyvalue">
+                            {{ validationMessages[error.key] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group my-2">
+                    <label for="Code">Code</label>
+                    <input type="text" placeholder="Code" class="form-control" id="Code" formControlName="code" />
+                    <div class="text-danger" *ngIf="
+                                ReactiveForm.get('code')?.touched &&
+                                ReactiveForm.get('code')?.errors
+                            ">
+                        <div *ngFor="let error of ReactiveForm.get('code')?.errors | keyvalue">
+                            {{ validationMessages[error.key] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group my-2">
+                    <label for="Description">Description</label>
+                    <textarea rows="3" placeholder="Description" class="form-control" id="Description"
+                        formControlName="description"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

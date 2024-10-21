@@ -84,8 +84,8 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreDisciplineBudgetaire request)
         {
-            var res = await _service.GetAllAsync(request, null);
-            return this.DownloadAsExcelFile(res.Data, Const.List_Discipline_Budgeitaires);
+            var res = await _service.ExporterAsync(request, null);
+            return this.DownloadAsExcelFile(res, Const.List_Discipline_Budgeitaires);
         }
 
         #endregion CRUD

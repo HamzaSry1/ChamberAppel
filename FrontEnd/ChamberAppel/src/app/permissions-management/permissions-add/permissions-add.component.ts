@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppMessageService } from 'src/app/app-message.service';
 import { PermissionsService } from '../../generatedapis/services/PermissionsService';
-import { AuthService } from 'src/app/auth/auth.service';
-import { Features } from 'src/app/auth/permissions';
 import { Permission } from 'src/app/generatedapis/models/Permission';
 
 @Component({
