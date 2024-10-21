@@ -19,7 +19,7 @@ export class ChamberAppelEditComponent {
     RequetesAppelService.putApiRequetesAppelUpdateAsync(data)
       .then(() => {
         this._notify.Success(AppMessageService.Edit);
-        this._router.navigate(['/requêtes-appel']);
+        this._router.navigate(['/requetes-appel']);
       })
       .catch(() => {
         this._notify.Error(AppMessageService.ErrorAddEdit);

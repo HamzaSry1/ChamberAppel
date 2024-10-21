@@ -15,8 +15,8 @@ import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.se
 import { Const } from 'src/app/Helpers/Const';
 import { DtoFiltreRequeteAppeleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreRequeteAppeleDatatableRequest';
 import { RequetesAppelService } from 'src/app/generatedapis/services/RequetesAppelService';
-import { RequeteAppelDatatableResponse } from 'src/app/generatedapis/models/RequeteAppelDatatableResponse';
-import { RequeteAppel } from 'src/app/generatedapis/models/RequeteAppel';
+import { DtoRequeteAppelDatatableResponse } from 'src/app/generatedapis/models/DtoRequeteAppelDatatableResponse';
+import { DtoRequeteAppel } from 'src/app/generatedapis/models/DtoRequeteAppel';
 
 @Component({
   selector: 'app-chamber-appel-list',
@@ -33,7 +33,7 @@ export class ChamberAppelListComponent implements OnInit {
   public ImporterButtonStyle = ButtonStyle.success;
   public SearchButtonStyle = ButtonStyle.primary_block;
 
-  public Data!: RequeteAppel[];
+  public Data!: DtoRequeteAppel[];
   public pageNumber = 1;
   public orderBy = 'Numero_Dossier';
   public orderByDirection = 'desc';
@@ -145,7 +145,7 @@ export class ChamberAppelListComponent implements OnInit {
     RequetesAppelService.postApiRequetesAppelGetAllFiltredAsync(
       this.DataTableRequest
     )
-      .then((result: RequeteAppelDatatableResponse) => {
+      .then((result: DtoRequeteAppelDatatableResponse) => {
         this.Data = result.data ?? [];
         this.RecordFiltred = result.recordFiltred ?? 0;
         this.RecordTotal = result.recordTotal ?? 0;

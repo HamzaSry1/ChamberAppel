@@ -132,105 +132,57 @@ export class ChamberAppelFormComponent implements OnInit {
             id: res.data.id,
             numero_Dossier: res.data.numero_Dossier,
             appelant: res.data.appelant,
-            numero_Jugement_Faisant_Objet_De_Appel:
-              res.data.numero_Jugement_Faisant_Objet_De_Appel,
-            emis_En_Date_Du: this._datePipe.transform(
-              res.data.emis_En_Date_Du,
-              'yyyy-MM-dd'
-            ),
+            numero_Jugement_Faisant_Objet_De_Appel: res.data.numero_Jugement_Faisant_Objet_De_Appel,
+            emis_En_Date_Du: this._datePipe.transform(res.data.emis_En_Date_Du, 'yyyy-MM-dd'),
             idCRC: res.data.idCRC,
             centre_Comptable: res.data.centre_Comptable,
-            date_Enregistrement_Requete_Cour_Regionale_Des_Comptes:
-              this._datePipe.transform(
-                res.data.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes,
-                'yyyy-MM-dd'
-              ),
-            date_Ordonnance_Designation_Conseiller_Rapporteur:
-              this._datePipe.transform(
-                res.data.date_Ordonnance_Designation_Conseiller_Rapporteur,
-                'yyyy-MM-dd'
-              ),
+            exercice_fiscal: this._datePipe.transform(res.data.exercice_fiscal, 'yyyy-MM-dd'),
+            date_Enregistrement_Requete_Cour_Regionale_Des_Comptes: this._datePipe.transform(res.data.date_Enregistrement_Requete_Cour_Regionale_Des_Comptes, 'yyyy-MM-dd'),
+            date_Ordonnance_Designation_Conseiller_Rapporteur: this._datePipe.transform(res.data.date_Ordonnance_Designation_Conseiller_Rapporteur, 'yyyy-MM-dd'),
             conseiller_Rapporteur: res.data.conseiller_Rapporteur,
-            date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant:
-              this._datePipe.transform(
-                res.data
-                  .date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant,
-                'yyyy-MM-dd'
-              ),
-
-            conseiller_Rapporteur_Remplacant:
-              res.data.conseiller_Rapporteur_Remplacant,
-            date_Envoi_Requete_Parties: this._datePipe.transform(
-              res.data.date_Envoi_Requete_Parties,
-              'yyyy-MM-dd'
-            ),
+            date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant: this._datePipe.transform(res.data.date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant, 'yyyy-MM-dd'),
+            conseiller_Rapporteur_Remplacant: res.data.conseiller_Rapporteur_Remplacant,
+            date_Demande_Documents_Supplementaires: this._datePipe.transform(res.data.date_Demande_Documents_Supplementaires, 'yyyy-MM-dd'),
+            date_Envoi_Requete_Parties: this._datePipe.transform(res.data.date_Envoi_Requete_Parties, 'yyyy-MM-dd'),
 
             // Parties
             parties_Agent_du_Roi_au_CRC: res.data.parties_Agent_du_Roi_au_CRC,
             parties_Entrepot_Regional: res.data.parties_Entrepot_Regional,
-            parties_Travailleur_du_territoire:
-              res.data.parties_Travailleur_du_territoire,
-            parties_President_de_la_Commune:
-              res.data.parties_President_de_la_Commune,
+            parties_Travailleur_du_territoire: res.data.parties_Travailleur_du_territoire,
+            parties_President_de_la_Commune: res.data.parties_President_de_la_Commune,
 
             // Reception dates for parties
-            date_de_reception_par_les_parties_Agent_du_Roi_au_CRC:
-              this._datePipe.transform(
-                res.data.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC,
-                'yyyy-MM-dd'
-              ),
-            date_de_reception_par_les_parties_Entrepot_Regional:
-              this._datePipe.transform(
-                res.data.date_de_reception_par_les_parties_Entrepot_Regional,
-                'yyyy-MM-dd'
-              ),
-            date_de_reception_par_les_parties_Travailleur_du_territoire:
-              this._datePipe.transform(
-                res.data
-                  .date_de_reception_par_les_parties_Travailleur_du_territoire,
-                'yyyy-MM-dd'
-              ),
-            date_de_reception_par_les_parties_President_de_la_Commune:
-              this._datePipe.transform(
-                res.data
-                  .date_de_reception_par_les_parties_President_de_la_Commune,
-                'yyyy-MM-dd'
-              ),
+            date_de_reception_par_les_parties_Agent_du_Roi_au_CRC: this._datePipe.transform(res.data.date_de_reception_par_les_parties_Agent_du_Roi_au_CRC, 'yyyy-MM-dd'),
+            date_de_reception_par_les_parties_Entrepot_Regional: this._datePipe.transform(res.data.date_de_reception_par_les_parties_Entrepot_Regional, 'yyyy-MM-dd'),
+            date_de_reception_par_les_parties_Travailleur_du_territoire: this._datePipe.transform(res.data.date_de_reception_par_les_parties_Travailleur_du_territoire, 'yyyy-MM-dd'),
+            date_de_reception_par_les_parties_President_de_la_Commune: this._datePipe.transform(res.data.date_de_reception_par_les_parties_President_de_la_Commune, 'yyyy-MM-dd'),
 
             // Response to memo
-            reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC:
-              res.data.reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC,
-            reponse_au_memoire_d_appel_Entrepot_Regional:
-              res.data.reponse_au_memoire_d_appel_Entrepot_Regional,
-            reponse_au_memoire_d_appel_Travailleur_du_territoire:
-              res.data.reponse_au_memoire_d_appel_Travailleur_du_territoire,
-            reponse_au_memoire_d_appel_President_de_la_Commune:
-              res.data.reponse_au_memoire_d_appel_President_de_la_Commune,
+            reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC: res.data.reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC,
+            reponse_au_memoire_d_appel_Entrepot_Regional: res.data.reponse_au_memoire_d_appel_Entrepot_Regional,
+            reponse_au_memoire_d_appel_Travailleur_du_territoire: res.data.reponse_au_memoire_d_appel_Travailleur_du_territoire,
+            reponse_au_memoire_d_appel_President_de_la_Commune: res.data.reponse_au_memoire_d_appel_President_de_la_Commune,
 
             // Other fields
-            date_Demande_Documents_Supplementaires: this._datePipe.transform(
-              res.data.date_Demande_Documents_Supplementaires,
-              'yyyy-MM-dd'
-            ),
-            date_Preparation_Rapport: this._datePipe.transform(
-              res.data.date_Preparation_Rapport,
-              'yyyy-MM-dd'
-            ),
-            date_Transmission_Dossier_Ministere_Public:
-              this._datePipe.transform(
-                res.data.date_Transmission_Dossier_Ministere_Public,
-                'yyyy-MM-dd'
-              ),
-            date_Conclusions_Ministere_Public: this._datePipe.transform(
-              res.data.date_Conclusions_Ministere_Public,
-              'yyyy-MM-dd'
-            ),
-            numero_Conclusions_Ministere_Public:
-              res.data.numero_Conclusions_Ministere_Public,
-
+            date_Preparation_Rapport: this._datePipe.transform(res.data.date_Preparation_Rapport, 'yyyy-MM-dd'),
+            designation_du_Conseiller_Reviseur: res.data.designation_du_Conseiller_Reviseur,
+            date_Designation_du_Conseiller_Reviseur: this._datePipe.transform(res.data.date_Designation_du_Conseiller_Reviseur, 'yyyy-MM-dd'),
+            designation_du_Conseiller_Reviseur_Remplacant: res.data.designation_du_Conseiller_Reviseur_Remplacant,
+            date_Designation_du_Conseiller_Reviseur_Remplacant: this._datePipe.transform(res.data.date_Designation_du_Conseiller_Reviseur_Remplacant, 'yyyy-MM-dd'),
+            date_de_preparation_de_l_avis_de_l_examinateur: this._datePipe.transform(res.data.date_de_preparation_de_l_avis_de_l_examinateur, 'yyyy-MM-dd'),
+            date_Transmission_Dossier_Ministere_Public: this._datePipe.transform(res.data.date_Transmission_Dossier_Ministere_Public, 'yyyy-MM-dd'),
+            date_Retour_Dossier_Ministere_Public: this._datePipe.transform(res.data.date_Retour_Dossier_Ministere_Public, 'yyyy-MM-dd'),
+            date_Conclusions_Ministere_Public: this._datePipe.transform(res.data.date_Conclusions_Ministere_Public, 'yyyy-MM-dd'),
+            numero_Conclusions_Ministere_Public: res.data.numero_Conclusions_Ministere_Public,
+            date_de_la_session: this._datePipe.transform(res.data.date_de_la_session, 'yyyy-MM-dd'),
             dispositif_Decision: res.data.dispositif_Decision,
             numero_Decision: res.data.numero_Decision,
+            date_d_envoi_de_la_decision_pour_notifier_les_parties: this._datePipe.transform(res.data.date_d_envoi_de_la_decision_pour_notifier_les_parties, 'yyyy-MM-dd'),
+            date_de_reception_par_le_comptable_d_une_copie_de_la_decision: this._datePipe.transform(res.data.date_de_reception_par_le_comptable_d_une_copie_de_la_decision, 'yyyy-MM-dd'),
 
+            updatedBy: res.data.updatedBy,
+            updateTime: this._datePipe.transform(res.data.updateTime, 'yyyy-MM-dd'),
+            isActive: res.data.isActive
           });
         }
       })

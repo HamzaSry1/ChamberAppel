@@ -99,7 +99,7 @@ namespace ChamberAppel.Api.Controllers
             if (fileType == EnumFileType.RequeteAppele)
             {
                 var response = await _serviceChamberAppel.GetAllErrorsData(null);
-                return this.DownloadAsExcelFile(response.Data, Const.List_Chamber_Appel_With_Errors);
+                return this.DownloadAsExcelFile(response.Data, Const.List_Requete_Appel_With_Errors);
             }
             else
             {

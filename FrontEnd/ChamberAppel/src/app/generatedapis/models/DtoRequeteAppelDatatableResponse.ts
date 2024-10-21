@@ -2,9 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { RequeteAppel } from './RequeteAppel';
-export type RequeteAppelDatatableResponse = {
-    data?: Array<RequeteAppel> | null;
+import type { DtoRequeteAppel } from './DtoRequeteAppel';
+export type DtoRequeteAppelDatatableResponse = {
+    data?: Array<DtoRequeteAppel> | null;
     recordTotal?: number;
     recordFiltred?: number;
 };

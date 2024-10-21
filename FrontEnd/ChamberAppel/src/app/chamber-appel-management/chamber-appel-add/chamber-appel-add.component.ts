@@ -16,7 +16,7 @@ export class ChamberAppelAddComponent {
     RequetesAppelService.postApiRequetesAppelCreateAsync(data)
       .then(() => {
         this._notify.Success(AppMessageService.Add);
-        this._router.navigate(['/requêtes-appel']);
+        this._router.navigate(['/requetes-appel']);
       })
       .catch(() => {
         this._notify.Error(AppMessageService.ErrorAddEdit);

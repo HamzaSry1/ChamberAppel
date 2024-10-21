@@ -1150,17 +1150,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/RequeteAppelDatatableResponse"
+                  "$ref": "#/components/schemas/DtoRequeteAppelDatatableResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RequeteAppelDatatableResponse"
+                  "$ref": "#/components/schemas/DtoRequeteAppelDatatableResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RequeteAppelDatatableResponse"
+                  "$ref": "#/components/schemas/DtoRequeteAppelDatatableResponse"
                 }
               }
             }
@@ -3957,6 +3957,213 @@
         },
         "additionalProperties": false
       },
+      "DtoRequeteAppel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "numero_Dossier": {
+            "type": "string",
+            "nullable": true
+          },
+          "appelant": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Jugement_Faisant_Objet_De_Appel": {
+            "type": "string",
+            "nullable": true
+          },
+          "emis_En_Date_Du": {
+            "type": "string",
+            "nullable": true
+          },
+          "crc": {
+            "type": "string",
+            "nullable": true
+          },
+          "centre_Comptable": {
+            "type": "string",
+            "nullable": true
+          },
+          "exercice_fiscal": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Enregistrement_Requete_Cour_Regionale_Des_Comptes": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_Rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Ordonnance_Designation_Conseiller_Rapporteur": {
+            "type": "string",
+            "nullable": true
+          },
+          "conseiller_Rapporteur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Ordonnance_Designation_Conseiller_Rapporteur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Demande_Documents_Supplementaires": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Envoi_Requete_Parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "parties_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_les_parties_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Agent_du_Roi_au_CRC": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Entrepot_Regional": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_Travailleur_du_territoire": {
+            "type": "string",
+            "nullable": true
+          },
+          "reponse_au_memoire_d_appel_President_de_la_Commune": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Preparation_Rapport": {
+            "type": "string",
+            "nullable": true
+          },
+          "designation_du_Conseiller_Reviseur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Designation_du_Conseiller_Reviseur": {
+            "type": "string",
+            "nullable": true
+          },
+          "designation_du_Conseiller_Reviseur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Designation_du_Conseiller_Reviseur_Remplacant": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_preparation_de_l_avis_de_l_examinateur": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Transmission_Dossier_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Retour_Dossier_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Conclusions_Ministere_Public": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_la_session": {
+            "type": "string",
+            "nullable": true
+          },
+          "dispositif_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero_Decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_d_envoi_de_la_decision_pour_notifier_les_parties": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_de_reception_par_le_comptable_d_une_copie_de_la_decision": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DtoRequeteAppelDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DtoRequeteAppel"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "DtoUtilisateur": {
         "type": "object",
         "properties": {
@@ -4289,7 +4496,8 @@
           },
           "exercice_fiscal": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "date_Enregistrement_Requete_Cour_Regionale_Des_Comptes": {
             "type": "string",
@@ -4486,27 +4694,6 @@
               "$ref": "#/components/schemas/FluentValidationErrors"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RequeteAppelDatatableResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RequeteAppel"
-            },
-            "nullable": true
-          },
-          "recordTotal": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "recordFiltred": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

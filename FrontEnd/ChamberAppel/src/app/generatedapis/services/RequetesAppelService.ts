@@ -5,21 +5,21 @@
 import type { BooleanApiResponse } from '../models/BooleanApiResponse';
 import type { DtoFiltreRequeteAppele } from '../models/DtoFiltreRequeteAppele';
 import type { DtoFiltreRequeteAppeleDatatableRequest } from '../models/DtoFiltreRequeteAppeleDatatableRequest';
+import type { DtoRequeteAppelDatatableResponse } from '../models/DtoRequeteAppelDatatableResponse';
 import type { RequeteAppel } from '../models/RequeteAppel';
 import type { RequeteAppelApiResponse } from '../models/RequeteAppelApiResponse';
-import type { RequeteAppelDatatableResponse } from '../models/RequeteAppelDatatableResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class RequetesAppelService {
     /**
      * @param requestBody
-     * @returns RequeteAppelDatatableResponse OK
+     * @returns DtoRequeteAppelDatatableResponse OK
      * @throws ApiError
      */
     public static postApiRequetesAppelGetAllFiltredAsync(
         requestBody?: DtoFiltreRequeteAppeleDatatableRequest,
-    ): CancelablePromise<RequeteAppelDatatableResponse> {
+    ): CancelablePromise<DtoRequeteAppelDatatableResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/RequetesAppel/GetAllFiltredAsync',

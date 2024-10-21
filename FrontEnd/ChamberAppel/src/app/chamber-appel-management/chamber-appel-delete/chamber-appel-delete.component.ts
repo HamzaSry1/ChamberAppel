@@ -39,7 +39,7 @@ export class ChamberAppelDeleteComponent {
     RequetesAppelService.deleteApiRequetesAppelDeleteAsync(id)
       .then(() => {
         this._notify.Success(AppMessageService.Delete);
-        this._router.navigate(['/requêtes-appel']);
+        this._router.navigate(['/requetes-appel']);
       })
       .catch(() => this._notify.Error(AppMessageService.ErrorDelete));
   }

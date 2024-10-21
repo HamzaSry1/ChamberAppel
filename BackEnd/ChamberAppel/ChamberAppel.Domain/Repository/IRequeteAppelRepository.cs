@@ -6,6 +6,6 @@ namespace ChamberAppel.Domain.Repository
     public interface IRequeteAppelRepository
          : IBaseRepository<RequeteAppel>
     {
-        Task<DatatableResponse<RequeteAppel>> GetAllAsync(DtoFiltreRequeteAppele? filter, DtoPagination? pagination);
+        Task<DatatableResponse<DtoRequeteAppel>> GetAllAsync(DtoFiltreRequeteAppele? filter, DtoPagination? pagination);
     }
 }

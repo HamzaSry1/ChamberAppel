@@ -2,14 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CRC } from './CRC';
-export type RequeteAppel = {
+export type DtoRequeteAppel = {
     id?: string;
     numero_Dossier?: string | null;
     appelant?: string | null;
     numero_Jugement_Faisant_Objet_De_Appel?: string | null;
     emis_En_Date_Du?: string | null;
-    idCRC?: string;
+    crc?: string | null;
     centre_Comptable?: string | null;
     exercice_fiscal?: string | null;
     date_Enregistrement_Requete_Cour_Regionale_Des_Comptes?: string | null;
@@ -49,6 +48,5 @@ export type RequeteAppel = {
     updatedBy?: string | null;
     updateTime?: string | null;
     isActive?: number;
-    crc?: CRC;
 };
 

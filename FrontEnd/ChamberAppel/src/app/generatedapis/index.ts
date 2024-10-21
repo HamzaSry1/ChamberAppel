@@ -33,6 +33,8 @@ export type { DtoLoginResultApiResponse } from './models/DtoLoginResultApiRespon
 export type { DtoPagination } from './models/DtoPagination';
 export type { DtoPermissionGroupe } from './models/DtoPermissionGroupe';
 export type { DtoPermissionGroupeListApiResponse } from './models/DtoPermissionGroupeListApiResponse';
+export type { DtoRequeteAppel } from './models/DtoRequeteAppel';
+export type { DtoRequeteAppelDatatableResponse } from './models/DtoRequeteAppelDatatableResponse';
 export type { DtoUtilisateur } from './models/DtoUtilisateur';
 export type { DtoUtilisateurApiResponse } from './models/DtoUtilisateurApiResponse';
 export type { DtoUtilisateurDatatableResponse } from './models/DtoUtilisateurDatatableResponse';
@@ -45,7 +47,6 @@ export type { PermissionDatatableResponse } from './models/PermissionDatatableRe
 export type { PermissionListApiResponse } from './models/PermissionListApiResponse';
 export type { RequeteAppel } from './models/RequeteAppel';
 export type { RequeteAppelApiResponse } from './models/RequeteAppelApiResponse';
-export type { RequeteAppelDatatableResponse } from './models/RequeteAppelDatatableResponse';
 export type { RequeteAppelTemp } from './models/RequeteAppelTemp';
 export type { RequeteAppelTempDatatableResponse } from './models/RequeteAppelTempDatatableResponse';
 export type { Role } from './models/Role';

@@ -26,7 +26,7 @@ namespace ChamberAppel.Domain.Models
         public string? Centre_Comptable { get; set; }
 
         //السنة المالية
-        public DateTime Exercice_fiscal { get; set; }
+        public DateTime? Exercice_fiscal { get; set; }
 
         // تاريخ تسجيل العريضة بالمجلس الجهوي للحسابات
         public DateTime? Date_Enregistrement_Requete_Cour_Regionale_Des_Comptes { get; set; }

@@ -23,7 +23,7 @@ namespace ChamberAppel.Api.Controllers
         #region CRUD
 
         [HttpPost("GetAllFiltredAsync")]
-        public async Task<DatatableResponse<RequeteAppel>> GetAllFiltredAsync(DatatableRequest<DtoFiltreRequeteAppele> request)
+        public async Task<DatatableResponse<DtoRequeteAppel>> GetAllFiltredAsync(DatatableRequest<DtoFiltreRequeteAppele> request)
         {
             return await _service.GetAllAsync(request.Filtre, request.Pagination);
         }
@@ -85,8 +85,8 @@ namespace ChamberAppel.Api.Controllers
         [HttpPost("ExporterAsync")]
         public async Task<IActionResult> ExporterAsync(DtoFiltreRequeteAppele request)
         {
-            var res = await _service.GetAllAsync(request, null);
-            return this.DownloadAsExcelFile(res.Data, Const.List_Chamber_Appel);
+            var res = await _service.ExportAsync(request, null);
+            return this.DownloadAsExcelFile(res, Const.List_Requete_Appel);
         }
 
         #endregion CRUD

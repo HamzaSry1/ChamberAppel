@@ -8,9 +8,9 @@
         public static string List_Grades = "List des grades";
         public static string List_Type_Utilisateurs = "List des type utilisateurs";
         public static string List_Discipline_Budgeitaires = "List des discipline budgeitaires";
-        public static string List_Chamber_Appel = "List des chamber appeles";
+        public static string List_Requete_Appel = "List des requetes appeles";
         public static string List_Discipline_Budgeitaires_With_Errors = "List des discipline budgeitaires avec des errors";
-        public static string List_Chamber_Appel_With_Errors = "List des chamber appeles avec des errors";
+        public static string List_Requete_Appel_With_Errors = "List des requetes appeles avec des errors";
         public static string List_Crcs = "List des cour regionales des comptes";
 
         public static string Created = "Ajouté avec succès";
