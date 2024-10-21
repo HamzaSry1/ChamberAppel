@@ -10,6 +10,7 @@ export class Const {
   public static List_Requete_appel_With_Errors = "List des discipline budgeitaires avec des errors";
   public static List_Crcs = "List des cour regionales des comptes";
   public static List_Grades = "List des grades";
+  public static List_Type_Utilisateurs = "List des type utilisateurs";
 
   public static ValidationMessages: ValidationErrors = {
     required: 'Ce champ est requis.',

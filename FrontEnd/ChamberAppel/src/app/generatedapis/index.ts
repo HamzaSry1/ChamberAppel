@@ -10,6 +10,7 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 export type { BooleanApiResponse } from './models/BooleanApiResponse';
 export type { CRC } from './models/CRC';
 export type { CRCApiResponse } from './models/CRCApiResponse';
+export type { CRCDatatableResponse } from './models/CRCDatatableResponse';
 export type { CRCListApiResponse } from './models/CRCListApiResponse';
 export type { DisciplineBudgetaire } from './models/DisciplineBudgetaire';
 export type { DisciplineBudgetaireApiResponse } from './models/DisciplineBudgetaireApiResponse';

@@ -21,6 +21,12 @@ namespace ChamberAppel.Api.Controllers
 
         #region CRUD
 
+        [HttpPost("GetAllFiltredAsync")]
+        public async Task<DatatableResponse<CRC>> GetAllFiltredAsync(DatatableRequest<DtoFiltreMotsCle> request)
+        {
+            return await _service.GetAllFiltredAsync(request.Filtre, request.Pagination);
+        }
+
         [HttpGet("GetAllAsync")]
         public async Task<ApiResponse<List<CRC>>> GetAllAsync()
         {

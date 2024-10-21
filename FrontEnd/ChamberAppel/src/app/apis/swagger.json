@@ -10,6 +10,54 @@
     "version": "v1"
   },
   "paths": {
+    "/api/CRCs/GetAllFiltredAsync": {
+      "post": {
+        "tags": [
+          "CRCs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DtoFiltreMotsCleDatatableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRCDatatableResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRCDatatableResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CRCDatatableResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/CRCs/GetAllAsync": {
       "get": {
         "tags": [
@@ -2851,6 +2899,27 @@
               "$ref": "#/components/schemas/FluentValidationErrors"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CRCDatatableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CRC"
+            },
+            "nullable": true
+          },
+          "recordTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recordFiltred": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

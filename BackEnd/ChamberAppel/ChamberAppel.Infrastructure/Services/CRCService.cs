@@ -1,4 +1,5 @@
-﻿using ChamberAppel.Domain.Models;
+﻿using ChamberAppel.Domain.DTOs;
+using ChamberAppel.Domain.Models;
 using ChamberAppel.Domain.Repository;
 using ChamberAppel.Domain.Services;
 
@@ -11,5 +12,8 @@ namespace ChamberAppel.Infrastructure.Services
         {
             _repository = repository;
         }
+
+        public async Task<DatatableResponse<CRC>> GetAllFiltredAsync(DtoFiltreMotsCle? filter, DtoPagination? pagination)
+            => await _repository.GetAllFiltredAsync(filter, pagination);
     }
 }

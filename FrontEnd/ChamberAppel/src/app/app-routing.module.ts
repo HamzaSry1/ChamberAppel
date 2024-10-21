@@ -118,7 +118,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'type-utilisatures',
+        path: 'type-utilisateurs',
         loadChildren: () =>
           import(
             './type-utilisateurs-management/type-utilisateurs-management.module'

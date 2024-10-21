@@ -34,6 +34,8 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IDisciplineBudgetaireImportRepository, DisciplineBudgetaireImportRepository>();
             service.AddScoped<IRequeteAppelRepository, RequeteAppelRepository>();
             service.AddScoped<IRequeteAppelImportRepository, RequeteAppelImportRepository>();
+            service.AddScoped<ITypeUtilisateursRepository, TypeUtilisateursRepository>();
+            service.AddScoped<ITypeGradesRepository, TypeGradesRepository>();
 
             // Register Services
             service.AddScoped<IDisciplineBudgetaireService, DisciplineBudgetaireService>();
@@ -50,6 +52,8 @@ namespace ChamberAppel.Infrastructure
             service.AddScoped<IDisciplineBudgetaireImportService, DisciplineBudgetaireImportService>();
             service.AddScoped<IRequeteAppelImportService, RequeteAppelImportService>();
             service.AddScoped<IRequeteAppelService, RequeteAppelService>();
+            service.AddScoped<ITypeUtilisateursService, TypeUtilisateursService>();
+            service.AddScoped<ITypeGradesService, TypeGradesService>();
 
             return service;
         }

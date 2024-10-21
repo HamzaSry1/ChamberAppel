@@ -5,11 +5,28 @@
 import type { BooleanApiResponse } from '../models/BooleanApiResponse';
 import type { CRC } from '../models/CRC';
 import type { CRCApiResponse } from '../models/CRCApiResponse';
+import type { CRCDatatableResponse } from '../models/CRCDatatableResponse';
 import type { CRCListApiResponse } from '../models/CRCListApiResponse';
+import type { DtoFiltreMotsCleDatatableRequest } from '../models/DtoFiltreMotsCleDatatableRequest';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class CrCsService {
+    /**
+     * @param requestBody
+     * @returns CRCDatatableResponse OK
+     * @throws ApiError
+     */
+    public static postApiCrCsGetAllFiltredAsync(
+        requestBody?: DtoFiltreMotsCleDatatableRequest,
+    ): CancelablePromise<CRCDatatableResponse> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/CRCs/GetAllFiltredAsync',
+            body: requestBody,
+            mediaType: 'application/json',
+        });
+    }
     /**
      * @returns CRCListApiResponse OK
      * @throws ApiError
