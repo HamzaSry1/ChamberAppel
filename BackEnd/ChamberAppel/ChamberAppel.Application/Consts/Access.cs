@@ -5,7 +5,7 @@
         public static class Utilisateurs
         {
             public static string GetAll = "Voir la liste des utilisateurs";
-            public static string GetById = "Voir les détails de l'utilisateur";
+            public static string GetById = "Voir les détails de utilisateur";
             public static string Create = "Ajouter un utilisateur";
             public static string Update = "Modifier un utilisateur";
             public static string Delete = "Supprimer un utilisateur";
@@ -43,18 +43,18 @@
 
         public static class RequeteAppels
         {
-            public static string GetAll = "Voir la liste des requêtes d'appel";
-            public static string GetById = "Voir les détails de la requête d'appel";
-            public static string Create = "Ajouter une requête d'appel";
-            public static string Update = "Modifier une requête d'appel";
-            public static string Delete = "Supprimer une requête d'appel";
-            public static string Exporter = "Exporter la liste des requêtes d'appel";
+            public static string GetAll = "Voir la liste des requêtes appel";
+            public static string GetById = "Voir les détails de la requête appel";
+            public static string Create = "Ajouter une requête appel";
+            public static string Update = "Modifier une requête appel";
+            public static string Delete = "Supprimer une requête appel";
+            public static string Exporter = "Exporter la liste des requêtes appel";
         }
 
         public static class RequeteAppelsImport
         {
-            public static string Upload = "Uploader le fichier des requêtes d'appel";
-            public static string Confirm = "Confirmer le fichier des requêtes d'appel";
+            public static string Upload = "Uploader le fichier des requêtes appel";
+            public static string Confirm = "Confirmer le fichier des requêtes appel";
             public static string Exporter = "Exporter le fichier avec les erreurs";
         }
 
@@ -97,12 +97,12 @@
 
         public static class TypeUtilisateurs
         {
-            public static string GetAll = "Voir la liste des types d'utilisateurs";
-            public static string GetById = "Voir les détails du type d'utilisateur";
-            public static string Create = "Ajouter un type d'utilisateur";
-            public static string Update = "Modifier un type d'utilisateur";
-            public static string Delete = "Supprimer un type d'utilisateur";
-            public static string Exporter = "Exporter la liste des types d'utilisateurs";
+            public static string GetAll = "Voir la liste des types utilisateurs";
+            public static string GetById = "Voir les détails du type utilisateur";
+            public static string Create = "Ajouter un type utilisateur";
+            public static string Update = "Modifier un type utilisateur";
+            public static string Delete = "Supprimer un type utilisateur";
+            public static string Exporter = "Exporter la liste des types utilisateurs";
         }
     }
 }

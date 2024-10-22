@@ -1,7 +1,7 @@
 export class Access {
   public static Utilisateurs = class {
     public static GetAll: string = 'Voir la liste des utilisateurs';
-    public static GetById: string = "Voir les détails de l'utilisateur";
+    public static GetById: string = "Voir les détails de utilisateur";
     public static Create: string = 'Ajouter un utilisateur';
     public static Update: string = 'Modifier un utilisateur';
     public static Delete: string = 'Supprimer un utilisateur';
@@ -34,17 +34,17 @@ export class Access {
   };
 
   public static RequeteAppels = class {
-    public static GetAll: string = "Voir la liste des requêtes d'appel";
-    public static GetById: string = "Voir les détails de la requête d'appel";
-    public static Create: string = "Ajouter une requête d'appel";
-    public static Update: string = "Modifier une requête d'appel";
-    public static Delete: string = "Supprimer une requête d'appel";
-    public static Exporter: string = "Exporter la liste des requêtes d'appel";
+    public static GetAll: string = "Voir la liste des requêtes appel";
+    public static GetById: string = "Voir les détails de la requête appel";
+    public static Create: string = "Ajouter une requête appel";
+    public static Update: string = "Modifier une requête appel";
+    public static Delete: string = "Supprimer une requête appel";
+    public static Exporter: string = "Exporter la liste des requêtes appel";
   };
 
   public static RequeteAppelsImport = class {
-    public static Upload: string = "Uploader le fichier des requêtes d'appel";
-    public static Confirm: string = "Confirmer le fichier des requêtes d'appel";
+    public static Upload: string = "Uploader le fichier des requêtes appel";
+    public static Confirm: string = "Confirmer le fichier des requêtes appel";
     public static Exporter: string = "Exporter le fichier avec les erreurs";
   };
 
@@ -82,11 +82,11 @@ export class Access {
   };
 
   public static TypeUtilisateurs = class {
-    public static GetAll: string = 'Voir la liste des types d\'utilisateurs';
-    public static GetById: string = 'Voir les détails du type d\'utilisateur';
-    public static Create: string = 'Ajouter un type d\'utilisateur';
-    public static Update: string = 'Modifier un type d\'utilisateur';
-    public static Delete: string = 'Supprimer un type d\'utilisateur';
-    public static Exporter: string = 'Exporter la liste des types d\'utilisateurs';
+    public static GetAll: string = 'Voir la liste des types utilisateurs';
+    public static GetById: string = 'Voir les détails du type utilisateur';
+    public static Create: string = 'Ajouter un type utilisateur';
+    public static Update: string = 'Modifier un type utilisateur';
+    public static Delete: string = 'Supprimer un type utilisateur';
+    public static Exporter: string = 'Exporter la liste des types utilisateurs';
   };
 }
