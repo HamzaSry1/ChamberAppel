@@ -53,4 +53,25 @@ export const navItems: INavData[] = [
       },
     ],
   },
+  {
+    name: "Référentielles",
+    iconComponent: { name: 'cil-settings' },
+    children: [
+      {
+        name: 'Type Utilisateurs',
+        url: '/type-utilisateurs',
+        iconComponent: { name: 'cil-group' },
+      },
+      {
+        name: 'Crcs',
+        url: '/crcs',
+        iconComponent: { name: 'cil-star' },
+      },
+      {
+        name: 'Grades',
+        url: '/grades',
+        iconComponent: { name: 'cil-list' },
+      },
+    ],
+  },
 ];
