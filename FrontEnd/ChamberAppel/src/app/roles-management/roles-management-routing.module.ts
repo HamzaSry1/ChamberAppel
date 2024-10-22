@@ -6,7 +6,7 @@ import { RolesPermissionsComponent } from './roles-permissions/roles-permissions
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
-import { Features } from '../auth/permissions';
+import { Access } from '../auth/Access';
 import { RolesListComponent } from './roles-list/roles-list.component';
 
 const routes: Routes = [

@@ -7,10 +7,9 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Const } from 'src/app/Helpers/Const';
-import { Validator } from 'src/app/Helpers/custom-validation';
 import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 import { BooleanApiResponse } from 'src/app/generatedapis/models/BooleanApiResponse';
 import { DtoChangePassword } from 'src/app/generatedapis/models/DtoChangePassword';
 import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
@@ -25,7 +24,7 @@ import { ButtonStyle } from 'src/app/shared/button-style';
 export class UsersChangePasswordComponent {
   public features = {
     ResetPassword: this._authService.checkPermission(
-      Features.Utilisateurs.ChangePassword
+      Access.Utilisateurs.ChangePassword
     ),
   };
   public ChangePasswordButtonStyle = ButtonStyle.primary;

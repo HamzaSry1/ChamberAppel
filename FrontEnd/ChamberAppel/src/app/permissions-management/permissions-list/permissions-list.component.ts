@@ -7,7 +7,7 @@ import { FilterSaver } from 'src/app/Helpers/FilterSaver';
 import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.service';
 import { AppMessageService } from 'src/app/app-message.service';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
 import { Permission } from 'src/app/generatedapis/models/Permission';
 import { PermissionDatatableResponse } from 'src/app/generatedapis/models/PermissionDatatableResponse';
@@ -22,11 +22,11 @@ import { environment } from 'src/environments/environment';
 })
 export class PermissionsListComponent {
   public features = {
-    Edit: this.authService.checkPermission(Features.Permissions.Update),
-    Delete: this.authService.checkPermission(Features.Permissions.Delete),
-    Show: this.authService.checkPermission(Features.Permissions.GetById),
-    Create: this.authService.checkPermission(Features.Permissions.Create),
-    Exporter: this.authService.checkPermission(Features.Permissions.Exporter),
+    Edit: this.authService.checkPermission(Access.Permissions.Update),
+    Delete: this.authService.checkPermission(Access.Permissions.Delete),
+    Show: this.authService.checkPermission(Access.Permissions.GetById),
+    Create: this.authService.checkPermission(Access.Permissions.Create),
+    Exporter: this.authService.checkPermission(Access.Permissions.Exporter),
   };
 
   public CreateButtonStyle = ButtonStyle.primary;

@@ -11,7 +11,7 @@ import { Const } from 'src/app/Helpers/Const';
 import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FilterSaver } from 'src/app/Helpers/FilterSaver';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 import { DtoFiltreMotsCleDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreMotsCleDatatableRequest';
 import { ButtonStyle } from 'src/app/shared/button-style';
 
@@ -22,12 +22,12 @@ import { ButtonStyle } from 'src/app/shared/button-style';
 })
 export class RolesListComponent {
   public features = {
-    Edit: this.authService.checkPermission(Features.Roles.Update),
-    Delete: this.authService.checkPermission(Features.Roles.Delete),
-    Show: this.authService.checkPermission(Features.Roles.GetById),
-    Permissions: this.authService.checkPermission(Features.Roles.GetPermissions),
-    Create: this.authService.checkPermission(Features.Roles.Create),
-    Exporter: this.authService.checkPermission(Features.Roles.Exporter),
+    Edit: this.authService.checkPermission(Access.Roles.Update),
+    Delete: this.authService.checkPermission(Access.Roles.Delete),
+    Show: this.authService.checkPermission(Access.Roles.GetById),
+    Permissions: this.authService.checkPermission(Access.Roles.GetPermissions),
+    Create: this.authService.checkPermission(Access.Roles.Create),
+    Exporter: this.authService.checkPermission(Access.Roles.Exporter),
   };
 
   public CreateButtonStyle = ButtonStyle.primary;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 
 @Component({
   selector: 'app-index',
@@ -9,13 +9,13 @@ import { Features } from 'src/app/auth/permissions';
 })
 export class IndexComponent implements OnInit {
   public features = {
-    ManagementUtilisateurs: this.authService.checkPermission(Features.Utilisateurs.GetAll),
-    ManagementPermissions: this.authService.checkPermission(Features.Permissions.GetAll),
-    ManagementRoles: this.authService.checkPermission(Features.Roles.GetAll),
+    ManagementUtilisateurs: this.authService.checkPermission(Access.Utilisateurs.GetAll),
+    ManagementPermissions: this.authService.checkPermission(Access.Permissions.GetAll),
+    ManagementRoles: this.authService.checkPermission(Access.Roles.GetAll),
     Any: this.authService.checkPermission([
-      Features.Utilisateurs.GetAll,
-      Features.Permissions.GetAll,
-      Features.Roles.GetAll,
+      Access.Utilisateurs.GetAll,
+      Access.Permissions.GetAll,
+      Access.Roles.GetAll,
     ]),
   };
 

@@ -9,7 +9,7 @@ import { UsersRolesPermissionsComponent } from './users-roles-permissions/users-
 import { AuthGuard } from '../auth/auth.guard';
 import { UsersProfileComponent } from './users-profile/users-profile.component';
 import { UsersChangePasswordComponent } from './users-change-password/users-change-password.component';
-import { Features } from '../auth/permissions';
+import { Access } from '../auth/Access';
 const routes: Routes = [
   {
     path: '',

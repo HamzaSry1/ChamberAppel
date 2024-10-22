@@ -9,7 +9,7 @@ import { UtilisateursService } from '../../generatedapis/services/UtilisateursSe
 import { HttpStatusCode } from 'src/app/generatedapis/models/HttpStatusCode';
 import { Permission } from 'src/app/generatedapis/models/Permission';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 import { DtoPermissionGroupe } from 'src/app/generatedapis/models/DtoPermissionGroupe';
 import { DtoCheckedListRequest } from 'src/app/generatedapis/models/DtoCheckedListRequest';
 import { DtoChecked } from 'src/app/shared/DtoChecked';
@@ -26,9 +26,9 @@ import { ButtonStyle } from 'src/app/shared/button-style';
 export class UsersRolesPermissionsComponent implements OnInit {
   public features = {
     AddPermissions: this.authService.checkPermission(
-      Features.Utilisateurs.AddPermissions
+      Access.Utilisateurs.AddPermissions
     ),
-    AddRoles: this.authService.checkPermission(Features.Utilisateurs.AddRoles),
+    AddRoles: this.authService.checkPermission(Access.Utilisateurs.AddRoles),
   };
 
   public CreateButtonStyle = ButtonStyle.primary;

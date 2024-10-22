@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/auth/auth.service';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 import { DtoUtilisateurApiResponse } from 'src/app/generatedapis/models/DtoUtilisateurApiResponse';
 import { UtilisateursService } from 'src/app/generatedapis/services/UtilisateursService';
 import { ButtonStyle } from 'src/app/shared/button-style';
@@ -16,7 +16,7 @@ import { ButtonStyle } from 'src/app/shared/button-style';
 export class UsersProfileComponent {
   public features = {
     ResetPassword: this._authService.checkPermission(
-      Features.Utilisateurs.ChangePassword
+      Access.Utilisateurs.ChangePassword
     ),
   };
 

@@ -11,7 +11,7 @@ import { GenerateExcelFileService } from 'src/app/Helpers/generate-excel-file.se
 import { Const } from 'src/app/Helpers/Const';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FilterSaver } from 'src/app/Helpers/FilterSaver';
-import { Features } from 'src/app/auth/permissions';
+import { Access } from 'src/app/auth/Access';
 import { DtoUtilisateur } from 'src/app/generatedapis/models/DtoUtilisateur';
 import { DtoFiltreUtilisateurDatatableRequest } from 'src/app/generatedapis/models/DtoFiltreUtilisateurDatatableRequest';
 import { DtoUtilisateurDatatableResponse } from 'src/app/generatedapis/models/DtoUtilisateurDatatableResponse';
@@ -25,18 +25,18 @@ import { ButtonStyle } from 'src/app/shared/button-style';
   animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
 })
 export class UsersListComponent implements OnInit {
-  public features = {
-    Show: this.authService.checkPermission(Features.Utilisateurs.GetById),
-    Edit: this.authService.checkPermission(Features.Utilisateurs.Update),
-    Create: this.authService.checkPermission(Features.Utilisateurs.Create),
-    Delete: this.authService.checkPermission(Features.Utilisateurs.Delete),
-    Exporter: this.authService.checkPermission(Features.Utilisateurs.Exporter),
-    Roles: this.authService.checkPermission(Features.Utilisateurs.GetRoles),
+  public Access = {
+    Show: this.authService.checkPermission(Access.Utilisateurs.GetById),
+    Edit: this.authService.checkPermission(Access.Utilisateurs.Update),
+    Create: this.authService.checkPermission(Access.Utilisateurs.Create),
+    Delete: this.authService.checkPermission(Access.Utilisateurs.Delete),
+    Exporter: this.authService.checkPermission(Access.Utilisateurs.Exporter),
+    Roles: this.authService.checkPermission(Access.Utilisateurs.GetRoles),
     Permissions: this.authService.checkPermission(
-      Features.Utilisateurs.GetPermissions
+      Access.Utilisateurs.GetPermissions
     ),
     ResetPassword: this.authService.checkPermission(
-      Features.Utilisateurs.ChangePassword
+      Access.Utilisateurs.ChangePassword
     ),
   };
 

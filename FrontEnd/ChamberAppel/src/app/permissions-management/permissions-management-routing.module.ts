@@ -5,7 +5,7 @@ import { PermissionsEditComponent } from './permissions-edit/permissions-edit.co
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
-import { Features } from '../auth/permissions';
+import { Access } from '../auth/Access';
 import { PermissionsListComponent } from './permissions-list/permissions-list.component';
 
 const routes: Routes = [
