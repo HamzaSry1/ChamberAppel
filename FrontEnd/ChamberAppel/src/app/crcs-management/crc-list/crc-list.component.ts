@@ -116,7 +116,7 @@ export class CrcListComponent implements OnInit {
       );
       this.http
         .post(
-          environment.apiUrl + '/api/CRCs/Exporter',
+          environment.apiUrl + '/api/CRCs/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
           }),

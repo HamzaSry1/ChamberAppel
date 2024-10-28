@@ -142,7 +142,7 @@ export class UsersListComponent implements OnInit {
       );
       this.http
         .post(
-          environment.apiUrl + '/api/Utilisateurs/Exporter',
+          environment.apiUrl + '/api/Utilisateurs/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
             email: this.FilterForm.getRawValue().email,

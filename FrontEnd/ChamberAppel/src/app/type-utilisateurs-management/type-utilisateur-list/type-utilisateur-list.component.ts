@@ -116,7 +116,7 @@ export class TypeUtilisateurListComponent implements OnInit {
       );
       this.http
         .post(
-          environment.apiUrl + '/api/TypeUtilisateurs/Exporter',
+          environment.apiUrl + '/api/TypeUtilisateurs/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
           }),

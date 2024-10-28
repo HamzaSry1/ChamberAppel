@@ -116,7 +116,7 @@ export class GradeListComponent implements OnInit {
       );
       this.http
         .post(
-          environment.apiUrl + '/api/TypeGrades/Exporter',
+          environment.apiUrl + '/api/TypeGrades/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
           }),

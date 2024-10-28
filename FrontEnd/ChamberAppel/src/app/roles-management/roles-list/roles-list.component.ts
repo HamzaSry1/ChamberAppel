@@ -121,7 +121,7 @@ export class RolesListComponent {
       const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
       this.http
         .post(
-          environment.apiUrl + '/api/Roles/Exporter',
+          environment.apiUrl + '/api/Roles/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
           }),

@@ -127,7 +127,7 @@ export class PermissionsListComponent {
       );
       this.http
         .post(
-          environment.apiUrl + '/api/Permissions/Exporter',
+          environment.apiUrl + '/api/Permissions/ExporterAsync',
           (this.DataTableRequest.filtre = {
             motsCle: this.FilterForm.getRawValue().motsCle,
           }),
