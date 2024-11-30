@@ -52,8 +52,6 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersManagementModule } from './users-management/users-management.module';
 import { DisciplineBudgetairesManagementModule } from './discipline-budgetaires-management/discipline-budgetaires-management.module';
-import { DisciplineBudgetairesImporteManagementModule } from './discipline-budgetaires-importe-management/discipline-budgetaires-importe-management.module';
-import { RequeteAppelImporteManagementModule } from './requete-appel-importe-management/requete-appel-importe-management.module';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
